@@ -1,6 +1,4 @@
-# Valesų gerovė — Generative Engine Optimization Map
-
-> Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.
+# Business — Generative Engine Optimization Map
 
 ---
 
@@ -72,22 +70,7 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About Valesų gerovė
-Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.
-
-## Services/Products
-- natural remedies
-- supplements
-
-## Target Audience
-- Holistic Health Enthusiasts
-- Eco-Conscious Families
-- Alternative Medicine Seekers
-- Senior Health Advocates
-
-## Industry
-health and wellness / natural remedies
-
+## About Business
 ---
 
 # Additional Resources
