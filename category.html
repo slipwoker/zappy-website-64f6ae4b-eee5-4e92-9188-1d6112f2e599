@@ -249,22 +249,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style id="znl-popup-styles">
-      .znl-overlay { position:fixed; inset:0; z-index:99998; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; }
+      .znl-overlay { position:fixed; inset:0; z-index:99998; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; padding:16px; box-sizing:border-box; }
       .znl-overlay.znl-open { display:flex; }
-      .znl-dialog { position:relative; background:#FAF8F3; color:#243126; padding:32px 28px; border-radius:14px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.18); }
-      .znl-close { position:absolute; top:10px; inset-inline-end:10px; background:transparent; border:none; color:#243126; font-size:24px; line-height:1; cursor:pointer; opacity:0.6; }
+      .znl-dialog { position:relative; background:#FAF8F3; color:#243126; padding:24px 22px 20px; border-radius:14px; max-width:400px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.18); max-height:calc(100vh - 32px); overflow-y:auto; }
+      .znl-close { position:absolute; top:8px; inset-inline-end:10px; background:transparent; border:none; color:#243126; font-size:22px; line-height:1; cursor:pointer; opacity:0.5; padding:4px 8px; }
       .znl-close:hover { opacity:1; }
-      .znl-head { font-size:22px; font-weight:700; margin:0 0 6px; }
-      .znl-desc { font-size:15px; opacity:0.8; margin:0 0 18px; }
-      .znl-label { display:block; margin-bottom:12px; font-size:13px; font-weight:500; }
-      .znl-label > span { display:block; margin-bottom:6px; }
-      .znl-input { width:100%; box-sizing:border-box; padding:10px 12px; font-size:15px; border:1px solid rgba(0,0,0,0.15); border-radius:10px; background:#fff; color:#243126; outline:none; }
-      .znl-input:focus { border-color:#6C8A63; box-shadow:0 0 0 3px #6C8A6322; }
-      .znl-cta { width:100%; padding:12px 16px; border:none; border-radius:10px; background:#6C8A63; color:#fff; font-weight:600; font-size:15px; cursor:pointer; margin-top:6px; }
+      .znl-head { font-size:19px; font-weight:700; margin:0 0 4px; padding-inline-end:24px; }
+      .znl-desc { font-size:13px; line-height:1.4; opacity:0.75; margin:0 0 14px; }
+      .znl-label { display:block; margin-bottom:8px; font-size:12px; font-weight:500; }
+      .znl-label > span { display:block; margin-bottom:4px; }
+      .znl-input { width:100%; box-sizing:border-box; padding:8px 10px; font-size:14px; border:1px solid rgba(0,0,0,0.15); border-radius:8px; background:#fff; color:#243126; outline:none; font-family:inherit; }
+      select.znl-input { height:36px; appearance:auto; }
+      .znl-textarea { resize:vertical; min-height:60px; }
+      .znl-input:focus { border-color:#6C8A63; box-shadow:0 0 0 2px #6C8A6333; }
+      .znl-check { display:flex; align-items:center; gap:8px; margin-bottom:10px; font-size:12px; font-weight:500; cursor:pointer; }
+      .znl-check input[type="checkbox"] { width:16px; height:16px; margin:0; accent-color:#6C8A63; }
+      .znl-cta { width:100%; padding:10px 16px; border:none; border-radius:8px; background:#6C8A63; color:#fff; font-weight:600; font-size:14px; cursor:pointer; margin-top:4px; }
       .znl-cta[disabled] { opacity:0.6; cursor:default; }
-      .znl-msg { margin-top:12px; font-size:14px; text-align:center; color:#243126; }
+      .znl-msg { margin-top:10px; font-size:13px; text-align:center; color:#243126; }
       body.zappy-edit-mode .znl-overlay { display:none !important; }
-      @media (max-width:480px) { .znl-dialog { padding:24px 20px; } }
+      @media (max-width:480px) { .znl-dialog { padding:20px 18px 16px; } .znl-head { font-size:18px; } }
     </style>
     <link rel="stylesheet" href="/styles.css">
 
@@ -568,8 +572,11 @@
         <input class="znl-input" type="date" name="birthday" placeholder=""  />
       </label>
 <label class="znl-label"><span>Gender</span>
-        <input class="znl-input" type="text" name="gender" placeholder=""  />
-      </label>
+          <select class="znl-input" name="gender" >
+            <option value=""></option>
+            <option value="female">female</option><option value="male">male</option><option value="other">other</option>
+          </select>
+        </label>
           <button type="submit" class="znl-cta">Subscribe</button>
           <div class="znl-msg" id="znl-msg" aria-live="polite"></div>
         </form>
