@@ -247,7 +247,8 @@
       .znl-label { display:block; margin-bottom:8px; font-size:12px; font-weight:500; }
       .znl-label > span { display:block; margin-bottom:4px; }
       .znl-input { width:100%; box-sizing:border-box; padding:8px 10px; font-size:14px; border:1px solid rgba(0,0,0,0.15); border-radius:8px; background:#fff; color:#243126; outline:none; font-family:inherit; }
-      select.znl-input { height:36px; appearance:auto; }
+      .znl-select { height:36px; appearance:none; -webkit-appearance:none; -moz-appearance:none; padding-inline-end:32px; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23666' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 8 10 12 14 8'/></svg>"); background-repeat:no-repeat; background-position:right 10px center; background-size:16px 16px; cursor:pointer; }
+      [dir="rtl"] .znl-select { background-position:left 10px center; padding-inline-end:10px; padding-inline-start:32px; }
       .znl-textarea { resize:vertical; min-height:60px; }
       .znl-input:focus { border-color:#6C8A63; box-shadow:0 0 0 2px #6C8A6333; }
       .znl-check { display:flex; align-items:center; gap:8px; margin-bottom:10px; font-size:12px; font-weight:500; cursor:pointer; }
@@ -518,7 +519,7 @@
         <button type="button" class="znl-close" id="znl-close" aria-label="Close">&times;</button>
         <h3 class="znl-head" id="znl-head">Join our newsletter</h3>
         <p class="znl-desc">Get the latest updates and offers, straight to your inbox.</p>
-        <form id="znl-form" novalidate>
+        <form id="znl-form" class="znl-form" data-zappy-newsletter="1" novalidate>
           <label class="znl-label"><span>Email *</span>
         <input class="znl-input" type="email" name="email" placeholder="you@example.com" required />
       </label>
@@ -529,8 +530,8 @@
         <input class="znl-input" type="date" name="birthday" placeholder=""  />
       </label>
 <label class="znl-label"><span>Gender</span>
-          <select class="znl-input" name="gender" >
-            <option value=""></option>
+          <select class="znl-input znl-select" name="gender" >
+            <option value="" disabled selected hidden></option>
             <option value="female">female</option><option value="male">male</option><option value="other">other</option>
           </select>
         </label>
@@ -578,8 +579,14 @@
       overlay.addEventListener('click', function(e){ if (e.target === overlay) hide(); });
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hide(); });
 
+      // Capture phase so we run BEFORE any bubble-phase listeners registered
+      // by the site's contact-form enhancer (which could otherwise also post
+      // this popup's data to /api/email/contact-form and surface a misleading
+      // "Business contact email not configured" error).
       form.addEventListener('submit', function(e){
         e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
         var submit = form.querySelector('button[type="submit"]');
         submit && (submit.disabled = true);
         var data = {};
@@ -604,7 +611,15 @@
             msg.textContent = 'Network error. Please try again.';
             submit && (submit.disabled = false);
           });
-      });
+      }, true);
+
+      // Also block the bare click on the submit button in the capture phase,
+      // so any delegated site-wide click handler (e.g. a contact-form enhancer
+      // watching clicks) can't trigger a duplicate submission.
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function(e){ e.stopPropagation(); }, true);
+      }
 
       if (TRIGGER === 'scroll') {
         var triggered = false;
