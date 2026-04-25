@@ -267,9 +267,18 @@
       .znl-check input[type="checkbox"] { width:16px; height:16px; margin:0; accent-color:#6C8A63; }
       .znl-cta { width:100%; padding:10px 16px; border:none; border-radius:8px; background:#6C8A63; color:#fff; font-weight:600; font-size:14px; cursor:pointer; margin-top:4px; }
       .znl-cta[disabled] { opacity:0.6; cursor:default; }
-      .znl-msg { margin-top:10px; font-size:13px; text-align:center; color:#243126; }
+      .znl-msg { margin-top:10px; font-size:13px; text-align:center; color:#243126; min-height:1em; }
+      .znl-success { display:none; flex-direction:column; align-items:center; text-align:center; padding:8px 4px 4px; }
+      .znl-success.znl-show { display:flex; }
+      .znl-success-icon { width:56px; height:56px; border-radius:50%; background:#6C8A631A; color:#6C8A63; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
+      .znl-success-icon svg { width:32px; height:32px; }
+      .znl-success-title { font-size:18px; font-weight:700; color:#243126; margin:0 0 6px; }
+      .znl-success-text { font-size:14px; line-height:1.5; color:#243126; opacity:0.8; margin:0; }
+      .znl-dialog.znl-state-success .znl-head,
+      .znl-dialog.znl-state-success .znl-desc,
+      .znl-dialog.znl-state-success .znl-form { display:none !important; }
       body.zappy-edit-mode .znl-overlay { display:none !important; }
-      @media (max-width:480px) { .znl-dialog { padding:20px 18px 16px; } .znl-head { font-size:18px; } }
+      @media (max-width:480px) { .znl-dialog { padding:20px 18px 16px; } .znl-head { font-size:18px; } .znl-success-title { font-size:17px; } }
     </style>
     <link rel="stylesheet" href="/styles.css">
 
@@ -558,7 +567,7 @@
   </script>
 
     <div class="znl-overlay" id="znl-overlay" role="dialog" aria-modal="true" aria-labelledby="znl-head" lang="en" dir="ltr">
-      <div class="znl-dialog" lang="en" dir="ltr">
+      <div class="znl-dialog" id="znl-dialog" lang="en" dir="ltr">
         <button type="button" class="znl-close" id="znl-close" aria-label="Close">&times;</button>
         <h3 class="znl-head" id="znl-head">Join our newsletter</h3>
         <p class="znl-desc">Get the latest updates and offers, straight to your inbox.</p>
@@ -581,6 +590,13 @@
           <button type="submit" class="znl-cta">Subscribe</button>
           <div class="znl-msg" id="znl-msg" aria-live="polite"></div>
         </form>
+        <div class="znl-success" id="znl-success" role="status" aria-live="polite">
+          <div class="znl-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 class="znl-success-title" id="znl-success-title">You&#39;re subscribed!</h3>
+          <p class="znl-success-text" id="znl-success-text"></p>
+        </div>
       </div>
     </div>
 <script>
@@ -634,12 +650,28 @@
         return false;
       }
 
+      function showSuccessState(messageText){
+        // Switch the dialog to its success state: the headline, description, and
+        // form are hidden via .znl-state-success, and a dedicated success block
+        // (check icon + title + body copy) takes over the dialog. This avoids
+        // the previous awkward state where the original CTA copy stayed visible
+        // while only the form was hidden, leaving the user with no clear "thanks
+        // for subscribing" acknowledgement.
+        var dialog = document.getElementById('znl-dialog');
+        var success = document.getElementById('znl-success');
+        var successText = document.getElementById('znl-success-text');
+        if (successText) successText.textContent = messageText || '';
+        if (success) success.classList.add('znl-show');
+        if (dialog) dialog.classList.add('znl-state-success');
+      }
+
       function handleSubmit(targetForm){
         var liveForm = targetForm || document.getElementById('znl-form') || form;
         if (!liveForm) return;
         var submit = liveForm.querySelector('button[type="submit"]');
         submit && (submit.disabled = true);
         var liveMsg = document.getElementById('znl-msg') || msg;
+        if (liveMsg) liveMsg.textContent = '';
         var data = {};
         new FormData(liveForm).forEach(function(v, k){ data[k] = v; });
         var apiBase = (window.ZAPPY_API_BASE || '').replace(/\/$/, '');
@@ -650,9 +682,8 @@
         }).then(function(r){ return r.json().catch(function(){ return {}; }); })
           .then(function(resp){
             if (resp && resp.ok) {
-              liveForm.style.display = 'none';
-              if (liveMsg) liveMsg.textContent = resp.message || 'Thanks for subscribing!';
-              setTimeout(hide, 2500);
+              showSuccessState(resp.message || '');
+              setTimeout(hide, 3500);
             } else {
               if (liveMsg) liveMsg.textContent = (resp && resp.error) ? resp.error : 'Something went wrong. Please try again.';
               submit && (submit.disabled = false);
