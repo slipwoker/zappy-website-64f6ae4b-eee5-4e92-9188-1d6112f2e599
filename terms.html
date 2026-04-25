@@ -579,18 +579,26 @@
       overlay.addEventListener('click', function(e){ if (e.target === overlay) hide(); });
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hide(); });
 
-      // Capture phase so we run BEFORE any bubble-phase listeners registered
-      // by the site's contact-form enhancer (which could otherwise also post
-      // this popup's data to /api/email/contact-form and surface a misleading
-      // "Business contact email not configured" error).
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        e.stopPropagation();
-        var submit = form.querySelector('button[type="submit"]');
+      // Identifying a newsletter form. Used by the window-level capture handler
+      // below so we can keep ownership of submit even if the site's contact-form
+      // helper clones the form and replaces it (cloneNode preserves attributes,
+      // so data-zappy-newsletter survives).
+      function isNewsletterForm(f) {
+        if (!f) return false;
+        if (f.hasAttribute && f.hasAttribute('data-zappy-newsletter')) return true;
+        if (f.id === 'znl-form' || (f.classList && f.classList.contains('znl-form'))) return true;
+        if (f.closest && f.closest('.znl-overlay, [data-zappy-newsletter]')) return true;
+        return false;
+      }
+
+      function handleSubmit(targetForm){
+        var liveForm = targetForm || document.getElementById('znl-form') || form;
+        if (!liveForm) return;
+        var submit = liveForm.querySelector('button[type="submit"]');
         submit && (submit.disabled = true);
+        var liveMsg = document.getElementById('znl-msg') || msg;
         var data = {};
-        new FormData(form).forEach(function(v, k){ data[k] = v; });
+        new FormData(liveForm).forEach(function(v, k){ data[k] = v; });
         var apiBase = (window.ZAPPY_API_BASE || '').replace(/\/$/, '');
         fetch(apiBase + '/api/newsletter/public/' + encodeURIComponent(WEBSITE_ID) + '/subscribe', {
           method: 'POST',
@@ -599,18 +607,43 @@
         }).then(function(r){ return r.json().catch(function(){ return {}; }); })
           .then(function(resp){
             if (resp && resp.ok) {
-              form.style.display = 'none';
-              msg.textContent = resp.message || 'Thanks for subscribing!';
+              liveForm.style.display = 'none';
+              if (liveMsg) liveMsg.textContent = resp.message || 'Thanks for subscribing!';
               setTimeout(hide, 2500);
             } else {
-              msg.textContent = (resp && resp.error) ? resp.error : 'Something went wrong. Please try again.';
+              if (liveMsg) liveMsg.textContent = (resp && resp.error) ? resp.error : 'Something went wrong. Please try again.';
               submit && (submit.disabled = false);
             }
           })
           .catch(function(){
-            msg.textContent = 'Network error. Please try again.';
+            if (liveMsg) liveMsg.textContent = 'Network error. Please try again.';
             submit && (submit.disabled = false);
           });
+      }
+
+      // Defense-in-depth: register the submit interceptor at the window level in
+      // capture phase so we run BEFORE document/body-level listeners that the
+      // site's contact-form helper may have attached (e.g. the legacy helper
+      // clones the first <form> on the page and rebinds it to POST
+      // /api/email/contact-form, hijacking the popup form on landing-style
+      // sites that have no real contact form).
+      window.addEventListener('submit', function(e){
+        if (!isNewsletterForm(e.target)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        handleSubmit(e.target);
+      }, true);
+
+      // Per-form capture listener as well — this covers the case where the
+      // form was already cloned-and-replaced before our window listener was
+      // installed (the cloned form keeps data-zappy-newsletter so the window
+      // handler still wins, but we keep this for older browsers and clarity).
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        handleSubmit(form);
       }, true);
 
       // Also block the bare click on the submit button in the capture phase,
