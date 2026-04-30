@@ -5,65 +5,65 @@
 ## Pages
 
 ### Home
-https://valesu-gerove.zappy5.app
+https://zappytestsite.com
 Discover curated natural remedies, protein shakes for muscle gain, and holistic wellness essentials. Your trusted vitamin shop for a healthier, balanced life starts here.
 
 ### Wellness Approach
-https://valesu-gerove.zappy5.app/wellness-approach
+https://zappytestsite.com/wellness-approach
 Explore our holistic wellness philosophy powered by magnesium glycinate for sleep, adaptogens, and time-tested natural medicine that nurtures your body from the inside out.
 
 ### About
-https://valesu-gerove.zappy5.app/about
+https://zappytestsite.com/about
 Meet the Lithuanian naturopathic brand redefining wellness. We blend cultural heritage with science-backed natural remedies to help you thrive — because your health deserves authenticity.
 
 ### Contact
-https://valesu-gerove.zappy5.app/contact
+https://zappytestsite.com/contact
 Have questions about protein shakes for muscle gain or the right magnesium glycinate for sleep? Reach our wellness experts today and get personalized natural health advice fast.
 
 ### Products
-https://valesu-gerove.zappy5.app/products
+https://zappytestsite.com/products
 Our Products - Valesų gerovė
 
 ### Cart
-https://valesu-gerove.zappy5.app/cart
+https://zappytestsite.com/cart
 Your Cart
 
 ### Checkout
-https://valesu-gerove.zappy5.app/checkout
+https://zappytestsite.com/checkout
 Checkout
 
 ### Login
-https://valesu-gerove.zappy5.app/login
+https://zappytestsite.com/login
 Customer Login
 
 ### Account
-https://valesu-gerove.zappy5.app/account
+https://zappytestsite.com/account
 My Account
 
 ### Order Success
-https://valesu-gerove.zappy5.app/order-success
+https://zappytestsite.com/order-success
 Thank you for your order
 
 ### Product Detail
-https://valesu-gerove.zappy5.app/product/:slug
+https://zappytestsite.com/product/:slug
 Product Details - Valesų gerovė
 
 ### Category
-https://valesu-gerove.zappy5.app/category/:slug
+https://zappytestsite.com/category/:slug
 Products - Valesų gerovė
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://valesu-gerove.zappy5.app/privacy
+https://zappytestsite.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://valesu-gerove.zappy5.app/terms
+https://zappytestsite.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://valesu-gerove.zappy5.app/accessibility
+https://zappytestsite.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -75,5 +75,5 @@ Information about WCAG compliance and accessibility features.
 
 # Additional Resources
 
-- **Sitemap**: https://valesu-gerove.zappy5.app/sitemap.xml
-- **Robots.txt**: https://valesu-gerove.zappy5.app/robots.txt
+- **Sitemap**: https://zappytestsite.com/sitemap.xml
+- **Robots.txt**: https://zappytestsite.com/robots.txt

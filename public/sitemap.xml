@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://valesu-gerove.zappy5.app</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/wellness-approach</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/wellness-approach</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/about</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/about</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/contact</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/contact</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/products</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/products</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/cart</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/cart</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/checkout</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/checkout</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/login</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/login</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/account</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/account</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/order-success</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/order-success</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/product/:slug</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/product/:slug</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/category/:slug</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/category/:slug</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/privacy</loc>
-    <lastmod>2026-04-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://valesu-gerove.zappy5.app/terms</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/privacy</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://valesu-gerove.zappy5.app/accessibility</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://zappytestsite.com/terms</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/accessibility</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
