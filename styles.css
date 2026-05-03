@@ -11445,7 +11445,7 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
 }
 
 /* Cookie Consent Styles */
-/* Cookie Consent Customizations ccCssV11 */
+/* Cookie Consent Customizations ccCssV12 */
 :root {
   /* --cc-bg has to STAY translucent (with the matching backdrop-filter on
    * the bar below) so the slim bar reads as a frosted overlay rather than
@@ -11606,9 +11606,10 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   color: var(--cc-primary-color) !important;
   margin: 0 !important;
   padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
+  display: block !important;
+  height: 32px !important;
   min-height: 32px !important;
+  line-height: 32px !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
