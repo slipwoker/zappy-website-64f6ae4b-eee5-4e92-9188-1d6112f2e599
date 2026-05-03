@@ -321,7 +321,7 @@ function withConsent(category, callback) {
   }
 }
 
-// Cookie Consent Initialization (multi-language)
+// Cookie Consent Initialization (multi-language) /* __ccConfigBar */
 
 (function() {
   'use strict';
@@ -394,16 +394,15 @@ function withConsent(category, callback) {
     "translations": {
       "en": {
         "consentModal": {
-          "title": "We use cookies 🍪",
-          "description": "Valesų gerovė uses cookies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can manage your preferences anytime.",
-          "acceptAllBtn": "Accept All",
-          "acceptNecessaryBtn": "Accept Necessary",
-          "showPreferencesBtn": "Manage Preferences",
+          "title": "We use cookies",
+          "description": "Valesų gerovė uses cookies to enhance your experience, analyze site usage, and assist in our marketing efforts.",
+          "acceptAllBtn": "Accept",
+          "showPreferencesBtn": "Customize",
           "footer": "<a href=\"#privacy-policy\">Privacy Policy</a> | <a href=\"#terms-conditions\">Terms & Conditions</a>"
         },
         "preferencesModal": {
           "title": "Cookie Preferences",
-          "acceptAllBtn": "Accept All",
+          "acceptAllBtn": "Accept",
           "acceptNecessaryBtn": "Accept Necessary",
           "savePreferencesBtn": "Save Preferences",
           "closeIconLabel": "Close",
@@ -428,16 +427,15 @@ function withConsent(category, callback) {
       },
       "es": {
         "consentModal": {
-          "title": "Usamos cookies 🍪",
+          "title": "Usamos cookies",
           "description": "Valesų gerovė utiliza cookies para mejorar tu experiencia, analizar el uso del sitio y ayudar en nuestros esfuerzos de marketing.",
-          "acceptAllBtn": "Aceptar Todo",
-          "acceptNecessaryBtn": "Solo Necesarias",
-          "showPreferencesBtn": "Gestionar Preferencias",
+          "acceptAllBtn": "Aceptar",
+          "showPreferencesBtn": "Personalizar",
           "footer": "<a href=\"#privacy-policy\">Política de Privacidad</a> | <a href=\"#terms-conditions\">Términos y Condiciones</a>"
         },
         "preferencesModal": {
           "title": "Preferencias de Cookies",
-          "acceptAllBtn": "Aceptar Todo",
+          "acceptAllBtn": "Aceptar",
           "acceptNecessaryBtn": "Solo Necesarias",
           "savePreferencesBtn": "Guardar Preferencias",
           "closeIconLabel": "Cerrar",
@@ -462,16 +460,15 @@ function withConsent(category, callback) {
       },
       "fr": {
         "consentModal": {
-          "title": "Nous utilisons des cookies 🍪",
+          "title": "Nous utilisons des cookies",
           "description": "Valesų gerovė utilise des cookies pour améliorer votre expérience, analyser l'utilisation du site et nous aider dans nos efforts marketing.",
-          "acceptAllBtn": "Tout Accepter",
-          "acceptNecessaryBtn": "Accepter les Nécessaires",
-          "showPreferencesBtn": "Gérer les Préférences",
+          "acceptAllBtn": "Accepter",
+          "showPreferencesBtn": "Personnaliser",
           "footer": "<a href=\"#privacy-policy\">Politique de Confidentialité</a> | <a href=\"#terms-conditions\">Conditions Générales</a>"
         },
         "preferencesModal": {
           "title": "Préférences des Cookies",
-          "acceptAllBtn": "Tout Accepter",
+          "acceptAllBtn": "Accepter",
           "acceptNecessaryBtn": "Accepter les Nécessaires",
           "savePreferencesBtn": "Enregistrer les Préférences",
           "closeIconLabel": "Fermer",
@@ -496,16 +493,15 @@ function withConsent(category, callback) {
       },
       "de": {
         "consentModal": {
-          "title": "Wir verwenden Cookies 🍪",
+          "title": "Wir verwenden Cookies",
           "description": "Valesų gerovė verwendet Cookies, um Ihr Erlebnis zu verbessern, die Nutzung der Website zu analysieren und unsere Marketingbemühungen zu unterstützen.",
-          "acceptAllBtn": "Alle akzeptieren",
-          "acceptNecessaryBtn": "Nur Notwendige",
-          "showPreferencesBtn": "Einstellungen verwalten",
+          "acceptAllBtn": "Akzeptieren",
+          "showPreferencesBtn": "Anpassen",
           "footer": "<a href=\"#privacy-policy\">Datenschutzrichtlinie</a> | <a href=\"#terms-conditions\">Nutzungsbedingungen</a>"
         },
         "preferencesModal": {
           "title": "Cookie-Einstellungen",
-          "acceptAllBtn": "Alle akzeptieren",
+          "acceptAllBtn": "Akzeptieren",
           "acceptNecessaryBtn": "Nur Notwendige",
           "savePreferencesBtn": "Einstellungen speichern",
           "closeIconLabel": "Schließen",
@@ -530,16 +526,15 @@ function withConsent(category, callback) {
       },
       "it": {
         "consentModal": {
-          "title": "Utilizziamo i cookie 🍪",
+          "title": "Utilizziamo i cookie",
           "description": "Valesų gerovė utilizza i cookie per migliorare la tua esperienza, analizzare l'utilizzo del sito e supportare le nostre attività di marketing.",
-          "acceptAllBtn": "Accetta Tutti",
-          "acceptNecessaryBtn": "Solo Necessari",
-          "showPreferencesBtn": "Gestisci Preferenze",
+          "acceptAllBtn": "Accetta",
+          "showPreferencesBtn": "Personalizza",
           "footer": "<a href=\"#privacy-policy\">Informativa sulla Privacy</a> | <a href=\"#terms-conditions\">Termini e Condizioni</a>"
         },
         "preferencesModal": {
           "title": "Preferenze Cookie",
-          "acceptAllBtn": "Accetta Tutti",
+          "acceptAllBtn": "Accetta",
           "acceptNecessaryBtn": "Solo Necessari",
           "savePreferencesBtn": "Salva Preferenze",
           "closeIconLabel": "Chiudi",
@@ -564,16 +559,15 @@ function withConsent(category, callback) {
       },
       "pt": {
         "consentModal": {
-          "title": "Usamos cookies 🍪",
+          "title": "Usamos cookies",
           "description": "Valesų gerovė usa cookies para melhorar sua experiência, analisar o uso do site e auxiliar em nossos esforços de marketing.",
-          "acceptAllBtn": "Aceitar Todos",
-          "acceptNecessaryBtn": "Apenas Necessários",
-          "showPreferencesBtn": "Gerenciar Preferências",
+          "acceptAllBtn": "Aceitar",
+          "showPreferencesBtn": "Personalizar",
           "footer": "<a href=\"#privacy-policy\">Política de Privacidade</a> | <a href=\"#terms-conditions\">Termos e Condições</a>"
         },
         "preferencesModal": {
           "title": "Preferências de Cookies",
-          "acceptAllBtn": "Aceitar Todos",
+          "acceptAllBtn": "Aceitar",
           "acceptNecessaryBtn": "Apenas Necessários",
           "savePreferencesBtn": "Salvar Preferências",
           "closeIconLabel": "Fechar",
@@ -598,16 +592,15 @@ function withConsent(category, callback) {
       },
       "nl": {
         "consentModal": {
-          "title": "Wij gebruiken cookies 🍪",
+          "title": "Wij gebruiken cookies",
           "description": "Valesų gerovė gebruikt cookies om uw ervaring te verbeteren, het sitegebruik te analyseren en onze marketinginspanningen te ondersteunen.",
-          "acceptAllBtn": "Alles accepteren",
-          "acceptNecessaryBtn": "Alleen noodzakelijke",
-          "showPreferencesBtn": "Voorkeuren beheren",
+          "acceptAllBtn": "Accepteren",
+          "showPreferencesBtn": "Aanpassen",
           "footer": "<a href=\"#privacy-policy\">Privacybeleid</a> | <a href=\"#terms-conditions\">Algemene Voorwaarden</a>"
         },
         "preferencesModal": {
           "title": "Cookie-voorkeuren",
-          "acceptAllBtn": "Alles accepteren",
+          "acceptAllBtn": "Accepteren",
           "acceptNecessaryBtn": "Alleen noodzakelijke",
           "savePreferencesBtn": "Voorkeuren opslaan",
           "closeIconLabel": "Sluiten",
@@ -632,16 +625,15 @@ function withConsent(category, callback) {
       },
       "he": {
         "consentModal": {
-          "title": "אנחנו משתמשים בעוגיות 🍪",
+          "title": "אנחנו משתמשים בעוגיות",
           "description": "Valesų gerovė משתמש בעוגיות כדי לשפר את החוויה שלך, לנתח שימוש באתר ולסייע במאמצי השיווק שלנו.",
-          "acceptAllBtn": "אשר הכל",
-          "acceptNecessaryBtn": "רק הכרחי",
-          "showPreferencesBtn": "נהל העדפות",
+          "acceptAllBtn": "אישור",
+          "showPreferencesBtn": "התאמה אישית",
           "footer": "<a href=\"#privacy-policy\">מדיניות פרטיות</a> | <a href=\"#terms-conditions\">תנאי שימוש</a>"
         },
         "preferencesModal": {
           "title": "העדפות עוגיות",
-          "acceptAllBtn": "אשר הכל",
+          "acceptAllBtn": "אישור",
           "acceptNecessaryBtn": "רק הכרחי",
           "savePreferencesBtn": "שמור העדפות",
           "closeIconLabel": "סגור",
@@ -666,16 +658,15 @@ function withConsent(category, callback) {
       },
       "ar": {
         "consentModal": {
-          "title": "نحن نستخدم ملفات تعريف الارتباط 🍪",
+          "title": "نحن نستخدم ملفات تعريف الارتباط",
           "description": "يستخدم Valesų gerovė ملفات تعريف الارتباط لتحسين تجربتك وتحليل استخدام الموقع والمساعدة في جهودنا التسويقية.",
-          "acceptAllBtn": "قبول الكل",
-          "acceptNecessaryBtn": "الضرورية فقط",
-          "showPreferencesBtn": "إدارة التفضيلات",
+          "acceptAllBtn": "قبول",
+          "showPreferencesBtn": "تخصيص",
           "footer": "<a href=\"#privacy-policy\">سياسة الخصوصية</a> | <a href=\"#terms-conditions\">الشروط والأحكام</a>"
         },
         "preferencesModal": {
           "title": "تفضيلات ملفات تعريف الارتباط",
-          "acceptAllBtn": "قبول الكل",
+          "acceptAllBtn": "قبول",
           "acceptNecessaryBtn": "الضرورية فقط",
           "savePreferencesBtn": "حفظ التفضيلات",
           "closeIconLabel": "إغلاق",
@@ -700,16 +691,15 @@ function withConsent(category, callback) {
       },
       "tr": {
         "consentModal": {
-          "title": "Çerez kullanıyoruz 🍪",
+          "title": "Çerez kullanıyoruz",
           "description": "Valesų gerovė, deneyiminizi geliştirmek, site kullanımını analiz etmek ve pazarlama çalışmalarımıza yardımcı olmak için çerezler kullanır.",
-          "acceptAllBtn": "Tümünü Kabul Et",
-          "acceptNecessaryBtn": "Sadece Gerekli",
-          "showPreferencesBtn": "Tercihleri Yönet",
+          "acceptAllBtn": "Kabul Et",
+          "showPreferencesBtn": "Özelleştir",
           "footer": "<a href=\"#privacy-policy\">Gizlilik Politikası</a> | <a href=\"#terms-conditions\">Kullanım Koşulları</a>"
         },
         "preferencesModal": {
           "title": "Çerez Tercihleri",
-          "acceptAllBtn": "Tümünü Kabul Et",
+          "acceptAllBtn": "Kabul Et",
           "acceptNecessaryBtn": "Sadece Gerekli",
           "savePreferencesBtn": "Tercihleri Kaydet",
           "closeIconLabel": "Kapat",
@@ -734,16 +724,15 @@ function withConsent(category, callback) {
       },
       "ru": {
         "consentModal": {
-          "title": "Мы используем файлы cookie 🍪",
+          "title": "Мы используем файлы cookie",
           "description": "Valesų gerovė использует файлы cookie для улучшения вашего опыта, анализа использования сайта и поддержки наших маркетинговых усилий.",
-          "acceptAllBtn": "Принять все",
-          "acceptNecessaryBtn": "Только необходимые",
-          "showPreferencesBtn": "Управление настройками",
+          "acceptAllBtn": "Принять",
+          "showPreferencesBtn": "Настроить",
           "footer": "<a href=\"#privacy-policy\">Политика конфиденциальности</a> | <a href=\"#terms-conditions\">Условия использования</a>"
         },
         "preferencesModal": {
           "title": "Настройки cookie",
-          "acceptAllBtn": "Принять все",
+          "acceptAllBtn": "Принять",
           "acceptNecessaryBtn": "Только необходимые",
           "savePreferencesBtn": "Сохранить настройки",
           "closeIconLabel": "Закрыть",
@@ -768,16 +757,15 @@ function withConsent(category, callback) {
       },
       "zh": {
         "consentModal": {
-          "title": "我们使用 Cookie 🍪",
+          "title": "我们使用 Cookie",
           "description": "Valesų gerovė 使用 Cookie 来改善您的体验、分析网站使用情况并协助我们的营销工作。",
-          "acceptAllBtn": "全部接受",
-          "acceptNecessaryBtn": "仅接受必要",
-          "showPreferencesBtn": "管理偏好",
+          "acceptAllBtn": "接受",
+          "showPreferencesBtn": "自定义",
           "footer": "<a href=\"#privacy-policy\">隐私政策</a> | <a href=\"#terms-conditions\">条款与条件</a>"
         },
         "preferencesModal": {
           "title": "Cookie 偏好设置",
-          "acceptAllBtn": "全部接受",
+          "acceptAllBtn": "接受",
           "acceptNecessaryBtn": "仅接受必要",
           "savePreferencesBtn": "保存偏好",
           "closeIconLabel": "关闭",
@@ -802,16 +790,15 @@ function withConsent(category, callback) {
       },
       "ja": {
         "consentModal": {
-          "title": "Cookieを使用しています 🍪",
+          "title": "Cookieを使用しています",
           "description": "Valesų gerovėは、お客様の体験向上、サイト利用状況の分析、マーケティング活動の支援のためにCookieを使用しています。",
-          "acceptAllBtn": "すべて許可",
-          "acceptNecessaryBtn": "必要なもののみ",
-          "showPreferencesBtn": "設定を管理",
+          "acceptAllBtn": "許可する",
+          "showPreferencesBtn": "カスタマイズ",
           "footer": "<a href=\"#privacy-policy\">プライバシーポリシー</a> | <a href=\"#terms-conditions\">利用規約</a>"
         },
         "preferencesModal": {
           "title": "Cookie設定",
-          "acceptAllBtn": "すべて許可",
+          "acceptAllBtn": "許可する",
           "acceptNecessaryBtn": "必要なもののみ",
           "savePreferencesBtn": "設定を保存",
           "closeIconLabel": "閉じる",
@@ -836,16 +823,15 @@ function withConsent(category, callback) {
       },
       "ko": {
         "consentModal": {
-          "title": "쿠키를 사용합니다 🍪",
+          "title": "쿠키를 사용합니다",
           "description": "Valesų gerovė은(는) 경험 향상, 사이트 사용 분석 및 마케팅 활동 지원을 위해 쿠키를 사용합니다.",
-          "acceptAllBtn": "모두 수락",
-          "acceptNecessaryBtn": "필수만 수락",
-          "showPreferencesBtn": "환경 설정 관리",
+          "acceptAllBtn": "수락",
+          "showPreferencesBtn": "사용자 지정",
           "footer": "<a href=\"#privacy-policy\">개인정보 처리방침</a> | <a href=\"#terms-conditions\">이용약관</a>"
         },
         "preferencesModal": {
           "title": "쿠키 설정",
-          "acceptAllBtn": "모두 수락",
+          "acceptAllBtn": "수락",
           "acceptNecessaryBtn": "필수만 수락",
           "savePreferencesBtn": "설정 저장",
           "closeIconLabel": "닫기",
@@ -870,16 +856,15 @@ function withConsent(category, callback) {
       },
       "pl": {
         "consentModal": {
-          "title": "Używamy plików cookie 🍪",
+          "title": "Używamy plików cookie",
           "description": "Valesų gerovė używa plików cookie, aby poprawić Twoje wrażenia, analizować korzystanie z witryny i wspierać nasze działania marketingowe.",
-          "acceptAllBtn": "Zaakceptuj wszystkie",
-          "acceptNecessaryBtn": "Tylko niezbędne",
-          "showPreferencesBtn": "Zarządzaj preferencjami",
+          "acceptAllBtn": "Akceptuję",
+          "showPreferencesBtn": "Dostosuj",
           "footer": "<a href=\"#privacy-policy\">Polityka prywatności</a> | <a href=\"#terms-conditions\">Regulamin</a>"
         },
         "preferencesModal": {
           "title": "Preferencje cookie",
-          "acceptAllBtn": "Zaakceptuj wszystkie",
+          "acceptAllBtn": "Akceptuję",
           "acceptNecessaryBtn": "Tylko niezbędne",
           "savePreferencesBtn": "Zapisz preferencje",
           "closeIconLabel": "Zamknij",
@@ -904,16 +889,15 @@ function withConsent(category, callback) {
       },
       "uk": {
         "consentModal": {
-          "title": "Ми використовуємо файли cookie 🍪",
+          "title": "Ми використовуємо файли cookie",
           "description": "Valesų gerovė використовує файли cookie для покращення вашого досвіду, аналізу використання сайту та підтримки наших маркетингових зусиль.",
-          "acceptAllBtn": "Прийняти всі",
-          "acceptNecessaryBtn": "Лише необхідні",
-          "showPreferencesBtn": "Керувати налаштуваннями",
+          "acceptAllBtn": "Прийняти",
+          "showPreferencesBtn": "Налаштувати",
           "footer": "<a href=\"#privacy-policy\">Політика конфіденційності</a> | <a href=\"#terms-conditions\">Умови використання</a>"
         },
         "preferencesModal": {
           "title": "Налаштування cookie",
-          "acceptAllBtn": "Прийняти всі",
+          "acceptAllBtn": "Прийняти",
           "acceptNecessaryBtn": "Лише необхідні",
           "savePreferencesBtn": "Зберегти налаштування",
           "closeIconLabel": "Закрити",
@@ -938,16 +922,15 @@ function withConsent(category, callback) {
       },
       "ro": {
         "consentModal": {
-          "title": "Folosim cookie-uri 🍪",
+          "title": "Folosim cookie-uri",
           "description": "Valesų gerovė folosește cookie-uri pentru a vă îmbunătăți experiența, a analiza utilizarea site-ului și a sprijini eforturile noastre de marketing.",
-          "acceptAllBtn": "Acceptă toate",
-          "acceptNecessaryBtn": "Doar necesare",
-          "showPreferencesBtn": "Gestionare preferințe",
+          "acceptAllBtn": "Acceptă",
+          "showPreferencesBtn": "Personalizează",
           "footer": "<a href=\"#privacy-policy\">Politica de confidențialitate</a> | <a href=\"#terms-conditions\">Termeni și condiții</a>"
         },
         "preferencesModal": {
           "title": "Preferințe cookie",
-          "acceptAllBtn": "Acceptă toate",
+          "acceptAllBtn": "Acceptă",
           "acceptNecessaryBtn": "Doar necesare",
           "savePreferencesBtn": "Salvează preferințele",
           "closeIconLabel": "Închide",
@@ -972,16 +955,15 @@ function withConsent(category, callback) {
       },
       "bg": {
         "consentModal": {
-          "title": "Ние използваме бисквитки 🍪",
+          "title": "Ние използваме бисквитки",
           "description": "Valesų gerovė използва бисквитки, за да подобри вашето изживяване, да анализира използването на сайта и да подпомогне маркетинговите ни усилия.",
-          "acceptAllBtn": "Приемам всички",
-          "acceptNecessaryBtn": "Само необходимите",
-          "showPreferencesBtn": "Управление на предпочитанията",
+          "acceptAllBtn": "Приемам",
+          "showPreferencesBtn": "Персонализиране",
           "footer": "<a href=\"#privacy-policy\">Политика за поверителност</a> | <a href=\"#terms-conditions\">Общи условия</a>"
         },
         "preferencesModal": {
           "title": "Настройки за бисквитки",
-          "acceptAllBtn": "Приемам всички",
+          "acceptAllBtn": "Приемам",
           "acceptNecessaryBtn": "Само необходимите",
           "savePreferencesBtn": "Запазване на предпочитанията",
           "closeIconLabel": "Затвори",
@@ -1008,14 +990,14 @@ function withConsent(category, callback) {
   },
   "guiOptions": {
     "consentModal": {
-      "layout": "box",
-      "position": "bottom right",
-      "equalWeightButtons": true,
+      "layout": "bar inline",
+      "position": "bottom",
+      "equalWeightButtons": false,
       "flipButtons": false
     },
     "preferencesModal": {
       "layout": "box",
-      "equalWeightButtons": true,
+      "equalWeightButtons": false,
       "flipButtons": false
     }
   }

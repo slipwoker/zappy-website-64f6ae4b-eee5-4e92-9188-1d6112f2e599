@@ -5986,24 +5986,234 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Cookie Consent Styles */
 
-/* Cookie Consent Customizations */
+/* Cookie Consent Customizations ccCssV2 */
 :root {
+  --cc-bg: rgba(255, 255, 255, 0.96);
+  --cc-primary-color: #1f2937;
+  --cc-secondary-color: #4b5563;
   --cc-btn-primary-bg: #3b82f6;
+  --cc-btn-primary-color: #ffffff;
   --cc-btn-primary-border: #3b82f6;
   --cc-btn-primary-hover-bg: #2269dd;
+  --cc-btn-primary-hover-border: #2269dd;
+  --cc-btn-primary-hover-color: #ffffff;
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: #3b82f6;
+  --cc-btn-secondary-border: transparent;
+  --cc-btn-secondary-hover-bg: transparent;
+  --cc-btn-secondary-hover-color: #2269dd;
+  --cc-btn-secondary-hover-border: transparent;
+  --cc-toggle-on-bg: #3b82f6;
 }
 
+#cc-main,
 #cc--main {
   font-family: inherit !important;
+  color: var(--cc-primary-color);
 }
 
-.cc-btn.cc--btn-primary {
+/* === Slim bottom bar (consent modal) === */
+#cc-main #cm.cm--bar,
+#cc--main #cm.cm--bar {
+  inset: auto 0 0 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 14px 24px !important;
+  background: var(--cc-bg) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border: none !important;
+  border-top: 1px solid rgba(59, 130, 246, 0.18) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.04) !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  z-index: 2147483646;
+}
+
+#cc-main #cm.cm--bar .cm__body,
+#cc--main #cm.cm--bar .cm__body {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+#cc-main #cm.cm--bar .cm__texts,
+#cc--main #cm.cm--bar .cm__texts {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0 !important;
+}
+
+#cc-main #cm.cm--bar .cm__title,
+#cc--main #cm.cm--bar .cm__title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin: 0 0 2px 0 !important;
+  color: var(--cc-primary-color) !important;
+}
+
+#cc-main #cm.cm--bar .cm__desc,
+#cc--main #cm.cm--bar .cm__desc {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--cc-secondary-color) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#cc-main #cm.cm--bar .cm__footer,
+#cc--main #cm.cm--bar .cm__footer {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 2px !important;
+  font-size: 12px !important;
+  color: var(--cc-secondary-color) !important;
+}
+
+#cc-main #cm.cm--bar .cm__footer a,
+#cc--main #cm.cm--bar .cm__footer a {
+  color: var(--cc-secondary-color) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#cc-main #cm.cm--bar .cm__btns,
+#cc--main #cm.cm--bar .cm__btns {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 0 0 auto;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+#cc-main #cm.cm--bar .cm__btn,
+#cc--main #cm.cm--bar .cm__btn {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 9px 18px !important;
+  min-height: 0 !important;
+  border-radius: 999px !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Primary "Accept" — filled pill in site primary color */
+#cc-main #cm.cm--bar .cm__btn[data-role="all"],
+#cc--main #cm.cm--bar .cm__btn[data-role="all"] {
+  background-color: var(--cc-btn-primary-bg) !important;
+  color: var(--cc-btn-primary-color) !important;
+  border: 1px solid var(--cc-btn-primary-border) !important;
+}
+
+#cc-main #cm.cm--bar .cm__btn[data-role="all"]:hover,
+#cc--main #cm.cm--bar .cm__btn[data-role="all"]:hover {
+  background-color: var(--cc-btn-primary-hover-bg) !important;
+  border-color: var(--cc-btn-primary-hover-border) !important;
+}
+
+/* Secondary "Customize" — borderless underlined text link */
+#cc-main #cm.cm--bar .cm__btn[data-role="show"],
+#cc--main #cm.cm--bar .cm__btn[data-role="show"] {
+  background-color: transparent !important;
+  color: var(--cc-btn-secondary-color) !important;
+  border: none !important;
+  padding: 9px 12px !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border-radius: 6px !important;
+}
+
+#cc-main #cm.cm--bar .cm__btn[data-role="show"]:hover,
+#cc--main #cm.cm--bar .cm__btn[data-role="show"]:hover {
+  color: var(--cc-btn-secondary-hover-color) !important;
+  background-color: transparent !important;
+}
+
+/* === Preferences modal — minimalist restyle === */
+#cc-main .pm,
+#cc--main .pm {
+  background: rgba(0, 0, 0, 0.32) !important;
+}
+
+#cc-main .pm .pm__box,
+#cc--main .pm .pm__box {
+  border-radius: 14px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18) !important;
+}
+
+#cc-main .pm__title,
+#cc--main .pm__title {
+  font-weight: 600 !important;
+}
+
+#cc-main .pm__btn[data-role="accept-all"],
+#cc--main .pm__btn[data-role="accept-all"] {
   background-color: var(--cc-btn-primary-bg) !important;
   border-color: var(--cc-btn-primary-border) !important;
+  color: var(--cc-btn-primary-color) !important;
+  border-radius: 999px !important;
 }
 
-.cc-btn.cc--btn-primary:hover {
+#cc-main .pm__btn[data-role="accept-all"]:hover,
+#cc--main .pm__btn[data-role="accept-all"]:hover {
   background-color: var(--cc-btn-primary-hover-bg) !important;
+  border-color: var(--cc-btn-primary-hover-border) !important;
+}
+
+#cc-main .pm__btn,
+#cc--main .pm__btn {
+  border-radius: 999px !important;
+}
+
+/* Toggle thumbs in brand color when on */
+#cc-main .section__toggle:checked + .toggle__icon,
+#cc--main .section__toggle:checked + .toggle__icon,
+#cc-main .section__toggle:checked ~ .toggle__icon,
+#cc--main .section__toggle:checked ~ .toggle__icon {
+  background-color: var(--cc-toggle-on-bg) !important;
+}
+
+/* Mobile fallback: two rows */
+@media (max-width: 640px) {
+  #cc-main #cm.cm--bar,
+  #cc--main #cm.cm--bar {
+    padding: 12px 16px !important;
+  }
+  #cc-main #cm.cm--bar .cm__body,
+  #cc--main #cm.cm--bar .cm__body {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  #cc-main #cm.cm--bar .cm__btns,
+  #cc--main #cm.cm--bar .cm__btns {
+    width: 100%;
+    justify-content: space-between;
+  }
+  #cc-main #cm.cm--bar .cm__btn[data-role="all"],
+  #cc--main #cm.cm--bar .cm__btn[data-role="all"] {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+/* RTL: same horizontal layout, library handles directionality */
+[dir="rtl"] #cc-main #cm.cm--bar .cm__footer a,
+[dir="rtl"] #cc--main #cm.cm--bar .cm__footer a {
+  text-decoration: underline;
+}
+
+/* Cookie preferences button in legal footer keeps default behavior */
+.cookie-preferences-btn:hover {
+  text-decoration: none !important;
 }
 
 /* Responsive adjustments */
