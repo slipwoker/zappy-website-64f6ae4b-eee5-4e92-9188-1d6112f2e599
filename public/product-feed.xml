@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    <title>Valesų gerovė</title>
+    <link>https://zappytestsite.com</link>
+    <description>Product feed for Valesų gerovė</description>
+    <lastBuildDate>Sun, 03 May 2026 11:05:28 GMT</lastBuildDate>
+    <item>
+      <g:id>c8c17608-7763-4feb-9ad8-9230ea519850</g:id>
+      <g:title>Natural Herbs</g:title>
+      <g:description>Mix of natural herbs</g:description>
+      <g:link>https://zappytestsite.com/product/natural-herbs-pjjh2w</g:link>
+      <g:image_link>https://zappytestsite.com/assets/image-product-image-1776233030789-4wgfor.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>13.00 USD</g:price>
+      <g:sale_price>13.00 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>Valesų gerovė</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
+  </channel>
+</rss>

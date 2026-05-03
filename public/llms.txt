@@ -1,4 +1,6 @@
-# Business — Generative Engine Optimization Map
+# Valesų gerovė — Generative Engine Optimization Map
+
+> Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.
 
 ---
 
@@ -68,27 +70,37 @@ Information about WCAG compliance and accessibility features.
 
 ---
 
-## How to Contact Us
+## Products
 
-- (No contact details configured yet.)
+**Total active products: 1**
 
-### Contact form
-- URL: https://zappytestsite.com/contact
-- Endpoint: https://zappytestsite.com/api/email/contact-form
-- Method: POST
-- Content-Type: application/json
-- Fields:
-  - `name` (text, required)
-  - `email` (email, required)
-  - `subject` (text)
-  - `message` (textarea, required)
-  - `privacy_consent` (checkbox, required)
+### Natural Herbs
+https://zappytestsite.com/product/natural-herbs-pjjh2w
+- Price: 13.00 USD (sale, was 15.00 USD)
+- Availability: In stock
+- Description: Mix of natural herbs
+- Image: https://zappytestsite.com/assets/image-product-image-1776233030789-4wgfor.webp
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About Valesų gerovė
+Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.
+
+## Services/Products
+- natural remedies
+- supplements
+
+## Target Audience
+- Holistic Health Enthusiasts
+- Eco-Conscious Families
+- Alternative Medicine Seekers
+- Senior Health Advocates
+
+## Industry
+health and wellness / natural remedies
+
 ---
 
 # Machine-readable feeds
@@ -96,3 +108,5 @@ Information about WCAG compliance and accessibility features.
 - Sitemap (XML): https://zappytestsite.com/sitemap.xml
 - Robots: https://zappytestsite.com/robots.txt
 - Flattened page text (for LLMs): https://zappytestsite.com/llms-full.txt
+- Products (JSON): https://zappytestsite.com/products.json
+- Products (Google Merchant RSS): https://zappytestsite.com/product-feed.xml
