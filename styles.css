@@ -5986,24 +5986,24 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Cookie Consent Styles */
 
-/* Cookie Consent Customizations ccCssV2 */
+/* Cookie Consent Customizations ccCssV3 */
 :root {
   --cc-bg: rgba(255, 255, 255, 0.96);
   --cc-primary-color: #1f2937;
   --cc-secondary-color: #4b5563;
-  --cc-btn-primary-bg: #3b82f6;
+  --cc-btn-primary-bg: #1B3A2D;
   --cc-btn-primary-color: #ffffff;
-  --cc-btn-primary-border: #3b82f6;
-  --cc-btn-primary-hover-bg: #2269dd;
-  --cc-btn-primary-hover-border: #2269dd;
+  --cc-btn-primary-border: #1B3A2D;
+  --cc-btn-primary-hover-bg: #022114;
+  --cc-btn-primary-hover-border: #022114;
   --cc-btn-primary-hover-color: #ffffff;
   --cc-btn-secondary-bg: transparent;
-  --cc-btn-secondary-color: #3b82f6;
+  --cc-btn-secondary-color: #1B3A2D;
   --cc-btn-secondary-border: transparent;
   --cc-btn-secondary-hover-bg: transparent;
-  --cc-btn-secondary-hover-color: #2269dd;
+  --cc-btn-secondary-hover-color: #022114;
   --cc-btn-secondary-hover-border: transparent;
-  --cc-toggle-on-bg: #3b82f6;
+  --cc-toggle-on-bg: #1B3A2D;
 }
 
 #cc-main,
@@ -6012,31 +6012,40 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   color: var(--cc-primary-color);
 }
 
-/* === Slim bottom bar (consent modal) === */
+/* === Slim bottom bar (consent modal) ===
+ * Single-row inline layout: [description text] ......... [Accept] [Customize]
+ * - No title, no footer (Privacy/Terms live in the page legal footer).
+ * - Description truncates with ellipsis on narrow viewports rather than
+ *   pushing the bar into a multi-line stack.
+ * - Hard-overrides .cm--inline (the v3 modifier the library adds for the
+ *   bar inline layout) so the body stays in a single flex row.
+ */
 #cc-main #cm.cm--bar,
 #cc--main #cm.cm--bar {
   inset: auto 0 0 0 !important;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  padding: 14px 24px !important;
+  padding: 10px 20px !important;
   background: var(--cc-bg) !important;
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
   border: none !important;
-  border-top: 1px solid rgba(59, 130, 246, 0.18) !important;
+  border-top: 1px solid rgba(27, 58, 45, 0.18) !important;
   border-radius: 0 !important;
   box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.04) !important;
   font-size: 13px !important;
-  line-height: 1.45 !important;
+  line-height: 1.4 !important;
   z-index: 2147483646;
 }
 
 #cc-main #cm.cm--bar .cm__body,
 #cc--main #cm.cm--bar .cm__body {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
-  gap: 20px !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 !important;
@@ -6047,47 +6056,43 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   flex: 1 1 auto;
   min-width: 0;
   padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
 }
 
+/* Title intentionally hidden if any translation set still carries it,
+ * so the bar stays single-line even on legacy sites that haven't been
+ * re-upgraded yet. */
 #cc-main #cm.cm--bar .cm__title,
 #cc--main #cm.cm--bar .cm__title {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  margin: 0 0 2px 0 !important;
-  color: var(--cc-primary-color) !important;
+  display: none !important;
 }
 
 #cc-main #cm.cm--bar .cm__desc,
 #cc--main #cm.cm--bar .cm__desc {
   font-size: 13px !important;
   font-weight: 400 !important;
-  color: var(--cc-secondary-color) !important;
+  color: var(--cc-primary-color) !important;
   margin: 0 !important;
   padding: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Same defensive hide for the cm__footer — legacy bundles may still emit
+ * Privacy/Terms links inside the bar, but they live in the page footer. */
 #cc-main #cm.cm--bar .cm__footer,
 #cc--main #cm.cm--bar .cm__footer {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  margin-top: 2px !important;
-  font-size: 12px !important;
-  color: var(--cc-secondary-color) !important;
-}
-
-#cc-main #cm.cm--bar .cm__footer a,
-#cc--main #cm.cm--bar .cm__footer a {
-  color: var(--cc-secondary-color) !important;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  display: none !important;
 }
 
 #cc-main #cm.cm--bar .cm__btns,
 #cc--main #cm.cm--bar .cm__btns {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 4px !important;
   flex: 0 0 auto;
   border: none !important;
   padding: 0 !important;
@@ -6098,8 +6103,9 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 #cc--main #cm.cm--bar .cm__btn {
   font-size: 13px !important;
   font-weight: 500 !important;
-  padding: 9px 18px !important;
+  padding: 7px 16px !important;
   min-height: 0 !important;
+  line-height: 1.3 !important;
   border-radius: 999px !important;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -6124,7 +6130,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   background-color: transparent !important;
   color: var(--cc-btn-secondary-color) !important;
   border: none !important;
-  padding: 9px 12px !important;
+  padding: 7px 8px !important;
   text-decoration: underline;
   text-underline-offset: 3px;
   border-radius: 6px !important;
@@ -6181,17 +6187,23 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   background-color: var(--cc-toggle-on-bg) !important;
 }
 
-/* Mobile fallback: two rows */
+/* Mobile fallback: two rows (description on top, buttons below) */
 @media (max-width: 640px) {
   #cc-main #cm.cm--bar,
   #cc--main #cm.cm--bar {
-    padding: 12px 16px !important;
+    padding: 10px 14px !important;
   }
   #cc-main #cm.cm--bar .cm__body,
   #cc--main #cm.cm--bar .cm__body {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 10px !important;
+    gap: 8px !important;
+  }
+  #cc-main #cm.cm--bar .cm__desc,
+  #cc--main #cm.cm--bar .cm__desc {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
   #cc-main #cm.cm--bar .cm__btns,
   #cc--main #cm.cm--bar .cm__btns {
@@ -6203,12 +6215,6 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
     flex: 1 1 auto;
     text-align: center;
   }
-}
-
-/* RTL: same horizontal layout, library handles directionality */
-[dir="rtl"] #cc-main #cm.cm--bar .cm__footer a,
-[dir="rtl"] #cc--main #cm.cm--bar .cm__footer a {
-  text-decoration: underline;
 }
 
 /* Cookie preferences button in legal footer keeps default behavior */
