@@ -11445,7 +11445,7 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
 }
 
 /* Cookie Consent Styles */
-/* Cookie Consent Customizations ccCssV12 */
+/* Cookie Consent Customizations ccCssV13 */
 :root {
   /* --cc-bg has to STAY translucent (with the matching backdrop-filter on
    * the bar below) so the slim bar reads as a frosted overlay rather than
@@ -11466,7 +11466,7 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
    * the preferences modal's "Accept Necessary" / "Save Preferences" pills.
    * We keep the token defaults sensible (light grey fill, dark text) so
    * the preferences-modal buttons stay visible, then override only
-   * .cm--bar .cm__btn[data-role=show] directly to render the
+   * .zappy-cookie-banner__button--customize directly to render the
    * Customize link as a transparent underlined text. */
   --cc-btn-secondary-bg: #f3f4f6;
   --cc-btn-secondary-color: #1f2937;
@@ -11483,16 +11483,13 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   color: var(--cc-primary-color);
 }
 
-/* === Slim bottom bar (consent modal) ===
+/* === Zappy-owned slim bottom bar ===
  * Single-row inline layout: [description text] ......... [Customize] [Accept]
- * - No title, no footer (Privacy/Terms live in the page legal footer).
- * - Description truncates with ellipsis on narrow viewports rather than
- *   pushing the bar into a multi-line stack.
- * - Hard-overrides .cm--inline (the v3 modifier the library adds for the
- *   bar inline layout) so the body stays in a single flex row.
+ * The banner is our DOM (#zappy-cookie-banner), not the library's #cm
+ * consent modal. That avoids vanilla-cookieconsent's internal
+ * <button><span>Label</span></button> structure entirely.
  */
-#cc-main #cm.cm--bar,
-#cc--main #cm.cm--bar {
+#zappy-cookie-banner {
   position: fixed !important;
   inset: auto 0 0 0 !important;
   width: 100% !important;
@@ -11514,17 +11511,97 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   z-index: 2147483646;
 }
 
-/* X dismiss button — injected at runtime by the init script's onModalShow
- * callback. Anchored to the top-right of the bar with a small hit target
- * (32x32) and a low-emphasis text color so it doesn't compete with the
- * primary "Accept" pill. Click maps to acceptCategory([]) (necessary only),
- * which is the GDPR/ePrivacy-correct mapping for "dismissed without an
- * explicit choice".
- *
- * extra right-padding on #cm.cm--bar above (56px vs the previous 20px)
- * keeps the description text from running under the X on narrow viewports. */
-#cc-main #cm.cm--bar .cm__close-x,
-#cc--main #cm.cm--bar .cm__close-x {
+#zappy-cookie-banner .zappy-cookie-banner__inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  max-width: 1200px;
+  width: 100% !important;
+  margin: 0 auto;
+  padding: 0 !important;
+  min-height: 32px !important;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--cc-primary-color) !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: 32px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__actions {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 0 0 auto;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 0 16px !important;
+  height: 32px !important;
+  min-height: 0 !important;
+  line-height: 1 !important;
+  border-radius: 999px !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+
+/* Primary "Accept" — filled pill in site primary color */
+#zappy-cookie-banner .zappy-cookie-banner__button--accept {
+  background-color: var(--cc-btn-primary-bg) !important;
+  color: var(--cc-btn-primary-color) !important;
+  border: 1px solid var(--cc-btn-primary-border) !important;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__button--accept:hover {
+  background-color: var(--cc-btn-primary-hover-bg) !important;
+  border-color: var(--cc-btn-primary-hover-border) !important;
+}
+
+/* Secondary "Customize" — borderless underlined text link.
+ * Same height as the Accept pill so the row stays perfectly aligned, but
+ * with no fill, no border, and an underline that sits 3px below the
+ * baseline (text-underline-offset). Hard-coded brand color so this rule
+ * doesn't depend on --cc-btn-secondary-* (which have to stay sensible
+ * defaults for the preferences modal's two secondary pills). */
+#zappy-cookie-banner .zappy-cookie-banner__button--customize {
+  background-color: transparent !important;
+  color: #3A7D44 !important;
+  border: none !important;
+  padding: 0 8px !important;
+  height: 32px !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border-radius: 6px !important;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__button--customize:hover {
+  color: #21642b !important;
+  background-color: transparent !important;
+}
+
+#zappy-cookie-banner .zappy-cookie-banner__close {
   position: absolute !important;
   top: 8px !important;
   right: 12px !important;
@@ -11545,162 +11622,22 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-#cc-main #cm.cm--bar .cm__close-x:hover,
-#cc--main #cm.cm--bar .cm__close-x:hover {
+#zappy-cookie-banner .zappy-cookie-banner__close:hover {
   background-color: rgba(0, 0, 0, 0.06) !important;
   color: var(--cc-primary-color) !important;
 }
-#cc-main #cm.cm--bar .cm__close-x:focus-visible,
-#cc--main #cm.cm--bar .cm__close-x:focus-visible {
+#zappy-cookie-banner .zappy-cookie-banner__button:focus-visible,
+#zappy-cookie-banner .zappy-cookie-banner__close:focus-visible {
   outline: 2px solid var(--cc-btn-primary-bg) !important;
   outline-offset: 2px;
 }
-/* RTL: anchor to the top-LEFT and shift body padding accordingly. */
-[dir="rtl"] #cc-main #cm.cm--bar,
-[dir="rtl"] #cc--main #cm.cm--bar {
+/* RTL: anchor the X to the top-LEFT and shift body padding accordingly. */
+[dir="rtl"] #zappy-cookie-banner {
   padding: 10px 20px 10px 56px !important;
 }
-[dir="rtl"] #cc-main #cm.cm--bar .cm__close-x,
-[dir="rtl"] #cc--main #cm.cm--bar .cm__close-x {
+[dir="rtl"] #zappy-cookie-banner .zappy-cookie-banner__close {
   right: auto !important;
   left: 12px !important;
-}
-
-#cc-main #cm.cm--bar .cm__body,
-#cc--main #cm.cm--bar .cm__body {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  flex-wrap: nowrap !important;
-  gap: 16px !important;
-  max-width: 1200px;
-  width: 100% !important;
-  margin: 0 auto;
-  padding: 0 !important;
-  min-height: 32px !important;
-}
-
-#cc-main #cm.cm--bar .cm__texts,
-#cc--main #cm.cm--bar .cm__texts {
-  flex: 1 1 auto;
-  min-width: 0;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex;
-  align-items: center;
-  min-height: 32px !important;
-}
-
-/* Title intentionally hidden if any translation set still carries it,
- * so the bar stays single-line even on legacy sites that haven't been
- * re-upgraded yet. */
-#cc-main #cm.cm--bar .cm__title,
-#cc--main #cm.cm--bar .cm__title {
-  display: none !important;
-}
-
-#cc-main #cm.cm--bar .cm__desc,
-#cc--main #cm.cm--bar .cm__desc {
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  color: var(--cc-primary-color) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-  height: 32px !important;
-  min-height: 32px !important;
-  line-height: 32px !important;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Same defensive hide for the cm__footer — legacy bundles may still emit
- * Privacy/Terms links inside the bar, but they live in the page footer. */
-#cc-main #cm.cm--bar .cm__footer,
-#cc--main #cm.cm--bar .cm__footer {
-  display: none !important;
-}
-
-/* Button group — Customize (left) ... Accept (right).
- * vanilla-cookieconsent v3 emits buttons in this DOM order:
- *   1. acceptAllBtn         data-role="all"        ("Accept")
- *   2. acceptNecessaryBtn   data-role="necessary"  (omitted from the bar
- *                           in our config, lives in the prefs modal)
- *   3. showPreferencesBtn   data-role="show"       ("Customize")
- *
- * Natural row would paint [Accept] [Customize]. Instead of relying on
- * row-reverse, each button gets an explicit flex order below:
- * show/customize = 1, all/accept = 2. */
-#cc-main #cm.cm--bar .cm__btns,
-#cc--main #cm.cm--bar .cm__btns {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 8px !important;
-  flex: 0 0 auto;
-  border: none !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-/* Buttons render as inline-flex so internal label/icon nodes vertically
- * center against the description text (the previous block-level button
- * relied on padding + line-height matching, which left a ~2px offset
- * because the text baseline and button-content baseline differ). */
-#cc-main #cm.cm--bar .cm__btn,
-#cc--main #cm.cm--bar .cm__btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  padding: 0 16px !important;
-  height: 32px !important;
-  min-height: 0 !important;
-  line-height: 1 !important;
-  border-radius: 999px !important;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-/* Primary "Accept" — filled pill in site primary color */
-#cc-main #cm.cm--bar .cm__btn[data-role="all"],
-#cc--main #cm.cm--bar .cm__btn[data-role="all"] {
-  order: 2 !important;
-  background-color: var(--cc-btn-primary-bg) !important;
-  color: var(--cc-btn-primary-color) !important;
-  border: 1px solid var(--cc-btn-primary-border) !important;
-}
-
-#cc-main #cm.cm--bar .cm__btn[data-role="all"]:hover,
-#cc--main #cm.cm--bar .cm__btn[data-role="all"]:hover {
-  background-color: var(--cc-btn-primary-hover-bg) !important;
-  border-color: var(--cc-btn-primary-hover-border) !important;
-}
-
-/* Secondary "Customize" — borderless underlined text link.
- * Same height as the Accept pill so the row stays perfectly aligned, but
- * with no fill, no border, and an underline that sits 3px below the
- * baseline (text-underline-offset). Hard-coded brand color so this rule
- * doesn't depend on --cc-btn-secondary-* (which have to stay sensible
- * defaults for the preferences modal's two secondary pills). */
-#cc-main #cm.cm--bar .cm__btn[data-role="show"],
-#cc--main #cm.cm--bar .cm__btn[data-role="show"] {
-  order: 1 !important;
-  background-color: transparent !important;
-  color: #3A7D44 !important;
-  border: none !important;
-  padding: 0 8px !important;
-  height: 32px !important;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  border-radius: 6px !important;
-}
-
-#cc-main #cm.cm--bar .cm__btn[data-role="show"]:hover,
-#cc--main #cm.cm--bar .cm__btn[data-role="show"]:hover {
-  color: #21642b !important;
-  background-color: transparent !important;
 }
 
 /* === Preferences modal — minimalist restyle ===
@@ -11803,29 +11740,27 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
 
 /* Mobile fallback: two rows (description on top, buttons below) */
 @media (max-width: 640px) {
-  #cc-main #cm.cm--bar,
-  #cc--main #cm.cm--bar {
+  #zappy-cookie-banner {
     padding: 10px 14px !important;
   }
-  #cc-main #cm.cm--bar .cm__body,
-  #cc--main #cm.cm--bar .cm__body {
+  #zappy-cookie-banner .zappy-cookie-banner__inner {
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 8px !important;
   }
-  #cc-main #cm.cm--bar .cm__desc,
-  #cc--main #cm.cm--bar .cm__desc {
+  #zappy-cookie-banner .zappy-cookie-banner__text {
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 1.4 !important;
   }
-  #cc-main #cm.cm--bar .cm__btns,
-  #cc--main #cm.cm--bar .cm__btns {
+  #zappy-cookie-banner .zappy-cookie-banner__actions {
     width: 100%;
     justify-content: space-between;
   }
-  #cc-main #cm.cm--bar .cm__btn[data-role="all"],
-  #cc--main #cm.cm--bar .cm__btn[data-role="all"] {
+  #zappy-cookie-banner .zappy-cookie-banner__button--accept {
     flex: 1 1 auto;
     text-align: center;
   }
