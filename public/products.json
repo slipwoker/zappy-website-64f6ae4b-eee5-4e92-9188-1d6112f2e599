@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-05-04T06:34:47.370Z",
-  "base_url": "https://zappytestsite.com",
+  "generated_at": "2026-05-14T14:47:46.011Z",
+  "base_url": "https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com",
   "currency": "USD",
   "count": 1,
   "products": [
@@ -19,11 +19,11 @@
       "sale_price": 13,
       "currency": "USD",
       "images": [
-        "https://zappytestsite.com/assets/image-product-image-1776233030789-4wgfor.webp"
+        "https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/assets/image-product-image-1776233030789-4wgfor.webp"
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/natural-herbs-pjjh2w",
+      "url": "https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product/natural-herbs-pjjh2w",
       "categories": [],
       "updated_at": "2026-04-15T06:05:37.215Z"
     }

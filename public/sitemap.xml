@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zappytestsite.com</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/wellness-approach</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/wellness-approach</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/about</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/about</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/contact</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/contact</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/products</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/products</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/cart</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/cart</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/checkout</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/checkout</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/login</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/login</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/account</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/account</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/order-success</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/order-success</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/product/:slug</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product/:slug</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/category/:slug</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/category/:slug</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/privacy</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://zappytestsite.com/terms</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/privacy</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/accessibility</loc>
-    <lastmod>2026-05-04</lastmod>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/terms</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zappytestsite.com/product/natural-herbs-pjjh2w</loc>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/accessibility</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product/natural-herbs-pjjh2w</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

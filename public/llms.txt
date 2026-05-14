@@ -7,65 +7,65 @@
 ## Pages
 
 ### Home
-https://zappytestsite.com
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com
 Discover curated natural remedies, protein shakes for muscle gain, and holistic wellness essentials. Your trusted vitamin shop for a healthier, balanced life starts here.
 
 ### Wellness Approach
-https://zappytestsite.com/wellness-approach
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/wellness-approach
 Explore our holistic wellness philosophy powered by magnesium glycinate for sleep, adaptogens, and time-tested natural medicine that nurtures your body from the inside out.
 
 ### About
-https://zappytestsite.com/about
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/about
 Meet the Lithuanian naturopathic brand redefining wellness. We blend cultural heritage with science-backed natural remedies to help you thrive — because your health deserves authenticity.
 
 ### Contact
-https://zappytestsite.com/contact
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/contact
 Have questions about protein shakes for muscle gain or the right magnesium glycinate for sleep? Reach our wellness experts today and get personalized natural health advice fast.
 
 ### Products
-https://zappytestsite.com/products
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/products
 Our Products - Valesų gerovė
 
 ### Cart
-https://zappytestsite.com/cart
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/cart
 Your Cart
 
 ### Checkout
-https://zappytestsite.com/checkout
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/checkout
 Checkout
 
 ### Login
-https://zappytestsite.com/login
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/login
 Customer Login
 
 ### Account
-https://zappytestsite.com/account
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/account
 My Account
 
 ### Order Success
-https://zappytestsite.com/order-success
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/order-success
 Thank you for your order
 
 ### Product Detail
-https://zappytestsite.com/product/:slug
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product/:slug
 Product Details - Valesų gerovė
 
 ### Category
-https://zappytestsite.com/category/:slug
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/category/:slug
 Products - Valesų gerovė
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://zappytestsite.com/privacy
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://zappytestsite.com/terms
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://zappytestsite.com/accessibility
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -75,11 +75,11 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 1**
 
 ### Natural Herbs
-https://zappytestsite.com/product/natural-herbs-pjjh2w
+https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product/natural-herbs-pjjh2w
 - Price: 13.00 USD (sale, was 15.00 USD)
 - Availability: In stock
 - Description: Mix of natural herbs
-- Image: https://zappytestsite.com/assets/image-product-image-1776233030789-4wgfor.webp
+- Image: https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/assets/image-product-image-1776233030789-4wgfor.webp
 
 ---
 
@@ -105,8 +105,8 @@ health and wellness / natural remedies
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://zappytestsite.com/sitemap.xml
-- Robots: https://zappytestsite.com/robots.txt
-- Flattened page text (for LLMs): https://zappytestsite.com/llms-full.txt
-- Products (JSON): https://zappytestsite.com/products.json
-- Products (Google Merchant RSS): https://zappytestsite.com/product-feed.xml
+- Sitemap (XML): https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/sitemap.xml
+- Robots: https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/robots.txt
+- Flattened page text (for LLMs): https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/llms-full.txt
+- Products (JSON): https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/products.json
+- Products (Google Merchant RSS): https://zappy-site-64f6ae4b-eee5-4e92-9188.onrender.com/product-feed.xml
