@@ -1470,6 +1470,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3565,42 +3567,74 @@ function stripHtmlToText(html) {
         // Grow SDK wallet mode: render payment options in-page
         if (data.data.growSdkMode && data.data.authCode) {
           const paymentSection = document.getElementById('checkout-payment-section');
-          if (paymentSection) {
-            // Create SDK container
-            var sdkContainer = document.createElement('div');
-            sdkContainer.id = 'grow-sdk-container';
-            sdkContainer.style.cssText = 'min-height: 350px; margin-top: 20px; position: relative;';
-            sdkContainer.innerHTML = '<div style="text-align:center; padding:40px;"><div style="display:inline-block; width:32px; height:32px; border:3px solid #e5e7eb; border-top-color:#6366f1; border-radius:50%; animation:spin 0.8s linear infinite;"></div><p style="margin-top:12px; color:#6b7280;">' + (isRTL ? 'טוען אמצעי תשלום...' : 'Loading payment options...') + '</p></div>';
-            paymentSection.innerHTML = '';
-            paymentSection.appendChild(sdkContainer);
+          const sdkContainer = document.getElementById('grow-sdk-container');
 
-            // Load Grow SDK script
-            var growScript = document.createElement('script');
-            growScript.src = data.data.sdkScriptUrl;
-            growScript.async = true;
-            growScript.onload = function() {
-              if (typeof growPayment !== 'undefined') {
-                growPayment.onWalletChange = function(state) {
-                  if (state === 'ready' || state === 'loaded') {
-                    var loader = sdkContainer.querySelector('div');
-                    if (loader) loader.style.display = 'none';
+          if (paymentSection && sdkContainer) {
+            paymentSection.classList.add('fade-out');
+
+            sdkContainer.style.display = 'block';
+            sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<div class="grow-sdk-loading"><div class="grow-sdk-loading-spinner"></div><span>' + (isRTL ? 'טוען אמצעי תשלום...' : 'Loading payment options...') + '</span></div>';
+
+            setTimeout(function() {
+              paymentSection.style.display = 'none';
+
+              var growScript = document.createElement('script');
+              growScript.src = data.data.sdkScriptUrl;
+              growScript.async = true;
+              growScript.onload = function() {
+                if (typeof growPayment === 'undefined') {
+                  sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
+                  placeOrderBtn.disabled = false;
+                  placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                  return;
+                }
+
+                var sdkEnv = data.data.sdkEnvironment || 'PRODUCTION';
+                growPayment.init({
+                  environment: sdkEnv,
+                  version: 1,
+                  events: {
+                    onSuccess: function(response) {
+                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
+                      window.location.href = successUrl;
+                    },
+                    onFailure: function(response) {
+                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (response && response.message ? response.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')) + '</p>';
+                      placeOrderBtn.disabled = false;
+                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                    },
+                    onError: function(response) {
+                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (response && response.message ? response.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')) + '</p>';
+                      placeOrderBtn.disabled = false;
+                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                    },
+                    onTimeout: function(response) {
+                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'פג תוקף התשלום. נסו שוב.' : 'Payment session expired. Please try again.') + '</p>';
+                      placeOrderBtn.disabled = false;
+                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                    },
+                    onWalletChange: function(state) {
+                      if (state === 'open') {
+                        var loader = sdkContainer.querySelector('.grow-sdk-loading');
+                        if (loader) loader.style.display = 'none';
+                      }
+                    }
                   }
-                };
+                });
+
+                sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<div id="grow-wallet-target"></div>';
                 growPayment.renderPaymentOptions(data.data.authCode);
-              } else {
-                sdkContainer.innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
+              };
+              growScript.onerror = function() {
+                sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
                 placeOrderBtn.disabled = false;
                 placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
-              }
-            };
-            growScript.onerror = function() {
-              sdkContainer.innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
-              placeOrderBtn.disabled = false;
-              placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
-            };
-            document.head.appendChild(growScript);
+              };
+              document.head.appendChild(growScript);
+            }, 300);
+
+            return; // Don't redirect
           }
-          return;
         }
 
         // Check if provider is Green Invoice - show iframe instead of redirect
