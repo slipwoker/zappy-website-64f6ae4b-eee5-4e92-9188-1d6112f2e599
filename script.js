@@ -1468,6 +1468,8 @@ function withConsent(category, callback) {
 })();
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -1482,6 +1484,14 @@ function withConsent(category, callback) {
 
   const websiteId = window.ZAPPY_WEBSITE_ID;
   const isCatalogMode = false; // true = catalog only (no cart), false = full e-commerce
+
+  window.zappyTrackEcomAnalytics = function(eventType, metadata) {
+    try {
+      if (window.zappyAnalytics && typeof window.zappyAnalytics.track === 'function') {
+        window.zappyAnalytics.track(eventType, metadata || {});
+      }
+    } catch (e) {}
+  };
   
   // Set up fixed header heights - NO GAP between header and catalog menu
   function setupFixedHeaders() {
@@ -2038,6 +2048,16 @@ function stripHtmlToText(html) {
     }
     saveCart();
     openCartDrawer(); // Open cart drawer instead of alert
+    if (!isCatalogMode && typeof window.zappyTrackEcomAnalytics === 'function') {
+      var unitPrice = parseFloat(product.sale_price || product.salePrice || product.price || 0) || 0;
+      window.zappyTrackEcomAnalytics('add_to_cart', {
+        productId: product.id,
+        productName: product.name,
+        quantity: qty,
+        value: unitPrice * qty,
+        variantId: variantId || null
+      });
+    }
   }
   
   // Store loaded products for filtering
@@ -3197,6 +3217,16 @@ function stripHtmlToText(html) {
   // Initialize checkout / place order button
   function initCheckout() {
     const placeOrderBtn = document.getElementById('place-order-btn');
+    if (placeOrderBtn && !isCatalogMode && !window.__zappyBeginCheckoutTracked) {
+      window.__zappyBeginCheckoutTracked = true;
+      var checkoutValue = typeof getCartSubtotal === 'function' ? getCartSubtotal() : 0;
+      if (typeof window.zappyTrackEcomAnalytics === 'function') {
+        window.zappyTrackEcomAnalytics('begin_checkout', {
+          itemCount: cart ? cart.length : 0,
+          value: checkoutValue
+        });
+      }
+    }
     if (!placeOrderBtn) return;
     
     // Add real-time validation - clear errors when user types and update Place Order state
@@ -3495,7 +3525,7 @@ function stripHtmlToText(html) {
         
         const data = await res.json();
         
-        if (!data.success || !data.data?.checkoutUrl) {
+        if (!data.success || (!data.data?.checkoutUrl && !data.data?.growSdkMode)) {
           throw new Error(data.error || 'Checkout initialization failed');
         }
         
@@ -3532,6 +3562,47 @@ function stripHtmlToText(html) {
           localStorage.setItem('zappy_pending_order_' + reference, JSON.stringify(pendingOrderData));
         }
         
+        // Grow SDK wallet mode: render payment options in-page
+        if (data.data.growSdkMode && data.data.authCode) {
+          const paymentSection = document.getElementById('checkout-payment-section');
+          if (paymentSection) {
+            // Create SDK container
+            var sdkContainer = document.createElement('div');
+            sdkContainer.id = 'grow-sdk-container';
+            sdkContainer.style.cssText = 'min-height: 350px; margin-top: 20px; position: relative;';
+            sdkContainer.innerHTML = '<div style="text-align:center; padding:40px;"><div style="display:inline-block; width:32px; height:32px; border:3px solid #e5e7eb; border-top-color:#6366f1; border-radius:50%; animation:spin 0.8s linear infinite;"></div><p style="margin-top:12px; color:#6b7280;">' + (isRTL ? 'טוען אמצעי תשלום...' : 'Loading payment options...') + '</p></div>';
+            paymentSection.innerHTML = '';
+            paymentSection.appendChild(sdkContainer);
+
+            // Load Grow SDK script
+            var growScript = document.createElement('script');
+            growScript.src = data.data.sdkScriptUrl;
+            growScript.async = true;
+            growScript.onload = function() {
+              if (typeof growPayment !== 'undefined') {
+                growPayment.onWalletChange = function(state) {
+                  if (state === 'ready' || state === 'loaded') {
+                    var loader = sdkContainer.querySelector('div');
+                    if (loader) loader.style.display = 'none';
+                  }
+                };
+                growPayment.renderPaymentOptions(data.data.authCode);
+              } else {
+                sdkContainer.innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
+                placeOrderBtn.disabled = false;
+                placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+              }
+            };
+            growScript.onerror = function() {
+              sdkContainer.innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
+              placeOrderBtn.disabled = false;
+              placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+            };
+            document.head.appendChild(growScript);
+          }
+          return;
+        }
+
         // Check if provider is Green Invoice - show iframe instead of redirect
         if (data.data.provider === 'greeninvoice') {
           // Animate out the payment section and button
@@ -5295,6 +5366,15 @@ function stripHtmlToText(html) {
           // Update order number to the official one if available
           if (confirmData.data.orderNumber) {
             orderNumberEl.textContent = '#' + confirmData.data.orderNumber;
+          }
+          if (typeof window.zappyTrackEcomAnalytics === 'function') {
+            window.zappyTrackEcomAnalytics('purchase', {
+              orderId: confirmData.data.orderId || null,
+              orderNumber: confirmData.data.orderNumber || orderDisplay,
+              reference: reference,
+              total: confirmData.data.total || null,
+              source: 'client'
+            });
           }
         } else {
           console.warn('Order confirmation response:', confirmData);
@@ -7744,6 +7824,14 @@ async function loadProductDetailPage() {
     
     const product = data.data;
     renderProductDetail(detailSection, product, t);
+    if (typeof window.zappyTrackEcomAnalytics === 'function') {
+      window.zappyTrackEcomAnalytics('view_product', {
+        productId: product.id,
+        productName: product.name,
+        price: parseFloat(product.sale_price || product.salePrice || product.price || 0) || 0,
+        categoryId: product.categories && product.categories[0] ? product.categories[0].id : null
+      });
+    }
     await syncProductDetailCustomerDiscount();
     
     // Update page title and meta
