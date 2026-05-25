@@ -1476,6 +1476,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3606,8 +3608,8 @@ function stripHtmlToText(html) {
                   version: 1,
                   events: {
                     onSuccess: function() {
-                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
-                      window.location.href = successUrl;
+                      var dest = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-success?ref=' + encodeURIComponent(data.data.reference));
+                      window.location.href = dest;
                     },
                     onFailure: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')); },
                     onError: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')); },
@@ -3639,8 +3641,8 @@ function stripHtmlToText(html) {
                   version: 1,
                   events: {
                     onSuccess: function() {
-                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
-                      window.location.href = successUrl;
+                      var dest = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-success?ref=' + encodeURIComponent(data.data.reference));
+                      window.location.href = dest;
                     },
                     onFailure: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')); },
                     onError: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')); },
