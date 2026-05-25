@@ -1474,6 +1474,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3582,12 +3584,44 @@ function stripHtmlToText(html) {
               growPayment.renderPaymentOptions(authCode);
             };
 
+            var showGrowError = function(msg) {
+              sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + msg + '</p>';
+              placeOrderBtn.disabled = false;
+              placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+            };
+
             setTimeout(function() {
               paymentSection.style.display = 'none';
 
-              // SDK already loaded from a previous attempt — just render
-              if (typeof growPayment !== 'undefined') {
+              // SDK already loaded & initialized from a previous attempt
+              if (typeof growPayment !== 'undefined' && window.__growSdkInitDone) {
                 renderGrowWallet(data.data.authCode);
+                return;
+              }
+
+              // Script already loaded but not yet initialized (edge case)
+              if (typeof growPayment !== 'undefined' && !window.__growSdkInitDone) {
+                growPayment.init({
+                  environment: (data.data.sdkEnvironment || 'PRODUCTION'),
+                  version: 1,
+                  events: {
+                    onSuccess: function() {
+                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
+                      window.location.href = successUrl;
+                    },
+                    onFailure: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')); },
+                    onError: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')); },
+                    onTimeout: function() { showGrowError(isRTL ? 'פג תוקף התשלום. נסו שוב.' : 'Payment session expired. Please try again.'); },
+                    onWalletChange: function(state) {
+                      if (state === 'open') {
+                        var loader = sdkContainer.querySelector('.grow-sdk-loading');
+                        if (loader) loader.style.display = 'none';
+                      }
+                    }
+                  }
+                });
+                window.__growSdkInitDone = true;
+                setTimeout(function() { renderGrowWallet(data.data.authCode); }, 1000);
                 return;
               }
 
@@ -3596,17 +3630,48 @@ function stripHtmlToText(html) {
               growScript.async = true;
               growScript.onload = function() {
                 if (typeof growPayment === 'undefined') {
-                  sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
-                  placeOrderBtn.disabled = false;
-                  placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                  showGrowError(isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.');
                   return;
                 }
-                renderGrowWallet(data.data.authCode);
+
+                growPayment.init({
+                  environment: (data.data.sdkEnvironment || 'PRODUCTION'),
+                  version: 1,
+                  events: {
+                    onSuccess: function() {
+                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
+                      window.location.href = successUrl;
+                    },
+                    onFailure: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')); },
+                    onError: function(r) { showGrowError(r && r.message ? r.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')); },
+                    onTimeout: function() { showGrowError(isRTL ? 'פג תוקף התשלום. נסו שוב.' : 'Payment session expired. Please try again.'); },
+                    onWalletChange: function(state) {
+                      if (state === 'open') {
+                        var loader = sdkContainer.querySelector('.grow-sdk-loading');
+                        if (loader) loader.style.display = 'none';
+                      }
+                    }
+                  }
+                });
+
+                window.__growSdkInitDone = true;
+                // Poll until SDK is ready (internal async init), then render
+                var attempts = 0;
+                var pollReady = setInterval(function() {
+                  attempts++;
+                  try {
+                    renderGrowWallet(data.data.authCode);
+                    clearInterval(pollReady);
+                  } catch(e) {
+                    if (attempts >= 6) {
+                      clearInterval(pollReady);
+                      showGrowError(isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.');
+                    }
+                  }
+                }, 500);
               };
               growScript.onerror = function() {
-                sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
-                placeOrderBtn.disabled = false;
-                placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
+                showGrowError(isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.');
               };
               document.head.appendChild(growScript);
             }, 300);
