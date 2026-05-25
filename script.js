@@ -1472,6 +1472,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3575,8 +3577,19 @@ function stripHtmlToText(html) {
             sdkContainer.style.display = 'block';
             sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<div class="grow-sdk-loading"><div class="grow-sdk-loading-spinner"></div><span>' + (isRTL ? 'טוען אמצעי תשלום...' : 'Loading payment options...') + '</span></div>';
 
+            var renderGrowWallet = function(authCode) {
+              sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<div id="grow-wallet-target"></div>';
+              growPayment.renderPaymentOptions(authCode);
+            };
+
             setTimeout(function() {
               paymentSection.style.display = 'none';
+
+              // SDK already loaded from a previous attempt — just render
+              if (typeof growPayment !== 'undefined') {
+                renderGrowWallet(data.data.authCode);
+                return;
+              }
 
               var growScript = document.createElement('script');
               growScript.src = data.data.sdkScriptUrl;
@@ -3588,42 +3601,7 @@ function stripHtmlToText(html) {
                   placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
                   return;
                 }
-
-                var sdkEnv = data.data.sdkEnvironment || 'PRODUCTION';
-                growPayment.init({
-                  environment: sdkEnv,
-                  version: 1,
-                  events: {
-                    onSuccess: function(response) {
-                      var successUrl = data.data.successUrl || (window.location.pathname.replace(/checkout.*/, '') + 'order-confirmation?reference=' + encodeURIComponent(data.data.reference));
-                      window.location.href = successUrl;
-                    },
-                    onFailure: function(response) {
-                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (response && response.message ? response.message : (isRTL ? 'התשלום נכשל. נסו שוב.' : 'Payment failed. Please try again.')) + '</p>';
-                      placeOrderBtn.disabled = false;
-                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
-                    },
-                    onError: function(response) {
-                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (response && response.message ? response.message : (isRTL ? 'שגיאה בתשלום. נסו שוב.' : 'Payment error. Please try again.')) + '</p>';
-                      placeOrderBtn.disabled = false;
-                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
-                    },
-                    onTimeout: function(response) {
-                      sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'פג תוקף התשלום. נסו שוב.' : 'Payment session expired. Please try again.') + '</p>';
-                      placeOrderBtn.disabled = false;
-                      placeOrderBtn.innerHTML = t.placeOrder || (isRTL ? 'בצע הזמנה' : 'Place Order');
-                    },
-                    onWalletChange: function(state) {
-                      if (state === 'open') {
-                        var loader = sdkContainer.querySelector('.grow-sdk-loading');
-                        if (loader) loader.style.display = 'none';
-                      }
-                    }
-                  }
-                });
-
-                sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<div id="grow-wallet-target"></div>';
-                growPayment.renderPaymentOptions(data.data.authCode);
+                renderGrowWallet(data.data.authCode);
               };
               growScript.onerror = function() {
                 sdkContainer.querySelector('.grow-sdk-wrapper').innerHTML = '<p style="color:#ef4444; text-align:center; padding:20px;">' + (isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.') + '</p>';
