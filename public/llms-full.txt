@@ -80,9 +80,10 @@ Fuel Your Body Naturally with Protein & More — Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -481,44 +482,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Sleep Deeper, Live Stronger with Nature&#39;s Best — Valesų gerovė
@@ -595,9 +558,10 @@ Sleep Deeper, Live Stronger with Nature's Best — Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -964,44 +928,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Rooted in Nature, Driven by Your Well-Being — Valesų gerovė
@@ -1078,9 +1004,10 @@ Rooted in Nature, Driven by Your Well-Being — Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -1400,44 +1327,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Get Expert Guidance on Supplements &amp; Remedies — Valesų gerovė
@@ -1514,9 +1403,10 @@ Get Expert Guidance on Supplements & Remedies — Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -1851,44 +1741,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Products
@@ -1970,9 +1822,10 @@ Products - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -2096,44 +1949,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Cart
@@ -2215,9 +2030,10 @@ Cart - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -2317,44 +2133,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Checkout
@@ -2436,9 +2214,10 @@ Checkout - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -2724,44 +2503,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Login
@@ -2843,9 +2584,10 @@ Login - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -2952,44 +2694,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## My Account
@@ -3071,9 +2775,10 @@ My Account - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -3144,11 +2849,11 @@ Edit Profile
 
 
 
-Name:
+Name :
 -
 
 
-Phone:
+Phone :
 -
 
 
@@ -3335,44 +3040,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Order Received!
@@ -3454,9 +3121,10 @@ Order Received! - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -3580,44 +3248,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Return Policy
@@ -3699,9 +3329,10 @@ Return Policy - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -3736,7 +3367,7 @@ All Products
 # Return Policy
 
 
-Last Updated: 5/25/2026
+Last Updated: 5/31/2026
 
 
 
@@ -3854,44 +3485,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Product Details
@@ -3973,9 +3566,10 @@ Product Details - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -4077,44 +3671,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Products
@@ -4196,9 +3752,10 @@ Products - Valesų gerovė
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -4324,44 +3881,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Privacy Policy
@@ -4423,9 +3942,10 @@ Privacy Policy
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -4619,44 +4139,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Accessibility Statement
@@ -4718,9 +4200,10 @@ Accessibility Statement
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -4920,44 +4403,6 @@ EVERYTHING
 
 Shop Now
 
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
-
 ---
 
 ## Terms & Conditions
@@ -5019,9 +4464,10 @@ Terms & Conditions
 
 
 
+- Products Products
 
 
-- Products All Products
+
 
 
 
@@ -5242,44 +4688,6 @@ EVERYTHING
 00 : 00 : 00
 
 Shop Now
-
-
-
-
-
-
-&times;
-
-### Join our newsletter
-
-
-Get the latest updates and offers, straight to your inbox.
-
-
-Email *
-
-
-Name
-
-
-Birthday
-
-
-Gender
-
-
-female  male  other
-
-
-Subscribe
-
-
-
-
-
-
-
-### You're subscribed!
 
 ---
 
