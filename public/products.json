@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-06-01T07:30:32.270Z",
+  "generated_at": "2026-06-01T07:32:54.034Z",
   "base_url": "https://zappytestsite.com",
   "currency": "USD",
   "count": 1,
@@ -25,7 +25,7 @@
       "stock_status": "in_stock",
       "url": "https://zappytestsite.com/product/natural-herbs-rf1m9v",
       "categories": [],
-      "updated_at": "2026-06-01T07:29:54.136Z"
+      "updated_at": "2026-06-01T07:32:10.317Z"
     }
   ]
 }
