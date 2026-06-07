@@ -652,11 +652,7 @@ textarea::placeholder {
   color: white;
 }
 
-@media (min-width: 769px) {
-  .whatsapp-float {
-    display: none !important;
-  }
-}
+
 
 @media (max-width: 1024px) {
   h1 {
@@ -5649,14 +5645,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 
 /* Hide WhatsApp float button on desktop (mobile-only) */
-@media (min-width: 769px) {
-  .whatsapp-float {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-}
+
 
 
 /* Footer contact alignment fix */
@@ -15457,6 +15446,8 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
@@ -16324,22 +16315,44 @@ html[dir="ltr"] .zappy-products-dropdown .zappy-nav-child > a {
   }
 }
 
+/* WIDGET-DISPLAY-START */
 html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
 html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
-
-html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+html[dir="rtl"] #mic-access-tool-general-button,
+html[dir="rtl"] .mic-access-tool-general-button,
 html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
 html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
 html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
-html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+html[dir="ltr"] #mic-access-tool-general-button,
+html[dir="ltr"] .mic-access-tool-general-button,
 html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
 html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
 html[dir="ltr"] ._access-icon,
-html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+html:not([dir]) #mic-access-tool-general-button,
+html:not([dir]) .mic-access-tool-general-button,
 html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
 html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
 html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
-
+@media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+@media (min-width: 769px) { .whatsapp-float { display: none !important; } }
+@media (max-width: 768px) {
+  #mic-access-tool-general-button, .mic-access-tool-general-button,
+  #mic-init-access-tool .mic-access-tool-general-button,
+  #mic-init-access-tool #mic-access-tool-general-button,
+  ._access-icon { display: flex !important; }
+  #mic-access-tool-box, .mic-access-tool-box,
+  #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"],
+  ._access-menu { visibility: hidden; opacity: 0; pointer-events: auto !important; }
+}
+@media (min-width: 769px) {
+  #mic-access-tool-general-button, .mic-access-tool-general-button,
+  #mic-init-access-tool .mic-access-tool-general-button,
+  #mic-init-access-tool #mic-access-tool-general-button,
+  ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+  #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"],
+  ._access-menu { }
+}
+/* WIDGET-DISPLAY-END */
 /* LTR: keep image on left for solution-reverse sections */
 html[dir="ltr"] .solution-item.solution-reverse .solution-image { order: -1 !important; }
 html[dir="ltr"] .solution-item.solution-reverse .solution-content { order: 1 !important; }
@@ -16349,6 +16362,7 @@ html[dir="ltr"] .service-detail.service-reverse .service-detail-content { order:
 
 /* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */
 /* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V3 */
+/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V4 */
 /* The mobile hamburger / phone buttons are absolutely positioned. Keep the
    navbar itself as a non-collapsing containing block so auto-margin centering
    stays aligned even when generated mobile CSS moves every nav child out of flow. */
@@ -16356,6 +16370,29 @@ html[dir="ltr"] .service-detail.service-reverse .service-detail-content { order:
   .navbar,
   nav.navbar {
     min-height: 70px !important;
+  }
+
+  /* E-commerce mobile navbar icon-group alignment.
+     The icon couples (search after the hamburger; login+cart at the end edge)
+     are absolutely positioned with inset-inline offsets — inset-inline-start:52px
+     to clear the 36px hamburger that sits at left:12px on the .navbar, and
+     inset-inline-end:12px to hug the end edge. Those offsets are authored in the
+     NAVBAR's full-width coordinate space (the hamburger uses the same one). But
+     the offsets are resolved against the nearest positioned ancestor, and the
+     generated CSS makes .nav-container position:relative. When .nav-container is
+     ALSO inset by the navbar's horizontal padding (max-width / padding from the
+     LLM-authored navbar), the groups resolve to that inset box instead of the
+     full-width navbar: the search drifts ~20px away from the hamburger and the
+     cart leaves a fat asymmetric gap before the screen edge. Dropping
+     .nav-container out of the containing-block chain on mobile makes both couples
+     resolve to .navbar (always full-bleed) so they line up tightly with the
+     hamburger and sit symmetrically against both edges regardless of any
+     navbar/container padding. Scoped via :has() to navbars that actually carry
+     the e-commerce icon couples so non-ecommerce navs are untouched. */
+  .navbar:has(.nav-ecommerce-icons) .nav-container,
+  nav.navbar:has(.nav-ecommerce-icons) .nav-container,
+  header:has(.nav-ecommerce-icons) .nav-container {
+    position: static !important;
   }
 
   /* Some generated RTL nav CSS sets both left:50% and right:50% on the
