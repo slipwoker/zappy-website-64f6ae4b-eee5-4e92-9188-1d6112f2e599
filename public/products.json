@@ -1,13 +1,13 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-06-09T11:49:13.288Z",
+  "generated_at": "2026-06-10T07:09:46.372Z",
   "base_url": "https://zappytestsite.com",
   "currency": "USD",
   "count": 1,
   "products": [
     {
       "id": "c8c17608-7763-4feb-9ad8-9230ea519850",
-      "slug": "natural-herbs-rf1m9v",
+      "slug": "natural-herbs-27x34p",
       "name": "Natural Herbs",
       "name_translations": {},
       "description": "<p><strong>Natural Herbal Blend for Stress Relief</strong></p><p><br></p><p>A carefully curated blend of nature's finest herbs, thoughtfully formulated to support your body's natural response to stress and promote a sense of calm and balance. Rooted in the holistic philosophy of <em>Valesų gerovė</em>, this blend embraces the healing power of nature to help you unwind and restore inner harmony.</p><p><br></p><ul><li>Crafted from premium, naturally sourced herbs</li><li>Supports relaxation and emotional well-being</li><li>Gentle, holistic approach to everyday stress management</li><li>Free from artificial additives</li></ul>",
@@ -23,9 +23,9 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/natural-herbs-rf1m9v",
+      "url": "https://zappytestsite.com/product/natural-herbs-27x34p",
       "categories": [],
-      "updated_at": "2026-06-01T07:32:10.317Z"
+      "updated_at": "2026-06-10T07:09:09.153Z"
     }
   ]
 }

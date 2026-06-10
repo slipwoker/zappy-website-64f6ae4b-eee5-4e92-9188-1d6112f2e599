@@ -75,7 +75,7 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 1**
 
 ### Natural Herbs
-https://zappytestsite.com/product/natural-herbs-rf1m9v
+https://zappytestsite.com/product/natural-herbs-27x34p
 - Price: 13.00 USD (sale, was 15.00 USD)
 - Availability: In stock
 - Description: Mix of natural herbs
