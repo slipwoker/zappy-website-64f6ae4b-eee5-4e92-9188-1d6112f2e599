@@ -72,7 +72,13 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 1**
+**Total active products: 2**
+
+### שדגכ
+https://zappytestsite.com/product/shdgk-86afi6
+- Price: 112.00 USD
+- Availability: In stock
+- Description: שדגכ
 
 ### Natural Herbs
 https://zappytestsite.com/product/natural-herbs-27x34p

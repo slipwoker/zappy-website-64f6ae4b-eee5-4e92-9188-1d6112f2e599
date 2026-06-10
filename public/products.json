@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-06-10T07:17:13.205Z",
+  "generated_at": "2026-06-10T07:54:13.013Z",
   "base_url": "https://zappytestsite.com",
   "currency": "USD",
-  "count": 1,
+  "count": 2,
   "products": [
+    {
+      "id": "ea93a1c3-68cb-4763-beeb-d4e031a1281e",
+      "slug": "shdgk-86afi6",
+      "name": "שדגכ",
+      "name_translations": {},
+      "description": "<p>שדגכדגכ</p>",
+      "short_description": "שדגכ",
+      "sku": null,
+      "brand": null,
+      "price": 112,
+      "base_price": 112,
+      "sale_price": null,
+      "currency": "USD",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/shdgk-86afi6",
+      "categories": [],
+      "updated_at": "2026-06-10T07:53:36.514Z"
+    },
     {
       "id": "c8c17608-7763-4feb-9ad8-9230ea519850",
       "slug": "natural-herbs-27x34p",
