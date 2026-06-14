@@ -11263,6 +11263,13 @@ body[data-zappy-site-type="ecommerce"] {
 
 /* Base page styling - matches hero section theme */
 .ecommerce-page {
+  /* width:100% + box-sizing is REQUIRED: V2 sites set body to display:flex;
+     flex-direction:column (sticky-footer guard). Without an explicit width the
+     margin:0 auto auto cross-axis margins stop this flex item from stretching,
+     so main collapses to its min-content (about one 250px product column) and
+     the products grid renders as a single mobile-like column. */
+  width: 100%;
+  box-sizing: border-box;
   padding: 60px 24px;
   padding-top: 24px;
   max-width: 1440px;
@@ -11621,6 +11628,10 @@ a, button {
 .product-card .card-cart-btn { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; border: none; cursor: pointer; background: var(--accent, var(--primary, #ff0083)); color: var(--text-light, #fff); display: inline-flex; align-items: center; justify-content: center; transition: filter 0.18s, transform 0.12s; }
 .product-card .card-cart-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
 .product-card a.card-cart-btn { text-decoration: none; }
+/* Out of stock: the cart button is visibly disabled (muted, not-allowed) and
+   the title attribute surfaces an "Out of Stock" tooltip on hover. */
+.product-card .card-cart-btn.out-of-stock { background: #d1d5db; color: #fff; cursor: default; opacity: 0.65; }
+.product-card .card-cart-btn.out-of-stock:hover { filter: none; transform: none; }
 @media (max-width: 768px) {
   .product-card .product-card-size-overlay { display: none !important; }
   .product-card .card-quickview-btn { opacity: 1; pointer-events: auto; }
@@ -14200,8 +14211,9 @@ html[lang="ar"] .mobile-search-panel .search-wrapper,
     background: var(--bg-light, #fff) !important;
   }
 
-  /* Icon color: always use text-dark on mobile since circles are always bg-light.
-     --nav-text may be white (for transparent navbars) which is invisible on light circles. */
+  /* Icon color: contrast against the pill surface (luminance-aware).
+     --nav-text may be white (for transparent navbars) which is invisible on light circles;
+     a hardcoded --text-dark is invisible on dark-neutral circles. pillIconColor handles both. */
   .cart-link.nav-cart,
   .login-link.nav-login,
   .nav-search-toggle {
@@ -15060,7 +15072,7 @@ main,
     background: var(--bg-light, #fff) !important;
   }
 
-  /* Icon color: always use text-dark on mobile since circles are always bg-light. */
+  /* Icon color: contrast against the pill surface (luminance-aware). */
   .cart-link.nav-cart,
   .login-link.nav-login,
   .nav-search-toggle {
@@ -16657,6 +16669,13 @@ html[dir="ltr"] .solution-item.solution-reverse .solution-image { order: -1 !imp
 html[dir="ltr"] .solution-item.solution-reverse .solution-content { order: 1 !important; }
 html[dir="ltr"] .service-detail.service-reverse .service-detail-image { order: -1 !important; }
 html[dir="ltr"] .service-detail.service-reverse .service-detail-content { order: 1 !important; }
+
+/* ENSURE: navbar-logo-isolation */
+.navbar .logo,
+.nav-brand .logo,
+.logo-link .logo {
+  filter: none !important;
+}
 
 
 /* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */

@@ -112,6 +112,37 @@
   var visitorId = getVisitorId();
   var sessionId = getSessionId();
   
+  // Site Optimization Agent — visual heatmap helpers
+  function getBandAnchor(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      if (node.getAttribute && node.getAttribute('data-band-index') != null) {
+        return { bandIndex: node.getAttribute('data-band-index'), sectionId: node.id || null };
+      }
+      node = node.parentElement;
+    }
+    node = el;
+    while (node && node !== document.body) {
+      if (node.tagName === 'SECTION' && node.id) {
+        return { bandIndex: null, sectionId: node.id };
+      }
+      node = node.parentElement;
+    }
+    return { bandIndex: null, sectionId: null };
+  }
+  function heatmapFields(el, e) {
+    var anchor = getBandAnchor(el);
+    return {
+      x: Math.round((e && e.pageX) || 0),
+      y: Math.round((e && e.pageY) || 0),
+      bandIndex: anchor.bandIndex,
+      sectionId: anchor.sectionId
+    };
+  }
+  function mergeFields(base, extra) {
+    for (var k in extra) { if (Object.prototype.hasOwnProperty.call(extra, k)) base[k] = extra[k]; }
+    return base;
+  }
   // Track an event
   function trackEvent(eventType, data) {
     data = data || {};
@@ -161,26 +192,61 @@
       // Track button clicks (counted as actions)
       if (target.tagName === 'BUTTON' || target.closest('button')) {
         var button = target.tagName === 'BUTTON' ? target : target.closest('button');
-        trackEvent('click', {
+        var clickMeta = {
           element: 'button',
           text: button.textContent.trim().substring(0, 100),
           id: button.id || null,
           class: button.className || null
-        });
+        };
+        mergeFields(clickMeta, heatmapFields(button, e));
+        trackEvent('click', clickMeta);
       }
       
       // Track link clicks (navigation - not counted as actions)
       else if (target.tagName === 'A' || target.closest('a')) {
         var link = target.tagName === 'A' ? target : target.closest('a');
-        trackEvent('navigation', {
+        var navMeta = {
           element: 'link',
           text: link.textContent.trim().substring(0, 100),
           href: link.href,
           external: link.hostname !== window.location.hostname
-        });
+        };
+        mergeFields(navMeta, heatmapFields(link, e));
+        trackEvent('navigation', navMeta);
       }
     }, true);
   }
+  
+  // Track scroll depth milestones (visual heatmap reach signal)
+  (function() {
+    var milestones = [25, 50, 75, 100];
+    var fired = {};
+    var maxDepth = 0;
+    function computeDepth() {
+      var doc = document.documentElement;
+      var scrollable = (doc.scrollHeight - window.innerHeight);
+      if (scrollable <= 0) return 100;
+      return Math.min(100, Math.round(((window.scrollY || window.pageYOffset || 0) / scrollable) * 100));
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function() {
+        var depth = computeDepth();
+        if (depth > maxDepth) maxDepth = depth;
+        for (var i = 0; i < milestones.length; i++) {
+          var m = milestones[i];
+          if (depth >= m && !fired[m]) {
+            fired[m] = true;
+            trackEvent('scroll_depth', { milestone: m, maxDepthPct: maxDepth });
+          }
+        }
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
   
   // Track form submissions
   if (config.trackFormSubmissions) {
@@ -223,7 +289,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Products">
     <meta name="twitter:description" content="Our Products - Valesų gerovė">
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://zappytestsite.com#organization","name":"Valesų gerovė","url":"https://zappytestsite.com","description":"Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.","address":{"@type":"PostalAddress","streetAddress":"Hashlosha 4, Nitzaney Oz, 4906215, Israel"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"maor@zappy5.com","telephone":"+972543951940"}]},{"@type":"WebSite","@id":"https://zappytestsite.com#website","url":"https://zappytestsite.com","name":"Valesų gerovė","publisher":{"@id":"https://zappytestsite.com#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zappytestsite.com"},{"@type":"ListItem","position":2,"name":"Products","item":"https://zappytestsite.com/products"}]},{"@type":"ItemList","@id":"https://zappytestsite.com/products#itemlist","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://zappytestsite.com/product/shdgk-86afi6","name":"שדגכ"},{"@type":"ListItem","position":2,"url":"https://zappytestsite.com/product/natural-herbs-27x34p","name":"Natural Herbs"}]}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://zappytestsite.com#organization","name":"Valesų gerovė","url":"https://zappytestsite.com","description":"Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.","address":{"@type":"PostalAddress","streetAddress":"Hashlosha 4, Nitzaney Oz, 4906215, Israel"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"maor@zappy5.com","telephone":"+972543951940"}]},{"@type":"WebSite","@id":"https://zappytestsite.com#website","url":"https://zappytestsite.com","name":"Valesų gerovė","publisher":{"@id":"https://zappytestsite.com#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zappytestsite.com"},{"@type":"ListItem","position":2,"name":"Products","item":"https://zappytestsite.com/products"}]},{"@type":"ItemList","@id":"https://zappytestsite.com/products#itemlist","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://zappytestsite.com/product/shdgk-6ij1xr","name":"שדגכ"},{"@type":"ListItem","position":2,"url":"https://zappytestsite.com/product/natural-herbs-27x34p","name":"Natural Herbs"}]}]}</script>
     <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   
@@ -491,6 +557,9 @@
   
 
     
+  
+
+    
   <li><a href="/wellness-approach">Wellness Approach</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="Login"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="Cart"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
     <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search products..." autocomplete="off">
     <button class="nav-search-btn" id="nav-search-btn" title="Search">
@@ -502,7 +571,8 @@
     
   </div>
 </nav>
-<nav class="zappy-catalog-menu ltr" id="zappy-catalog-menu" dir="ltr" style="display:none">
+
+    <nav class="zappy-catalog-menu ltr" id="zappy-catalog-menu" dir="ltr" style="display:none">
       <div class="catalog-menu-container">
         <a href="/products" class="catalog-menu-item catalog-menu-all">All Products</a>
         <div class="catalog-menu-categories" id="zappy-category-links">
