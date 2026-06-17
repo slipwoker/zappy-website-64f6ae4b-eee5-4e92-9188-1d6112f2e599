@@ -49,6 +49,7 @@ Fuel Your Body Naturally with Protein & More — Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -86,6 +87,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -567,6 +571,7 @@ Sleep Deeper, Live Stronger with Nature's Best — Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -604,6 +609,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -1053,6 +1061,7 @@ Rooted in Nature, Driven by Your Well-Being — Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -1090,6 +1099,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -1492,6 +1504,7 @@ Get Expert Guidance on Supplements & Remedies — Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -1529,6 +1542,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -1952,6 +1968,7 @@ Products - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -1988,6 +2005,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2202,6 +2222,7 @@ Cart - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -2238,6 +2259,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2428,6 +2452,7 @@ Checkout - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -2464,6 +2489,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2698,7 +2726,7 @@ Remove
 Subtotal:  $0
 VAT Included:  $0
 Shipping:  $0
-Discount:  $0
+Discount:  $0.00
 
 Total:  $0
 
@@ -2840,6 +2868,7 @@ Login - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -2876,6 +2905,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3073,6 +3105,7 @@ My Account - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -3109,6 +3142,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3461,6 +3497,7 @@ Order Received! - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -3497,6 +3534,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3711,6 +3751,7 @@ Return Policy - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -3781,6 +3822,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3812,7 +3856,7 @@ All Products
 # Return Policy
 
 
-Last Updated: 6/14/2026
+Last Updated: 6/17/2026
 
 
 
@@ -3990,6 +4034,7 @@ Product Details - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -4026,6 +4071,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4218,6 +4266,7 @@ Products - Valesų gerovė
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -4254,6 +4303,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4449,6 +4501,7 @@ Privacy Policy
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -4486,6 +4539,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4749,6 +4805,7 @@ Accessibility Statement
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -4786,6 +4843,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -5055,6 +5115,7 @@ Terms & Conditions
 
 
 
+Use code sale10 for a discount!
 Use code null for a discount!
 
 
@@ -5092,6 +5153,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 

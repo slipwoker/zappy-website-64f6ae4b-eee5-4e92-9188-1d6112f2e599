@@ -345,7 +345,7 @@
     <style id="zappy-announcement-bar-styles">
     /* Announcement Bar Styles */
     .zappy-announcement-bar {
-      background-color: #000000 !important;
+      background-color: #acbeb1 !important;
       color: #ffffff !important;
       position: fixed !important;
       top: 0 !important;
@@ -470,8 +470,10 @@
 <body>
 
 <div class="zappy-announcement-bar">
-      <span class="zappy-announcement-message active">Use code null for a discount!</span>
+      <span class="zappy-announcement-message active">Use code sale10 for a discount!</span>
+      <span class="zappy-announcement-message">Use code null for a discount!</span>
     </div>
+<script>window.ZAPPY_PRODUCTS_LISTING_PATH = "/products";</script>
 
 
     <div class="mobile-search-panel" id="mobile-search-panel">
@@ -525,6 +527,9 @@
         <!-- Categories will be loaded dynamically -->
       </ul>
     </li>
+  
+
+    
   
 
     
@@ -1343,6 +1348,17 @@
         startCountdown();
       }, DELAY);
     })();</script>
+<script>
+(function() {
+  var messages = document.querySelectorAll('.zappy-announcement-message');
+  if (messages.length <= 1) return;
+  var current = 0;
+  setInterval(function() {
+    messages[current].classList.remove('active');
+    current = (current + 1) % messages.length;
+    messages[current].classList.add('active');
+  }, 4000);
+})();</script>
 
     <script src="/script.js"></script>
 
