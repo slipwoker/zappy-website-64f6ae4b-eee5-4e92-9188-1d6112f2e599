@@ -2195,17 +2195,16 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   box-sizing: border-box;
 }
 
-/* ── Frosted Card ── */
 .home-hero-section .home-hero-card {
   width: 100%;
   max-width: 520px;
-  background: rgba(250, 248, 243, 0.88);
-  backdrop-filter: blur(8px);
+  background: transparent;
+  backdrop-filter: none;
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(216, 210, 198, 0.7);
+  border: none;
   border-radius: 6px;
-  padding: 48px 44px 44px;
-  box-shadow: 0 24px 60px rgba(93, 77, 52, 0.18), 0 2px 8px rgba(93, 77, 52, 0.08);
+  padding: 48px 0 44px;
+  box-shadow: none;
   margin-top: 48px;
 }
 
