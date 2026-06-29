@@ -124,6 +124,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -606,6 +609,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -1133,6 +1139,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -1539,6 +1548,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2039,6 +2051,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -2137,7 +2152,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -2293,6 +2308,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -2326,7 +2344,7 @@ All Products
 Cart is empty
 
 
-Total:  $0
+Total:  ₪0
 Proceed to Checkout
 
 
@@ -2367,7 +2385,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -2486,6 +2504,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2720,12 +2741,12 @@ Remove
 
 
 
-Subtotal:  $0
-VAT Included:  $0
-Shipping:  $0
-Discount:  $0.00
+Subtotal:  ₪0
+VAT Included:  ₪0
+Shipping:  ₪0
+Discount:  ₪0.00
 
-Total:  $0
+Total:  ₪0
 
 
 
@@ -2783,7 +2804,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -2939,6 +2960,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3020,7 +3044,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -3139,6 +3163,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3412,7 +3439,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -3568,6 +3595,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3666,7 +3696,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -3822,6 +3852,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3853,7 +3886,7 @@ All Products
 # Return Policy
 
 
-Last Updated: 6/17/2026
+Last Updated: 6/29/2026
 
 
 
@@ -3949,7 +3982,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -4105,6 +4138,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -4181,7 +4217,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -4337,6 +4373,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -4437,7 +4476,7 @@ Cart is empty
 
 
 Total:
-$0
+₪0
 
 Proceed to Checkout
 
@@ -4536,6 +4575,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4840,6 +4882,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -5187,6 +5232,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5420,217 +5468,217 @@ Shop Now
 
 ### סוכריות בטעם מנטה קופסת פח 200 גרם
 URL: https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-wiuqcd
-Price: 10.00 USD
+Price: 10.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב שזיפים מתוק 700 מ״ל taste of asia
 URL: https://zappytestsite.com/product/rvtb-shzypym-mtvk-700-ml-taste-of-asia-2qiafe
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בוטנים מצופים שוקולד פרווה 200 גרם
 URL: https://zappytestsite.com/product/bvtnym-mtsvpym-shvkvld-prvvh-200-grm-p94ibx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין לבן 1 ק״ג נפלאות 12 יח העתק
 URL: https://zappytestsite.com/product/kmch-kvsmyn-lbn-1-kg-nplavt-12-ych-hatk-jwya99
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין מלא 1 ק״ג נפלאות 12 יח
 URL: https://zappytestsite.com/product/kmch-kvsmyn-mla-1-kg-nplavt-12-ych-2eqkmm
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גחנון בייתי קפוא אפוי בעבודת יד
 URL: https://zappytestsite.com/product/gchnvn-byyty-kpva-apvy-babvdt-yd-sjldsg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיף חלבון בטעם שוקולד עם קוקוס שקדים ו
 URL: https://zappytestsite.com/product/chtyp-chlbvn-btam-shvkvld-am-kvkvs-shkdym-v-xpbepn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קונפיטורת אפרסק פסיפלורה aunt berta
 URL: https://zappytestsite.com/product/kvnpytvrt-aprsk-psyplvrh-aunt-berta-j32dkb
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס גרנולה pro עם קשיו ופירות יבשים 600 גר
 URL: https://zappytestsite.com/product/rpals-grnvlh-pro-am-kshyv-vpyrvt-ybshym-600-gr-pj03b7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס מוזלי עם חמוציות ושקדים 350 גרם קרט
 URL: https://zappytestsite.com/product/rpals-mvzly-am-chmvtsyvt-vshkdym-350-grm-krt-hyl17n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מטריות חרובים ואגוזי נמר בטעם בננה אמב
 URL: https://zappytestsite.com/product/mtryvt-chrvbym-vagvzy-nmr-btam-bnnh-amb-7xycki
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מטריות חרובים ואגוזי נמר בטעם טופי אמב
 URL: https://zappytestsite.com/product/mtryvt-chrvbym-vagvzy-nmr-btam-tvpy-amb-53keoi
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מטריות חרובים ואגוזי נמר בטעם תות אמבר
 URL: https://zappytestsite.com/product/mtryvt-chrvbym-vagvzy-nmr-btam-tvt-ambr-yka6in
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### טפנד זיתים ירוקים 190 גרם ברטה
 URL: https://zappytestsite.com/product/tpnd-zytym-yrvkym-190-grm-brth-33dww2
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עגבניות מיובשות 210 גרם ברטה
 URL: https://zappytestsite.com/product/agbnyvt-myvbshvt-210-grm-brth-fz8br3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח ארטישוק 190 גרם ברטה
 URL: https://zappytestsite.com/product/mmrch-artyshvk-190-grm-brth-7z919v
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח חציל קלוי 190 גרם ברטה
 URL: https://zappytestsite.com/product/mmrch-chtsyl-klvy-190-grm-brth-tp1mn5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן מתובל בטעם כמהין לבן 250 מ״ל
 URL: https://zappytestsite.com/product/shmn-mtvbl-btam-kmhyn-lbn-250-ml-4etmsy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן מתובל בטעם כמהין שחור 250 מ״ל
 URL: https://zappytestsite.com/product/shmn-mtvbl-btam-kmhyn-shchvr-250-ml-8nhn49
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תרסיס שמן אגוזי קוקוס הכרם
 URL: https://zappytestsite.com/product/trsys-shmn-agvzy-kvkvs-hkrm-4e7xo1
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תרסיס שמן אורז הכרם
 URL: https://zappytestsite.com/product/trsys-shmn-avrz-hkrm-sycf2m
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שוקולד ממולא ליקר 1 קג
 URL: https://zappytestsite.com/product/shvkvld-mmvla-lykr-1-kg-rzepxc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מארז 12 מנבו בטעם מוקה
 URL: https://zappytestsite.com/product/marz-12-mnbv-btam-mvkh-7lzza0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מחית טנדורי 400 גרם מיוצרת בהודו
 URL: https://zappytestsite.com/product/mchyt-tndvry-400-grm-myvtsrt-bhvdv-5kh28x
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### טרפלס תמרים וחמאת בוטנים ממה
 URL: https://zappytestsite.com/product/trpls-tmrym-vchmat-bvtnym-mmh-rayb80
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס גרנולה עם חלבה תמרים ושקדים 350 גרם
 URL: https://zappytestsite.com/product/rpals-grnvlh-am-chlbh-tmrym-vshkdym-350-grm-wvqtjo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס גרנולה במתיקות מעודנת עם אגוזים
 URL: https://zappytestsite.com/product/rpals-grnvlh-bmtykvt-mavdnt-am-agvzym-56nwof
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח פלפל קלוי 190 גרם ברטה
 URL: https://zappytestsite.com/product/mmrch-plpl-klvy-190-grm-brth-wkk8oi
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לחמניות קלות מקמח כוסמין טאוברד
 URL: https://zappytestsite.com/product/lchmnyvt-klvt-mkmch-kvsmyn-tavbrd-vwznna
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חלה מתוקה נמכרת רק בימי שישי
 URL: https://zappytestsite.com/product/chlh-mtvkh-nmkrt-rk-bymy-shyshy-l12903
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין מלא אורגני 1 ק״ג - הכרם
 URL: https://zappytestsite.com/product/kmch-kvsmyn-mla-avrgny-1-kg-hkrm-f9bjt5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 6043
 
@@ -5640,7 +5688,7 @@ SKU: 6043
 
 ### רוטב שעועית שחורה בשום - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-shavayt-shchvrh-bshvm-mzrch-marb-umb4oc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 3ea94691afa4
 
@@ -5650,7 +5698,7 @@ SKU: 3ea94691afa4
 
 ### למון גראס (לימונית) מיובש
 URL: https://zappytestsite.com/product/lmvn-gras-lymvnyt-myvbsh-ptx733
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 16110
 
@@ -5658,7 +5706,7 @@ SKU: 16110
 
 ### ממרח שומשום עם דבש - אחוה
 URL: https://zappytestsite.com/product/mmrch-shvmshvm-am-dbsh-achvh-nczjet
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 11112
 
@@ -5668,7 +5716,7 @@ SKU: 11112
 
 ### עלי קפיר ליים מיובשים
 URL: https://zappytestsite.com/product/aly-kpyr-lyym-myvbshym-wil7kk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 16052
 
@@ -5678,42 +5726,42 @@ SKU: 16052
 
 ### כדורי תמרים ואגוזים במילוי קרם לוטוס
 URL: https://zappytestsite.com/product/kdvry-tmrym-vagvzym-bmylvy-krm-lvtvs-zxrqbd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גרנולה עם חלבה תמרים ושקדים 350 גרם רפאל׳
 URL: https://zappytestsite.com/product/grnvlh-am-chlbh-tmrym-vshkdym-350-grm-rpal-t8wuz3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס חטיף אגוזים שקדים וניל קרטון 12 יח
 URL: https://zappytestsite.com/product/rpals-chtyp-agvzym-shkdym-vnyl-krtvn-12-ych-tawn9c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פרלינים חצי חצי שחור לבן חלבי
 URL: https://zappytestsite.com/product/prlynym-chtsy-chtsy-shchvr-lbn-chlby-m1wyxw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות מושלגות נעמה
 URL: https://zappytestsite.com/product/avgyvt-mvshlgvt-namh-2hix32
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סטיביה 100 מ״ל - הכרם
 URL: https://zappytestsite.com/product/stybyh-100-ml-hkrm-rat2e4
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 13154
 
@@ -5721,7 +5769,7 @@ SKU: 13154
 
 ### קומקום זכוכית 1400 מ"ל
 URL: https://zappytestsite.com/product/kvmkvm-zkvkyt-1400-ml-pjl9am
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 16140
 
@@ -5731,7 +5779,7 @@ SKU: 16140
 
 ### רחת לוקום צבעוני 500 גרם - בני ריאד מחרום
 URL: https://zappytestsite.com/product/rcht-lvkvm-tsbavny-500-grm-bny-ryad-mchrvm-wso9l1
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 1de36d602460-2
 
@@ -5739,7 +5787,7 @@ SKU: 1de36d602460-2
 
 ### חליטת צמחים אורגנית עם קמומיל מליסה ויערת דבש (סגול) - Pompadour
 URL: https://zappytestsite.com/product/chlytt-tsmchym-avrgnyt-am-kmvmyl-mlysh-vyart-dbsh-sgvl-pompadour-zolq7n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 115298
 
@@ -5749,7 +5797,7 @@ SKU: 115298
 
 ### רחת לוקום ורוד 500 גרם - בני ריאד מחרום
 URL: https://zappytestsite.com/product/rcht-lvkvm-vrvd-500-grm-bny-ryad-mchrvm-imes61
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 245dffcce9d9
 
@@ -5757,7 +5805,7 @@ SKU: 245dffcce9d9
 
 ### חליטות קרות - מוחיטו פירות יער Pompadour
 URL: https://zappytestsite.com/product/chlytvt-krvt-mvchytv-pyrvt-yar-pompadour-4y0soh
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 16156
 
@@ -5767,7 +5815,7 @@ SKU: 16156
 
 ### חליטות קרות - תות ותפוז Pompadour
 URL: https://zappytestsite.com/product/chlytvt-krvt-tvt-vtpvz-pompadour-6z0d70
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 16157
 
@@ -5777,7 +5825,7 @@ SKU: 16157
 
 ### * עדשים אדומות - 500 גרם
 URL: https://zappytestsite.com/product/adshym-advmvt-500-grm-49kv6n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 130986
 
@@ -5785,7 +5833,7 @@ SKU: 130986
 
 ### חליטת צמחים אורגנית עם ג׳ינג׳ר לימונית וכורכום (צהוב) - Pompadour
 URL: https://zappytestsite.com/product/chlytt-tsmchym-avrgnyt-am-gyngr-lymvnyt-vkvrkvm-tshvb-pompadour-9ar2o6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 16139
 
@@ -5795,7 +5843,7 @@ SKU: 16139
 
 ### חליטות קרות - אפרסק פסיפלורה Pompadour
 URL: https://zappytestsite.com/product/chlytvt-krvt-aprsk-psyplvrh-pompadour-63cz82
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 16158
 
@@ -5805,2107 +5853,2107 @@ SKU: 16158
 
 ### משקה קוקוס אורגניים עם מיץ אננס
 URL: https://zappytestsite.com/product/mshkh-kvkvs-avrgnyym-am-myts-anns-ptf1xk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לחמניות ממחמצת טבעית 100 קמח כוסמין מלא ט
 URL: https://zappytestsite.com/product/lchmnyvt-mmchmtst-tbayt-100-kmch-kvsmyn-mla-t-uzp8nw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צלפים במי מלח 190 גרם bell
 URL: https://zappytestsite.com/product/tslpym-bmy-mlch-190-grm-bell-83c1gj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לחם ממחמצת טבעית 100 כוסמין מלא טאוברד
 URL: https://zappytestsite.com/product/lchm-mmchmtst-tbayt-100-kvsmyn-mla-tavbrd-uene2b
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### משקה אגוזי נמר אורגני 1 ליטר
 URL: https://zappytestsite.com/product/mshkh-agvzy-nmr-avrgny-1-lytr-ikn37q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לחם טחינה מאפיית ביכורים
 URL: https://zappytestsite.com/product/lchm-tchynh-mapyyt-bykvrym-1lbtav
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מקלות כוסמין שום שחור 200 גרם
 URL: https://zappytestsite.com/product/mklvt-kvsmyn-shvm-shchvr-200-grm-26uj9n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכר ענבים 500 גרם bd
 URL: https://zappytestsite.com/product/svkr-anbym-500-grm-bd-6x2207
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לחם פשתן מאפיית ביכורים
 URL: https://zappytestsite.com/product/lchm-pshtn-mapyyt-bykvrym-6mj0ao
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אצבעות לוקום בטעמי פירות
 URL: https://zappytestsite.com/product/atsbavt-lvkvm-btamy-pyrvt-tshsuk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אבקת אפייה ללא אלומיניום 400 גרם הכרם
 URL: https://zappytestsite.com/product/abkt-apyyh-lla-alvmynyvm-400-grm-hkrm-h9i5ia
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיף אגוזים ישראלי בני ריאד מחרום
 URL: https://zappytestsite.com/product/chtyp-agvzym-yshraly-bny-ryad-mchrvm-v2j8bl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חרדל עם גרגירים 210 גרם bornier
 URL: https://zappytestsite.com/product/chrdl-am-grgyrym-210-grm-bornier-jdhun6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז חום הכרם 2 יחידות ב 30 ש״ח
 URL: https://zappytestsite.com/product/dpy-avrz-chvm-hkrm-2-ychydvt-b-30-shch-xtg82z
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז עם כורכום הכרם 2 יחידות ב 30 ש״ח
 URL: https://zappytestsite.com/product/dpy-avrz-am-kvrkvm-hkrm-2-ychydvt-b-30-shch-07i8rw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז יסמין שחור הכרם 2 יחידות ב 30 ש״ח
 URL: https://zappytestsite.com/product/dpy-avrz-ysmyn-shchvr-hkrm-2-ychydvt-b-30-shch-fyz00t
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שוקולד צ׳יפס holy cacao
 URL: https://zappytestsite.com/product/shvkvld-tsyps-holy-cacao-g2l4s5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תערובת קמחים רב תכליתית 800 גרם תמי
 URL: https://zappytestsite.com/product/tarvbt-kmchym-rb-tklytyt-800-grm-tmy-uu86y4
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה כוסמין אורגנית פטוצ׳יני 500 גרם
 URL: https://zappytestsite.com/product/psth-kvsmyn-avrgnyt-ptvtsyny-500-grm-karntx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מחית סויה בהירה למרק מיסו taste of asia
 URL: https://zappytestsite.com/product/mchyt-svyh-bhyrh-lmrk-mysv-taste-of-asia-6ve44w
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קוואקר דק ללא גלוטן כרם 450 גרם
 URL: https://zappytestsite.com/product/kvvakr-dk-lla-glvtn-krm-450-grm-shhv0v
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה משעועית מש felicia פוזילי 250 גרם
 URL: https://zappytestsite.com/product/psth-mshavayt-msh-felicia-pvzyly-250-grm-hsr20n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח וניל טבעי 60 מ״ל
 URL: https://zappytestsite.com/product/mmrch-vnyl-tbay-60-ml-u7hk12
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח צ׳ופלה אגוזי נמר קשיו וקקאו 700 גרם shelly
 URL: https://zappytestsite.com/product/mmrch-tsvplh-agvzy-nmr-kshyv-vkkav-700-grm-shelly-qqqq2q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה מחומוס אורגני felicia פוזילי 250 גרם
 URL: https://zappytestsite.com/product/psth-mchvmvs-avrgny-felicia-pvzyly-250-grm-hrjm75
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות אורגניות על בסיס שיבולת שועל felicia
 URL: https://zappytestsite.com/product/atryvt-avrgnyvt-al-bsys-shybvlt-shval-felicia-l8mi6k
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תערובת להכנת פנקייקים ללא גלוטן barili
 URL: https://zappytestsite.com/product/tarvbt-lhknt-pnkyykym-lla-glvtn-barili-ltcgvk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תיק בד הקולה מרקט
 URL: https://zappytestsite.com/product/tyk-bd-hkvlh-mrkt-8wpbr8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות בטעם אגס ופטל שחור קופסת פח 200 גר
 URL: https://zappytestsite.com/product/svkryvt-btam-ags-vptl-shchvr-kvpst-pch-200-gr-7npvas
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן פשתן 250 מל העידן האורגני
 URL: https://zappytestsite.com/product/shmn-pshtn-250-ml-haydn-havrgny-z0033b
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח רב תכליתי 500 גרם שי של הטבע
 URL: https://zappytestsite.com/product/kmch-rb-tklyty-500-grm-shy-shl-htba-0ps52y
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה כוסמין אורגנית לבנה פוזילי 250 גרם
 URL: https://zappytestsite.com/product/psth-kvsmyn-avrgnyt-lbnh-pvzyly-250-grm-unoxjg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קוואקר דק אינסטנט 400 גרם
 URL: https://zappytestsite.com/product/kvvakr-dk-aynstnt-400-grm-537wnl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קוואקר מלא עבה 400 גרם
 URL: https://zappytestsite.com/product/kvvakr-mla-abh-400-grm-skmtc7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב תיבול על בסיס חומץ בלסמי
 URL: https://zappytestsite.com/product/rvtb-tybvl-al-bsys-chvmts-blsmy-vht4fv
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב קארי אדום 340 גרם מאסטר שף
 URL: https://zappytestsite.com/product/rvtb-kary-advm-340-grm-mastr-shp-tqddqj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דבש ישראי לחיץ מפרחי בר 400 גרם
 URL: https://zappytestsite.com/product/dbsh-yshray-lchyts-mprchy-br-400-grm-l5zfsq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות טופי פאדג׳
 URL: https://zappytestsite.com/product/svkryvt-tvpy-padg-zjboav
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות בטעם שוקולד חלב בורדו זהב
 URL: https://zappytestsite.com/product/svkryvt-btam-shvkvld-chlb-bvrdv-zhb-i9xgbr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לוקום אדום במשקל
 URL: https://zappytestsite.com/product/lvkvm-advm-bmshkl-492x0a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן מתובל בצ׳ילי מזרח מערב
 URL: https://zappytestsite.com/product/shmn-mtvbl-btsyly-mzrch-marb-4h9mr1
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות סהרוני אגוזים נעמה
 URL: https://zappytestsite.com/product/avgyvt-shrvny-agvzym-namh-8e2cuc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב פלפל צ׳ילי חריף סריראצ׳ה 480 מ״ל מז
 URL: https://zappytestsite.com/product/rvtb-plpl-tsyly-chryp-sryratsh-480-ml-mz-fkuho9
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ג׳ינג׳ר כבוש לבן מזרח מערב
 URL: https://zappytestsite.com/product/gyngr-kbvsh-lbn-mzrch-marb-8vjqnn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב קארי אדום 250 מ״ל מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-kary-advm-250-ml-mzrch-marb-iivffj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוזטה סירופ שקדים 750 מ״ל זוארץ
 URL: https://zappytestsite.com/product/rvzth-syrvp-shkdym-750-ml-zvarts-tvo7z1
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לוקום צהוב במשקל
 URL: https://zappytestsite.com/product/lvkvm-tshvb-bmshkl-nqfg7u
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מיקס לוקום במשקל
 URL: https://zappytestsite.com/product/myks-lvkvm-bmshkl-xut6r2
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות פיצוחיות וחמוציות ללא תוספת סו
 URL: https://zappytestsite.com/product/avgyvt-pytsvchyvt-vchmvtsyvt-lla-tvspt-sv-14a942
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב סויה יאמאסה 150 מ״ל מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-svyh-yamash-150-ml-mzrch-marb-xgfd0h
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות ירוקות בטעם פירות ללא סוכר
 URL: https://zappytestsite.com/product/svkryvt-yrvkvt-btam-pyrvt-lla-svkr-4ynsph
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות בטעם קפה חלבי
 URL: https://zappytestsite.com/product/svkryvt-btam-kph-chlby-ntjsem
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חלבה עם פיסטוקים 400 גרם השקדיה
 URL: https://zappytestsite.com/product/chlbh-am-pystvkym-400-grm-hshkdyh-b764gu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צלפים במי מלח 350 גרם תומר
 URL: https://zappytestsite.com/product/tslpym-bmy-mlch-350-grm-tvmr-ei2uun
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות ביצים מזרח מערב
 URL: https://zappytestsite.com/product/atryvt-bytsym-mzrch-marb-mc8evs
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### הולי קקאו אורגני טבעוני 100 מוצקי קקאו פי
 URL: https://zappytestsite.com/product/hvly-kkav-avrgny-tbavny-100-mvtsky-kkav-py-etxzxg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### 70 מוצקי קקאו מדגסקר אורגני טבעוני holy cacao
 URL: https://zappytestsite.com/product/70-mvtsky-kkav-mdgskr-avrgny-tbavny-holy-cacao-gzudnk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח חומוס ללא גלוטן 500 גרם תוצרת הטבע
 URL: https://zappytestsite.com/product/kmch-chvmvs-lla-glvtn-500-grm-tvtsrt-htba-6ajnve
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גריסי פנינה
 URL: https://zappytestsite.com/product/grysy-pnynh-tktjcp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בורגול בינוני
 URL: https://zappytestsite.com/product/bvrgvl-bynvny-dzuo0r
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בורגול דק
 URL: https://zappytestsite.com/product/bvrgvl-dk-66w0ob
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מטבעות פאני פורי 200 גרם
 URL: https://zappytestsite.com/product/mtbavt-pany-pvry-200-grm-qma7nf
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עגבניות תמר חתוכות דק במיץ עגבניות
 URL: https://zappytestsite.com/product/agbnyvt-tmr-chtvkvt-dk-bmyts-agbnyvt-shg6hk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שוקולד מריר ללא תוספת סוכר 61 שקד תבור
 URL: https://zappytestsite.com/product/shvkvld-mryr-lla-tvspt-svkr-61-shkd-tbvr-yv3nq7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מרציפן גבינה וקרמבל עבודת יד
 URL: https://zappytestsite.com/product/mrtsypn-gbynh-vkrmbl-abvdt-yd-y0x46x
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מרציפן אוכמניות עבודת יד
 URL: https://zappytestsite.com/product/mrtsypn-avkmnyvt-abvdt-yd-jkc2s0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מרציפן ורדים עבודת יד
 URL: https://zappytestsite.com/product/mrtsypn-vrdym-abvdt-yd-24832j
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תה ירוק גינגר תפוז pompadour
 URL: https://zappytestsite.com/product/th-yrvk-gyngr-tpvz-pompadour-o7oggh
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלב בציפוי שוקולד לבן וסוכריות
 URL: https://zappytestsite.com/product/byyglb-btsypvy-shvkvld-lbn-vsvkryvt-vvsipy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלה בציפוי שוקולד חלב
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-chlb-780p98
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי לוקום ממולאים עם אגוזים
 URL: https://zappytestsite.com/product/chtypy-lvkvm-mmvlaym-am-agvzym-8gffyl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי לוקום לבנים
 URL: https://zappytestsite.com/product/chtypy-lvkvm-lbnym-2frsve
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לוקום בומבה במילוי וציפוי פיסטוק
 URL: https://zappytestsite.com/product/lvkvm-bvmbh-bmylvy-vtsypvy-pystvk-yisg26
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אצבעות לוקום בציפוי פיסטוק
 URL: https://zappytestsite.com/product/atsbavt-lvkvm-btsypvy-pystvk-85hfdz
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט כוכבים 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-kvkbym-90-grm-joy-znc2t0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט קסם צבעוניות 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-ksm-tsbavnyvt-90-grm-joy-8gj78f
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט מיקס ירוק 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-myks-yrvk-90-grm-joy-c7nvgp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט אביב 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-abyb-90-grm-joy-3tz9f0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט בת הים 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-bt-hym-90-grm-joy-poxrr5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט מיקס כחול 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-myks-kchvl-90-grm-joy-1cmisp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח טבעוני 390 גרם בקבוק לחיץ היינס
 URL: https://zappytestsite.com/product/mmrch-tbavny-390-grm-bkbvk-lchyts-hyyns-l1a42c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תערובת להכנת פנקייקים בטעם בייתי שקדי
 URL: https://zappytestsite.com/product/tarvbt-lhknt-pnkyykym-btam-byyty-shkdy-3kl2bl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### splendid שוקולד מריר 85 מוצקי קקאו 100 גרם
 URL: https://zappytestsite.com/product/splendid-shvkvld-mryr-85-mvtsky-kkav-100-grm-6c3hs6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מעדן אוכמניות בית יצחק
 URL: https://zappytestsite.com/product/madn-avkmnyvt-byt-ytschk-wkoumf
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מעדן אגסים בית יצחק
 URL: https://zappytestsite.com/product/madn-agsym-byt-ytschk-4fejvm
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בקלאווה פיסטוק קדאיף
 URL: https://zappytestsite.com/product/bklavvh-pystvk-kdayp-opmfo6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם ורוד
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-vrvd-x7vrus
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שוקולד בלונדי מטבעות 200 גרם לובקה lubeca
 URL: https://zappytestsite.com/product/shvkvld-blvndy-mtbavt-200-grm-lvbkh-lubeca-5qz4fg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם לבן
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-lbn-8aw9ow
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם חום
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-chvm-hhhv9m
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם צהוב
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-tshvb-a40nvo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם כחול
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-kchvl-2zhmr5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימקאו לציפוי ואפייה 200 גרם ירוק
 URL: https://zappytestsite.com/product/tsymkav-ltsypvy-vapyyh-200-grm-yrvk-q26j6k
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות עם תרד מזרח מערב 2
 URL: https://zappytestsite.com/product/atryvt-am-trd-mzrch-marb-2-ixhj19
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פרלינים לבנים נקודות קרם לבן עם סוכריו
 URL: https://zappytestsite.com/product/prlynym-lbnym-nkvdvt-krm-lbn-am-svkryv-64dete
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פרלינים עטיפה שקופה שוקולד חלב עם פקאן
 URL: https://zappytestsite.com/product/prlynym-atyph-shkvph-shvkvld-chlb-am-pkan-rieimp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח תמרים ירדן
 URL: https://zappytestsite.com/product/mmrch-tmrym-yrdn-m8sull
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי לוקום ממולאים עם אגוזים אדום
 URL: https://zappytestsite.com/product/chtypy-lvkvm-mmvlaym-am-agvzym-advm-z8o4s5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח לפיצה או פוקאצה 500 גרם שי של הטבע
 URL: https://zappytestsite.com/product/kmch-lpytsh-av-pvkatsh-500-grm-shy-shl-htba-dbp7nr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן קיק בכבישה קרה 250 מ״ל pure nature
 URL: https://zappytestsite.com/product/shmn-kyk-bkbyshh-krh-250-ml-pure-nature-0g3fbr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מחית וניל 90 גרם משקד
 URL: https://zappytestsite.com/product/mchyt-vnyl-90-grm-mshkd-1b6ba0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב סריראצ׳ה מיונז טבעוני 455 מ״ל
 URL: https://zappytestsite.com/product/rvtb-sryratsh-myvnz-tbavny-455-ml-ucja77
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עדשים אדומות אורגניות בצורת ספגטי felicia
 URL: https://zappytestsite.com/product/adshym-advmvt-avrgnyvt-btsvrt-spgty-felicia-9kwwxw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מרציפן ללא תוספת סוכר 50 גרם המייסדים
 URL: https://zappytestsite.com/product/mrtsypn-lla-tvspt-svkr-50-grm-hmyysdym-mcbjf7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קארי ברייני 400 גרם מיוצר בהודו
 URL: https://zappytestsite.com/product/kary-bryyny-400-grm-myvtsr-bhvdv-02cel8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תמצית רום פרווה 10 מל
 URL: https://zappytestsite.com/product/tmtsyt-rvm-prvvh-10-ml-020chl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות אלפחורס שוקולד ללא תוספת סוכר נ
 URL: https://zappytestsite.com/product/avgyvt-alpchvrs-shvkvld-lla-tvspt-svkr-n-taptze
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות טחינה ללא תוספת סוכר נעמה
 URL: https://zappytestsite.com/product/avgyvt-tchynh-lla-tvspt-svkr-namh-2hcsbn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סהרוני וניל נעמה
 URL: https://zappytestsite.com/product/shrvny-vnyl-namh-m1ptvd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רולדת שוקולד פריך ללא תוספת סוכר נעמה
 URL: https://zappytestsite.com/product/rvldt-shvkvld-pryk-lla-tvspt-svkr-namh-03ry7e
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלה בציפוי שוקולד לבן
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-lbn-jsw4l0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמפיו רצועות דלעת כבושות taste of asia
 URL: https://zappytestsite.com/product/kmpyv-rtsvavt-dlat-kbvshvt-taste-of-asia-2he0hn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### טבלת שוקולד מריר 70 קקאו קמינו ורדה אקוו
 URL: https://zappytestsite.com/product/tblt-shvkvld-mryr-70-kkav-kmynv-vrdh-akvv-oc1w8c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב טריאקי עם שום 300 מ״ל taste of asia
 URL: https://zappytestsite.com/product/rvtb-tryaky-am-shvm-300-ml-taste-of-asia-0zvqax
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סאקה 14 כוהל 750 מ״ל
 URL: https://zappytestsite.com/product/sakh-14-kvhl-750-ml-sv7ows
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### quaker דגן מלא עשיר בסיבים banana nut
 URL: https://zappytestsite.com/product/quaker-dgn-mla-ashyr-bsybym-banana-nut-824srb
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### quaker דגן מלא עשיר בסיבים cranberry almond
 URL: https://zappytestsite.com/product/quaker-dgn-mla-ashyr-bsybym-cranberry-almond-1oq7z0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות ביצים taste of asia
 URL: https://zappytestsite.com/product/atryvt-bytsym-taste-of-asia-dsbat8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי תות שדה
 URL: https://zappytestsite.com/product/gvmy-tvt-shdh-myz02s
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות עם עגבניות taste of asia
 URL: https://zappytestsite.com/product/atryvt-am-agbnyvt-taste-of-asia-f9lt6w
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי ליקריץ שחור עגול
 URL: https://zappytestsite.com/product/gvmy-lykryts-shchvr-agvl-bapjmq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי ליקריץ תות שדה
 URL: https://zappytestsite.com/product/gvmy-lykryts-tvt-shdh-00wk4d
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי ליקריץ צבעוני בטעם פירות
 URL: https://zappytestsite.com/product/gvmy-lykryts-tsbavny-btam-pyrvt-z1l254
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פס חמצוצים מסולסל בטעם פירות מסוכר
 URL: https://zappytestsite.com/product/ps-chmtsvtsym-msvlsl-btam-pyrvt-msvkr-nvwir3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי אבטיח חדש
 URL: https://zappytestsite.com/product/gvmy-abtych-chdsh-a5as64
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי תות חדש
 URL: https://zappytestsite.com/product/gvmy-tvt-chdsh-wo6rrt
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי תות ורוד
 URL: https://zappytestsite.com/product/gvmy-tvt-vrvd-mt6g7k
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חמאת שקד ישראלי 300 גרם
 URL: https://zappytestsite.com/product/chmat-shkd-yshraly-300-grm-srqqyv
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### טפנד זיתים שחורים עם קלמטה 190 גרם ברטה
 URL: https://zappytestsite.com/product/tpnd-zytym-shchvrym-am-klmth-190-grm-brth-7n5f60
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות מחיטה מלאה ללא תוספת סוכר 200 גרם aviva
 URL: https://zappytestsite.com/product/avgyvt-mchyth-mlah-lla-tvspt-svkr-200-grm-aviva-0f2md8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רוטב טריאקי עם שומשום 300 מל taste of asia
 URL: https://zappytestsite.com/product/rvtb-tryaky-am-shvmshvm-300-ml-taste-of-asia-91d4v5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמר במילוי חמאת אגוז טבעית 120 גרם ת
 URL: https://zappytestsite.com/product/kdvry-tmr-bmylvy-chmat-agvz-tbayt-120-grm-t-5egnpk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמר במילוי חמאת בוטנים טבעית 120 גר
 URL: https://zappytestsite.com/product/kdvry-tmr-bmylvy-chmat-bvtnym-tbayt-120-gr-8yno7c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמר במילוי חמאת קוקוס טבעית 120 גרם
 URL: https://zappytestsite.com/product/kdvry-tmr-bmylvy-chmat-kvkvs-tbayt-120-grm-bpzkag
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמר במילוי חמאת שקדים טבעית 120 גרם
 URL: https://zappytestsite.com/product/kdvry-tmr-bmylvy-chmat-shkdym-tbayt-120-grm-pxi4vt
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מחית סויה כהה למרק מיסו taste of asia
 URL: https://zappytestsite.com/product/mchyt-svyh-khh-lmrk-mysv-taste-of-asia-mizlwn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דרז׳ה דגנים מצופים שוקולד 200 גרם
 URL: https://zappytestsite.com/product/drzh-dgnym-mtsvpym-shvkvld-200-grm-v8z1ri
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ג׳לי בינס 300 גרם
 URL: https://zappytestsite.com/product/gly-byns-300-grm-6thzda
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מיקס בקלאווה ארוזה 330 גרם בני בכר אל מחרו
 URL: https://zappytestsite.com/product/myks-bklavvh-arvzh-330-grm-bny-bkr-al-mchrv-55jy1p
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן שומשום בכבישה קרה 250 מ״ל העידן האורג
 URL: https://zappytestsite.com/product/shmn-shvmshvm-bkbyshh-krh-250-ml-haydn-havrg-j0i91z
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי ליקריץ ירוק בתוספת סוכר
 URL: https://zappytestsite.com/product/gvmy-lykryts-yrvk-btvspt-svkr-9zzfbd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי בצורת כרישים
 URL: https://zappytestsite.com/product/gvmy-btsvrt-kryshym-h6bmcq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כריות מצופות בשוקולד חלב 200 גרם
 URL: https://zappytestsite.com/product/kryvt-mtsvpvt-bshvkvld-chlb-200-grm-o2ejgx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קליפות הדרים מצופות שוקולד לבן פרווה 200
 URL: https://zappytestsite.com/product/klypvt-hdrym-mtsvpvt-shvkvld-lbn-prvvh-200-h602w4
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גומי בצורת פרפרים
 URL: https://zappytestsite.com/product/gvmy-btsvrt-prprym-srsp6r
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פס חמצוצים רגיל בטעם פירות מסוכר
 URL: https://zappytestsite.com/product/ps-chmtsvtsym-rgyl-btam-pyrvt-msvkr-0eahsy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פס חמצוצים בטעם תות מסוכר אדום
 URL: https://zappytestsite.com/product/ps-chmtsvtsym-btam-tvt-msvkr-advm-e8p5lb
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות פסים בטעם אקליפטוס מנטה
 URL: https://zappytestsite.com/product/svkryvt-psym-btam-aklyptvs-mnth-ylcppd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח חיטה לבן מנופה 1 ק״ג בר ולחם
 URL: https://zappytestsite.com/product/kmch-chyth-lbn-mnvph-1-kg-br-vlchm-9h5iwk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין לבן מנופה 1 ק״ג בר ולחם
 URL: https://zappytestsite.com/product/kmch-kvsmyn-lbn-mnvph-1-kg-br-vlchm-3fs2cs
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אפרסק לימון ללא תוספת סוכר 150 גרם
 URL: https://zappytestsite.com/product/aprsk-lymvn-lla-tvspt-svkr-150-grm-rfpjd0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין מלא 100 1 ק״ג בר ולחם
 URL: https://zappytestsite.com/product/kmch-kvsmyn-mla-100-1-kg-br-vlchm-h2wd7z
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן בציפוי במבה אדומה טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-btsypvy-bmbh-advmh-taymh-bchynm-p31y2d
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמרים בננה 300 גרם
 URL: https://zappytestsite.com/product/kdvry-tmrym-bnnh-300-grm-k8nmmy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כדורי תמרים עם קקאו ואגוזים בציפוי קוק
 URL: https://zappytestsite.com/product/kdvry-tmrym-am-kkav-vagvzym-btsypvy-kvk-0y55g7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות עיגולים אורגניות על בסיס שיבול
 URL: https://zappytestsite.com/product/atryvt-aygvlym-avrgnyvt-al-bsys-shybvl-8dg7tq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלה בציפוי שוקולד חלב 1 קג
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-chlb-1-kg-jmxnkc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלה בציפוי שוקולד לבן 1 קג
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-lbn-1-kg-dgivd3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בייגלה בציפוי שוקולד לבן וסוכריות 1 קג
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-lbn-vsvkryvt-1-kg-rjjl56
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אגוז מלך טבעי פרימיום טעימה בחינם
 URL: https://zappytestsite.com/product/agvz-mlk-tbay-prymyvm-taymh-bchynm-0zav9q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן טבעי מקולף טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-tbay-mkvlp-taymh-bchynm-hcf46x
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קשיו טבעי ענק טעימה בחינם
 URL: https://zappytestsite.com/product/kshyv-tbay-ank-taymh-bchynm-4r378f
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שקד אמריקאי טבעי טעימה בחינם
 URL: https://zappytestsite.com/product/shkd-amrykay-tbay-taymh-bchynm-34trbs
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חמוציות חתוכות ללא תוספת סוכר טעימה בח
 URL: https://zappytestsite.com/product/chmvtsyvt-chtvkvt-lla-tvspt-svkr-taymh-bch-jadd2s
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גרעינים שחורים קלויים עם מלח טעימה בחי
 URL: https://zappytestsite.com/product/graynym-shchvrym-klvyym-am-mlch-taymh-bchy-lds3yw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קשיו קלוי בטאבון טעימה בחינם
 URL: https://zappytestsite.com/product/kshyv-klvy-btabvn-taymh-bchynm-eqb1jo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פיסטוק קלוי טעימה בחינם
 URL: https://zappytestsite.com/product/pystvk-klvy-taymh-bchynm-8dyc3t
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אגוז ברזיל ענק טעימה בחינם
 URL: https://zappytestsite.com/product/agvz-brzyl-ank-taymh-bchynm-q700ix
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי מנגו מסוכרים טעימה בחינם
 URL: https://zappytestsite.com/product/chtypy-mngv-msvkrym-taymh-bchynm-5te3dy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימוק לבן קטן טעימה בחינם
 URL: https://zappytestsite.com/product/tsymvk-lbn-ktn-taymh-bchynm-04r5cu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בננה צ׳יפס טעימה בחינם
 URL: https://zappytestsite.com/product/bnnh-tsyps-taymh-bchynm-p52yqw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גרעיני אבטיח קלויים במחבת טעימה בחינם
 URL: https://zappytestsite.com/product/grayny-abtych-klvyym-bmchbt-taymh-bchynm-q83dcd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חומוס קלוי טעימה בחינם
 URL: https://zappytestsite.com/product/chvmvs-klvy-taymh-bchynm-uepyvc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סויה ארוכה קלויה טעימה בחינם
 URL: https://zappytestsite.com/product/svyh-arvkh-klvyh-taymh-bchynm-t5ua6p
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קשיו קלוי ללא מלח טעימה בחינם
 URL: https://zappytestsite.com/product/kshyv-klvy-lla-mlch-taymh-bchynm-h6i74u
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רביולי פלאפל טעימה בחינם
 URL: https://zappytestsite.com/product/rbyvly-plapl-taymh-bchynm-p0ti9l
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קבוקים בציפוי פיקנטי טעימה בחינם
 URL: https://zappytestsite.com/product/kbvkym-btsypvy-pyknty-taymh-bchynm-ytq7xr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימוק בציפוי שוקולד חלב טעימה בחינם
 URL: https://zappytestsite.com/product/tsymvk-btsypvy-shvkvld-chlb-taymh-bchynm-u87510
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בוטנים דרז׳ה חלבי טעימה בחינם
 URL: https://zappytestsite.com/product/bvtnym-drzh-chlby-taymh-bchynm-ie0e02
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימוק חום קטן טעימה בחינם
 URL: https://zappytestsite.com/product/tsymvk-chvm-ktn-taymh-bchynm-ptgunc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חמוציות חתוכות מסוכרות טעימה בחינם
 URL: https://zappytestsite.com/product/chmvtsyvt-chtvkvt-msvkrvt-taymh-bchynm-1adaji
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### זנגביל ג׳ינג׳ר דל סוכר טעימה בחינם
 URL: https://zappytestsite.com/product/zngbyl-gyngr-dl-svkr-taymh-bchynm-1a5wd8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בוטנים טבעיים טעימה בחינם
 URL: https://zappytestsite.com/product/bvtnym-tbayym-taymh-bchynm-4atzs3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן בציפוי בייגלה טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-btsypvy-byyglh-taymh-bchynm-efpdmq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קשיו מסוכר בציפוי קוקוס טעימה בחינם
 URL: https://zappytestsite.com/product/kshyv-msvkr-btsypvy-kvkvs-taymh-bchynm-6ro77e
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אפונה ווסאבי חריף טעימה בחינם
 URL: https://zappytestsite.com/product/apvnh-vvsaby-chryp-taymh-bchynm-ipa04s
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פול מטוגן טעימה בחינם
 URL: https://zappytestsite.com/product/pvl-mtvgn-taymh-bchynm-nv6huy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שקד מצופה שוקולד חלב טעימה בחינם
 URL: https://zappytestsite.com/product/shkd-mtsvph-shvkvld-chlb-taymh-bchynm-rva8ge
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי תפוח מסוכרים טעימה בחינם
 URL: https://zappytestsite.com/product/chtypy-tpvch-msvkrym-taymh-bchynm-pfa67c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רביולי גריל טעימה בחינם
 URL: https://zappytestsite.com/product/rbyvly-gryl-taymh-bchynm-tpvjdu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אגוז לוז מצופה שוקולד מריר פרווה טעימ
 URL: https://zappytestsite.com/product/agvz-lvz-mtsvph-shvkvld-mryr-prvvh-taym-o7stay
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קשיו מסוכר בציפוי לוטוס טעימה בחינם
 URL: https://zappytestsite.com/product/kshyv-msvkr-btsypvy-lvtvs-taymh-bchynm-vxevce
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן בציפוי אוראו טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-btsypvy-avrav-taymh-bchynm-ldh1jy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן קקאו חלבי טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-kkav-chlby-taymh-bchynm-eervao
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן שיש מצופה שוקו וניל חלבי טעימה בח
 URL: https://zappytestsite.com/product/pkan-shysh-mtsvph-shvkv-vnyl-chlby-taymh-bch-0xr9bq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן מצופה שוקולד לבן חלבי טעימה בחינ
 URL: https://zappytestsite.com/product/pkan-mtsvph-shvkvld-lbn-chlby-taymh-bchyn-kjqg5a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אלמנדוס טעימה בחינם
 URL: https://zappytestsite.com/product/almndvs-taymh-bchynm-hhfe9d
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אפונה קלויה טעימה בחינם
 URL: https://zappytestsite.com/product/apvnh-klvyh-taymh-bchynm-nrvfec
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תירס קלוי טעימה בחינם
 URL: https://zappytestsite.com/product/tyrs-klvy-taymh-bchynm-vdystj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקאן סיני מסוכר טעימה בחינם
 URL: https://zappytestsite.com/product/pkan-syny-msvkr-taymh-bchynm-t600kp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בוטן קראנץ׳ פיקנטי טעימה בחינם
 URL: https://zappytestsite.com/product/bvtn-krants-pyknty-taymh-bchynm-ruqvkc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שוקולד פנדה טבעוני מריר קפה
 URL: https://zappytestsite.com/product/shvkvld-pndh-tbavny-mryr-kph-zsxgz2
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מייסי תירס טעימה בחינם
 URL: https://zappytestsite.com/product/myysy-tyrs-taymh-bchynm-9i2ops
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### צימוק פרסי ירוק טעימה בחינם
 URL: https://zappytestsite.com/product/tsymvk-prsy-yrvk-taymh-bchynm-iw9lci
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גרעיני תלזה קלויים טעימה בחינם
 URL: https://zappytestsite.com/product/grayny-tlzh-klvyym-taymh-bchynm-apkhfj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### בוטן קראנץ׳ טעימה בחינם
 URL: https://zappytestsite.com/product/bvtn-krants-taymh-bchynm-5254ke
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ג׳לי בינס אדומים קופסה
 URL: https://zappytestsite.com/product/gly-byns-advmym-kvpsh-p991jl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חלבה מסולסלת ששון הקולה קרטון
 URL: https://zappytestsite.com/product/chlbh-msvlslt-shshvn-hkvlh-krtvn-erylav
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### זרעי צ׳יה 350 גרם
 URL: https://zappytestsite.com/product/zray-tsyh-350-grm-k0trew
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סלסה עגבניות חרוכות פיקנטי 200 גרם
 URL: https://zappytestsite.com/product/slsh-agbnyvt-chrvkvt-pyknty-200-grm-hu1ait
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סלסה חלפיניו ליים פיקנטי 275 גרם
 URL: https://zappytestsite.com/product/slsh-chlpynyv-lyym-pyknty-275-grm-rgsfm2
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח שומשום וקוקוס אחוה
 URL: https://zappytestsite.com/product/mmrch-shvmshvm-vkvkvs-achvh-cx23pq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח בטעם חרובים ללא תוספת סוכר העידן
 URL: https://zappytestsite.com/product/mmrch-btam-chrvbym-lla-tvspt-svkr-haydn-ribw17
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן זרעי דלעת 250 מ״ל העידן האורגני
 URL: https://zappytestsite.com/product/shmn-zray-dlat-250-ml-haydn-havrgny-82wscl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן זרעי המפ 250 מ״ל נטורפוד
 URL: https://zappytestsite.com/product/shmn-zray-hmp-250-ml-ntvrpvd-s71oia
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן לבנדר 10 מל
 URL: https://zappytestsite.com/product/shmn-lbndr-10-ml-ekbavx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן קיק בכבישה קרה 250 מ״ל os
 URL: https://zappytestsite.com/product/shmn-kyk-bkbyshh-krh-250-ml-os-9el7ua
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שמן שומשום בכבישה קרה 500 מ״ל העידן האורג
 URL: https://zappytestsite.com/product/shmn-shvmshvm-bkbyshh-krh-500-ml-haydn-havrg-apl2kp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מזון מלכות בדבש אורגני מפרחי בר 450 גרם מש
 URL: https://zappytestsite.com/product/mzvn-mlkvt-bdbsh-avrgny-mprchy-br-450-grm-msh-lsjl7a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח עדשים אדומות ללא גלוטן 500 גרם תוצרת ה
 URL: https://zappytestsite.com/product/kmch-adshym-advmvt-lla-glvtn-500-grm-tvtsrt-h-2rtib9
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ארוניה ברי 270 מ״ל
 URL: https://zappytestsite.com/product/arvnyh-bry-270-ml-kfkgza
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז עם סלק הכרם 2 יחידות ב 30 ש״ח
 URL: https://zappytestsite.com/product/dpy-avrz-am-slk-hkrm-2-ychydvt-b-30-shch-0kojhy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז טריו הכרם
 URL: https://zappytestsite.com/product/dpy-avrz-tryv-hkrm-g0swx8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי אורז הכרם 2 יחידות ב 30 ש״ח
 URL: https://zappytestsite.com/product/dpy-avrz-hkrm-2-ychydvt-b-30-shch-50nt8s
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גינגר כבוש לבן taste of asia
 URL: https://zappytestsite.com/product/gyngr-kbvsh-lbn-taste-of-asia-nyolkt
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות עם תרד taste of asia
 URL: https://zappytestsite.com/product/atryvt-am-trd-taste-of-asia-d6akee
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ארמוניקה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-armvnykh-500-grm-2-ych-b-25-shch-6jynov
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ג׳ירלה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-gyrlh-500-grm-2-ych-b-25-shch-zox25w
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה צ׳וקה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-tsvkh-500-grm-2-ych-b-25-shch-6w0001
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה קונקיליוני 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-kvnkylyvny-500-grm-2-ych-b-25-shch-0cc0uy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### דפי לזניה אטריות אורז תירס אורגניות felicia
 URL: https://zappytestsite.com/product/dpy-lznyh-atryvt-avrz-tyrs-avrgnyvt-felicia-fim26l
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### אטריות אורז מלא אורגניות ספגטי felicia
 URL: https://zappytestsite.com/product/atryvt-avrz-mla-avrgnyvt-spgty-felicia-ik0api
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח כוסמין לבן 1 ק״ג הכרם
 URL: https://zappytestsite.com/product/kmch-kvsmyn-lbn-1-kg-hkrm-urcmyu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח 70 כוסמין 1 ק״ג הכרם
 URL: https://zappytestsite.com/product/kmch-70-kvsmyn-1-kg-hkrm-367y4g
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח חיטה 70 1 ק״ג הכרם
 URL: https://zappytestsite.com/product/kmch-chyth-70-1-kg-hkrm-cb5iei
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קמח תירס לבן להכנת טורטיות 400 גרם
 URL: https://zappytestsite.com/product/kmch-tyrs-lbn-lhknt-tvrtyvt-400-grm-kdfkug
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מעדן פירות יער עץ השדה
 URL: https://zappytestsite.com/product/madn-pyrvt-yar-ats-hshdh-x897et
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מעדן פרי פירות יער עץ השדה
 URL: https://zappytestsite.com/product/madn-pry-pyrvt-yar-ats-hshdh-543tbe
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פינוני ריגטה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/pynvny-rygth-500-grm-2-ych-b-25-shch-4xw1k6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה דאורטי לבבות 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-davrty-lbbvt-500-grm-2-ych-b-25-shch-0juupl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה לומקוני 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-lvmkvny-500-grm-2-ych-b-25-shch-w4fw6q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ניוקטי 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-nyvkty-500-grm-2-ych-b-25-shch-i23uzp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה פאקרי 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-pakry-500-grm-2-ych-b-25-shch-k5lfpg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה פוזילי 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-pvzyly-500-grm-2-ych-b-25-shch-i85yxu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה פרחים 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-prchym-500-grm-2-ych-b-25-shch-vlaqp5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה פנטה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-pnth-500-grm-2-ych-b-25-shch-e2k71p
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה רואטה 500 גרם 2 יח׳ ב 25 ש״ח
 URL: https://zappytestsite.com/product/psth-rvath-500-grm-2-ych-b-25-shch-g8yspq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן ריגטוני מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-rygtvny-mkmch-tyrs-y0f88n
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן פנה מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-pnh-mkmch-tyrs-r5nsm3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן ביסלי מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-bysly-mkmch-tyrs-e4og6q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן צדפים מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-tsdpym-mkmch-tyrs-d982zv
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן ספגטי 250 גרם
 URL: https://zappytestsite.com/product/psth-lla-glvtn-spgty-250-grm-3tqvm5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן ספגטי מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-spgty-mkmch-tyrs-cxqtuq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פסטה ללא גלוטן פטוצ׳ה מקמח תירס
 URL: https://zappytestsite.com/product/psth-lla-glvtn-ptvtsh-mkmch-tyrs-2z8nrn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### לדר מנגו
 URL: https://zappytestsite.com/product/ldr-mngv-3irqug
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תמרים בואקום תמר כנרת
 URL: https://zappytestsite.com/product/tmrym-bvakvm-tmr-knrt-0g3k3a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תה לבן 100 גרם tea shape
 URL: https://zappytestsite.com/product/th-lbn-100-grm-tea-shape-u4f32y
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### קנקן תה מזכוכית 1800 מ״ל
 URL: https://zappytestsite.com/product/knkn-th-mzkvkyt-1800-ml-h8n759
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות תה לבן
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-th-lbn-f2xj9p
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות תה ירוק תפוח
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-th-yrvk-tpvch-qdcz2f
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות פירות אדומים
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-pyrvt-advmym-wj7hte
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות נענע מרעננת
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-nana-mrannt-mjcfwg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות ניצני אפרסק
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-nytsny-aprsk-dyzxs0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות וניל
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-vnyl-fmc7tz
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה קטנות ארל גריי
 URL: https://zappytestsite.com/product/pkavt-th-ktnvt-arl-gryy-n417rr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פקעות תה בטעמים שנפתחות לפרח
 URL: https://zappytestsite.com/product/pkavt-th-btamym-shnptchvt-lprch-xyffch
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פולן אבקת פרחים העידן האורגני
 URL: https://zappytestsite.com/product/pvln-abkt-prchym-haydn-havrgny-ip8s1t
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עלי סנא
 URL: https://zappytestsite.com/product/aly-sna-0qdlo7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית אדומה 500 גרם
 URL: https://zappytestsite.com/product/shavayt-advmh-500-grm-94re1j
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית אמריקאית 500 גרם
 URL: https://zappytestsite.com/product/shavayt-amrykayt-500-grm-u4rrhd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית בובס 500 גרם
 URL: https://zappytestsite.com/product/shavayt-bvbs-500-grm-ghm2q1
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית מש 500 גרם
 URL: https://zappytestsite.com/product/shavayt-msh-500-grm-1mrtpx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית לוביה לבנה 500 גרם
 URL: https://zappytestsite.com/product/shavayt-lvbyh-lbnh-500-grm-e7heaz
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שעועית שחורה 500 גרם
 URL: https://zappytestsite.com/product/shavayt-shchvrh-500-grm-dukvtx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### תירס פופקורן 500 גרם
 URL: https://zappytestsite.com/product/tyrs-pvpkvrn-500-grm-94mk71
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### פרלינים 1 קג
 URL: https://zappytestsite.com/product/prlynym-1-kg-2uizyo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מיקס הקולה דלי
 URL: https://zappytestsite.com/product/myks-hkvlh-dly-hlsbob
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חמאת בוטנים טבעית 1 קג bd קרטון 6 יח
 URL: https://zappytestsite.com/product/chmat-bvtnym-tbayt-1-kg-bd-krtvn-6-ych-2qobzj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### ממרח חרובים בטעם שוקולד bd קרטון 12 יח
 URL: https://zappytestsite.com/product/mmrch-chrvbym-btam-shvkvld-bd-krtvn-12-ych-6pmdsu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### שקיות חומות לקפה 100 יח
 URL: https://zappytestsite.com/product/shkyvt-chvmvt-lkph-100-ych-igvr08
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### גחנון קפוא קרטון 50 יח
 URL: https://zappytestsite.com/product/gchnvn-kpva-krtvn-50-ych-m4ske8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי חלבה ללא תוספת סוכר אחווה קרטון 12
 URL: https://zappytestsite.com/product/chtypy-chlbh-lla-tvspt-svkr-achvvh-krtvn-12-ts4krg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### חטיפי חלבה מיקס אחווה קרטון 12 יח
 URL: https://zappytestsite.com/product/chtypy-chlbh-myks-achvvh-krtvn-12-ych-70uzc5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות חמאה ללא תוספת סוכר
 URL: https://zappytestsite.com/product/svkryvt-chmah-lla-tvspt-svkr-wjem27
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט לבבות 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-lbbvt-90-grm-joy-a93fn5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### סוכריות לקישוט אהבה 90 גרם joy
 URL: https://zappytestsite.com/product/svkryvt-lkyshvt-ahbh-90-grm-joy-9l384a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### רפאלס גרנולה תענוג עם בננות צימוקים וש
 URL: https://zappytestsite.com/product/rpals-grnvlh-tanvg-am-bnnvt-tsymvkym-vsh-odd6bi
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### טאוברד לחמניות לס 390
 URL: https://zappytestsite.com/product/tavbrd-lchmnyvt-ls-390-lyi6hx
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות פרג פריך נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/avgyvt-prg-pryk-namh-2-ych-b-40-shch-20takr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות אוזני פיל ללא תוספת סוכר נעמה 2 י
 URL: https://zappytestsite.com/product/avgyvt-avzny-pyl-lla-tvspt-svkr-namh-2-y-f0wkyr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כעכים מלוחים נעמה
 URL: https://zappytestsite.com/product/kakym-mlvchym-namh-7hz3uv
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### מקלות כוסמין פריכים 200 גרם
 URL: https://zappytestsite.com/product/mklvt-kvsmyn-prykym-200-grm-lr8t6r
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות פיצוחיות קשיו ובוטנים ללא תוספ
 URL: https://zappytestsite.com/product/avgyvt-pytsvchyvt-kshyv-vbvtnym-lla-tvsp-q0w2kl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות פיצוחיות חמוציות וצימוקים נעמ
 URL: https://zappytestsite.com/product/avgyvt-pytsvchyvt-chmvtsyvt-vtsymvkym-nam-cfs3ui
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות פיצוחיות קשיו ובוטנים נעמה
 URL: https://zappytestsite.com/product/avgyvt-pytsvchyvt-kshyv-vbvtnym-namh-ky1ibo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות שקדיות נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/avgyvt-shkdyvt-namh-2-ych-b-40-shch-daze37
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### כעכים מלוחים נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/kakym-mlvchym-namh-2-ych-b-40-shch-bol4vn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות מרוקאיות נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/avgyvt-mrvkayvt-namh-2-ych-b-40-shch-prbdze
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות אצבע שוקולד נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/avgyvt-atsba-shvkvld-namh-2-ych-b-40-shch-m5581e
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות טחינה נעמה 2 יח׳ ב 40 ש״ח
 URL: https://zappytestsite.com/product/avgyvt-tchynh-namh-2-ych-b-40-shch-bwdkhu
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 
 ---
 
 ### עוגיות שקדיות ללא תוספת סוכר (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-shkdyvt-lla-tvspt-svkr-namh-x9xhcf
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 3506179f6fef
 
@@ -7915,7 +7963,7 @@ SKU: 3506179f6fef
 
 ### עוגיות אצבע שקד ללא תוספת סוכר (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-atsba-shkd-lla-tvspt-svkr-namh-5jzox7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: bf3c44660e6f
 
@@ -7925,7 +7973,7 @@ SKU: bf3c44660e6f
 
 ### עוגיות רולדת תמרים ואגוזים (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-rvldt-tmrym-vagvzym-namh-ps8itk
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 1f090bdf8db3
 
@@ -7935,7 +7983,7 @@ SKU: 1f090bdf8db3
 
 ### עוגיות רחת לוקום (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-rcht-lvkvm-namh-dwuoap
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 90b7a52b42a3
 
@@ -7945,7 +7993,7 @@ SKU: 90b7a52b42a3
 
 ### עוגיות אוזני פיל (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-avzny-pyl-namh-4lrtko
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: d993b04e06c2
 
@@ -7955,7 +8003,7 @@ SKU: d993b04e06c2
 
 ### עוגיות פאדג׳ (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-padg-namh-p21tlq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 615d988c4dcf
 
@@ -7965,7 +8013,7 @@ SKU: 615d988c4dcf
 
 ### עוגיות שוקולד צ׳יפס (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-shvkvld-tsyps-namh-vazw01
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 8c0948f873a5
 
@@ -7975,7 +8023,7 @@ SKU: 8c0948f873a5
 
 ### עוגיות אלפחורס ריבת חלב (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-alpchvrs-rybt-chlb-namh-6fhpez
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 8e3e2a03a3bf
 
@@ -7985,7 +8033,7 @@ SKU: 8e3e2a03a3bf
 
 ### עוגיות לבבות ריבה (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-lbbvt-rybh-namh-rgvuj3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: d09c11bad07a
 
@@ -7995,7 +8043,7 @@ SKU: d09c11bad07a
 
 ### עוגיות ריבה ללא תוספת סוכר (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-rybh-lla-tvspt-svkr-namh-vakjrj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 3d2bc2097d73
 
@@ -8005,7 +8053,7 @@ SKU: 3d2bc2097d73
 
 ### עוגיות פיצוחיות (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-pytsvchyvt-namh-bi09tg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 2e1f43e05776
 
@@ -8015,7 +8063,7 @@ SKU: 2e1f43e05776
 
 ### עוגיות אלפחורס פיסטוק (נעמה)
 URL: https://zappytestsite.com/product/avgyvt-alpchvrs-pystvk-namh-obncub
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 0c6d4044c68c
 
@@ -8025,7 +8073,7 @@ SKU: 0c6d4044c68c
 
 ### ג'חנון בייתי בצק קפוא בעבודת יד
 URL: https://zappytestsite.com/product/gchnvn-byyty-btsk-kpva-babvdt-yd-qv0irl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: c88c5f22d55c
 
@@ -8035,7 +8083,7 @@ SKU: c88c5f22d55c
 
 ### סוכריות דבש
 URL: https://zappytestsite.com/product/svkryvt-dbsh-k1gnie
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 85a247d6d54a
 
@@ -8043,7 +8091,7 @@ SKU: 85a247d6d54a
 
 ### סוכריות כחולות בטעם מנטה (עם סוכר)
 URL: https://zappytestsite.com/product/svkryvt-kchvlvt-btam-mnth-am-svkr-8jtzhw
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: e9d3813fcc90
 
@@ -8051,7 +8099,7 @@ SKU: e9d3813fcc90
 
 ### * אפונה צהובה - 500 גרם
 URL: https://zappytestsite.com/product/apvnh-tshvbh-500-grm-w97162
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 130965
 
@@ -8059,7 +8107,7 @@ SKU: 130965
 
 ### * חיטה פריקי - 500 גרם
 URL: https://zappytestsite.com/product/chyth-pryky-500-grm-mreeu5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 130961
 
@@ -8067,7 +8115,7 @@ SKU: 130961
 
 ### * חיטה - 500 גרם
 URL: https://zappytestsite.com/product/chyth-500-grm-gmfok4
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 130963
 
@@ -8075,7 +8123,7 @@ SKU: 130963
 
 ### * אורז פרא - 500 גרם
 URL: https://zappytestsite.com/product/avrz-pra-500-grm-xapxo6
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: bfda1a42281f-1
 
@@ -8083,7 +8131,7 @@ SKU: bfda1a42281f-1
 
 ### שקד מצופה שוקולד מריר - טעימה בחינם
 URL: https://zappytestsite.com/product/shkd-mtsvph-shvkvld-mryr-taymh-bchynm-5ynvky
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 3099e940e127-1
 
@@ -8091,7 +8139,7 @@ SKU: 3099e940e127-1
 
 ### * אפונה ירוקה - 500 גרם
 URL: https://zappytestsite.com/product/apvnh-yrvkh-500-grm-tzxxob
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: fc985f9bf873-2
 
@@ -8099,7 +8147,7 @@ SKU: fc985f9bf873-2
 
 ### * חומוס הדס - 500 גרם
 URL: https://zappytestsite.com/product/chvmvs-hds-500-grm-j2b03j
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: cd45afce49a8-1
 
@@ -8109,7 +8157,7 @@ SKU: cd45afce49a8-1
 
 ### * אורז שחור - 500 גרם
 URL: https://zappytestsite.com/product/avrz-shchvr-500-grm-55u4vd
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 9a9805e5c906-1
 
@@ -8117,7 +8165,7 @@ SKU: 9a9805e5c906-1
 
 ### * בורגול דק - 500 גרם
 URL: https://zappytestsite.com/product/bvrgvl-dk-500-grm-e9sdst
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 7f03eb406214-1
 
@@ -8125,7 +8173,7 @@ SKU: 7f03eb406214-1
 
 ### * חומוס בולגרי - 500 גרם
 URL: https://zappytestsite.com/product/chvmvs-bvlgry-500-grm-dy31wy
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: ba03799d5a4f-1
 
@@ -8135,7 +8183,7 @@ SKU: ba03799d5a4f-1
 
 ### * כוסמת טבעית - 500 גרם
 URL: https://zappytestsite.com/product/kvsmt-tbayt-500-grm-vq0hge
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: afeea68b6e44-1
 
@@ -8143,7 +8191,7 @@ SKU: afeea68b6e44-1
 
 ### * חומוס מקסיקני - 500 גרם
 URL: https://zappytestsite.com/product/chvmvs-mksykny-500-grm-j490nt
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 966bd68a7553-1
 
@@ -8151,7 +8199,7 @@ SKU: 966bd68a7553-1
 
 ### * בורגול בינוני - 500 גרם
 URL: https://zappytestsite.com/product/bvrgvl-bynvny-500-grm-tsnsp3
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: e9535694c848-1
 
@@ -8159,7 +8207,7 @@ SKU: e9535694c848-1
 
 ### * גריסי פנינה - 500 גרם
 URL: https://zappytestsite.com/product/grysy-pnynh-500-grm-gkizx8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 5bb674b1e29e-1
 
@@ -8167,7 +8215,7 @@ SKU: 5bb674b1e29e-1
 
 ### * בורגול עבה - 500 גרם
 URL: https://zappytestsite.com/product/bvrgvl-abh-500-grm-f9l3fs
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: e7808becfee3-1
 
@@ -8175,7 +8223,7 @@ SKU: e7808becfee3-1
 
 ### * קינואה אדומה - 500 גרם
 URL: https://zappytestsite.com/product/kynvah-advmh-500-grm-wwon8q
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 001562b5f5f1-1
 
@@ -8183,7 +8231,7 @@ SKU: 001562b5f5f1-1
 
 ### * פול גדול - 500 גרם
 URL: https://zappytestsite.com/product/pvl-gdvl-500-grm-r74op8
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 6fd78517bd84-1
 
@@ -8191,7 +8239,7 @@ SKU: 6fd78517bd84-1
 
 ### * עדשים ירוקות - 500 גרם
 URL: https://zappytestsite.com/product/adshym-yrvkvt-500-grm-x6rs5o
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 8efd8070dede-1
 
@@ -8199,7 +8247,7 @@ SKU: 8efd8070dede-1
 
 ### * עדשים שחורות - 500 גרם
 URL: https://zappytestsite.com/product/adshym-shchvrvt-500-grm-acedkj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 1884c65258b4-1
 
@@ -8207,7 +8255,7 @@ SKU: 1884c65258b4-1
 
 ### * שומשום לבן - 350 גרם
 URL: https://zappytestsite.com/product/shvmshvm-lbn-350-grm-0lmlfi
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 7caf61628ab9-1
 
@@ -8215,7 +8263,7 @@ SKU: 7caf61628ab9-1
 
 ### * כוסמת קלויה - 500 גרם
 URL: https://zappytestsite.com/product/kvsmt-klvyh-500-grm-bq5c5s
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 1ae914796cc3-1
 
@@ -8223,7 +8271,7 @@ SKU: 1ae914796cc3-1
 
 ### * פשתן שלם - 350 גרם
 URL: https://zappytestsite.com/product/pshtn-shlm-350-grm-9edh12
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 406575733f58-1
 
@@ -8231,7 +8279,7 @@ SKU: 406575733f58-1
 
 ### * שומשום מלא - 350 גרם
 URL: https://zappytestsite.com/product/shvmshvm-mla-350-grm-en3wef
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 6628d283aed4-1
 
@@ -8239,7 +8287,7 @@ SKU: 6628d283aed4-1
 
 ### * קינואה לבנה - 500 גרם
 URL: https://zappytestsite.com/product/kynvah-lbnh-500-grm-8l4d6i
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: cc0a1b134b7d-1
 
@@ -8247,7 +8295,7 @@ SKU: cc0a1b134b7d-1
 
 ### פרלינים כוכבים - קרם חלב
 URL: https://zappytestsite.com/product/prlynym-kvkbym-krm-chlb-5u5g71
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 07dbc5751af7
 
@@ -8255,7 +8303,7 @@ SKU: 07dbc5751af7
 
 ### טחינה עם חריף בקבוק לחיץ 300 גרם - כרם
 URL: https://zappytestsite.com/product/tchynh-am-chryp-bkbvk-lchyts-300-grm-krm-6z9dah
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: bcab83b456af
 
@@ -8263,7 +8311,7 @@ SKU: bcab83b456af
 
 ### זית ירוק מגולען צרוב עם עשבי תיבול - 400 גרם נטו
 URL: https://zappytestsite.com/product/zyt-yrvk-mgvlan-tsrvb-am-ashby-tybvl-400-grm-ntv-joso7r
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: a40f7ad9fed6-1
 
@@ -8271,7 +8319,7 @@ SKU: a40f7ad9fed6-1
 
 ### אגוז לוז בציפוי במבה אדומה - טעימה בחינם
 URL: https://zappytestsite.com/product/agvz-lvz-btsypvy-bmbh-advmh-taymh-bchynm-nn92ij
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: e9eb8bb7c2d3-4
 
@@ -8279,7 +8327,7 @@ SKU: e9eb8bb7c2d3-4
 
 ### בורגול עבה - 500 גרם
 URL: https://zappytestsite.com/product/bvrgvl-abh-500-grm-lghu5z
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: e7808becfee3
 
@@ -8289,7 +8337,7 @@ SKU: e7808becfee3
 
 ### Splendid שוקולד מריר בטעם תפוז 70% מוצקי קקאו - 100 גרם
 URL: https://zappytestsite.com/product/splendid-shvkvld-mryr-btam-tpvz-70-mvtsky-kkav-100-grm-55vs8m
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: a981d9c9c76e-1-1-2-1-1
 
@@ -8299,7 +8347,7 @@ SKU: a981d9c9c76e-1-1-2-1-1
 
 ### תרכיז מלבי 250 מ״ל
 URL: https://zappytestsite.com/product/trkyz-mlby-250-ml-tk397i
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 6d4bb882215f
 
@@ -8307,7 +8355,7 @@ SKU: 6d4bb882215f
 
 ### סובין שיבולת שועל 450 גרם - כרם
 URL: https://zappytestsite.com/product/svbyn-shybvlt-shval-450-grm-krm-zdt9yp
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 290eb5436d2e
 
@@ -8315,7 +8363,7 @@ SKU: 290eb5436d2e
 
 ### Splendid שוקולד מריר בטעם קפה 70% מוצקי קקאו - 100 גרם
 URL: https://zappytestsite.com/product/splendid-shvkvld-mryr-btam-kph-70-mvtsky-kkav-100-grm-hphxpm
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: a981d9c9c76e-1-1-2-1-1-1
 
@@ -8325,7 +8373,7 @@ SKU: a981d9c9c76e-1-1-2-1-1-1
 
 ### תמצית וניל טהורה 50 מ"ל - Amber Premium
 URL: https://zappytestsite.com/product/tmtsyt-vnyl-thvrh-50-ml-amber-premium-hzc67x
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 125294
 
@@ -8333,7 +8381,7 @@ SKU: 125294
 
 ### אגוז לוז בציפוי קוקוס (פררו רושה) - טעימה בחינם
 URL: https://zappytestsite.com/product/agvz-lvz-btsypvy-kvkvs-prrv-rvshh-taymh-bchynm-aynypl
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 966f12b140eb-1
 
@@ -8343,7 +8391,7 @@ SKU: 966f12b140eb-1
 
 ### רוטב אלף האיים 490 גרם - Kahan's
 URL: https://zappytestsite.com/product/rvtb-alp-hayym-490-grm-kahans-o6irod
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 88d02037385b
 
@@ -8351,7 +8399,7 @@ SKU: 88d02037385b
 
 ### מעדן פרי תפוז - בית יצחק
 URL: https://zappytestsite.com/product/madn-pry-tpvz-byt-ytschk-pfw0pr
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 126134a2f4a3-1-1
 
@@ -8361,7 +8409,7 @@ SKU: 126134a2f4a3-1-1
 
 ### טבלת שוקולד מריר 60% קקאו מדגסקר - הולי קקאו
 URL: https://zappytestsite.com/product/tblt-shvkvld-mryr-60-kkav-mdgskr-hvly-kkav-623b8c
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 48848d71ceac-1
 
@@ -8371,7 +8419,7 @@ SKU: 48848d71ceac-1
 
 ### רוטב פאד תאי 250 מ״ל - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-pad-tay-250-ml-mzrch-marb-pde8r7
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: b4d1e4c2e3ca
 
@@ -8379,7 +8427,7 @@ SKU: b4d1e4c2e3ca
 
 ### 60% מוצקי קקאו מדגסקר - אורגני טבעוני - הולי קקאו
 URL: https://zappytestsite.com/product/60-mvtsky-kkav-mdgskr-avrgny-tbavny-hvly-kkav-klhnzv
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 45c22899f7c2
 
@@ -8389,7 +8437,7 @@ SKU: 45c22899f7c2
 
 ### חטיפי לוקום ממולאים עם אגוזים (צהוב)
 URL: https://zappytestsite.com/product/chtypy-lvkvm-mmvlaym-am-agvzym-tshvb-i0zygg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 1de36d602460-1-3-1
 
@@ -8397,7 +8445,7 @@ SKU: 1de36d602460-1-3-1
 
 ### 80% מוצקי קקאו פיורה פרו - אורגני טבעוני - הולי קקאו
 URL: https://zappytestsite.com/product/80-mvtsky-kkav-pyvrh-prv-avrgny-tbavny-hvly-kkav-mxhwir
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: d3d13a17e8ac
 
@@ -8407,7 +8455,7 @@ SKU: d3d13a17e8ac
 
 ### רוטב סילאן מוקפץ שום וג'ינג'ר - משק לין
 URL: https://zappytestsite.com/product/rvtb-sylan-mvkpts-shvm-vgyngr-mshk-lyn-vexxzc
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: f4a9dd4b0bb5-1
 
@@ -8417,7 +8465,7 @@ SKU: f4a9dd4b0bb5-1
 
 ### רוטב דגים 700 מ״ל - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-dgym-700-ml-mzrch-marb-2hovva
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 44cea1dbf988
 
@@ -8425,7 +8473,7 @@ SKU: 44cea1dbf988
 
 ### רוטב מקסיקני 520 גרם - Kahan's
 URL: https://zappytestsite.com/product/rvtb-mksykny-520-grm-kahans-qikr0a
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 00545861e405
 
@@ -8433,7 +8481,7 @@ SKU: 00545861e405
 
 ### רוטב טריאקי 700 מ״ל - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-tryaky-700-ml-mzrch-marb-o7vu90
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: c21225f27bfd
 
@@ -8441,7 +8489,7 @@ SKU: c21225f27bfd
 
 ### רוטב הוי סטיר 250 מ״ל - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-hvy-styr-250-ml-mzrch-marb-uq3k4v
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 60313310b28c
 
@@ -8449,7 +8497,7 @@ SKU: 60313310b28c
 
 ### חטיף רחת לוקום פיסטוק
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-pystvk-ii3isj
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 52dde42e4c4e
 
@@ -8457,7 +8505,7 @@ SKU: 52dde42e4c4e
 
 ### חטיף רחת לוקום שקדים
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-shkdym-r97soh
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: a69f55b698b0
 
@@ -8465,7 +8513,7 @@ SKU: a69f55b698b0
 
 ### חטיף רחת לוקום לבן
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-lbn-y9hkf0
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 91aebdcd2e53
 
@@ -8473,7 +8521,7 @@ SKU: 91aebdcd2e53
 
 ### חטיף רחת לוקום אדום
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-advm-7vwd16
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 8329480eacab
 
@@ -8481,7 +8529,7 @@ SKU: 8329480eacab
 
 ### נבט חיטה 300 גרם - טבע מהדרין
 URL: https://zappytestsite.com/product/nbt-chyth-300-grm-tba-mhdryn-8nigr4
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: e4ae91f62851
 
@@ -8491,7 +8539,7 @@ SKU: e4ae91f62851
 
 ### חטיף רחת לוקום שחור לבן
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-shchvr-lbn-04yf39
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: e24e3ba5b69c
 
@@ -8499,7 +8547,7 @@ SKU: e24e3ba5b69c
 
 ### חטיף רחת לוקום קשיו
 URL: https://zappytestsite.com/product/chtyp-rcht-lvkvm-kshyv-z08pcq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 0788f6152458
 
@@ -8507,7 +8555,7 @@ SKU: 0788f6152458
 
 ### סירופ מלבי 750 מ״ל - טבע הגליל והגולן
 URL: https://zappytestsite.com/product/syrvp-mlby-750-ml-tba-hglyl-vhgvln-rf7vz5
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: f8899beb85a8
 
@@ -8515,7 +8563,7 @@ SKU: f8899beb85a8
 
 ### אבקת אפייה ללא גלוטן וללא אלומיניום
 URL: https://zappytestsite.com/product/abkt-apyyh-lla-glvtn-vlla-alvmynyvm-mmtwdn
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 7e174c5deb9e
 
@@ -8525,7 +8573,7 @@ SKU: 7e174c5deb9e
 
 ### תאנים טבעיות בייבי - טעימה בחינם
 URL: https://zappytestsite.com/product/tanym-tbayvt-byyby-taymh-bchynm-sz7n1i
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 127550
 
@@ -8533,7 +8581,7 @@ SKU: 127550
 
 ### בייגלה בציפוי שוקולד מריר (פרווה)
 URL: https://zappytestsite.com/product/byyglh-btsypvy-shvkvld-mryr-prvvh-f68pow
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 73ee99d97c0e
 
@@ -8541,7 +8589,7 @@ SKU: 73ee99d97c0e
 
 ### פרלינים לבנים - בטעם חלב במילוי קרם לבן
 URL: https://zappytestsite.com/product/prlynym-lbnym-btam-chlb-bmylvy-krm-lbn-ucrt5p
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 3251bed7a8f5
 
@@ -8549,7 +8597,7 @@ SKU: 3251bed7a8f5
 
 ### פרלינים שחור זהב - שוקולד מריר 70%
 URL: https://zappytestsite.com/product/prlynym-shchvr-zhb-shvkvld-mryr-70-k9syls
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 45b67d231e1d
 
@@ -8557,7 +8605,7 @@ SKU: 45b67d231e1d
 
 ### פרלינים סגולים - חלב במילוי קרם חלב ועוגיות
 URL: https://zappytestsite.com/product/prlynym-sgvlym-chlb-bmylvy-krm-chlb-vavgyvt-cyhz5r
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 214090d02b1b
 
@@ -8565,7 +8613,7 @@ SKU: 214090d02b1b
 
 ### רוטב הוי-סין ע״ב מחית סויה 360 גרם - מזרח מערב
 URL: https://zappytestsite.com/product/rvtb-hvy-syn-ab-mchyt-svyh-360-grm-mzrch-marb-wuhk26
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 358afd678472
 
@@ -8575,7 +8623,7 @@ SKU: 358afd678472
 
 ### סוכריות קשות אורגניות - בטעם תפוז, ליים, אשכולית אדומה ולימון
 URL: https://zappytestsite.com/product/svkryvt-kshvt-avrgnyvt-btam-tpvz-lyym-ashkvlyt-advmh-vlymvn-wg4mol
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 7afcd9f8257d
 
@@ -8585,7 +8633,7 @@ SKU: 7afcd9f8257d
 
 ### פרלינים צבעוניים - שוקולד מריר במילוי קרם קקאו פרווה
 URL: https://zappytestsite.com/product/prlynym-tsbavnyym-shvkvld-mryr-bmylvy-krm-kkav-prvvh-w1ablo
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: ddce18983e6a
 
@@ -8593,7 +8641,7 @@ SKU: ddce18983e6a
 
 ### שוקולד צ׳יפס - אופנהיימר
 URL: https://zappytestsite.com/product/shvkvld-tsyps-avpnhyymr-zr4p5y
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 959e4afb755e
 
@@ -8603,7 +8651,7 @@ SKU: 959e4afb755e
 
 ### שוקולד ריטר ספורט - פרלין
 URL: https://zappytestsite.com/product/shvkvld-rytr-spvrt-prlyn-tscgth
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 129158
 
@@ -8613,7 +8661,7 @@ SKU: 129158
 
 ### שוקולד ריטר ספורט - קורנפלקס
 URL: https://zappytestsite.com/product/shvkvld-rytr-spvrt-kvrnplks-8yl72l
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 129156
 
@@ -8623,7 +8671,7 @@ SKU: 129156
 
 ### עגבניות שרי Bell
 URL: https://zappytestsite.com/product/agbnyvt-shry-bell-dbda9f
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 88b88d2004ab
 
@@ -8633,7 +8681,7 @@ SKU: 88b88d2004ab
 
 ### קנקן תה מזכוכית 1400 מ״ל
 URL: https://zappytestsite.com/product/knkn-th-mzkvkyt-1400-ml-sp4e3m
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: d77d8e006754
 
@@ -8641,7 +8689,7 @@ SKU: d77d8e006754
 
 ### ממרח תמרים - השקדיה
 URL: https://zappytestsite.com/product/mmrch-tmrym-hshkdyh-c915wg
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 9428449ee321
 
@@ -8651,7 +8699,7 @@ SKU: 9428449ee321
 
 ### ריבת חלב 340 גרם - שקדיה
 URL: https://zappytestsite.com/product/rybt-chlb-340-grm-shkdyh-bjp2wf
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: efba6027b578
 
@@ -8659,7 +8707,7 @@ SKU: efba6027b578
 
 ### עלי תה לבן
 URL: https://zappytestsite.com/product/aly-th-lbn-68t2xq
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: c50c58f7ab02
 
@@ -8667,7 +8715,7 @@ SKU: c50c58f7ab02
 
 ### מרציפן 79% מצופה שוקולד מריר (21%) - 50 גרם
 URL: https://zappytestsite.com/product/mrtsypn-79-mtsvph-shvkvld-mryr-21-50-grm-6e9vux
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: In stock
 SKU: 5bcb37d20f40
 
@@ -8675,7 +8723,7 @@ SKU: 5bcb37d20f40
 
 ### ממרח 100% מקדמיה - שקד תבור
 URL: https://zappytestsite.com/product/mmrch-100-mkdmyh-shkd-tbvr-n2vzwa
-Price: 0.00 USD
+Price: 0.00 ILS
 Availability: Out of stock
 SKU: 9126af434761
 
@@ -8685,7 +8733,7 @@ SKU: 9126af434761
 
 ### Gift Card
 URL: https://zappytestsite.com/product/gift-card-9aoohh
-Price: 100.00 USD (sale, was 1000.00 USD)
+Price: 100.00 ILS (sale, was 1000.00 ILS)
 Availability: In stock
 SKU: ad8415fa2d5e
 
