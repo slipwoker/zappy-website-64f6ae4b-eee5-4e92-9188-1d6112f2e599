@@ -1,29 +1,29 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-06-29T09:12:57.143Z",
+  "generated_at": "2026-06-29T12:27:37.780Z",
   "base_url": "https://zappytestsite.com",
   "currency": "USD",
   "count": 440,
   "products": [
     {
       "id": "4885263d-1933-4813-809c-8085e1241f1f",
-      "slug": "svkryvt-btam-mnth-kvpst-pch-200-grm-pxh2ay",
+      "slug": "svkryvt-btam-mnth-kvpst-pch-200-grm-wiuqcd",
       "name": "סוכריות בטעם מנטה קופסת פח 200 גרם",
       "name_translations": {},
       "description": "",
       "short_description": null,
       "sku": null,
       "brand": null,
-      "price": 0,
-      "base_price": 0,
+      "price": 10,
+      "base_price": 10,
       "sale_price": null,
       "currency": "USD",
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-pxh2ay",
+      "url": "https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-wiuqcd",
       "categories": [],
-      "updated_at": "2026-06-29T08:51:19.993Z"
+      "updated_at": "2026-06-29T12:27:02.438Z"
     },
     {
       "id": "5d3dfa8d-f879-4d4e-b39d-4694e0730ae6",

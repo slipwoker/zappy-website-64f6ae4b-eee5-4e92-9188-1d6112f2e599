@@ -5419,8 +5419,8 @@ Shop Now
 ## Product Catalog
 
 ### סוכריות בטעם מנטה קופסת פח 200 גרם
-URL: https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-pxh2ay
-Price: 0.00 USD
+URL: https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-wiuqcd
+Price: 10.00 USD
 Availability: In stock
 
 ---

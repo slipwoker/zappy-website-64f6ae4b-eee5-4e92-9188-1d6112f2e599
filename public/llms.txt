@@ -75,8 +75,8 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 440** (showing first 200; full catalog at https://zappytestsite.com/products.json)
 
 ### סוכריות בטעם מנטה קופסת פח 200 גרם
-https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-pxh2ay
-- Price: 0.00 USD
+https://zappytestsite.com/product/svkryvt-btam-mnth-kvpst-pch-200-grm-wiuqcd
+- Price: 10.00 USD
 - Availability: In stock
 
 ### רוטב שזיפים מתוק 700 מ״ל taste of asia
