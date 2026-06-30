@@ -1510,6 +1510,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -4918,9 +4920,29 @@ function stripHtmlToText(html) {
             paymentSection.classList.add('fade-out');
 
             // Give the hosted payment page full width so wide provider pages
-            // (e.g. the Bit QR page) aren't clipped by the narrow summary column.
+            // (e.g. the Bit QR page) aren't clipped by the narrow (400px) summary
+            // column. Applied INLINE (not just via the CSS class) so it also works
+            // on existing sites whose stored CSS predates this change — a JS-only
+            // script refresh is enough.
             var checkoutLayoutEl = document.querySelector('.checkout-layout');
-            if (checkoutLayoutEl) checkoutLayoutEl.classList.add('checkout-iframe-active');
+            if (checkoutLayoutEl) {
+              checkoutLayoutEl.classList.add('checkout-iframe-active');
+              checkoutLayoutEl.style.gridTemplateColumns = '1fr';
+              var checkoutFormEl = checkoutLayoutEl.querySelector('.checkout-form');
+              if (checkoutFormEl) checkoutFormEl.style.display = 'none';
+              var orderSummaryEl = checkoutLayoutEl.querySelector('.order-summary');
+              if (orderSummaryEl) {
+                orderSummaryEl.style.position = 'static';
+                orderSummaryEl.style.width = '100%';
+                orderSummaryEl.style.maxWidth = '760px';
+                orderSummaryEl.style.marginLeft = 'auto';
+                orderSummaryEl.style.marginRight = 'auto';
+              }
+            }
+            // Let the wrapper scroll rather than clip if a provider page is still
+            // wider than the available space (belt-and-suspenders vs. overflow:hidden).
+            var iframeWrapperEl = iframeContainer.querySelector('.greeninvoice-iframe-wrapper');
+            if (iframeWrapperEl) iframeWrapperEl.style.overflow = 'auto';
 
             // Show loading state in iframe container
             iframeContainer.style.display = 'block';
