@@ -1502,6 +1502,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -4709,7 +4711,7 @@ function stripHtmlToText(html) {
               zip: shippingZip
             },
             shippingMethodId: selectedShipping.id,
-            shippingCost: selectedShipping.price || 0,
+            shippingCost: getShippingCost(),
             shippingMethodName: selectedShipping.name || 'משלוח',
             cart: checkoutCart,
             couponCode: appliedCoupon ? appliedCoupon.code : null,
@@ -4743,9 +4745,8 @@ function stripHtmlToText(html) {
         // Store pending order data in localStorage for order success page
         const reference = data.data.reference;
         if (reference) {
-          // Ensure numeric values are properly parsed (shipping.price may be string from DB)
           const subtotalNum = getCartSubtotal();
-          const shippingCostNum = parseFloat(selectedShipping.price) || 0;
+          const shippingCostNum = getShippingCost();
           const discountNum = parseFloat(couponDiscount + seasonalDiscount + bundleDiscount + firstOrderDiscount + customerCartDiscount) || 0;
           const pendingOrderData = {
             cartItems: checkoutCart,
@@ -4893,8 +4894,12 @@ function stripHtmlToText(html) {
           throw new Error(isRTL ? 'שגיאה בטעינת מערכת התשלום. נסו שוב.' : 'Failed to load payment system. Please try again.');
         }
 
-        // Check if provider is Green Invoice - show iframe instead of redirect
-        if (data.data.provider === 'greeninvoice') {
+        // Providers that render their hosted payment page in an in-page iframe
+        // (replacing the Place Order area) instead of a full-page redirect.
+        // The iframe redirects to the order-success page on completion, which
+        // breaks out of the frame via window.top / postMessage (provider-agnostic).
+        var iframePaymentProviders = ['greeninvoice', 'invoice4u'];
+        if (iframePaymentProviders.indexOf(data.data.provider) !== -1) {
           // Animate out the payment section and button
           const paymentSection = document.getElementById('checkout-payment-section');
           const iframeContainer = document.getElementById('greeninvoice-iframe-container');
@@ -4920,7 +4925,13 @@ function stripHtmlToText(html) {
               paymentSection.style.display = 'none';
               
               // Create and show the iframe
-              iframeContainer.querySelector('.greeninvoice-iframe-wrapper').innerHTML = '<iframe id="greeninvoice-iframe" src="' + data.data.checkoutUrl + '" frameborder="0" allowpaymentrequest="true" style="width: 100%; height: 600px; border: none;"></iframe>';
+              // allow="payment *" delegates the Payment Request API into the
+              // cross-origin clearing iframe so wallet methods (Apple Pay /
+              // Google Pay) work; the legacy allowpaymentrequest is kept as a
+              // best-effort fallback for old browsers. Bit + wallets are enabled
+              // on the provider's terminal, not via our request — they render
+              // inside this hosted page automatically when approved.
+              iframeContainer.querySelector('.greeninvoice-iframe-wrapper').innerHTML = '<iframe id="greeninvoice-iframe" src="' + data.data.checkoutUrl + '" frameborder="0" allow="payment *" allowpaymentrequest="true" style="width: 100%; height: 600px; border: none;"></iframe>';
             }, 300);
             
             return; // Don't redirect
@@ -5249,6 +5260,47 @@ function stripHtmlToText(html) {
     return !hasErrors;
   }
 
+  function parseCssRgb(color) {
+    var match = String(color || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    return match ? { r: parseInt(match[1], 10), g: parseInt(match[2], 10), b: parseInt(match[3], 10) } : null;
+  }
+
+  function getRgbLuminance(rgb) {
+    var vals = [rgb.r, rgb.g, rgb.b].map(function(v) {
+      v = v / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * vals[0] + 0.7152 * vals[1] + 0.0722 * vals[2];
+  }
+
+  function getRgbContrast(a, b) {
+    var l1 = getRgbLuminance(a);
+    var l2 = getRgbLuminance(b);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+  }
+
+  function getElementEffectiveBackground(el) {
+    var node = el;
+    while (node) {
+      var bg = window.getComputedStyle(node).backgroundColor;
+      var rgb = parseCssRgb(bg);
+      if (rgb && !/rgba\([^)]*,\s*0\s*\)/.test(bg)) return rgb;
+      node = node.parentElement;
+    }
+    return { r: 255, g: 255, b: 255 };
+  }
+
+  function applyCheckoutButtonContrast(btn) {
+    if (!btn) return;
+    var bg = getElementEffectiveBackground(btn);
+    var dark = { r: 17, g: 17, b: 17 };
+    var light = { r: 255, g: 255, b: 255 };
+    var darkRatio = getRgbContrast(dark, bg);
+    var lightRatio = getRgbContrast(light, bg);
+    var textColor = lightRatio >= darkRatio ? '#FFFFFF' : '#111111';
+    btn.style.setProperty('color', textColor, 'important');
+  }
+
   function updatePlaceOrderState() {
     var btn = document.getElementById('place-order-btn');
     if (!btn) return;
@@ -5279,6 +5331,7 @@ function stripHtmlToText(html) {
     var minOrderOk = !minimumOrderAmount || getCartSubtotal() >= minimumOrderAmount;
 
     btn.disabled = !(contactOk && shippingOk && paymentOk && termsOk && minOrderOk);
+    applyCheckoutButtonContrast(btn);
   }
 
   function formatMinimumOrderMessage(subtotal) {
@@ -16421,3 +16474,76 @@ function fixContrast(){
 /* ZAPPY_CUSTOMER_DISCOUNT_PRODUCT_DETAIL_RACE_V1 */
 
 /* ZAPPY_CUSTOMER_DISCOUNT_DELAYED_REFRESH_V1 */
+
+
+/* ZAPPY_CHECKOUT_BUTTON_CONTRAST_RUNTIME_V1 */
+;(function() {
+  if (window.__zappyCheckoutButtonContrastRuntimeV1) return;
+  window.__zappyCheckoutButtonContrastRuntimeV1 = true;
+
+  function parseRgb(color) {
+    var match = String(color || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    return match ? { r: parseInt(match[1], 10), g: parseInt(match[2], 10), b: parseInt(match[3], 10) } : null;
+  }
+
+  function luminance(rgb) {
+    var vals = [rgb.r, rgb.g, rgb.b].map(function(v) {
+      v = v / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * vals[0] + 0.7152 * vals[1] + 0.0722 * vals[2];
+  }
+
+  function contrast(a, b) {
+    var l1 = luminance(a);
+    var l2 = luminance(b);
+    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+  }
+
+  function effectiveBg(el) {
+    var node = el;
+    while (node) {
+      var bg = window.getComputedStyle(node).backgroundColor;
+      var rgb = parseRgb(bg);
+      if (rgb && !/rgba\([^)]*,\s*0\s*\)/.test(bg)) return rgb;
+      node = node.parentElement;
+    }
+    return { r: 255, g: 255, b: 255 };
+  }
+
+  function fixButton(btn) {
+    if (!btn) return;
+    var bg = effectiveBg(btn);
+    var dark = { r: 17, g: 17, b: 17 };
+    var light = { r: 255, g: 255, b: 255 };
+    var nextColor = contrast(light, bg) >= contrast(dark, bg) ? '#FFFFFF' : '#111111';
+    if (btn.style.getPropertyValue('color') !== nextColor || btn.style.getPropertyPriority('color') !== 'important') {
+      btn.style.setProperty('color', nextColor, 'important');
+    }
+  }
+
+  function sync() {
+    document.querySelectorAll('#place-order-btn, .checkout-place-order-btn').forEach(fixButton);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sync);
+  } else {
+    sync();
+  }
+
+  if (typeof MutationObserver !== 'undefined') {
+    var observer = new MutationObserver(sync);
+    function observeButtons() {
+      document.querySelectorAll('#place-order-btn, .checkout-place-order-btn').forEach(function(btn) {
+        observer.observe(btn, { attributes: true, attributeFilter: ['class', 'style', 'disabled'] });
+      });
+      sync();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observeButtons);
+    } else {
+      observeButtons();
+    }
+  }
+})();
