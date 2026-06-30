@@ -1506,6 +1506,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -4912,7 +4914,12 @@ function stripHtmlToText(html) {
           if (paymentSection && iframeContainer && iframe) {
             // Add fade-out animation to payment section
             paymentSection.classList.add('fade-out');
-            
+
+            // Give the hosted payment page full width so wide provider pages
+            // (e.g. the Bit QR page) aren't clipped by the narrow summary column.
+            var checkoutLayoutEl = document.querySelector('.checkout-layout');
+            if (checkoutLayoutEl) checkoutLayoutEl.classList.add('checkout-iframe-active');
+
             // Show loading state in iframe container
             iframeContainer.style.display = 'block';
             iframeContainer.querySelector('.greeninvoice-iframe-wrapper').innerHTML = '<div class="greeninvoice-loading"><div class="greeninvoice-loading-spinner"></div><span>' + (isRTL ? 'טוען עמוד תשלום...' : 'Loading payment page...') + '</span></div>';
