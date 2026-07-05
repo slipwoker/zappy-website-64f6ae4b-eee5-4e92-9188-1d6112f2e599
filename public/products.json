@@ -1,29 +1,31 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-05T14:45:35.394Z",
+  "generated_at": "2026-07-05T14:57:21.953Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
   "count": 1,
   "products": [
     {
       "id": "40cc38a0-fc21-4bd6-bab7-3d3136708853",
-      "slug": "dgkdgk-kjw2iy",
-      "name": "דגכדגכ",
+      "slug": "ain-dubai-ferris-wheel-lvslrr",
+      "name": "Ain Dubai Ferris wheel ",
       "name_translations": {},
       "description": "",
-      "short_description": "דגכ",
+      "short_description": "Ain Dubai is a giant Ferris wheel located at Bluewaters Island in Dubai, United Arab Emirates. It is the world's tallest observation wheel, at a height of 250 m, since October 2021",
       "sku": null,
       "brand": null,
-      "price": 0,
-      "base_price": 0,
-      "sale_price": null,
+      "price": 45,
+      "base_price": 50,
+      "sale_price": 45,
       "currency": "ILS",
-      "images": [],
+      "images": [
+        "https://zappytestsite.com/assets/image-product-image-1783263393875-8i7tns.webp"
+      ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/dgkdgk-kjw2iy",
+      "url": "https://zappytestsite.com/product/ain-dubai-ferris-wheel-lvslrr",
       "categories": [],
-      "updated_at": "2026-07-05T14:44:57.220Z"
+      "updated_at": "2026-07-05T14:56:47.617Z"
     }
   ]
 }
