@@ -1514,6 +1514,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3779,6 +3781,64 @@ function stripHtmlToText(html) {
     try { return new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(dateKey + 'T12:00:00Z')); }
     catch (e) { return dateKey; }
   }
+  function qvBookingMonthKey(dateKey) {
+    return String(dateKey || '').slice(0, 7);
+  }
+  function qvBookingMonthLabel(monthKey) {
+    try { return new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', month: 'long', year: 'numeric' }).format(new Date(monthKey + '-01T12:00:00Z')); }
+    catch (e) { return monthKey; }
+  }
+  function qvBookingAddMonths(monthKey, delta) {
+    var p = String(monthKey || '').split('-');
+    var dt = new Date(Date.UTC(parseInt(p[0], 10) || 1970, (parseInt(p[1], 10) || 1) - 1 + delta, 1));
+    return dt.getUTCFullYear() + '-' + String(dt.getUTCMonth() + 1).padStart(2, '0');
+  }
+  function qvBookingWeekdayLabels() {
+    var out = [];
+    for (var i = 0; i < 7; i++) {
+      try { out.push(new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', weekday: 'narrow' }).format(new Date(Date.UTC(2026, 1, 1 + i)))); }
+      catch (e) { out.push(['S','M','T','W','T','F','S'][i]); }
+    }
+    return out;
+  }
+  function qvBookingRenderCalendar(grp, booking) {
+    var available = {};
+    var months = [];
+    grp.order.forEach(function(k) {
+      available[k] = true;
+      var mk = qvBookingMonthKey(k);
+      if (months.indexOf(mk) === -1) months.push(mk);
+    });
+    booking.month = months.indexOf(booking.month) !== -1 ? booking.month : qvBookingMonthKey(booking.date || grp.order[0]);
+    if (months.indexOf(booking.month) === -1) booking.month = months[0];
+    var currentIdx = months.indexOf(booking.month);
+    var p = String(booking.month || '').split('-');
+    var y = parseInt(p[0], 10) || 1970;
+    var m = (parseInt(p[1], 10) || 1) - 1;
+    var firstDay = new Date(Date.UTC(y, m, 1)).getUTCDay();
+    var daysInMonth = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+    var weekdays = qvBookingWeekdayLabels().map(function(d) { return '<div class="zappy-qv-book-cal-weekday">' + zappyCardEscAttr(d) + '</div>'; }).join('');
+    var cells = '';
+    for (var blank = 0; blank < firstDay; blank++) cells += '<span class="zappy-qv-book-cal-day" aria-hidden="true"></span>';
+    for (var day = 1; day <= daysInMonth; day++) {
+      var dk = booking.month + '-' + String(day).padStart(2, '0');
+      var isAvailable = !!available[dk];
+      var cls = 'zappy-qv-book-cal-day' + (isAvailable ? ' is-available' : '') + (dk === booking.date ? ' is-selected' : '');
+      var attrs = isAvailable
+        ? ' type="button" data-qv-book-date="' + zappyCardEscAttr(dk) + '" aria-label="' + zappyCardEscAttr(qvBookingDateLabel(dk)) + '"'
+        : ' type="button" disabled aria-hidden="true"';
+      cells += '<button class="' + cls + '"' + attrs + '>' + day + '</button>';
+    }
+    return '<div class="zappy-qv-book-calendar" data-qv-book-calendar="date">'
+      + '<div class="zappy-qv-book-cal-head">'
+      + '<button type="button" class="zappy-qv-book-cal-nav" data-qv-book-month="' + zappyCardEscAttr(months[currentIdx - 1] || qvBookingAddMonths(booking.month, -1)) + '"' + (currentIdx <= 0 ? ' disabled' : '') + '>‹</button>'
+      + '<div class="zappy-qv-book-cal-title">' + zappyCardEscAttr(qvBookingMonthLabel(booking.month)) + '</div>'
+      + '<button type="button" class="zappy-qv-book-cal-nav" data-qv-book-month="' + zappyCardEscAttr(months[currentIdx + 1] || qvBookingAddMonths(booking.month, 1)) + '"' + (currentIdx >= months.length - 1 ? ' disabled' : '') + '>›</button>'
+      + '</div>'
+      + '<div class="zappy-qv-book-cal-weekdays">' + weekdays + '</div>'
+      + '<div class="zappy-qv-book-cal-grid">' + cells + '</div>'
+      + '</div>';
+  }
   function qvBookingTimeLabel(iso, tz) {
     try { return new Intl.DateTimeFormat(undefined, { timeZone: tz || undefined, hour: '2-digit', minute: '2-digit' }).format(new Date(iso)); }
     catch (e) { return String(iso); }
@@ -3834,8 +3894,7 @@ function stripHtmlToText(html) {
       return '<div class="zappy-qv-booking"><div class="zappy-qv-book-empty">' + getEcomText('bookingNoSlots', 'No available times right now') + '</div>' + formHtml + '</div>';
     }
     if (!b.date || grp.order.indexOf(b.date) === -1) { b.date = grp.order[0]; b.slotKey = null; b.slotId = null; b.startsAt = null; }
-    var dateOpts = '';
-    grp.order.forEach(function(k) { dateOpts += '<option value="' + zappyCardEscAttr(k) + '"' + (k === b.date ? ' selected' : '') + '>' + zappyCardEscAttr(qvBookingDateLabel(k)) + '</option>'; });
+    var calendarHtml = qvBookingRenderCalendar(grp, b);
     var daySlots = grp.map[b.date] || [];
     var stillThere = daySlots.some(function(s) { return qvBookingSlotKey(s) === b.slotKey; });
     if (!stillThere) { b.slotKey = null; b.slotId = null; b.startsAt = null; }
@@ -3848,7 +3907,7 @@ function stripHtmlToText(html) {
     });
     return '<div class="zappy-qv-booking">'
       + '<div class="zappy-qv-book-row"><label class="zappy-qv-book-label">' + getEcomText('bookingDate', 'Date') + '</label>'
-      +   '<select class="zappy-qv-book-select" data-qv-book="date">' + dateOpts + '</select></div>'
+      +   calendarHtml + '</div>'
       + '<div class="zappy-qv-book-row"><label class="zappy-qv-book-label">' + getEcomText('bookingTime', 'Time') + '</label>'
       +   '<select class="zappy-qv-book-select" data-qv-book="time">' + timeOpts + '</select></div>'
       + formHtml
@@ -4078,6 +4137,10 @@ function stripHtmlToText(html) {
       }
       var thumb = node.closest('[data-qv-thumb]');
       if (thumb && modal.contains(thumb)) { e.preventDefault(); var mainImg = modal.querySelector('.zappy-qv-main-img img'); if (mainImg) mainImg.src = thumb.getAttribute('data-qv-thumb'); modal.querySelectorAll('.zappy-qv-thumb').forEach(function(b) { b.classList.toggle('selected', b === thumb); }); return; }
+      var bookDate = node.closest('[data-qv-book-date]');
+      if (bookDate && modal.contains(bookDate)) { e.preventDefault(); var b = qvState.booking || (qvState.booking = { formAnswers: {} }); b.date = bookDate.getAttribute('data-qv-book-date'); b.month = qvBookingMonthKey(b.date); b.slotKey = null; b.slotId = null; b.startsAt = null; b.endsAt = null; qvBookingRefresh(); return; }
+      var bookMonth = node.closest('[data-qv-book-month]');
+      if (bookMonth && modal.contains(bookMonth)) { e.preventDefault(); var mb = qvState.booking || (qvState.booking = { formAnswers: {} }); mb.month = bookMonth.getAttribute('data-qv-book-month'); qvBookingRefresh(); return; }
       var addBtn = node.closest('.zappy-qv-addcart');
       if (addBtn && modal.contains(addBtn) && addBtn.tagName === 'BUTTON') { e.preventDefault(); if (!addBtn.disabled) qvAddToCart(); return; }
     }, false);
@@ -4087,7 +4150,7 @@ function stripHtmlToText(html) {
       var node = e.target; if (!node || !node.getAttribute) return;
       if (!modal.contains(node)) return;
       var bk = node.getAttribute('data-qv-book');
-      if (bk === 'date') { var b = qvState.booking || (qvState.booking = { formAnswers: {} }); b.date = node.value; b.slotKey = null; b.slotId = null; b.startsAt = null; qvBookingRefresh(); return; }
+      if (bk === 'date') { var b = qvState.booking || (qvState.booking = { formAnswers: {} }); b.date = node.value; b.slotKey = null; b.slotId = null; b.startsAt = null; b.endsAt = null; qvBookingRefresh(); return; }
       if (bk === 'time') { qvBookingSelectTime(node.value); return; }
       var fk = node.getAttribute('data-qv-book-field');
       if (fk) { qvBookingSetField(fk, node); return; }
@@ -12140,6 +12203,64 @@ function zappyPdpBookDateLabel(dateKey) {
   try { return new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(dateKey + 'T12:00:00Z')); }
   catch (e) { return dateKey; }
 }
+function zappyPdpBookMonthKey(dateKey) {
+  return String(dateKey || '').slice(0, 7);
+}
+function zappyPdpBookMonthLabel(monthKey) {
+  try { return new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', month: 'long', year: 'numeric' }).format(new Date(monthKey + '-01T12:00:00Z')); }
+  catch (e) { return monthKey; }
+}
+function zappyPdpBookAddMonths(monthKey, delta) {
+  var p = String(monthKey || '').split('-');
+  var dt = new Date(Date.UTC(parseInt(p[0], 10) || 1970, (parseInt(p[1], 10) || 1) - 1 + delta, 1));
+  return dt.getUTCFullYear() + '-' + String(dt.getUTCMonth() + 1).padStart(2, '0');
+}
+function zappyPdpBookWeekdayLabels() {
+  var out = [];
+  for (var i = 0; i < 7; i++) {
+    try { out.push(new Intl.DateTimeFormat(undefined, { timeZone: 'UTC', weekday: 'narrow' }).format(new Date(Date.UTC(2026, 1, 1 + i)))); }
+    catch (e) { out.push(['S','M','T','W','T','F','S'][i]); }
+  }
+  return out;
+}
+function zappyPdpBookRenderCalendar(grp, booking) {
+  var available = {};
+  var months = [];
+  grp.order.forEach(function(k) {
+    available[k] = true;
+    var mk = zappyPdpBookMonthKey(k);
+    if (months.indexOf(mk) === -1) months.push(mk);
+  });
+  booking.month = months.indexOf(booking.month) !== -1 ? booking.month : zappyPdpBookMonthKey(booking.date || grp.order[0]);
+  if (months.indexOf(booking.month) === -1) booking.month = months[0];
+  var currentIdx = months.indexOf(booking.month);
+  var p = String(booking.month || '').split('-');
+  var y = parseInt(p[0], 10) || 1970;
+  var m = (parseInt(p[1], 10) || 1) - 1;
+  var firstDay = new Date(Date.UTC(y, m, 1)).getUTCDay();
+  var daysInMonth = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  var weekdays = zappyPdpBookWeekdayLabels().map(function(d) { return '<div class="zappy-qv-book-cal-weekday">' + zappyPdpBookEsc(d) + '</div>'; }).join('');
+  var cells = '';
+  for (var blank = 0; blank < firstDay; blank++) cells += '<span class="zappy-qv-book-cal-day" aria-hidden="true"></span>';
+  for (var day = 1; day <= daysInMonth; day++) {
+    var dk = booking.month + '-' + String(day).padStart(2, '0');
+    var isAvailable = !!available[dk];
+    var cls = 'zappy-qv-book-cal-day' + (isAvailable ? ' is-available' : '') + (dk === booking.date ? ' is-selected' : '');
+    var attrs = isAvailable
+      ? ' type="button" data-qv-book-date="' + zappyPdpBookEsc(dk) + '" aria-label="' + zappyPdpBookEsc(zappyPdpBookDateLabel(dk)) + '"'
+      : ' type="button" disabled aria-hidden="true"';
+    cells += '<button class="' + cls + '"' + attrs + '>' + day + '</button>';
+  }
+  return '<div class="zappy-qv-book-calendar" data-qv-book-calendar="date">'
+    + '<div class="zappy-qv-book-cal-head">'
+    + '<button type="button" class="zappy-qv-book-cal-nav" data-qv-book-month="' + zappyPdpBookEsc(months[currentIdx - 1] || zappyPdpBookAddMonths(booking.month, -1)) + '"' + (currentIdx <= 0 ? ' disabled' : '') + '>‹</button>'
+    + '<div class="zappy-qv-book-cal-title">' + zappyPdpBookEsc(zappyPdpBookMonthLabel(booking.month)) + '</div>'
+    + '<button type="button" class="zappy-qv-book-cal-nav" data-qv-book-month="' + zappyPdpBookEsc(months[currentIdx + 1] || zappyPdpBookAddMonths(booking.month, 1)) + '"' + (currentIdx >= months.length - 1 ? ' disabled' : '') + '>›</button>'
+    + '</div>'
+    + '<div class="zappy-qv-book-cal-weekdays">' + weekdays + '</div>'
+    + '<div class="zappy-qv-book-cal-grid">' + cells + '</div>'
+    + '</div>';
+}
 function zappyPdpBookTimeLabel(iso, tz) {
   try { return new Intl.DateTimeFormat(undefined, { timeZone: tz || undefined, hour: '2-digit', minute: '2-digit' }).format(new Date(iso)); }
   catch (e) { return String(iso); }
@@ -12193,8 +12314,7 @@ function zappyPdpBookRenderBlock(st) {
     return '<div class="zappy-qv-book-empty">' + getEcomText('bookingNoSlots', 'No available times right now') + '</div>' + formHtml;
   }
   if (!b.date || grp.order.indexOf(b.date) === -1) { b.date = grp.order[0]; b.slotKey = null; b.slotId = null; b.startsAt = null; }
-  var dateOpts = '';
-  grp.order.forEach(function(k) { dateOpts += '<option value="' + zappyPdpBookEsc(k) + '"' + (k === b.date ? ' selected' : '') + '>' + zappyPdpBookEsc(zappyPdpBookDateLabel(k)) + '</option>'; });
+  var calendarHtml = zappyPdpBookRenderCalendar(grp, b);
   var daySlots = grp.map[b.date] || [];
   var stillThere = daySlots.some(function(s) { return zappyPdpBookSlotKey(s) === b.slotKey; });
   if (!stillThere) { b.slotKey = null; b.slotId = null; b.startsAt = null; }
@@ -12206,7 +12326,7 @@ function zappyPdpBookRenderBlock(st) {
     timeOpts += '<option value="' + zappyPdpBookEsc(key) + '"' + (key === b.slotKey ? ' selected' : '') + '>' + zappyPdpBookEsc(lbl) + '</option>';
   });
   return '<div class="zappy-qv-book-row"><label class="zappy-qv-book-label">' + getEcomText('bookingDate', 'Date') + '</label>'
-    +   '<select class="zappy-qv-book-select" data-qv-book="date">' + dateOpts + '</select></div>'
+    +   calendarHtml + '</div>'
     + '<div class="zappy-qv-book-row"><label class="zappy-qv-book-label">' + getEcomText('bookingTime', 'Time') + '</label>'
     +   '<select class="zappy-qv-book-select" data-qv-book="time">' + timeOpts + '</select></div>'
     + formHtml;
@@ -12279,6 +12399,7 @@ window.zappyPdpBookingInit = function(product) {
     .then(function() { zappyPdpBookPaint(); zappyPdpBookSyncButton(); });
   if (!window.__zappyPdpBookingBound) {
     window.__zappyPdpBookingBound = true;
+    document.addEventListener('click', zappyPdpBookHandleEvent, true);
     document.addEventListener('change', zappyPdpBookHandleEvent, true);
     document.addEventListener('input', zappyPdpBookHandleEvent, true);
   }
@@ -12289,8 +12410,24 @@ function zappyPdpBookHandleEvent(e) {
   if (!wrap || !wrap.contains(node)) return;
   var st = window.__zappyPdpBooking; if (!st) return;
   var b = st.booking || (st.booking = { formAnswers: {} });
+  var clickedDate = node.closest && node.closest('[data-qv-book-date]');
+  if (clickedDate && wrap.contains(clickedDate)) {
+    if (e.type === 'click') e.preventDefault();
+    b.date = clickedDate.getAttribute('data-qv-book-date');
+    b.month = zappyPdpBookMonthKey(b.date);
+    b.slotKey = null; b.slotId = null; b.startsAt = null; b.endsAt = null;
+    zappyPdpBookPaint(); zappyPdpBookSyncButton();
+    return;
+  }
+  var clickedMonth = node.closest && node.closest('[data-qv-book-month]');
+  if (clickedMonth && wrap.contains(clickedMonth)) {
+    if (e.type === 'click') e.preventDefault();
+    b.month = clickedMonth.getAttribute('data-qv-book-month');
+    zappyPdpBookPaint(); zappyPdpBookSyncButton();
+    return;
+  }
   var bk = node.getAttribute && node.getAttribute('data-qv-book');
-  if (bk === 'date') { b.date = node.value; b.slotKey = null; b.slotId = null; b.startsAt = null; zappyPdpBookPaint(); zappyPdpBookSyncButton(); return; }
+  if (bk === 'date') { b.date = node.value; b.slotKey = null; b.slotId = null; b.startsAt = null; b.endsAt = null; zappyPdpBookPaint(); zappyPdpBookSyncButton(); return; }
   if (bk === 'time') { zappyPdpBookSelectTime(node.value); return; }
   var fk = node.getAttribute && node.getAttribute('data-qv-book-field');
   if (fk) {
