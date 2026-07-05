@@ -1,13 +1,13 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-05T14:39:19.507Z",
+  "generated_at": "2026-07-05T14:45:35.394Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
   "count": 1,
   "products": [
     {
       "id": "40cc38a0-fc21-4bd6-bab7-3d3136708853",
-      "slug": "dgkdgk-1edabo",
+      "slug": "dgkdgk-kjw2iy",
       "name": "דגכדגכ",
       "name_translations": {},
       "description": "",
@@ -21,9 +21,9 @@
       "images": [],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/dgkdgk-1edabo",
+      "url": "https://zappytestsite.com/product/dgkdgk-kjw2iy",
       "categories": [],
-      "updated_at": "2026-07-05T14:38:33.833Z"
+      "updated_at": "2026-07-05T14:44:57.220Z"
     }
   ]
 }
