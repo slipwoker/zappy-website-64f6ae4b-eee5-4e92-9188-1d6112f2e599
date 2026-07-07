@@ -75,7 +75,7 @@ Information about WCAG compliance and accessibility features.
 **Total active products: 1**
 
 ### Ain Dubai Ferris wheel 
-https://zappytestsite.com/product/ain-dubai-ferris-wheel-yr2jl1
+https://zappytestsite.com/product/ain-dubai-ferris-wheel-k5cdmj
 - Price: 45.00 ILS (sale, was 50.00 ILS)
 - Availability: In stock
 - Description: Ain Dubai is a giant Ferris wheel located at Bluewaters Island in Dubai, United Arab Emirates. It is the world's tallest observation wheel, at a height of 250 m, since October 2021
