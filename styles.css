@@ -9615,6 +9615,24 @@ a, button {
   flex: 0 0 36px !important;
   object-fit: cover !important;
 }
+.navbar .nav-search-results button.search-view-all,
+.nav-search-box .nav-search-results button.search-view-all {
+  display: block !important;
+  width: 100% !important;
+  margin: 6px 0 0 !important;
+  padding: 10px 12px !important;
+  background: var(--accent, var(--primary)) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  appearance: none !important;
+}
 .search-no-results,
 .nav-search-no-results { 
   color: rgba(128,128,128,0.6) !important;
