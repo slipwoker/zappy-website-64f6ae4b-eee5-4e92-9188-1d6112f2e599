@@ -1530,6 +1530,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -6905,6 +6907,19 @@ function stripHtmlToText(html) {
       title.removeAttribute('data-search-title-active');
     }
   }
+
+  function getActiveProductsSearchQuery() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const directSearch = (urlParams.get('search') || '').trim();
+      if (directSearch) return directSearch;
+      const pageParam = urlParams.get('page') || '';
+      if (pageParam) {
+        return (new URL(pageParam, window.location.origin).searchParams.get('search') || '').trim();
+      }
+    } catch (e) {}
+    return '';
+  }
   
   function renderSearchResults(results, query) {
     const container = document.getElementById('nav-search-results');
@@ -7008,8 +7023,7 @@ function stripHtmlToText(html) {
       normalizeStorefrontRouteFromHref(window.location.pathname) === normalizeStorefrontRouteFromHref(activeListingPath) ||
       normalizeStorefrontRouteFromHref(activePreviewPage) === normalizeStorefrontRouteFromHref(activeListingPath)
     ) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const searchQuery = urlParams.get('search');
+      const searchQuery = getActiveProductsSearchQuery();
       if (searchQuery) {
         input.value = searchQuery;
         updateProductsSearchTitle(searchQuery);
@@ -9225,6 +9239,13 @@ function repairCatalogSubmenuLabel() {
 function repairProductsListingTitle() {
   var productsPageTitle = document.getElementById('products-page-title');
   if (!productsPageTitle) return;
+  if (typeof getActiveProductsSearchQuery === 'function') {
+    var activeSearchQuery = getActiveProductsSearchQuery();
+    if (activeSearchQuery) {
+      updateProductsSearchTitle(activeSearchQuery);
+      return;
+    }
+  }
   // The merchant's explicit "All Products" label (store setting) is the most
   // authoritative heading for the listing page — prefer it over the generic
   // i18n heading and the nav-derived fallback so the page title matches the
@@ -9319,7 +9340,12 @@ async function fetchAdditionalJsSettings(force) {
         // title should match the menu label instead of the generic "מוצרים".
         var listingTitleEl = document.getElementById('products-page-title');
         if (listingTitleEl) {
-          listingTitleEl.textContent = data.data.allProductsLabel;
+          var activeSearchQuery = (typeof getActiveProductsSearchQuery === 'function') ? getActiveProductsSearchQuery() : '';
+          if (activeSearchQuery) {
+            updateProductsSearchTitle(activeSearchQuery);
+          } else {
+            listingTitleEl.textContent = data.data.allProductsLabel;
+          }
         }
       } else if (additionalJsAllProductsLabel) {
         // No custom label for the ACTIVE language (labels are fetched per-language
@@ -15585,7 +15611,7 @@ function fixContrast(){
     var style = document.createElement('style');
     style.id = 'zappy-ecom-search-dropdown-ux-style';
     style.textContent = [
-      '.nav-search-results{width:min(360px,92vw)!important;max-height:none!important;overflow:hidden!important;padding:6px!important;color:var(--text-color,var(--text,#1f2937))!important;border:1px solid var(--border-color,rgba(15,23,42,.08))!important;box-shadow:0 14px 36px rgba(15,23,42,.18)!important;}',
+      '.nav-search-results,.navbar #nav-search-results,.navbar .nav-search-results{width:min(360px,92vw)!important;min-width:280px!important;max-width:360px!important;inset-inline-end:auto!important;max-height:none!important;overflow:hidden!important;padding:6px!important;color:var(--text-color,var(--text,#1f2937))!important;border:1px solid var(--border-color,rgba(15,23,42,.08))!important;box-shadow:0 14px 36px rgba(15,23,42,.18)!important;}',
       '.search-result-item,.navbar .nav-search-results .search-result-item,.nav-search-box .nav-search-results .search-result-item{display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;min-height:48px!important;padding:6px 8px!important;color:var(--text-color,var(--text,#1f2937))!important;text-decoration:none!important;}',
       '.search-result-img,.navbar .nav-search-results .search-result-img,.nav-search-box .nav-search-results .search-result-img,.navbar .nav-search-results .search-result-item img,.nav-search-box .nav-search-results .search-result-item img{width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;flex:0 0 36px!important;object-fit:cover!important;border-radius:7px!important;background:var(--surface-color,var(--surface,#f3f4f6))!important;}',
       '.search-result-info{flex:1 1 auto!important;min-width:0!important;}',
@@ -15652,16 +15678,36 @@ function fixContrast(){
     var lang = ((html && html.getAttribute('lang')) || '').toLowerCase();
     return lang.indexOf('he') === 0 ? 'תוצאות חיפוש' : 'Search results';
   }
-  function updateSearchTitle() {
+  function activeSearchQuery() {
     var params;
-    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
-    var query = params.get('search');
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return ''; }
+    var direct = (params.get('search') || '').trim();
+    if (direct) return direct;
+    var page = params.get('page') || '';
+    if (!page) return '';
+    try {
+      return (new URL(page, window.location.origin).searchParams.get('search') || '').trim();
+    } catch (e) {
+      return '';
+    }
+  }
+  function updateSearchTitle() {
+    var query = activeSearchQuery();
     if (!query) return;
     var title = document.getElementById('products-page-title');
     if (title) {
       title.textContent = searchTitleText();
       title.setAttribute('data-search-title-active', 'true');
     }
+  }
+  function watchSearchTitle() {
+    var title = document.getElementById('products-page-title');
+    if (!title || title.__zappySearchTitleObserver || !activeSearchQuery()) return;
+    title.__zappySearchTitleObserver = new MutationObserver(updateSearchTitle);
+    title.__zappySearchTitleObserver.observe(title, { childList: true, characterData: true, subtree: true });
+    [50, 250, 750, 1500, 2500].forEach(function(delay) {
+      setTimeout(updateSearchTitle, delay);
+    });
   }
   function makeViewAllButton(link, query, priorText) {
     var button = document.createElement('button');
@@ -15709,6 +15755,7 @@ function fixContrast(){
   function init() {
     injectStyle();
     updateSearchTitle();
+    watchSearchTitle();
     var containers = Array.prototype.slice.call(document.querySelectorAll('#nav-search-results,#mobile-search-results,.nav-search-results,.mobile-search-panel .search-results'));
     containers.forEach(function(container) {
       capContainer(container);
