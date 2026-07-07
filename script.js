@@ -1532,6 +1532,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -6900,8 +6902,12 @@ function stripHtmlToText(html) {
       const label = typeof getEcomText === 'function'
         ? getEcomText('searchResults', t.searchResults || 'Search results')
         : (t.searchResults || 'Search results');
-      title.textContent = label;
-      title.setAttribute('data-search-title-active', 'true');
+      if ((title.textContent || '').trim() !== label) {
+        title.textContent = label;
+      }
+      if (title.getAttribute('data-search-title-active') !== 'true') {
+        title.setAttribute('data-search-title-active', 'true');
+      }
     } else if (title.getAttribute('data-search-title-active') === 'true') {
       title.textContent = t.ourProducts || t.products || 'Products';
       title.removeAttribute('data-search-title-active');
@@ -15696,14 +15702,23 @@ function fixContrast(){
     if (!query) return;
     var title = document.getElementById('products-page-title');
     if (title) {
-      title.textContent = searchTitleText();
-      title.setAttribute('data-search-title-active', 'true');
+      var label = searchTitleText();
+      if ((title.textContent || '').trim() !== label) {
+        title.textContent = label;
+      }
+      if (title.getAttribute('data-search-title-active') !== 'true') {
+        title.setAttribute('data-search-title-active', 'true');
+      }
     }
   }
   function watchSearchTitle() {
     var title = document.getElementById('products-page-title');
     if (!title || title.__zappySearchTitleObserver || !activeSearchQuery()) return;
-    title.__zappySearchTitleObserver = new MutationObserver(updateSearchTitle);
+    title.__zappySearchTitleObserver = new MutationObserver(function() {
+      if ((title.textContent || '').trim() !== searchTitleText()) {
+        updateSearchTitle();
+      }
+    });
     title.__zappySearchTitleObserver.observe(title, { childList: true, characterData: true, subtree: true });
     [50, 250, 750, 1500, 2500].forEach(function(delay) {
       setTimeout(updateSearchTitle, delay);
