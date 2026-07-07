@@ -1536,6 +1536,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -7035,8 +7037,9 @@ function stripHtmlToText(html) {
       if (searchQuery) {
         input.value = searchQuery;
         updateProductsSearchTitle(searchQuery);
-        // Filter products grid based on search
-        filterProductsGrid(searchQuery);
+        // loadProductsWithFilter sends the search query to the storefront API.
+        // Do not client-filter before the async load completes, or the grid can
+        // show "Loading products..." and an empty state at the same time.
       } else {
         updateProductsSearchTitle('');
       }
@@ -7049,7 +7052,11 @@ function stripHtmlToText(html) {
     
     // Wait for products to load, then filter
     setTimeout(function() {
+      if (grid.querySelector('.loading-products')) return;
+      const existingNoResults = grid.querySelector('#search-no-results');
+      if (existingNoResults) existingNoResults.remove();
       const cards = grid.querySelectorAll('.product-card');
+      if (cards.length === 0) return;
       const q = query.toLowerCase();
       let visibleCount = 0;
       
