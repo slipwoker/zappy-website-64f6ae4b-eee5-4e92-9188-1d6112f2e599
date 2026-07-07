@@ -1534,6 +1534,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -15719,20 +15721,18 @@ function fixContrast(){
         updateSearchTitle();
       }
     });
-    title.__zappySearchTitleObserver.observe(title, { childList: true, characterData: true, subtree: true });
-    [50, 250, 750, 1500, 2500].forEach(function(delay) {
-      setTimeout(updateSearchTitle, delay);
-    });
+    title.__zappySearchTitleObserver.observe(title, { childList: true });
   }
   function makeViewAllButton(link, query, priorText) {
     var button = document.createElement('button');
     button.type = 'button';
     button.className = 'search-view-all';
     button.textContent = labelText(priorText);
+    button.setAttribute('data-search-url', buildResultsUrl(query));
     button.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      window.location.href = buildResultsUrl(query);
+      window.location.href = button.getAttribute('data-search-url') || buildResultsUrl(query);
     });
     return button;
   }
@@ -15765,7 +15765,14 @@ function fixContrast(){
       e.stopPropagation();
       window.location.href = buildResultsUrl(query);
     };
-    link.textContent = labelText(priorText);
+    var nextUrl = buildResultsUrl(query);
+    if (link.getAttribute('data-search-url') !== nextUrl) {
+      link.setAttribute('data-search-url', nextUrl);
+    }
+    var nextLabel = labelText(priorText);
+    if ((link.textContent || '').trim() !== nextLabel) {
+      link.textContent = nextLabel;
+    }
   }
   function init() {
     injectStyle();
@@ -15776,7 +15783,7 @@ function fixContrast(){
       capContainer(container);
       if (container.__zappyEcomSearchUxObserver) return;
       container.__zappyEcomSearchUxObserver = new MutationObserver(function(){ capContainer(container); });
-      container.__zappyEcomSearchUxObserver.observe(container, { childList: true, subtree: true });
+      container.__zappyEcomSearchUxObserver.observe(container, { childList: true });
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
