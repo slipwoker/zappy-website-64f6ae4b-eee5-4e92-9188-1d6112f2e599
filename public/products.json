@@ -1,8 +1,115 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-13T14:01:43.141Z",
+  "generated_at": "2026-07-13T14:02:33.988Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
-  "count": 0,
-  "products": []
+  "count": 4,
+  "products": [
+    {
+      "id": "2a5c2713-220e-4b54-af96-855d266e3513",
+      "slug": "black-beads-necklace-2wy3ar",
+      "name": "black beads necklace",
+      "name_translations": {},
+      "description": "A mala is used for yoga practice or as part of your bohemian style.\n\nThey can be worn by anyone who wants a more mindful, peaceful life.\nYou can wear this mala as a bracelet or as a necklace.\nA mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\tbrown long mala\tbead Black necklace\tgift for Meditator\n\nSize:\nNecklace size 18\" 42cm\nomm pendant: 1\" X 1 \"",
+      "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
+      "sku": null,
+      "brand": null,
+      "price": 272.35,
+      "base_price": 272.35,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951313138-fag5ln.webp",
+        "https://zappytestsite.com/assets/product-1783951314146-omexb9.webp",
+        "https://zappytestsite.com/assets/product-1783951315270-aj44eo.webp",
+        "https://zappytestsite.com/assets/product-1783951316291-u20d3s.webp",
+        "https://zappytestsite.com/assets/product-1783951317555-hvhbl.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/black-beads-necklace-2wy3ar",
+      "categories": [
+        "Yogi Gifts"
+      ],
+      "updated_at": "2026-07-13T14:01:58.712Z"
+    },
+    {
+      "id": "d0953fb5-3a49-4072-b1ae-9c5e4946ceaf",
+      "slug": "white-beads-om-necklace-0w4kyn",
+      "name": "White beads om necklace",
+      "name_translations": {},
+      "description": "A mala is used for yoga practice or as part of your bohemian style.\n\nThey can be worn by anyone who wants a more mindful, peaceful life.\nYou can wear this mala as a bracelet or as a necklace.\nA mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\twhite long mala\tbead white necklace\tgift for Meditator\n\nSize:\nNecklace size 18\" 42cm\nomm pendant: 1\" X 1 \"",
+      "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
+      "sku": null,
+      "brand": null,
+      "price": 214.22,
+      "base_price": 214.22,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951312330-1i3hbh.webp",
+        "https://zappytestsite.com/assets/product-1783951313152-0weiz.webp",
+        "https://zappytestsite.com/assets/product-1783951314155-mwooif.webp",
+        "https://zappytestsite.com/assets/product-1783951315856-g7hcce.webp",
+        "https://zappytestsite.com/assets/product-1783951317381-5ideb4.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/white-beads-om-necklace-0w4kyn",
+      "categories": [
+        "Yoga necklaces"
+      ],
+      "updated_at": "2026-07-13T14:01:58.577Z"
+    },
+    {
+      "id": "83e2c902-4773-4276-a77e-d0f52345d455",
+      "slug": "blue-ceramic-fruit-bowl-pottery-serving-bowl-b5ladc",
+      "name": "Blue Ceramic Fruit Bowl: Pottery Serving Bowl",
+      "name_translations": {},
+      "description": "Nice ceramic bowl",
+      "short_description": "Nice ceramic bowl",
+      "sku": null,
+      "brand": null,
+      "price": 337.19,
+      "base_price": 337.19,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951312727-ago67b.webp",
+        "https://zappytestsite.com/assets/product-1783951313811-4gi9bf.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-b5ladc",
+      "categories": [
+        "Ceramic bowls"
+      ],
+      "updated_at": "2026-07-13T14:01:55.016Z"
+    },
+    {
+      "id": "b6fe24cf-fac8-4b48-a359-8df27ba6b602",
+      "slug": "minimalist-handcrafted-ceramic-plate-for-elegant-dining-w8yzob",
+      "name": "Minimalist Handcrafted Ceramic Plate for Elegant Dining",
+      "name_translations": {},
+      "description": "Nice ceramic bowl",
+      "short_description": "Nice ceramic bowl",
+      "sku": null,
+      "brand": null,
+      "price": 301.06,
+      "base_price": 301.06,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951312675-epzge.webp",
+        "https://zappytestsite.com/assets/product-1783951313767-hqxnlg.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-w8yzob",
+      "categories": [
+        "Ceramic bowls"
+      ],
+      "updated_at": "2026-07-13T14:01:54.977Z"
+    }
+  ]
 }
