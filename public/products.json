@@ -1,10 +1,66 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-13T13:59:22.350Z",
+  "generated_at": "2026-07-13T14:00:09.827Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
-  "count": 2,
+  "count": 4,
   "products": [
+    {
+      "id": "fdb9a822-108e-4042-b8b0-29f8fb24b32a",
+      "slug": "black-beads-necklace-9yko5r",
+      "name": "black beads necklace",
+      "name_translations": {},
+      "description": "A mala is used for yoga practice or as part of your bohemian style.\n\nThey can be worn by anyone who wants a more mindful, peaceful life.\nYou can wear this mala as a bracelet or as a necklace.\nA mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\tbrown long mala\tbead Black necklace\tgift for Meditator\n\nSize:\nNecklace size 18\" 42cm\nomm pendant: 1\" X 1 \"",
+      "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
+      "sku": null,
+      "brand": null,
+      "price": 272.35,
+      "base_price": 272.35,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951155668-sdn06b.webp",
+        "https://zappytestsite.com/assets/product-1783951157595-a3g7fvl.webp",
+        "https://zappytestsite.com/assets/product-1783951159905-w8spq.webp",
+        "https://zappytestsite.com/assets/product-1783951161486-8uuzfa.webp",
+        "https://zappytestsite.com/assets/product-1783951162949-d8nqxf.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/black-beads-necklace-9yko5r",
+      "categories": [
+        "Yogi Gifts"
+      ],
+      "updated_at": "2026-07-13T13:59:24.097Z"
+    },
+    {
+      "id": "0a5481a1-b4dc-49f8-9fb7-1d079766a12e",
+      "slug": "white-beads-om-necklace-4orjxf",
+      "name": "White beads om necklace",
+      "name_translations": {},
+      "description": "A mala is used for yoga practice or as part of your bohemian style.\n\nThey can be worn by anyone who wants a more mindful, peaceful life.\nYou can wear this mala as a bracelet or as a necklace.\nA mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\twhite long mala\tbead white necklace\tgift for Meditator\n\nSize:\nNecklace size 18\" 42cm\nomm pendant: 1\" X 1 \"",
+      "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
+      "sku": null,
+      "brand": null,
+      "price": 214.22,
+      "base_price": 214.22,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [
+        "https://zappytestsite.com/assets/product-1783951154226-30pj1.webp",
+        "https://zappytestsite.com/assets/product-1783951155149-qk25ei.webp",
+        "https://zappytestsite.com/assets/product-1783951157037-crmaad.webp",
+        "https://zappytestsite.com/assets/product-1783951159796-6anaoz.webp",
+        "https://zappytestsite.com/assets/product-1783951161815-gn32oi.webp"
+      ],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/white-beads-om-necklace-4orjxf",
+      "categories": [
+        "Yoga necklaces"
+      ],
+      "updated_at": "2026-07-13T13:59:23.138Z"
+    },
     {
       "id": "2562f8a5-5db4-4320-9721-7338a5c69f74",
       "slug": "minimalist-handcrafted-ceramic-plate-for-elegant-dining-ijbebb",
