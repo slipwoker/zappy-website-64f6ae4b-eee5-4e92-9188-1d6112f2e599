@@ -72,39 +72,23 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 4**
+**Total active products: 2**
 
 ### Minimalist Handcrafted Ceramic Plate for Elegant Dining
-https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-jhza5k
+https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-ijbebb
 - Price: 301.06 ILS
 - Availability: In stock
 - Category: Ceramic bowls
 - Description: Nice ceramic bowl
-- Image: https://zappytestsite.com/assets/product-1783950505973-6kk3p9.webp
-
-### black beads necklace
-https://zappytestsite.com/product/black-beads-necklace-8vehpr
-- Price: 272.35 ILS
-- Availability: In stock
-- Category: Yogi Gifts
-- Description: A mala is used for yoga practice or as part of your bohemian style. PRODUCT VIDEO ⇒ http://bit.ly/2LO4GVU They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala ...
-- Image: https://zappytestsite.com/assets/product-1783950505936-vmag5w.webp
+- Image: https://zappytestsite.com/assets/product-1783951154658-u8a0a.webp
 
 ### Blue Ceramic Fruit Bowl: Pottery Serving Bowl
-https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-ykgivk
+https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-e2a4mx
 - Price: 337.19 ILS
 - Availability: In stock
 - Category: Ceramic bowls
 - Description: Nice ceramic bowl
-- Image: https://zappytestsite.com/assets/product-1783950505884-v8zobl.webp
-
-### White beads om necklace
-https://zappytestsite.com/product/white-beads-om-necklace-vap76n
-- Price: 214.22 ILS
-- Availability: In stock
-- Category: Yoga necklaces
-- Description: A mala is used for yoga practice or as part of your bohemian style. PRODUCT VIDEO &#8658; http://bit.ly/2GY09yb They can be worn by anyone who wants a more mindful, peaceful life. You can wear this...
-- Image: https://zappytestsite.com/assets/product-1783950505292-78pyi.webp
+- Image: https://zappytestsite.com/assets/product-1783951154749-ibp6zof.webp
 
 ---
 
