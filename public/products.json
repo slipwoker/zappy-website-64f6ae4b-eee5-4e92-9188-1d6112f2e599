@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-13T14:02:33.988Z",
+  "generated_at": "2026-07-15T07:30:37.764Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
   "count": 4,
@@ -109,7 +109,7 @@
       "categories": [
         "Ceramic bowls"
       ],
-      "updated_at": "2026-07-13T14:01:54.977Z"
+      "updated_at": "2026-07-15T07:30:02.838Z"
     }
   ]
 }
