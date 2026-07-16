@@ -1589,6 +1589,10 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -2099,6 +2103,41 @@ function stripHtmlToText(html) {
   // session ID when checkout/init runs. This keeps the URL free of product
   // prices and customer PII while allowing Phone Payment and every other
   // storefront payment method to work through the normal checkout page.
+  // Returning WhatsApp customers get their known details stored on the cart
+  // (metadata.checkoutPrefill) — fill contact + shipping fields so they only
+  // review and complete what's missing. Never overwrite user-entered values.
+  function applyWhatsappCheckoutPrefill(prefill) {
+    if (!prefill) return;
+    const run = function() {
+      const setVal = function(id, value) {
+        const el = document.getElementById(id);
+        if (el && value && !el.value && el.dataset.checkoutEdited !== '1') el.value = value;
+      };
+      setVal('customer-name', prefill.name);
+      setVal('customer-email', prefill.email);
+      setVal('customer-phone', prefill.phone);
+      const addr = prefill.address || {};
+      const countryInput = document.getElementById('shipping-country');
+      if (addr.country && countryInput && !countryInput.value) {
+        countryInput.value = addr.country;
+        if (typeof onCountryChange === 'function') onCountryChange(addr.country);
+      }
+      if (addr.state) {
+        const stateInput = document.getElementById('shipping-state');
+        if (stateInput) setTimeout(function() { if (!stateInput.value) stateInput.value = addr.state; }, 50);
+      }
+      setVal('shipping-street', addr.street);
+      setVal('shipping-apartment', addr.apartment);
+      setVal('shipping-city', addr.city);
+      setVal('shipping-zip', addr.zip);
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  }
+
   const checkoutCartHydrationPromise = (async function hydrateCheckoutCartFromUrl() {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -2106,25 +2145,26 @@ function stripHtmlToText(html) {
       if (!cartSession || !/^wa_[a-f0-9]{48}$/i.test(cartSession)) return;
 
       const appliedKey = 'zappy_checkout_cart_session_' + websiteId;
-      if (localStorage.getItem(appliedKey) === cartSession) {
-        localStorage.setItem('zappy_session_id', cartSession);
-        return;
-      }
+      const alreadyApplied = localStorage.getItem(appliedKey) === cartSession;
+      if (alreadyApplied) localStorage.setItem('zappy_session_id', cartSession);
 
       const response = await fetch(buildApiUrl(
         '/api/ecommerce/cart?websiteId=' + encodeURIComponent(websiteId)
         + '&sessionId=' + encodeURIComponent(cartSession)
       ));
       const payload = await response.json();
-      const items = payload && payload.success && payload.data && Array.isArray(payload.data.items)
-        ? payload.data.items
-        : [];
-      if (!response.ok || !items.length) return;
+      const data = payload && payload.success ? payload.data : null;
+      if (!response.ok || !data) return;
 
-      cart = items;
-      localStorage.setItem('zappy_cart_' + websiteId, JSON.stringify(cart));
-      localStorage.setItem('zappy_session_id', cartSession);
-      localStorage.setItem(appliedKey, cartSession);
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (!alreadyApplied && items.length) {
+        cart = items;
+        localStorage.setItem('zappy_cart_' + websiteId, JSON.stringify(cart));
+        localStorage.setItem('zappy_session_id', cartSession);
+        localStorage.setItem(appliedKey, cartSession);
+      }
+
+      applyWhatsappCheckoutPrefill(data.metadata && data.metadata.checkoutPrefill);
     } catch (error) {
       console.warn('[E-COMMERCE] Failed to hydrate shared checkout cart:', error);
     }
