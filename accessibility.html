@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+<!DOCTYPE html><html data-zappy-site-type="ecommerce" lang="en"><head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
     <title>Accessibility Statement</title>
-    <meta name="description" content="Our accessibility statement - our commitment to digital accessibility">
-    <meta name="keywords" content="">
+    <meta name="description" content="Our accessibility statement - our commitment to digital accessibility" />
+    <meta name="keywords" content />
     
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <!-- Zappy Analytics -->
 <script>
 (function() {
@@ -284,24 +282,388 @@
 })();
 </script>
 <!-- End Zappy Analytics -->
-    <meta property="og:title" content="Accessibility Statement">
-    <meta property="og:description" content="Our accessibility statement - our commitment to digital accessibility">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Accessibility Statement">
-    <meta name="twitter:description" content="Our accessibility statement - our commitment to digital accessibility">
+<!-- Zappy Marketing Events -->
+<script>
+(function() {
+  'use strict';
+  if (window.zappyFireMarketingEvent) return;
+
+  var ECOM_MODE = "full";
+  var IS_CATALOG = false;
+  var IS_FULL = true;
+
+  var ECOM_ALIAS = {
+    begin_checkout: 'checkout_started',
+    purchase: 'checkout_complete',
+    add_to_cart: 'add_to_cart',
+    view_product: 'view_product'
+  };
+
+  function pagePath() {
+    try {
+      if (window.ZAPPY_CONFIG && window.ZAPPY_CONFIG.currentPagePath) {
+        return window.ZAPPY_CONFIG.currentPagePath;
+      }
+    } catch (e) {}
+    try { return window.location.pathname || '/'; } catch (e2) { return '/'; }
+  }
+
+  function normalizeItems(meta) {
+    meta = meta || {};
+    var raw = meta.items || meta.cartItems || meta.cart_items || meta.lineItems || [];
+    if (!Array.isArray(raw)) raw = [];
+    var out = [];
+    for (var i = 0; i < raw.length; i++) {
+      var item = raw[i];
+      if (!item || typeof item !== 'object') continue;
+      var id = String(item.item_id || item.productId || item.product_id || item.id || '').trim();
+      var name = String(item.item_name || item.productName || item.product_name || item.name || '').trim();
+      var price = parseFloat(item.price != null ? item.price : (item.unitPrice != null ? item.unitPrice : 0)) || 0;
+      var quantity = Math.max(1, parseInt(item.quantity != null ? item.quantity : (item.qty != null ? item.qty : 1), 10) || 1);
+      if (!id && !name) continue;
+      out.push({ item_id: id || name, item_name: name || id, price: price, quantity: quantity });
+    }
+    return out;
+  }
+
+  function buildGa4Params(eventId, meta) {
+    meta = meta || {};
+    var items = normalizeItems(meta);
+    var value = parseFloat(meta.value != null ? meta.value : (meta.total != null ? meta.total : 0)) || 0;
+    var currency = String(meta.currency || 'USD').toUpperCase();
+
+    if (eventId === 'checkout_complete') {
+      return {
+        transaction_id: String(meta.transaction_id || meta.orderId || meta.order_id || meta.orderNumber || '') || undefined,
+        value: value,
+        currency: currency,
+        items: items
+      };
+    }
+    if (eventId === 'checkout_started') {
+      return { value: value, currency: currency, items: items };
+    }
+    if (eventId === 'add_to_cart') {
+      var atcItems = items.length ? items : [{
+        item_id: String(meta.productId || meta.product_id || ''),
+        item_name: String(meta.productName || meta.product_name || ''),
+        price: parseFloat(meta.value != null ? meta.value : (meta.price != null ? meta.price : 0)) || 0,
+        quantity: parseInt(meta.quantity != null ? meta.quantity : 1, 10) || 1
+      }].filter(function(x) { return x.item_id || x.item_name; });
+      return {
+        value: value || (atcItems[0] ? atcItems[0].price * atcItems[0].quantity : 0),
+        currency: currency,
+        items: atcItems
+      };
+    }
+    if (eventId === 'view_product') {
+      var vpItems = items.length ? items : [{
+        item_id: String(meta.productId || meta.product_id || ''),
+        item_name: String(meta.productName || meta.product_name || ''),
+        price: parseFloat(meta.price != null ? meta.price : (meta.value != null ? meta.value : 0)) || 0,
+        quantity: 1
+      }].filter(function(x) { return x.item_id || x.item_name; });
+      return {
+        currency: currency,
+        value: value || (vpItems[0] ? vpItems[0].price : 0),
+        items: vpItems
+      };
+    }
+    if (eventId === 'whatsapp_click' || eventId === 'phone_click') {
+      return { method: eventId === 'whatsapp_click' ? 'whatsapp' : 'phone', page_path: meta.pagePath || pagePath() };
+    }
+    if (eventId === 'contact_form_submitted' || eventId === 'product_inquiry') {
+      return { page_path: meta.pagePath || pagePath() };
+    }
+    return meta;
+  }
+
+  function buildMetaParams(eventId, meta) {
+    meta = meta || {};
+    var items = normalizeItems(meta);
+    var value = parseFloat(meta.value != null ? meta.value : (meta.total != null ? meta.total : 0)) || 0;
+    var currency = String(meta.currency || 'USD').toUpperCase();
+    var contentIds = [];
+    var numItems = 0;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].item_id) contentIds.push(items[i].item_id);
+      numItems += items[i].quantity || 1;
+    }
+
+    if (eventId === 'checkout_complete') {
+      return {
+        value: value,
+        currency: currency,
+        content_ids: contentIds.length ? contentIds : undefined,
+        content_type: 'product',
+        num_items: numItems || undefined,
+        order_id: String(meta.order_id || meta.orderId || meta.transaction_id || meta.orderNumber || '') || undefined
+      };
+    }
+    if (eventId === 'checkout_started') {
+      return {
+        value: value,
+        currency: currency,
+        content_ids: contentIds.length ? contentIds : undefined,
+        content_type: 'product',
+        num_items: numItems || parseInt(meta.itemCount != null ? meta.itemCount : 0, 10) || undefined
+      };
+    }
+    if (eventId === 'add_to_cart') {
+      var id = String(meta.productId || meta.product_id || contentIds[0] || '');
+      return {
+        value: value || (items[0] ? items[0].price * items[0].quantity : 0),
+        currency: currency,
+        content_ids: id ? [id] : (contentIds.length ? contentIds : undefined),
+        content_type: 'product',
+        content_name: meta.productName || meta.product_name || (items[0] && items[0].item_name),
+        num_items: parseInt(meta.quantity != null ? meta.quantity : (numItems || 1), 10) || 1
+      };
+    }
+    if (eventId === 'view_product') {
+      var vid = String(meta.productId || meta.product_id || contentIds[0] || '');
+      return {
+        value: value || parseFloat(meta.price != null ? meta.price : 0) || 0,
+        currency: currency,
+        content_ids: vid ? [vid] : (contentIds.length ? contentIds : undefined),
+        content_type: 'product',
+        content_name: meta.productName || meta.product_name || (items[0] && items[0].item_name)
+      };
+    }
+    if (eventId === 'whatsapp_click' || eventId === 'phone_click') {
+      return {
+        content_name: eventId === 'whatsapp_click' ? 'WhatsApp' : 'Phone',
+        content_category: 'contact'
+      };
+    }
+    if (eventId === 'contact_form_submitted' || eventId === 'product_inquiry') {
+      return {
+        content_name: eventId === 'product_inquiry' ? 'Product inquiry' : 'Contact form',
+        content_category: meta.productName || meta.product_name || undefined
+      };
+    }
+    return meta;
+  }
+
+  var PLATFORM = {
+    whatsapp_click: { ga4: 'contact', meta: 'Contact', gtm: 'whatsapp_click', ecom: false },
+    phone_click: { ga4: 'contact', meta: 'Contact', gtm: 'phone_click', ecom: false },
+    contact_form_submitted: { ga4: 'generate_lead', meta: 'Lead', gtm: 'contact_form_submitted', ecom: false },
+    checkout_started: { ga4: 'begin_checkout', meta: 'InitiateCheckout', gtm: 'begin_checkout', ecom: true },
+    checkout_complete: { ga4: 'purchase', meta: 'Purchase', gtm: 'purchase', ecom: true },
+    product_inquiry: { ga4: 'generate_lead', meta: 'Lead', gtm: 'product_inquiry', ecom: false },
+    add_to_cart: { ga4: 'add_to_cart', meta: 'AddToCart', gtm: 'add_to_cart', ecom: true },
+    view_product: { ga4: 'view_item', meta: 'ViewContent', gtm: 'view_item', ecom: true }
+  };
+
+  function purchaseDedupKey(orderId) {
+    return 'zappy_purchase_fired_' + String(orderId || '');
+  }
+
+  function alreadyFiredPurchase(orderId) {
+    if (!orderId) return false;
+    try {
+      return sessionStorage.getItem(purchaseDedupKey(orderId)) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markPurchaseFired(orderId) {
+    if (!orderId) return;
+    try { sessionStorage.setItem(purchaseDedupKey(orderId), '1'); } catch (e) {}
+  }
+
+  /**
+   * Fire a marketing event to first-party analytics + GA4/GTM/Meta when present.
+   * @param {string} eventName marketing ID or ecommerce alias
+   * @param {object} [metadata]
+   * @param {{ skipFirstParty?: boolean }} [opts]
+   */
+  window.zappyFireMarketingEvent = function(eventName, metadata, opts) {
+    try {
+      opts = opts || {};
+      metadata = metadata || {};
+      var eventId = ECOM_ALIAS[eventName] || eventName;
+      var plat = PLATFORM[eventId];
+      if (!plat) return;
+
+      if (!metadata.pagePath && !metadata.page_path) {
+        metadata.pagePath = pagePath();
+      }
+
+      if (eventId === 'checkout_complete') {
+        var oid = String(metadata.orderId || metadata.order_id || metadata.transaction_id || '');
+        if (oid && alreadyFiredPurchase(oid)) return;
+        if (oid) markPurchaseFired(oid);
+      }
+
+      // First-party (skip when already tracked via zappyTrackEcomAnalytics path
+      // that opts out, or when caller already recorded under a different name)
+      if (!opts.skipFirstParty) {
+        try {
+          if (window.zappyAnalytics && typeof window.zappyAnalytics.track === 'function') {
+            window.zappyAnalytics.track(eventId, metadata);
+          }
+        } catch (e1) {}
+      }
+
+      // GTM / dataLayer — platform-standard ecommerce event names
+      try {
+        window.dataLayer = window.dataLayer || [];
+        if (plat.ecom) {
+          var ga4ForGtm = buildGa4Params(eventId, metadata);
+          var ecommerce = {};
+          if (ga4ForGtm.transaction_id) ecommerce.transaction_id = ga4ForGtm.transaction_id;
+          if (ga4ForGtm.value != null) ecommerce.value = ga4ForGtm.value;
+          if (ga4ForGtm.currency) ecommerce.currency = ga4ForGtm.currency;
+          if (ga4ForGtm.items) ecommerce.items = ga4ForGtm.items;
+          window.dataLayer.push({ event: plat.gtm, ecommerce: ecommerce });
+          // Secondary Zappy-specific trigger for merchants who want it
+          if (eventId === 'checkout_complete' || eventId === 'checkout_started') {
+            window.dataLayer.push({ event: eventId, ecommerce: ecommerce });
+          }
+        } else {
+          var dl = { event: plat.gtm };
+          for (var k in metadata) {
+            if (Object.prototype.hasOwnProperty.call(metadata, k)) dl[k] = metadata[k];
+          }
+          window.dataLayer.push(dl);
+        }
+      } catch (e2) {}
+
+      // GA4 gtag
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', plat.ga4, buildGa4Params(eventId, metadata));
+        }
+      } catch (e3) {}
+
+      // Meta Pixel (only when fbq is loaded — consent-gated lazy loader)
+      try {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', plat.meta, buildMetaParams(eventId, metadata));
+        }
+      } catch (e4) {}
+    } catch (err) {}
+  };
+
+  // ---- Click listeners (capture) ----
+  var recent = Object.create(null);
+  function dedupe(key) {
+    var now = Date.now();
+    if (recent[key] && now - recent[key] < 800) return true;
+    recent[key] = now;
+    return false;
+  }
+
+  function closest(el, selector) {
+    if (!el) return null;
+    if (el.closest) return el.closest(selector);
+    return null;
+  }
+
+  function findAnchor(el) {
+    var node = el;
+    while (node && node !== document) {
+      if (node.tagName === 'A') return node;
+      node = node.parentElement;
+    }
+    return null;
+  }
+
+  function isWhatsAppHref(href) {
+    if (!href) return false;
+    var h = String(href).toLowerCase();
+    return h.indexOf('wa.me/') !== -1 ||
+      h.indexOf('api.whatsapp.com') !== -1 ||
+      h.indexOf('whatsapp.com/send') !== -1 ||
+      h.indexOf('whatsapp:') === 0;
+  }
+
+  document.addEventListener('click', function(e) {
+    try {
+      var target = e.target;
+      if (!target) return;
+
+      // WhatsApp
+      var waFloat = closest(target, '.whatsapp-float, a.whatsapp-float, [data-zappy-whatsapp]');
+      var anchor = findAnchor(target);
+      var href = (anchor && anchor.href) || '';
+      if (waFloat || (anchor && isWhatsAppHref(href))) {
+        if (!dedupe('wa:' + href)) {
+          var waSource = waFloat ? 'float' : 'link';
+          window.zappyFireMarketingEvent('whatsapp_click', {
+            source: waSource,
+            href: href || null,
+            pagePath: pagePath()
+          });
+        }
+        return;
+      }
+
+      // Phone
+      var phoneBtn = closest(target, '.phone-header-btn, .nav-phone-btn, .call-btn, [data-zappy-phone]');
+      var telHref = '';
+      if (anchor && anchor.href && String(anchor.href).toLowerCase().indexOf('tel:') === 0) {
+        telHref = anchor.href;
+      } else if (phoneBtn && phoneBtn.href && String(phoneBtn.href).toLowerCase().indexOf('tel:') === 0) {
+        telHref = phoneBtn.href;
+      }
+      if (phoneBtn || telHref) {
+        var phone = '';
+        if (telHref) {
+          phone = String(telHref).replace(/^tel:/i, '').trim();
+        }
+        if (!dedupe('tel:' + (phone || (phoneBtn && phoneBtn.id) || 'btn'))) {
+          window.zappyFireMarketingEvent('phone_click', {
+            source: phoneBtn ? 'button' : 'link',
+            phone: phone || null,
+            href: telHref || null,
+            pagePath: pagePath()
+          });
+        }
+        return;
+      }
+
+      // Catalog / product inquiry
+      if (IS_CATALOG || IS_FULL) {
+        var inq = closest(target, '.card-inquiry-btn, #zappy-pdp-inquiry-btn, a.inquiry-btn');
+        if (inq) {
+          if (!dedupe('inq:' + (inq.id || inq.className))) {
+            var product = window.currentProduct || null;
+            var productId = (inq.getAttribute && inq.getAttribute('data-product-id')) ||
+              (product && product.id) || null;
+            var productName = (inq.getAttribute && inq.getAttribute('data-product-name')) ||
+              (product && product.name) || null;
+            var channel = 'contact_page';
+            var inqHref = (inq.tagName === 'A' && inq.href) ? inq.href : '';
+            if (inqHref && String(inqHref).toLowerCase().indexOf('mailto:') === 0) channel = 'mailto';
+            window.zappyFireMarketingEvent('product_inquiry', {
+              source: inq.id === 'zappy-pdp-inquiry-btn' ? 'pdp' : 'card',
+              productId: productId,
+              productName: productName,
+              channel: channel,
+              pagePath: pagePath()
+            });
+          }
+        }
+      }
+    } catch (err) {}
+  }, true);
+})();
+</script>
+    <meta property="og:title" content="Accessibility Statement" />
+    <meta property="og:description" content="Our accessibility statement - our commitment to digital accessibility" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Accessibility Statement" />
+    <meta name="twitter:description" content="Our accessibility statement - our commitment to digital accessibility" />
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://zappytestsite.com#organization","name":"Valesų gerovė","url":"https://zappytestsite.com","description":"Valesų gerovė is a Lithuanian naturopathic shop with a focus on natural health and wellness. The brand centers around holistic well-being, offering a curated selection of natural remedies and dietary supplements. The name evokes a sense of harmony and care, rooted in Lithuanian culture and a nature-inspired philosophy.","address":{"@type":"PostalAddress","streetAddress":"Hashlosha 4, Nitzaney Oz, 4906215, Israel"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"maor@zappy5.com","telephone":"+972543951940"}]},{"@type":"WebSite","@id":"https://zappytestsite.com#website","url":"https://zappytestsite.com","name":"Valesų gerovė","publisher":{"@id":"https://zappytestsite.com#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zappytestsite.com"},{"@type":"ListItem","position":2,"name":"Accessibility","item":"https://zappytestsite.com/accessibility"}]}]}</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    
-    
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    
     <!-- Mickidum Accessibility Toolbar -->
-    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    
 
     
 
@@ -369,7 +731,68 @@
       opacity: 1 !important;
     }
     </style>
-    <link rel="stylesheet" href="/styles.css">
+    <style id="zappy-critical-above-fold-css">
+html{box-sizing:border-box;-webkit-text-size-adjust:100%}*,*::before,*::after{box-sizing:inherit}body{margin:0;min-width:320px;overflow-x:clip}img,svg,video{max-width:100%;height:auto}main{display:block}.container{width:min(100% - 32px,1200px);margin-inline:auto}.navbar,nav.navbar,header .navbar,header[role="banner"]{position:relative;z-index:1000;width:100%}.nav-container,.navbar .container{display:flex;align-items:center;justify-content:space-between;min-height:64px}.logo,.logo-link img{display:block;width:35px;height:35px;object-fit:contain}.nav-menu,#navMenu{list-style:none;margin:0;padding:0}.navbar a,.nav-menu a,#navMenu a,.navbar .nav-links a{color:inherit;text-decoration:none}.navbar .sub-menu,.nav-menu .sub-menu,#navMenu .sub-menu{display:none}.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands{display:inline-block;min-width:1em;text-align:center}html:not(#zappy-noop)[data-zappy-site-type="ecommerce"] .phone-header-btn,html:not(#zappy-noop) .navbar:has(.nav-ecommerce-icons)>.phone-header-btn{display:none!important;visibility:hidden!important;width:0!important;height:0!important;pointer-events:none!important}.zappy-preview-empty-store-cta{display:none!important;visibility:hidden!important;height:0!important;max-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}.zappy-catalog-menu{background:var(--surface-color,var(--surface,linear-gradient(135deg,#f8f9fa 0%,#fff 100%)));border-bottom:1px solid var(--border-color,#e5e7eb);padding:0;position:sticky;top:0;z-index:90}.zappy-catalog-menu[dir=rtl],.zappy-catalog-menu.rtl{direction:rtl}.zappy-catalog-menu[dir=ltr],.zappy-catalog-menu.ltr{direction:ltr}.catalog-menu-container{max-width:1440px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:10px 24px;overflow:visible}.catalog-menu-categories,.catalog-menu-list{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0;padding:0;list-style:none}.catalog-menu-item{display:inline-flex;align-items:center;padding:8px 16px;font-size:14px;font-weight:500;color:var(--text-color,var(--text,#374151));text-decoration:none;border-radius:20px;white-space:nowrap}.catalog-menu-all{background:var(--primary-color,var(--primary,#111));color:var(--text-light,#fff)!important}.catalog-menu-parent{position:relative;display:inline-flex;align-items:center}.catalog-menu-trigger{display:inline-flex;align-items:center;gap:6px}.catalog-menu-chevron{flex-shrink:0}.catalog-menu-parent>.sub-menu{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}.hero-section,.index-hero-section,section[class*="hero"]{position:relative;overflow:hidden;min-height:560px}.hero-bg-wrapper,.hero-bg-image,section[class*="hero"] [class*="hero-bg"]{position:absolute;inset:0;width:100%;height:100%}.hero-bg-wrapper img,.hero-bg-image img,section[class*="hero"] [data-hero-bg],section[class*="hero"] img[data-hero-background="true"]{width:100%!important;height:100%!important;object-fit:cover!important;display:block}.hero-content,section[class*="hero"] .container{position:relative;z-index:2}@media(max-width:768px){:root{--header-height:72px;--total-header-height:72px;--zappy-mobile-menu-top:72px}html[data-zappy-site-type="ecommerce"] body{padding-top:var(--total-header-height,72px)}html[data-zappy-site-type="ecommerce"] body>nav.navbar,html[data-zappy-site-type="ecommerce"] body>.navbar:not(.zappy-catalog-menu){position:fixed!important;top:0;left:0;right:0;z-index:100000;width:100%;margin-bottom:0}.zappy-catalog-menu{position:fixed;top:var(--header-height,72px);left:0;right:0;z-index:99999}.nav-container,.navbar .container{min-height:60px}.nav-menu,#navMenu{max-width:100vw;overflow-x:hidden}.hero-section,.index-hero-section,section[class*="hero"]{min-height:100svh}.hero-bg-wrapper,.hero-bg-image,.hero-scrim{min-height:100svh}}
+/* ZAPPY_CRITICAL_FIRST_PAINT_PARITY_V1 */
+
+/* ZAPPY_ANNOUNCEMENT_HEADER_OFFSET_CSS_V2 */
+:root {
+  --zappy-header-stack-height: calc(var(--zappy-announcement-height, 40px) + var(--header-height, 72px));
+}
+body:has(.zappy-announcement-bar) nav.navbar:not(.zappy-catalog-menu),
+body:has(.zappy-announcement-bar) header.navbar,
+body:has(.zappy-announcement-bar) .navbar:not(.zappy-catalog-menu):not(.mobile-search-panel) {
+  top: var(--zappy-announcement-height, 40px) !important;
+}
+/* First-paint: pull fullscreen heroes behind the fixed announcement+nav so a
+   transparent --nav-bg does not flash the cream body strip (live FOUC that
+   preview never showed because preview injects the same underlap eagerly). */
+body:has(.zappy-announcement-bar) section[data-hero-type^="fullscreen"],
+body:has(.zappy-announcement-bar) .index-hero-section,
+body:has(.zappy-announcement-bar) main > section[class*="hero"]:first-of-type {
+  margin-top: calc(-1 * var(--zappy-header-stack-height)) !important;
+  padding-top: calc(var(--zappy-header-stack-height)) !important;
+}
+
+
+/* ZAPPY_CONTENT_ALIGNMENT_FIRST_PAINT_CSS_V1 */
+[data-zappy-content-align] {
+  display: flex !important;
+  flex-direction: column !important;
+}
+[data-zappy-content-align^="top-"] { justify-content: flex-start !important; }
+[data-zappy-content-align^="upper-"],
+[data-zappy-content-align^="center-"],
+[data-zappy-content-align^="lower-"] { justify-content: center !important; }
+[data-zappy-content-align^="bottom-"] { justify-content: flex-end !important; }
+[data-zappy-content-align$="-left"],
+[data-zappy-content-align$="-mid-left"] {
+  align-items: flex-start !important;
+  text-align: start !important;
+}
+[data-zappy-content-align$="-center"] {
+  align-items: center !important;
+  text-align: center !important;
+}
+[data-zappy-content-align$="-right"],
+[data-zappy-content-align$="-mid-right"] {
+  align-items: flex-end !important;
+  text-align: end !important;
+}
+[data-zappy-content-align] [data-zappy-align-target] {
+  margin-left: auto;
+  margin-right: auto;
+}
+[data-zappy-content-align$="-center"] [data-zappy-align-target],
+[data-zappy-content-align$="-center"] [data-zappy-align-target] > * {
+  text-align: center !important;
+}
+
+</style>
+    <link rel="preload" href="/styles.css" as="style" />
+    <link rel="stylesheet" href="/styles.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/styles.css" /></noscript>
+    
     <script type="text/javascript" src="https://meshulam.co.il/_media/js/apple_pay_sdk/sdk.min.js"></script>
 
     <style id="zappy-dropdown-submenu-styles">
@@ -377,7 +800,7 @@
       /* Base styles for dropdown submenus - parent must be positioned */
       .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
       /* Submenu base - hidden by default */
-      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
       /* CRITICAL: Desktop hover styles to show dropdown */
       .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
       /* Submenu item styling */
@@ -469,38 +892,38 @@
 
     <div class="mobile-search-panel" id="mobile-search-panel">
       <div class="search-wrapper">
-        <input type="text" id="mobile-search-input" placeholder="Search products..." autocomplete="off">
+        <input type="text" id="mobile-search-input" placeholder="Search products..." autocomplete="off" />
         <button class="search-submit" id="mobile-search-submit" title="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         </button>
         <button class="close-search" id="close-mobile-search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="search-results" id="mobile-search-results"></div>
     </div>
   
-<script>window.ZAPPY_WEBSITE_ID = "64f6ae4b-eee5-4e92-9188-1d6112f2e599";window.ZAPPY_API_BASE = "https://qaapi.zappy5.com";</script>
+<script>window.ZAPPY_WEBSITE_ID = "64f6ae4b-eee5-4e92-9188-1d6112f2e599";window.ZAPPY_API_BASE = "https://qaapi.zappy5.com"</script>
     <nav class="navbar">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    <svg style="display:block !important" class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
-    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
-      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none !important">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
   </button>
 
   <button class="phone-header-btn" data-phone="+972543951940" aria-label="Call">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
     </svg>
   </button>
 
   <div class="nav-container">
     <div class="nav-brand">
       <a href="/" class="logo-link">
-        <img src="/assets/business-logo.webp" alt="Valesų gerovė" class="logo">
+        <img src="/assets/business-logo.webp" alt="Valesų gerovė" class="logo" decoding="async" width="35" height="35" />
       </a>
     </div>
 
@@ -510,13 +933,13 @@
       <a href="/en/products">
         Products
         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 9l6 6 6-6"></path>
+          <path d="M6 9l6 6 6-6"/>
         </svg>
       </a>
-      <ul class="sub-menu" id="zappy-nav-category-links">
+      <ul class="sub-menu" id="zappy-nav-category-links" dir="ltr">
         <li><a href="/en/products" data-i18n="ecom_products">Products</a></li>
         <!-- Categories will be loaded dynamically -->
-      </ul>
+      <li data-category-id="107415ad-905f-43d6-9ab4-69544a91839b" data-category-slug="ceramic-bowls-w6o0lg"><a href="/category/ceramic-bowls-w6o0lg" dir="ltr">Ceramic bowls</a></li><li data-category-id="1eff1ee4-fd14-4d29-ad20-70362ba4bd41" data-category-slug="ceramic-bowls-brvvuq"><a href="/category/ceramic-bowls-brvvuq" dir="ltr">Ceramic bowls</a></li><li data-category-id="3c84ad66-7384-4f30-9358-3201778db6ba" data-category-slug="yoga-necklaces-i10lxq"><a href="/category/yoga-necklaces-i10lxq" dir="ltr">Yoga necklaces</a></li><li data-category-id="69f12b78-3301-4c5c-9938-6d84d9f6c3a7" data-category-slug="yogi-gifts-0qimgt"><a href="/category/yogi-gifts-0qimgt" dir="ltr">Yogi Gifts</a></li><li data-category-id="23c50381-aa4d-471a-a3b1-54604fb1de44" data-category-slug="agvzym-vgraynym-tbayym-8r4vdr"><a href="/category/agvzym-vgraynym-tbayym-8r4vdr" dir="ltr">אגוזים וגרעינים טבעיים</a></li><li data-category-id="fabbbb96-8b94-4fc7-a350-cd86147b5061" data-category-slug="agvzym-vpytsvchym-imn18l"><a href="/category/agvzym-vpytsvchym-imn18l" dir="ltr">אגוזים ופיצוחים</a></li><li data-category-id="7112be9d-7a36-45c7-8f4a-2f7b752a1341" data-category-slug="atryvt-vdpy-avrz-3lruhc"><a href="/category/atryvt-vdpy-avrz-3lruhc" dir="ltr">אטריות ודפי אורז</a></li><li data-category-id="07122c1d-ad9b-40c4-87cc-ff276c8f3b4b" data-category-slug="bryavt-vanrgyh-ufa6by"><a href="/category/bryavt-vanrgyh-ufa6by" dir="ltr">בריאות ואנרגיה</a></li><li data-category-id="a9b78e4f-e98e-4b2d-8491-0a3808b22a69" data-category-slug="bryavt-lyldym-mb5x8z"><a href="/category/bryavt-lyldym-mb5x8z" dir="ltr">בריאות לילדים</a></li><li data-category-id="6f270d57-f017-4407-ba2a-ad2c8f634042" data-category-slug="gyvzh-kcol46"><a href="/category/gyvzh-kcol46" dir="ltr">גיוזה\</a></li><li data-category-id="19f25977-8a87-4f10-97e7-5c7eaf0d9133" data-category-slug="dbsh-692zte"><a href="/category/dbsh-692zte" dir="ltr">דבש\</a></li><li data-category-id="bab58bea-d631-4f14-a98c-3b479fac5b91" data-category-slug="dgnym-vktnyvt-1gt6ix"><a href="/category/dgnym-vktnyvt-1gt6ix" dir="ltr">דגנים וקטניות</a></li><li data-category-id="506f57b2-0fcd-429c-a21b-55b49e0098d8" data-category-slug="dym-sam-vban-81o82j"><a href="/category/dym-sam-vban-81o82j" dir="ltr">דים סאם ובאן</a></li><li data-category-id="572e9808-4931-40a4-bfbe-230107169ba8" data-category-slug="dp-hbyt-hnmkrym-byvtr-2nqcqu"><a href="/category/dp-hbyt-hnmkrym-byvtr-2nqcqu" dir="ltr">דף הבית - הנמכרים ביותר</a></li><li data-category-id="af77162c-ec59-444c-b521-7038efcf8158" data-category-slug="dp-hbyt-mvtsrym-chdshym-8sq53q"><a href="/category/dp-hbyt-mvtsrym-chdshym-8sq53q" dir="ltr">דף הבית - מוצרים חדשים</a></li><li data-category-id="2ebd882b-c151-435b-aa1d-abb05c89db59" data-category-slug="hmtbch-hasyyty-r5ly79"><a href="/category/hmtbch-hasyyty-r5ly79" dir="ltr">המטבח האסייתי</a></li><li data-category-id="ec241f78-d085-4e44-88a6-7cf04629ec4c" data-category-slug="hmtbch-hasyyty-e54klq"><a href="/category/hmtbch-hasyyty-e54klq" dir="ltr">המטבח האסייתי</a></li><li data-category-id="717a61b0-7539-4796-b601-d5b12b2f4b46" data-category-slug="hmtvkym-shlnv-ducveu"><a href="/category/hmtvkym-shlnv-ducveu" dir="ltr">המתוקים שלנו</a></li><li data-category-id="de304731-aa44-4c84-bfee-c268e371c56f" data-category-slug="hmtvkym-shlnv-rmzcd5"><a href="/category/hmtvkym-shlnv-rmzcd5" dir="ltr">המתוקים שלנו</a></li><li data-category-id="ff7b4e08-91e8-4da2-9839-bfd7eb449287" data-category-slug="hmtvkym-shlnv-ipmtma"><a href="/category/hmtvkym-shlnv-ipmtma" dir="ltr">המתוקים שלנו</a></li><li data-category-id="53292f0d-2e99-45b2-b99e-aaebbba5fc1e" data-category-slug="zytym-vmvtsry-madnyh-skacqk"><a href="/category/zytym-vmvtsry-madnyh-skacqk" dir="ltr">זיתים ומוצרי מעדניה</a></li><li data-category-id="9d3accdf-ffbc-4ce8-8d8c-a7f91387cef6" data-category-slug="chtypy-bryavt-vanrgyh-2v0hk5"><a href="/category/chtypy-bryavt-vanrgyh-2v0hk5" dir="ltr">חטיפי בריאות ואנרגיה</a></li><li data-category-id="82884544-1e78-48c7-89b3-ddc0bb73c4ad" data-category-slug="chlbh-u3crb0"><a href="/category/chlbh-u3crb0" dir="ltr">חלבה</a></li><li data-category-id="cab2e4ed-4db2-4ceb-9db1-28a9c4f550bf" data-category-slug="chlb-tsmchy-gr2kek"><a href="/category/chlb-tsmchy-gr2kek" dir="ltr">חלב צמחי</a></li><li data-category-id="57120eba-2855-4782-8a95-878f923964c1" data-category-slug="chlytvt-th-hjcgfn"><a href="/category/chlytvt-th-hjcgfn" dir="ltr">חליטות תה</a></li><li data-category-id="373362dd-a8d5-45b4-86f1-da3cf7215ab5" data-category-slug="chlytvt-th-6v9xzr"><a href="/category/chlytvt-th-6v9xzr" dir="ltr">חליטות תה</a></li><li data-category-id="5466714f-7701-4713-9a20-9b6811f41696" data-category-slug="chnvt-iv1ur2"><a href="/category/chnvt-iv1ur2" dir="ltr">חנות</a></li><li data-category-id="ab720657-eba5-467c-a066-33211c3c9d3f" data-category-slug="chnvt-li9w0s"><a href="/category/chnvt-li9w0s" dir="ltr">חנות</a></li><li data-category-id="7cc3a8a4-a37d-4f11-a736-6346584ff416" data-category-slug="chnvt-bwvena"><a href="/category/chnvt-bwvena" dir="ltr">חנות</a></li><li data-category-id="919f7aed-b772-4b17-a2c6-63989f5b51ae" data-category-slug="chnvt-m43ugr"><a href="/category/chnvt-m43ugr" dir="ltr">חנות</a></li><li data-category-id="7312facb-4dfe-4f5f-83a1-4ca4e87994f5" data-category-slug="chnvt-7aa1g5"><a href="/category/chnvt-7aa1g5" dir="ltr">חנות</a></li><li data-category-id="e0f7d226-3bac-4a49-9690-8e7f64965691" data-category-slug="chnvt-b88022"><a href="/category/chnvt-b88022" dir="ltr">חנות</a></li><li data-category-id="eb054eb4-a1fa-487d-9f9c-b63c36d71b97" data-category-slug="chnvt-frjd2y"><a href="/category/chnvt-frjd2y" dir="ltr">חנות</a></li><li data-category-id="0f729611-4420-48f5-9be8-9fc82fe5d93a" data-category-slug="chnvt-3l0gkz"><a href="/category/chnvt-3l0gkz" dir="ltr">חנות</a></li><li data-category-id="6bf1c4e9-07b6-4eb0-8c41-dae6c9dfb6bc" data-category-slug="tchynvt-bs2gcm"><a href="/category/tchynvt-bs2gcm" dir="ltr">טחינות</a></li><li data-category-id="129e4e7e-26b0-4a65-9468-0e67c0bc423b" data-category-slug="taymvt-bchynm-gwty3m"><a href="/category/taymvt-bchynm-gwty3m" dir="ltr">טעימות בחינם</a></li><li data-category-id="32f30aee-2607-4726-80d8-ae9e93212165" data-category-slug="klly-kn2f3b"><a href="/category/klly-kn2f3b" dir="ltr">כללי</a></li><li data-category-id="786cb167-3636-49ea-a47d-2c08abd6fe47" data-category-slug="lvkvm-vchlbytsh-21ldkh"><a href="/category/lvkvm-vchlbytsh-21ldkh" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="d4e188dd-cf8c-4778-b7c1-325d4704f8b1" data-category-slug="lvkvm-vchlbytsh-b9lveq"><a href="/category/lvkvm-vchlbytsh-b9lveq" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="23b6e521-6f11-437a-8a8b-5a2581a3ce01" data-category-slug="lvkvm-vchlbytsh-safnzo"><a href="/category/lvkvm-vchlbytsh-safnzo" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="b16155ad-b31f-40f1-be78-286c187b9808" data-category-slug="lvkvm-vchlbytsh-wlymx5"><a href="/category/lvkvm-vchlbytsh-wlymx5" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="4099b505-c279-4ac3-aee9-55e81848523c" data-category-slug="lvkvm-vchlbytsh-itsbtl"><a href="/category/lvkvm-vchlbytsh-itsbtl" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="f9dd3862-3008-4092-9a04-9a07f0efbe38" data-category-slug="lvkvm-vchlbytsh-g2ocvp"><a href="/category/lvkvm-vchlbytsh-g2ocvp" dir="ltr">לוקום וחלביצה</a></li><li data-category-id="0c01905d-2936-4e07-b2e1-28a0bec3f3e2" data-category-slug="lchmym-vlchmnyvt-krsenj"><a href="/category/lchmym-vlchmnyvt-krsenj" dir="ltr">לחמים ולחמניות</a></li><li data-category-id="438637c2-0a29-42b1-8a88-b8b886ac10c4" data-category-slug="lchmym-vmapym-15lftm"><a href="/category/lchmym-vmapym-15lftm" dir="ltr">לחמים ומאפים</a></li><li data-category-id="e9cc3943-d74b-4c2e-92b4-c82e09740c13" data-category-slug="mbtsa-2-ych-b-15-shch-bar-bary-dt7pyb"><a href="/category/mbtsa-2-ych-b-15-shch-bar-bary-dt7pyb" dir="ltr">מבצע 2 יח&#39; ב-15 ש&quot;ח Bar Bary</a></li><li data-category-id="747a981c-4c87-4974-ab43-17e3bbe1a288" data-category-slug="mbtsa-byp-grky-2-b-70-shch-wh0wzg"><a href="/category/mbtsa-byp-grky-2-b-70-shch-wh0wzg" dir="ltr">מבצע ביף ג&#39;רקי 2 ב-70 ש״ח</a></li><li data-category-id="0e2bc143-cf55-4191-bcf3-0d2c32794e00" data-category-slug="mbtsa-hvly-kkav-2-b-30-kcj2bt"><a href="/category/mbtsa-hvly-kkav-2-b-30-kcj2bt" dir="ltr">מבצע הולי קקאו 2 ב-30</a></li><li data-category-id="b098d0e5-1694-4cd0-9a50-6c58d5cb237b" data-category-slug="mbtsay-hchvdsh-qwq5ou"><a href="/category/mbtsay-hchvdsh-qwq5ou" dir="ltr">מבצעי החודש</a></li><li data-category-id="9d553c1d-892d-4a4b-a72b-b7d527828fd5" data-category-slug="mbtsaym-kbvaym-dwog28"><a href="/category/mbtsaym-kbvaym-dwog28" dir="ltr">מבצעים קבועים</a></li><li data-category-id="fa5f3f0d-9030-4ba7-8238-9bc375af8156" data-category-slug="mbtsa-lchm-2-ych-b-34-shch-hfz91o"><a href="/category/mbtsa-lchm-2-ych-b-34-shch-hfz91o" dir="ltr">מבצע לחם 2 יח׳ ב- 34 ש״ח</a></li><li data-category-id="1e7f143f-1420-4505-a942-f0f61d790e90" data-category-slug="mbtsa-smvzy-3-b-15-shch-qxr17y"><a href="/category/mbtsa-smvzy-3-b-15-shch-qxr17y" dir="ltr">מבצע סמוזי 3 ב-15 ש״ח</a></li><li data-category-id="f11f936b-a23f-4f04-829b-dc56d1538c55" data-category-slug="mbtsa-armvnym-2-b-10-shch-3xv0sf"><a href="/category/mbtsa-armvnym-2-b-10-shch-3xv0sf" dir="ltr">מבצע ערמונים 2 ב- 10 ש״ח</a></li><li data-category-id="2c2242c4-5642-4b24-b871-523f0fc0adc9" data-category-slug="mvtsry-apyyh-4qoz37"><a href="/category/mvtsry-apyyh-4qoz37" dir="ltr">מוצרי אפייה</a></li><li data-category-id="f9432fb7-ee80-4edf-9404-0505c9aa48d3" data-category-slug="mvtsrym-lbyshvl-9uzsk3"><a href="/category/mvtsrym-lbyshvl-9uzsk3" dir="ltr">מוצרים לבישול</a></li><li data-category-id="0af38a13-008c-473d-980c-2367673ba207" data-category-slug="mvtsrym-lbyshvl-cjtdw7"><a href="/category/mvtsrym-lbyshvl-cjtdw7" dir="ltr">מוצרים לבישול</a></li><li data-category-id="17c45576-5dfa-49e0-9140-bbd2eb3961cf" data-category-slug="mvtsrym-lbyshvl-h82t8i"><a href="/category/mvtsrym-lbyshvl-h82t8i" dir="ltr">מוצרים לבישול</a></li><li data-category-id="33299d3c-22c7-4c71-81e5-26c5d5799b49" data-category-slug="mvtsrym-lbyshvl-nq1mur"><a href="/category/mvtsrym-lbyshvl-nq1mur" dir="ltr">מוצרים לבישול</a></li><li data-category-id="a66c7eb5-cfba-49e3-bdb1-269a41992757" data-category-slug="mvtsrym-ltygvn-vlbyshvl-dl864r"><a href="/category/mvtsrym-ltygvn-vlbyshvl-dl864r" dir="ltr">מוצרים לטיגון ולבישול</a></li><li data-category-id="4af3e349-874e-4e15-895c-58247f97d2fe" data-category-slug="mvtsrym-ltygvn-vlbyshvl-ba2zut"><a href="/category/mvtsrym-ltygvn-vlbyshvl-ba2zut" dir="ltr">מוצרים לטיגון ולבישול</a></li><li data-category-id="234c5e6b-bf4b-4f16-a564-824518a17c83" data-category-slug="mvtsrym-lla-hnchh-622xx0"><a href="/category/mvtsrym-lla-hnchh-622xx0" dir="ltr">מוצרים ללא הנחה</a></li><li data-category-id="1d9482cb-7719-497f-9336-8d707e582bfa" data-category-slug="mmrchym-vmtblym-tl9qf5"><a href="/category/mmrchym-vmtblym-tl9qf5" dir="ltr">ממרחים ומטבלים</a></li><li data-category-id="5159c9fb-c100-4349-8e05-47f517794cfa" data-category-slug="mmrchym-vmtblym-z5zbrg"><a href="/category/mmrchym-vmtblym-z5zbrg" dir="ltr">ממרחים ומטבלים</a></li><li data-category-id="29d3f926-e5a7-4d80-9bf3-010a89f60459" data-category-slug="mmrchym-vmtblym-rwyylr"><a href="/category/mmrchym-vmtblym-rwyylr" dir="ltr">ממרחים ומטבלים</a></li><li data-category-id="389eabfc-92d0-478c-b25d-bf6b8ee621de" data-category-slug="mmrchym-vrtbym-c9ezh5"><a href="/category/mmrchym-vrtbym-c9ezh5" dir="ltr">ממרחים ורטבים</a></li><li data-category-id="aebfa2b9-4ec7-4288-af0a-154bbd5d6cf7" data-category-slug="mrtsypnym-66d96s"><a href="/category/mrtsypnym-66d96s" dir="ltr">מרציפנים</a></li><li data-category-id="10f88737-8dcc-4915-830e-6bce0ae05eca" data-category-slug="mshkavt-pry-1a6bah"><a href="/category/mshkavt-pry-1a6bah" dir="ltr">משקאות פרי</a></li><li data-category-id="184055e5-8ec5-4e82-b336-345392bffcd2" data-category-slug="svkr-vtchlypyv-lnzl34"><a href="/category/svkr-vtchlypyv-lnzl34" dir="ltr">סוכר ותחליפיו</a></li><li data-category-id="1189855a-2ff0-4aec-99c5-ab4c89a40278" data-category-slug="svkryvt-shvnvt-kgpsky"><a href="/category/svkryvt-shvnvt-kgpsky" dir="ltr">סוכריות שונות</a></li><li data-category-id="9c9ea3af-cc75-4520-858f-b958e5f8c9c2" data-category-slug="svkryvt-shvnvt-ba5o85"><a href="/category/svkryvt-shvnvt-ba5o85" dir="ltr">סוכריות שונות</a></li><li data-category-id="7d62b94e-bedd-40e1-bb4a-2475ec1a6c00" data-category-slug="sylan-vmyypl-jmv6cl"><a href="/category/sylan-vmyypl-jmv6cl" dir="ltr">סילאן ומייפל</a></li><li data-category-id="f4d5126d-4367-4804-83c1-28ca4ed918cb" data-category-slug="syrvp-vtrkyzym-1gdo1g"><a href="/category/syrvp-vtrkyzym-1gdo1g" dir="ltr">סירופ ותרכיזים</a></li><li data-category-id="702024a2-45ea-4715-a23a-45ef6011a6d7" data-category-slug="avgyvt-4pnrh4"><a href="/category/avgyvt-4pnrh4" dir="ltr">עוגיות</a></li><li data-category-id="9bfac701-c2f7-489b-92ed-275f562b39df" data-category-slug="avgyvt-7y6ee2"><a href="/category/avgyvt-7y6ee2" dir="ltr">עוגיות</a></li><li data-category-id="1d652517-ac99-4a46-9285-27340247160e" data-category-slug="avgyvt-jxh3yz"><a href="/category/avgyvt-jxh3yz" dir="ltr">עוגיות</a></li><li data-category-id="10cf2fef-91ea-4a2b-a2cf-efe172f6fcc2" data-category-slug="avgyvt-4i7dgn"><a href="/category/avgyvt-4i7dgn" dir="ltr">עוגיות\</a></li><li data-category-id="b055d59f-e044-49e0-a26b-0a4072905f34" data-category-slug="pytsvchym-myvchdym-2ngiy6"><a href="/category/pytsvchym-myvchdym-2ngiy6" dir="ltr">פיצוחים מיוחדים</a></li><li data-category-id="f618fd80-9edf-412a-9b0b-9c9f734665c7" data-category-slug="pytsvchym-klvyym-o99s4w"><a href="/category/pytsvchym-klvyym-o99s4w" dir="ltr">פיצוחים קלויים</a></li><li data-category-id="16824e17-085f-492c-9764-d2b5c772dd8a" data-category-slug="pyrvt-ybshym-xsgdbz"><a href="/category/pyrvt-ybshym-xsgdbz" dir="ltr">פירות יבשים</a></li><li data-category-id="461260cf-0841-4829-b1d7-fcd0092d7092" data-category-slug="pyrvt-ybshym-lla-tvspt-svkr-4avoo9"><a href="/category/pyrvt-ybshym-lla-tvspt-svkr-4avoo9" dir="ltr">פירות יבשים ללא תוספת סוכר</a></li><li data-category-id="ee39858b-a63d-4498-8947-9183c05a4faf" data-category-slug="pyrvt-ybshym-am-svkr-0n9347"><a href="/category/pyrvt-ybshym-am-svkr-0n9347" dir="ltr">פירות יבשים עם סוכר</a></li><li data-category-id="3c65b447-49ac-4e8e-b01a-925b84bf2d92" data-category-slug="psth-ybshh-3rxb63"><a href="/category/psth-ybshh-3rxb63" dir="ltr">פסטה יבשה</a></li><li data-category-id="c4a338f9-2ef3-4f7e-83ed-71303c8f8058" data-category-slug="prykyvt-vtvrtyvt-1yk8bp"><a href="/category/prykyvt-vtvrtyvt-1yk8bp" dir="ltr">פריכיות וטורטיות</a></li><li data-category-id="7c5b3bc6-a02f-4530-b9a7-dc8f2455e5a0" data-category-slug="tsvrn-4v281r"><a href="/category/tsvrn-4v281r" dir="ltr">צורן</a></li><li data-category-id="0ae33b24-e48b-4e9c-8d02-c0676c129447" data-category-slug="tsvrn-lqdc0m"><a href="/category/tsvrn-lqdc0m" dir="ltr">צורן</a></li><li data-category-id="45b44a46-8713-47b7-b06d-0cdb2599f673" data-category-slug="tsvrn-qlpdow"><a href="/category/tsvrn-qlpdow" dir="ltr">צורן</a></li><li data-category-id="f018d06b-6fc6-443f-bee9-a9bb54d0cf99" data-category-slug="tsvrn-9cpl4t"><a href="/category/tsvrn-9cpl4t" dir="ltr">צורן</a></li><li data-category-id="01fad42b-075b-42ed-b02f-d8c402ba2258" data-category-slug="tsvrn-zfepqq"><a href="/category/tsvrn-zfepqq" dir="ltr">צורן</a></li><li data-category-id="a36600b9-89ad-4cdd-8cac-9660b3804920" data-category-slug="tsvrn-hjzrkh"><a href="/category/tsvrn-hjzrkh" dir="ltr">צורן</a></li><li data-category-id="cdaa67ff-8c2a-4b2f-9bd8-b03d827cee95" data-category-slug="tsvrn-p8uz7i"><a href="/category/tsvrn-p8uz7i" dir="ltr">צורן</a></li><li data-category-id="eb10f57c-d0ff-4daf-abc7-1c78651dfdc8" data-category-slug="tsvrn-3vwwuj"><a href="/category/tsvrn-3vwwuj" dir="ltr">צורן</a></li><li data-category-id="9c2e358e-8b21-4397-931e-5ba88d579a95" data-category-slug="tsvrn-fu6k9d"><a href="/category/tsvrn-fu6k9d" dir="ltr">צורן</a></li><li data-category-id="93d68f51-5ece-45af-8cb5-d1dc525b77a8" data-category-slug="kmchym-kfb6xb"><a href="/category/kmchym-kfb6xb" dir="ltr">קמחים</a></li><li data-category-id="724e0fe0-eb24-49d3-869b-de03fe782668" data-category-slug="kph-vchlytvt-mgxqzi"><a href="/category/kph-vchlytvt-mgxqzi" dir="ltr">קפה וחליטות</a></li><li data-category-id="8ddafe90-da41-4408-b45e-8feb222167dc" data-category-slug="kph-vchlytvt-f2vkha"><a href="/category/kph-vchlytvt-f2vkha" dir="ltr">קפה וחליטות</a></li><li data-category-id="edd2e5d6-55ea-41cf-8d4b-451699cce90d" data-category-slug="kph-tchvn-vkpsvlvt-re7kt8"><a href="/category/kph-tchvn-vkpsvlvt-re7kt8" dir="ltr">קפה טחון וקפסולות</a></li><li data-category-id="ebf9f86e-9383-4903-984e-7e6eb1c080b9" data-category-slug="krkrym-vgrysyny-gbs75y"><a href="/category/krkrym-vgrysyny-gbs75y" dir="ltr">קרקרים וגריסיני</a></li><li data-category-id="7d3dbe57-8aaf-4f72-b897-b41a7f811f13" data-category-slug="krkrym-vgrysyny-k30v7i"><a href="/category/krkrym-vgrysyny-k30v7i" dir="ltr">קרקרים וגריסיני</a></li><li data-category-id="c1a7fa70-e893-404e-afed-4b05e3fbe84f" data-category-slug="krkrym-vgrysyny-38hs7m"><a href="/category/krkrym-vgrysyny-38hs7m" dir="ltr">קרקרים וגריסיני</a></li><li data-category-id="c5e05b1b-739d-4015-8ca6-09285be4c4b9" data-category-slug="rbyvly-vnyvky-babvdt-yd-ftkawm"><a href="/category/rbyvly-vnyvky-babvdt-yd-ftkawm" dir="ltr">רביולי וניוקי בעבודת יד</a></li><li data-category-id="feb396c1-2eaa-4b85-8dfd-3acdab999830" data-category-slug="rtbym-vmmrchym-asytyym-5jcg9u"><a href="/category/rtbym-vmmrchym-asytyym-5jcg9u" dir="ltr">רטבים וממרחים אסיתיים</a></li><li data-category-id="59ede77f-ac0b-4455-9079-d9aae4771d1c" data-category-slug="rtbym-vmmrchym-asytyym-8ahvo8"><a href="/category/rtbym-vmmrchym-asytyym-8ahvo8" dir="ltr">רטבים וממרחים אסיתיים</a></li><li data-category-id="990d67d5-f8ca-4d87-b7ed-51f9540c46db" data-category-slug="rsk-vshymvry-agbnyvt-mlcuz3"><a href="/category/rsk-vshymvry-agbnyvt-mlcuz3" dir="ltr">רסק ושימורי עגבניות</a></li><li data-category-id="b010baf0-8195-49fc-99c7-e4908b436a71" data-category-slug="shvkvldym-oxho98"><a href="/category/shvkvldym-oxho98" dir="ltr">שוקולדים</a></li><li data-category-id="a7f40225-9b26-4554-9702-db8cbf1ffcf0" data-category-slug="shvkvldym-rlvrcp"><a href="/category/shvkvldym-rlvrcp" dir="ltr">שוקולדים</a></li><li data-category-id="ef8cf42a-caa4-4789-be3e-83ffe0601856" data-category-slug="shmn-zyt-vshmnym-myvchdym-6banyk"><a href="/category/shmn-zyt-vshmnym-myvchdym-6banyk" dir="ltr">שמן זית ושמנים מיוחדים</a></li><li data-category-id="35d881d3-dc73-46a7-81e8-6988494f82aa" data-category-slug="tblynym-vtarvbvt-qp98ls"><a href="/category/tblynym-vtarvbvt-qp98ls" dir="ltr">תבלינים ותערובות</a></li><li data-category-id="40a8bd66-a0b6-4f5c-9275-f9953047ca07" data-category-slug="tblynym-tchvnym-wrk8m9"><a href="/category/tblynym-tchvnym-wrk8m9" dir="ltr">תבלינים טחונים</a></li><li data-category-id="e484d8cf-8347-4eaf-b4d7-6dbb3bcc1525" data-category-slug="tblynym-shlmym-1er6z0"><a href="/category/tblynym-shlmym-1er6z0" dir="ltr">תבלינים שלמים</a></li></ul>
     </li>
   
 
@@ -612,7 +1035,7 @@
 
     
   <li><a href="/wellness-approach">Wellness Approach</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="Login"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="Cart"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
-    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search products..." autocomplete="off">
+    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search products..." autocomplete="off" />
     <button class="nav-search-btn" id="nav-search-btn" title="Search">
       <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
     </button>
@@ -626,9 +1049,7 @@
     <nav class="zappy-catalog-menu ltr" id="zappy-catalog-menu" dir="ltr" style="display:none">
       <div class="catalog-menu-container">
         <a href="/products" class="catalog-menu-item catalog-menu-all">All Products</a>
-        <div class="catalog-menu-categories" id="zappy-category-links">
-          <!-- Categories will be loaded dynamically -->
-        </div>
+        <div class="catalog-menu-categories" id="zappy-category-links" dir="ltr" data-zappy-catalog-baked="1"></div>
       </div>
     </nav>
   
@@ -725,7 +1146,7 @@
   </div>
 </section>
     </main>
-    <footer class="site-footer"><div class="footer-container"><div class="footer-top"><div class="footer-col footer-col--brand"><div class="footer-logo-wrap"><img src="/assets/business-logo.webp" alt="Valesų gerovė" class="logo"></div><p class="footer-tagline">Rooted in nature. Guided by wellness. A Baltic apothecary tradition for modern living.</p><div class="footer-social"><a href="#" aria-label="Facebook" style="display:none !important;"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram" style="display:none !important;"><i class="fab fa-instagram"></i></a><a href="https://wa.me/972543951940" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-col footer-col--nav"><h4 class="footer-heading">Explore</h4><ul class="footer-links"><li><a href="/wellness-approach">Wellness Approach</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="footer-col footer-col--contact"><h4 class="footer-heading">Get in Touch</h4><ul class="footer-contact"><li><span class="contact-icon"><i class="fas fa-envelope"></i></span><span class="contact-text"><a href="mailto:maor@zappy5.com">maor@zappy5.com</a></span></li><li><span class="contact-icon"><i class="fas fa-phone"></i></span><span class="contact-text"><a href="tel:+972543951940">+972543951940</a></span></li><li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span><span class="contact-text">Hashlosha 4, Nitzaney Oz, 4906215, Israel</span></a></li></ul></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="footer-copyright">© 2026 Valesų gerovė. All rights reserved.</p><div class="footer-legal"><a href="/privacy">Privacy Policy</a><span class="footer-legal-sep"></span><a href="/terms">Terms &amp; Conditions</a><span class="separator">|</span>
+    <footer class="site-footer"><div class="footer-container"><div class="footer-top"><div class="footer-col footer-col--brand"><div class="footer-logo-wrap"><img src="/assets/business-logo.webp" alt="Valesų gerovė" class="logo" decoding="async" width="35" height="35" /></div><p class="footer-tagline">Rooted in nature. Guided by wellness. A Baltic apothecary tradition for modern living.</p><div class="footer-social"><a href="#" aria-label="Facebook" style="display:none !important;"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram" style="display:none !important;"><i class="fab fa-instagram"></i></a><a href="https://wa.me/97243762712" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-col footer-col--nav"><h4 class="footer-heading">Explore</h4><ul class="footer-links"><li><a href="/wellness-approach">Wellness Approach</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="footer-col footer-col--contact"><h4 class="footer-heading">Get in Touch</h4><ul class="footer-contact"><li><span class="contact-icon"><i class="fas fa-envelope"></i></span><span class="contact-text"><a href="mailto:maor@zappy5.com">maor@zappy5.com</a></span></li><li><span class="contact-icon"><i class="fas fa-phone"></i></span><span class="contact-text"><a href="tel:+972543951940">+972543951940</a></span></li><li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span><span class="contact-text">Hashlosha 4, Nitzaney Oz, 4906215, Israel</span></a></li></ul></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="footer-copyright">© 2026 Valesų gerovė. All rights reserved.</p><div class="footer-legal"><a href="/privacy">Privacy Policy</a><span class="footer-legal-sep"></span><a href="/terms">Terms &amp; Conditions</a><span class="separator">|</span>
             <a href="/return-policy" aria-label="Return Policy">
               Return Policy
             </a><span class="footer-legal-sep"></span><a href="/accessibility">Accessibility</a><span class="footer-legal-sep"></span><a href="https://zappy5.com" target="_blank" class="zappy-attribution">Generated by Zappy</a></div></div></div></footer>
@@ -734,20 +1155,20 @@
 
     
 
-  <a href="https://wa.me/+972543951940" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+  <a href="https://wa.me/97243762712" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
-<div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden=""></div>
-<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="Quick view" hidden="">
+<div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden></div>
+<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="Quick view" hidden>
   <button type="button" class="zappy-qv-close" id="zappy-qv-close" aria-label="Close">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
   <div class="zappy-qv-content" id="zappy-qv-content"></div>
 </div>
 
     <div class="zppb-overlay" id="zppb-overlay">
       <div class="zppb-banner">
-        <button type="button" class="zppb-close" id="zppb-close" aria-label="Close"><svg class="zppb-close-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="zppb-bg-img" style="background-image:url('assets/business-health-and-wellness-natural-remedies-promo-banner.webp'); opacity:0.5;"></div>
+        <button type="button" class="zppb-close" id="zppb-close" aria-label="Close"><svg style="display:none !important" class="zppb-close-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="zppb-bg-img zappy-lazy-bg" style="opacity:0.5" data-zappy-lazy-bg="background-image:url('assets/business-health-and-wellness-natural-remedies-promo-banner.webp');"></div>
         <div class="zppb-content">
           <h3 class="zppb-h">SUMMER SALE 20% OFF</h3>
           <p class="zppb-sub">EVERYTHING</p>
@@ -857,6 +1278,13 @@
 
     <script src="/script.js"></script>
 
+    <script id="zappy-lazy-bg-loader">
+(function(){function load(el){var css=el.getAttribute('data-zappy-lazy-bg');if(!css)return;el.style.cssText=(el.getAttribute('style')||'').replace(/;?\s*$/,';')+css;el.removeAttribute('data-zappy-lazy-bg');el.classList.remove('zappy-lazy-bg');}function init(){var els=[].slice.call(document.querySelectorAll('[data-zappy-lazy-bg]'));if(!els.length)return;if(!('IntersectionObserver'in window)){els.forEach(load);return;}var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){io.unobserve(entry.target);load(entry.target);}});},{rootMargin:'300px 0px'});els.forEach(function(el){io.observe(el);});setTimeout(function(){els.forEach(function(el){if(el.hasAttribute('data-zappy-lazy-bg'))load(el);});},9000);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init,{once:true});}else{init();}})();
+</script>
+    <script id="zappy-font-awesome-loader">
+(function(){if(window.__zappyFontAwesomeLoader)return;window.__zappyFontAwesomeLoader=true;var href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';function load(){if(document.querySelector('link[href*="font-awesome"][href*="all.min.css"]'))return;var l=document.createElement('link');l.rel='stylesheet';l.href=href;l.crossOrigin='anonymous';l.referrerPolicy='no-referrer';document.head.appendChild(l);}function schedule(){if('requestIdleCallback'in window){requestIdleCallback(load,{timeout:5000});}else{setTimeout(load,3500);}}['pointerdown','keydown','touchstart','mouseover'].forEach(function(evt){window.addEventListener(evt,load,{once:true,passive:true});});schedule();})();
+</script>
+
     <script id="zappy-mobile-submenu-script">
     (function() {
       function initMobileSubmenuToggles() {
@@ -907,5 +1335,4 @@
       }, 500);
     })();
     </script>
-</body>
-</html>
+</body></html>
