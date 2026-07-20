@@ -1,36 +1,16 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-20T09:31:05.010Z",
+  "generated_at": "2026-07-20T09:55:46.689Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
-  "count": 5,
+  "count": 4,
   "products": [
     {
-      "id": "eee983de-3e5c-48df-a171-d171136ada76",
-      "slug": "dfsdfsdf-8x3b3l",
-      "name": "dfsdfsdf",
-      "name_translations": {},
-      "description": "<p><br></p>",
-      "short_description": "sdfsadfasdf",
-      "sku": null,
-      "brand": null,
-      "price": 123,
-      "base_price": 123,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/dfsdfsdf-8x3b3l",
-      "categories": [],
-      "updated_at": "2026-07-20T09:30:25.330Z"
-    },
-    {
       "id": "2a5c2713-220e-4b54-af96-855d266e3513",
-      "slug": "black-beads-necklace-2wy3ar",
+      "slug": "black-beads-necklace-4j1ias",
       "name": "black beads necklace",
       "name_translations": {},
-      "description": "A mala is used for yoga practice or as part of your bohemian style.\n\nThey can be worn by anyone who wants a more mindful, peaceful life.\nYou can wear this mala as a bracelet or as a necklace.\nA mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\tbrown long mala\tbead Black necklace\tgift for Meditator\n\nSize:\nNecklace size 18\" 42cm\nomm pendant: 1\" X 1 \"",
+      "description": "<p>A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\tbrown long mala\tbead Black necklace\tgift for Meditator Size: Necklace size 18\" 42cm omm pendant: 1\" X 1 \"</p>",
       "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
       "sku": null,
       "brand": null,
@@ -47,11 +27,11 @@
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/black-beads-necklace-2wy3ar",
+      "url": "https://zappytestsite.com/product/black-beads-necklace-4j1ias",
       "categories": [
         "Yogi Gifts"
       ],
-      "updated_at": "2026-07-13T14:01:58.712Z"
+      "updated_at": "2026-07-20T09:54:57.158Z"
     },
     {
       "id": "d0953fb5-3a49-4072-b1ae-9c5e4946ceaf",
