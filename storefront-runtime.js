@@ -1604,6 +1604,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -5603,7 +5605,7 @@ function stripHtmlToText(html) {
         const freeAboveNote = method.conditions?.freeAbove && !hasFreeAbove ? '<div class="shipping-free-note">' + getEcomText('freeAbove', t.freeAbove || 'Free above') + ' ' + formatMoney(method.conditions.freeAbove) + '</div>' : '';
         
         return '<div class="shipping-method-block" data-method-id="' + method.id + '">' +
-          '<label class="shipping-option' + (idx === 0 ? ' selected' : '') + '" data-method-id="' + method.id + '">' +
+          '<label class="shipping-option' + (idx === 0 ? ' selected' : '') + '" data-method-id="' + method.id + '" data-is-pickup="' + (isPickup ? 'true' : 'false') + '">' +
             '<input type="radio" name="shipping" value="' + method.id + '"' + (idx === 0 ? ' checked' : '') + ' onchange="window.zappySelectShipping(this.value)">' +
             '<div class="shipping-info">' +
               '<div class="shipping-name-row">' +
@@ -7462,7 +7464,11 @@ function stripHtmlToText(html) {
     const orderTotalEl = document.getElementById('order-total');
     const orderItemsEl = document.getElementById('order-items');
 
-    var shippingLabelText = (selectedShipping && selectedShipping.is_pickup)
+    // Surfaced for the preview checkout i18n MutationObserver so it does not
+    // overwrite "Pickup:" back to "Shipping:" after we update the label.
+    window.__zappySelectedShippingIsPickup = !!(selectedShipping && selectedShipping.is_pickup);
+
+    var shippingLabelText = window.__zappySelectedShippingIsPickup
       ? getEcomText('pickup', t.pickup || 'Pickup')
       : getEcomText('shipping', t.shipping || 'Shipping');
     var checkoutLabels = {
@@ -19478,6 +19484,7 @@ function fixContrast(){
         subtotal: 'Subtotal',
         vatIncluded: 'Including VAT',
         shipping: 'Shipping',
+        pickup: 'Pickup',
         discount: 'Discount',
         totalToPay: 'Total to Pay',
         days: 'days',
@@ -19489,6 +19496,7 @@ function fixContrast(){
         subtotal: 'סכום ביניים',
         vatIncluded: 'כולל מע"מ',
         shipping: 'משלוח',
+        pickup: 'איסוף',
         discount: 'הנחה',
         totalToPay: 'סה"כ לתשלום',
         days: 'ימים',
@@ -19611,6 +19619,30 @@ function fixContrast(){
       return [street, city].filter(Boolean).join(', ');
     }
 
+    function isPickupShippingSelected() {
+      // Prefer the live checkout flag set by updateOrderTotals / zappySelectShipping.
+      if (typeof window.__zappySelectedShippingIsPickup === 'boolean') {
+        return window.__zappySelectedShippingIsPickup;
+      }
+      var checked = document.querySelector('input[name="shipping"]:checked');
+      var option = checked
+        ? checked.closest('.shipping-option')
+        : document.querySelector('.shipping-option.selected');
+      if (!option) return false;
+      var attr = option.getAttribute('data-is-pickup');
+      if (attr === 'true') return true;
+      if (attr === 'false') return false;
+      if (option.querySelector('.shipping-address')) return true;
+      var methodId = (checked && checked.value) || option.getAttribute('data-method-id');
+      var cached = window.__zappyShippingMethodsCache;
+      if (methodId && Array.isArray(cached)) {
+        for (var i = 0; i < cached.length; i++) {
+          if (String(cached[i].id) === String(methodId)) return !!cached[i].is_pickup;
+        }
+      }
+      return false;
+    }
+
     function patchCheckoutStaticText() {
       ensureCheckoutTotalsStructure();
       var agree = document.querySelector('[data-i18n="ecom_agreeToTerms"]') || document.querySelector('.terms-checkbox-label > span > span:first-child');
@@ -19619,7 +19651,9 @@ function fixContrast(){
       if (terms && terms.textContent !== getText('termsAndConditions')) terms.textContent = getText('termsAndConditions');
       setLabelForValue('#subtotal', 'subtotal');
       setLabelForValue('#vat-amount', 'vatIncluded');
-      setLabelForValue('#shipping-cost', 'shipping');
+      // Must NOT force "Shipping:" over a selected pickup method — the MutationObserver
+      // re-runs this after updateOrderTotals sets "Pickup:" and was flipping it back.
+      setLabelForValue('#shipping-cost', isPickupShippingSelected() ? 'pickup' : 'shipping');
       setLabelForValue('#checkout-discount-amount', 'discount');
       setLabelForValue('#discount', 'discount');
       setLabelForValue('#order-total', 'totalToPay');
@@ -19642,6 +19676,7 @@ function fixContrast(){
         var res = await fetch(apiBase + '/api/ecommerce/storefront/shipping?websiteId=' + encodeURIComponent(websiteId) + '&lang=' + encodeURIComponent(lang));
         var data = await res.json();
         var methods = data && data.data ? data.data : [];
+        window.__zappyShippingMethodsCache = methods;
         methods.forEach(function(method) {
           var block = container.querySelector('.shipping-method-block[data-method-id="' + method.id + '"]');
           if (!block) return;
