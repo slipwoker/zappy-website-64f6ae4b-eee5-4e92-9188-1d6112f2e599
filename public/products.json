@@ -1,10 +1,30 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-20T07:21:24.488Z",
+  "generated_at": "2026-07-20T09:31:05.010Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
-  "count": 4,
+  "count": 5,
   "products": [
+    {
+      "id": "eee983de-3e5c-48df-a171-d171136ada76",
+      "slug": "dfsdfsdf-8x3b3l",
+      "name": "dfsdfsdf",
+      "name_translations": {},
+      "description": "<p><br></p>",
+      "short_description": "sdfsadfasdf",
+      "sku": null,
+      "brand": null,
+      "price": 123,
+      "base_price": 123,
+      "sale_price": null,
+      "currency": "ILS",
+      "images": [],
+      "in_stock": true,
+      "stock_status": "in_stock",
+      "url": "https://zappytestsite.com/product/dfsdfsdf-8x3b3l",
+      "categories": [],
+      "updated_at": "2026-07-20T09:30:25.330Z"
+    },
     {
       "id": "2a5c2713-220e-4b54-af96-855d266e3513",
       "slug": "black-beads-necklace-2wy3ar",
