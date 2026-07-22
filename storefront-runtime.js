@@ -1610,6 +1610,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -18348,7 +18350,7 @@ function fixContrast(){
       var s = document.createElement('style');
       s.id = 'zappy-variant-visual-css';
       s.textContent =
-        /* Text variant options: gray + text strikethrough */
+        /* False variant options: gray + text strikethrough */
         '.variant-option.disabled { opacity: 0.4 !important; cursor: pointer !important; text-decoration: line-through !important; }' +
         '.variant-option.disabled::after, .variant-option.disabled::before { content: none !important; }' +
         /* Color swatches: only opacity, no strikethrough */
@@ -18356,7 +18358,9 @@ function fixContrast(){
         /* Out-of-stock: same treatment */
         '.variant-option.out-of-stock { opacity: 0.4 !important; cursor: pointer !important; text-decoration: line-through !important; }' +
         '.variant-option.out-of-stock::after, .variant-option.out-of-stock::before { content: none !important; }' +
-        '.variant-option.color-swatch.out-of-stock { text-decoration: none !important; }';
+        '.variant-option.color-swatch.out-of-stock { text-decoration: none !important; }' +
+        /* Incomplete selection prompt (must not look like hard OOS) */
+        '.product-info .product-stock.select-required { color: #d97706 !important; }';
       document.head.appendChild(s);
     }
 
@@ -18370,8 +18374,8 @@ function fixContrast(){
         _initOverridden = true;
       }
       window.initVariantSelection = function(product, t) {
-        // Store product data for our fix
-        if (product && product.variants && product.variants.length > 0) {
+        // Store product data for our fix (variants[] OR card_variants.matrix)
+        if (product && ((product.variants && product.variants.length > 0) || _hasMatrix(product))) {
           _variantProduct = _augmentProductFromCardVariants(product);
           var trans = t || {};
           // Ensure pleaseSelect is available (for sites generated before this key was added)
@@ -18404,7 +18408,33 @@ function fixContrast(){
     
     function _getVariants() {
       if (!_variantProduct) return [];
-      return (_variantProduct.variants || []).filter(function(v) { return v.is_active !== false; });
+      var rows = (_variantProduct.variants || []).filter(function(v) { return v && v.is_active !== false; });
+      if (rows.length) return rows;
+      // Matrix-only / incomplete variants[] — same fallback as updateVariantUI / V12 overlay.
+      var m = _variantProduct.card_variants && Array.isArray(_variantProduct.card_variants.matrix)
+        ? _variantProduct.card_variants.matrix : [];
+      return m.filter(function(r) { return r && r.is_active !== false; });
+    }
+
+    function _hasMatrix(p) {
+      return !!(p && p.card_variants && Array.isArray(p.card_variants.matrix) && p.card_variants.matrix.length > 0);
+    }
+
+    /** True when any purchasable variant/matrix row remains (incomplete-selection gate). */
+    function _anyVariantAvailable() {
+      var rows = _getVariants();
+      if (rows.some(function(v) { return !_isOOS(v); })) return true;
+      var p = _variantProduct || window.currentProduct;
+      var m = p && p.card_variants && Array.isArray(p.card_variants.matrix) ? p.card_variants.matrix : [];
+      if (m.length) return m.some(function(r) { return r && r.available !== false && r.is_active !== false; });
+      return false;
+    }
+
+    function _selectVariantMessage() {
+      var t = _variantTranslations || {};
+      if (typeof getEcomText === 'function') return getEcomText('selectVariant', t.selectVariant || 'Select option');
+      var rtl = document.documentElement.getAttribute('dir') === 'rtl' || document.body.getAttribute('dir') === 'rtl';
+      return t.selectVariant || (rtl ? 'בחר אפשרות' : 'Select option');
     }
 
     function _augmentProductFromCardVariants(product) {
@@ -18566,6 +18596,9 @@ function fixContrast(){
     function _isOOS(v) {
       if (window.zappyVariantMatrix) return window.zappyVariantMatrix.isUnavailable(v);
       if (!v) return true;
+      // Matrix rows often only set `available` (no stock_status / inventory).
+      if (typeof v.available === 'boolean') return !v.available;
+      if (v.is_active === false) return true;
       if (v.stock_status === 'out_of_stock') return true;
       var i = v.inventory_quantity != null ? v.inventory_quantity : v.inventoryQuantity;
       if (i != null && i !== '') {
@@ -18661,7 +18694,9 @@ function fixContrast(){
       var product = _variantProduct;
       if (!product) return;
       var keys = _getAttributeKeys();
-      var allSelected = keys.every(function(k) { return selectedAttributes.hasOwnProperty(k); });
+      // keys.length===0 must NOT vacuous-true allSelected — that used to resolve
+      // the first (often OOS) variant and flash "Out of Stock" before a pick.
+      var allSelected = keys.length > 0 && keys.every(function(k) { return selectedAttributes.hasOwnProperty(k); });
       var stockDisplay = document.getElementById('product-stock-display');
       var priceDisplay = document.getElementById('product-price-display');
       var addBtn = document.getElementById('add-to-cart-btn');
@@ -18787,11 +18822,23 @@ function fixContrast(){
           var skuLabel2 = (typeof getEcomText === 'function') ? getEcomText('sku', t.sku || 'SKU') : (t.sku || 'SKU');
           skuDisplay2.textContent = skuLabel2 + ': ' + product.sku;
         }
+        // Incomplete selection: prompt to pick an option when any variant is still
+        // purchasable. Never echo parent stock_status / blanket "In Stock" here —
+        // that flashed OOS or In Stock before the shopper chose (preview path).
+        var avail = _anyVariantAvailable();
         if (stockDisplay) {
-          stockDisplay.className = 'product-stock in-stock';
-          stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + (t.inStock || 'In Stock');
+          if (avail) {
+            stockDisplay.className = 'product-stock select-required';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + _selectVariantMessage();
+          } else {
+            stockDisplay.className = 'product-stock out-of-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + (t.outOfStock || 'Out of Stock');
+          }
         }
-        if (addBtn) { addBtn.disabled = false; addBtn.style.opacity = ''; addBtn.style.cursor = ''; }
+        if (addBtn) {
+          if (avail) { addBtn.disabled = false; addBtn.style.opacity = ''; addBtn.style.cursor = ''; }
+          else { addBtn.disabled = true; addBtn.style.opacity = '0.5'; addBtn.style.cursor = 'not-allowed'; }
+        }
         // Reset price to initial state (Starting at / base price). Same
         // customer-discount path as the variant-matched branch above; without
         // this, partially-selecting a variant and then deselecting another
@@ -18939,7 +18986,8 @@ function fixContrast(){
       
       var product = _variantProduct || window.currentProduct;
       var t = _variantTranslations || window.productTranslations || {};
-      if (!product || !product.variants || product.variants.length === 0) return;
+      if (!product) return;
+      if ((!product.variants || product.variants.length === 0) && !_hasMatrix(product)) return;
       if (document.querySelectorAll('.variant-option').length === 0) return;
       if (window._zappyVariantFixed) return;
       window._zappyVariantFixed = true;
@@ -19415,6 +19463,7 @@ function fixContrast(){
       en: {
         inStock: 'In Stock',
         outOfStock: 'Out of Stock',
+        selectVariant: 'Select option',
         color: 'Color',
         size: 'Size',
         material: 'Material',
@@ -19426,6 +19475,7 @@ function fixContrast(){
       he: {
         inStock: 'במלאי',
         outOfStock: 'אזל מהמלאי',
+        selectVariant: 'בחר אפשרות',
         color: 'צבע',
         size: 'מידה',
         material: 'חומר',
@@ -19539,9 +19589,20 @@ function fixContrast(){
 
       var stock = document.getElementById('product-stock-display');
       if (stock) {
-        var inStock = stock.classList.contains('in-stock') && !stock.classList.contains('out-of-stock');
+        // Three-state: in-stock / out-of-stock / select-required. Treating
+        // select-required as OOS was flipping "Please select…" → "Out of Stock"
+        // ~100ms after PDP paint (MutationObserver + schedulePatch).
         var svg = stock.querySelector('svg');
-        var nextText = inStock ? getText('inStock') : getText('outOfStock');
+        var nextText;
+        if (stock.classList.contains('select-required')) {
+          nextText = (typeof getEcomText === 'function')
+            ? getEcomText('selectVariant', getText('selectVariant'))
+            : getText('selectVariant');
+        } else if (stock.classList.contains('in-stock') && !stock.classList.contains('out-of-stock')) {
+          nextText = getText('inStock');
+        } else {
+          nextText = getText('outOfStock');
+        }
         if ((stock.textContent || '').trim() !== nextText) {
           stock.textContent = '';
           if (svg) stock.appendChild(svg);
