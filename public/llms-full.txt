@@ -202,6 +202,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -982,6 +985,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -1550,6 +1556,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -1956,6 +1965,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2612,6 +2624,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3094,6 +3109,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -3303,6 +3321,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3928,6 +3949,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -4144,6 +4168,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4745,6 +4772,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5093,6 +5123,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5124,7 +5157,7 @@ All Products
 # Return Policy
 
 
-Last Updated: 7/20/2026
+Last Updated: 7/22/2026
 
 
 
@@ -5355,6 +5388,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -5796,6 +5832,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -6011,6 +6050,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -6508,6 +6550,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -6781,6 +6826,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 

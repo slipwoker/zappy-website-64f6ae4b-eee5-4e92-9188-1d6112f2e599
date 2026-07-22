@@ -1606,6 +1606,8 @@ function withConsent(category, callback) {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -3234,6 +3236,12 @@ function stripHtmlToText(html) {
 
   function resolveProductImageUrl(url) {
     if (!url) return '';
+    // Legacy product.images entries were occasionally persisted as
+    // { url, alt } objects — coerce before any string ops.
+    if (typeof url === 'object') {
+      url = url.url || url.src || url.href || url.contentUrl || url.path || '';
+    }
+    if (typeof url !== 'string' || !url) return '';
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
       return url;
     }
@@ -12472,7 +12480,10 @@ function renderProductDetail(container, product, t) {
     return resolved;
   });
   const hasMedia = images.length > 1 || videos.length > 0;
-  const baseInStock = product.stock_status !== 'out_of_stock';
+  // Parent stock_status is NOT authoritative for multi-variant products — a
+  // product row is often marked out_of_stock while individual variants remain
+  // purchasable. Defer the real availability decision until variants are merged
+  // below (anyVariantAvailable / baseInStock).
   const hasSalePrice = product.sale_price && parseFloat(product.sale_price) < parseFloat(product.price);
   const basePrice = hasSalePrice ? parseFloat(product.sale_price) : parseFloat(product.price);
   const originalPrice = parseFloat(product.price);
@@ -12506,6 +12517,17 @@ function renderProductDetail(container, product, t) {
   const variants = Object.values(variantById);
   const hasVariants = variants.length > 0;
   const activeVariants = variants.filter(variant => variant.is_active !== false);
+  // Variant products: available when ANY active variant is purchasable.
+  // Simple products: fall back to the product row's stock_status.
+  // Using the parent stock_status alone for variant products was showing
+  // "Out of stock" before the shopper picked an option (even when variants
+  // were in stock). Incomplete selection should prompt "Select option" instead.
+  const anyVariantAvailable = activeVariants.some(function(v) {
+    return typeof variantRowUnavailable === 'function' ? !variantRowUnavailable(v) : v.stock_status !== 'out_of_stock';
+  });
+  const baseInStock = hasVariants
+    ? anyVariantAvailable
+    : product.stock_status !== 'out_of_stock';
   const initialSpecifications = getEffectiveProductSpecifications(null, product);
   const hasAnySpecifications =
     initialSpecifications.length > 0 ||
@@ -12804,10 +12826,12 @@ function renderProductDetail(container, product, t) {
         ${product.short_description ? '<div class="product-short-description">' + product.short_description + '</div>' : ''}
         ${product.sku ? '<div class="product-sku" id="product-sku-display">' + getEcomText('sku', t.sku || 'SKU') + ': ' + product.sku + '</div>' : ''}
         ${variantSelectorHtml}
-        <div class="product-stock ${baseInStock ? 'in-stock' : 'out-of-stock'}" id="product-stock-display">
-          ${baseInStock 
-            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
-            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock')
+        <div class="product-stock ${hasVariants && baseInStock ? 'select-required' : (baseInStock ? 'in-stock' : 'out-of-stock')}" id="product-stock-display">
+          ${hasVariants && baseInStock
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + getEcomText('selectVariant', t.selectVariant || 'Select option')
+            : (baseInStock
+              ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
+              : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock'))
           }
         </div>
         ${(() => {
@@ -13819,7 +13843,9 @@ function updateVariantUI(variant, product, t, selectedAttributes) {
         addToCartBtn.style.cursor = 'not-allowed';
       }
     } else {
-      // Partial selection - show base product info
+      // Partial / no selection - show base product info. For multi-variant
+      // products do NOT trust product.stock_status: prompt the shopper to pick
+      // an option when any variant is still purchasable.
       if (priceDisplay) {
         if (hasVariantPriceRange && Number.isFinite(variantMinPrice)) {
           if (zappyHasActiveCustomerDiscount() && product && product.id) {
@@ -13850,24 +13876,39 @@ function updateVariantUI(variant, product, t, selectedAttributes) {
           }
         }
       }
-      
-      // Reset to base product stock
-      const baseInStock = product.stock_status !== 'out_of_stock';
+
+      var activeRows = (product.variants || []).filter(function(v) { return v && v.is_active !== false; });
+      var hasVariantRows = activeRows.length > 0
+        || (product.card_variants && Array.isArray(product.card_variants.matrix) && product.card_variants.matrix.length > 0);
+      var anyAvailable = false;
+      if (activeRows.length > 0) {
+        anyAvailable = activeRows.some(function(v) { return !variantRowUnavailable(v); });
+      } else if (product.card_variants && Array.isArray(product.card_variants.matrix)) {
+        anyAvailable = product.card_variants.matrix.some(function(m) { return m && m.available !== false; });
+      } else {
+        anyAvailable = product.stock_status !== 'out_of_stock';
+      }
       if (stockDisplay) {
         if (!additionalJsShowStockStatus) { stockDisplay.style.display = 'none'; }
         else {
           stockDisplay.style.display = '';
-          stockDisplay.className = 'product-stock ' + (baseInStock ? 'in-stock' : 'out-of-stock');
-          stockDisplay.innerHTML = baseInStock 
-            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock')
-            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock');
+          if (hasVariantRows && anyAvailable) {
+            stockDisplay.className = 'product-stock select-required';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' + getEcomText('selectVariant', t.selectVariant || 'Select option');
+          } else if (anyAvailable) {
+            stockDisplay.className = 'product-stock in-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>' + getEcomText('inStock', t.inStock || 'In Stock');
+          } else {
+            stockDisplay.className = 'product-stock out-of-stock';
+            stockDisplay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>' + getEcomText('outOfStock', t.outOfStock || 'Out of Stock');
+          }
         }
       }
       
       if (addToCartBtn) {
-        addToCartBtn.disabled = !baseInStock;
-        addToCartBtn.style.opacity = baseInStock ? '1' : '0.5';
-        addToCartBtn.style.cursor = baseInStock ? 'pointer' : 'not-allowed';
+        addToCartBtn.disabled = !anyAvailable;
+        addToCartBtn.style.opacity = anyAvailable ? '1' : '0.5';
+        addToCartBtn.style.cursor = anyAvailable ? 'pointer' : 'not-allowed';
       }
     }
     
@@ -16550,7 +16591,7 @@ function fixContrast(){
 /* END ZAPPY_CONTACT_FORM_PREVENT_DEFAULT */
 
 
-/* ZAPPY_PUBLISHED_GRID_CENTERING */
+/* ZAPPY_PUBLISHED_GRID_CENTERING_V2 */
 (function(){
   try {
     if (window.__zappyGridCenteringInit) return;
@@ -16614,6 +16655,21 @@ function fixContrast(){
           var colWidth = parseFloat(colWidths[0]) || 0;
           var gap = parseFloat(cs.columnGap);
           if (isNaN(gap)) gap = parseFloat(cs.gap) || 0;
+
+          // Skip non-uniform column widths (mirrors preview autoCenterAllGrids).
+          // Centering assumes equal columns; mixed tracks produce wrong offsets.
+          var parsedWidths = colWidths.map(function(w) { return parseFloat(w) || 0; });
+          if (Math.max.apply(null, parsedWidths) > Math.min.apply(null, parsedWidths) * 1.5) continue;
+
+          // Skip multi-span items (e.g. grid-column: 1 / -1 full-bleed cards, or
+          // bento tiles with span 2+). totalItems % colCount cannot account for
+          // spanned tracks, so a lone full-span card in a 4-col auto-fit grid was
+          // mis-classified as a 1-of-4 orphan and shifted by translateX(~459px).
+          var singleColThreshold = colWidth * 1.5 + gap;
+          var anyMultiSpan = items.some(function(it) {
+            return it.getBoundingClientRect().width > singleColThreshold;
+          });
+          if (anyMultiSpan) continue;
 
           var missingCols = colCount - itemsInLastRow;
           var offset = missingCols * (colWidth + gap) / 2;
@@ -16788,7 +16844,7 @@ function fixContrast(){
 })();
 
 
-/* ZAPPY_VARIANT_SELECTION_FIX_V10 */
+/* ZAPPY_VARIANT_SELECTION_FIX_V12 */
 (function(){
   try {
     if (window.__zappyVariantFixInit) return;
@@ -16798,7 +16854,7 @@ function fixContrast(){
     if (!document.getElementById('zappy-variant-fix-css')) {
       var s = document.createElement('style');
       s.id = 'zappy-variant-fix-css';
-      s.textContent = '.variant-option.disabled{opacity:0.4!important;cursor:pointer!important;text-decoration:line-through!important}.variant-option.disabled::after,.variant-option.disabled::before{content:none!important}.variant-option.color-swatch.disabled{text-decoration:none!important}.variant-option.out-of-stock{opacity:0.4!important;cursor:pointer!important;text-decoration:line-through!important}.variant-option.out-of-stock::after,.variant-option.out-of-stock::before{content:none!important}.variant-option.color-swatch.out-of-stock{text-decoration:none!important}';
+      s.textContent = '.variant-option.disabled{opacity:0.4!important;cursor:pointer!important;text-decoration:line-through!important}.variant-option.disabled::after,.variant-option.disabled::before{content:none!important}.variant-option.color-swatch.disabled{text-decoration:none!important}.variant-option.out-of-stock{opacity:0.4!important;cursor:pointer!important;text-decoration:line-through!important}.variant-option.out-of-stock::after,.variant-option.out-of-stock::before{content:none!important}.variant-option.color-swatch.out-of-stock{text-decoration:none!important}.product-info .product-stock.select-required{color:#d97706!important}';
       document.head.appendChild(s);
     }
 
@@ -16821,7 +16877,8 @@ function fixContrast(){
     // _autoSelectSingles. Re-trigger fixVariantSelection from inside the wrapper
     // so the runtime fix runs once data finally arrives. Deferred via setTimeout
     // so the page's own renderProductDetail finishes mutating the DOM first.
-    function _oivs(){if(_initOvr)return;if(typeof window.initVariantSelection==='function')_initOvr=true;window.initVariantSelection=function(p,t){if(p&&p.variants&&p.variants.length>0){_vProduct=_augmentProductFromCardVariants(p);var tr=t||{};if(!tr.pleaseSelect){var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';tr.pleaseSelect=rtl?'נא לבחור':'Please select'}_vT=tr;setTimeout(function(){try{fixVariantSelection()}catch(e){}},0)}}}
+    function _hasMatrix(p){return !!(p&&p.card_variants&&Array.isArray(p.card_variants.matrix)&&p.card_variants.matrix.length>0)}
+    function _oivs(){if(_initOvr)return;if(typeof window.initVariantSelection==='function')_initOvr=true;window.initVariantSelection=function(p,t){if(p&&((p.variants&&p.variants.length>0)||_hasMatrix(p))){_vProduct=_augmentProductFromCardVariants(p);var tr=t||{};if(!tr.pleaseSelect){var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';tr.pleaseSelect=rtl?'נא לבחור':'Please select'}_vT=tr;setTimeout(function(){try{fixVariantSelection()}catch(e){}},0)}}}
     _oivs();
 
     function _augmentProductFromCardVariants(p){
@@ -16844,7 +16901,15 @@ function fixContrast(){
     function _trVal(p,k,v,f){if(typeof window.zappyTranslateVariantValue==='function')return window.zappyTranslateVariantValue(p,k,v,f);var lang='';try{lang=String((typeof getCurrentEcomLanguage==='function'?getCurrentEcomLanguage():(document.documentElement.lang||''))||'').split('-')[0].toLowerCase()}catch(e){}function kc(x){if(lang!=='he')return'';if(String(k||'').toLowerCase().indexOf('color')===-1&&String(k||'').toLowerCase()!=='colour')return'';var raw=String(x==null?'':x).trim();if(!raw||/[\u0590-\u05FF]/.test(raw))return'';var map={black:'שחור',white:'לבן',gray:'אפור',grey:'אפור',red:'אדום',green:'ירוק',blue:'כחול',navy:'כחול כהה',pink:'ורוד',purple:'סגול',yellow:'צהוב',orange:'כתום',brown:'חום',beige:'בז׳',gold:'זהב',silver:'כסף',teal:'טורקיז',mint:'מנטה',cream:'קרם',ivory:'שנהב'},direct=map[raw.toLowerCase().replace(/\s+/g,' ')];if(direct)return direct;var parts=raw.split(/\s*-\s*/).filter(Boolean),tr=parts.map(function(part){return map[String(part).toLowerCase().replace(/\s+/g,' ')]});return parts.length>1&&tr.every(Boolean)?tr.join('-'):''}var vs=p&&Array.isArray(p.variants)?p.variants:[],w=String(v);for(var i=0;i<vs.length;i++){var x=vs[i]||{},a=x.attributes_source||x.attributes||{};if(!a||String(a[k])!==w)continue;var tr=x.attributes_translations&&lang&&x.attributes_translations[lang];if(tr&&tr[k])return kc(tr[k])||String(tr[k]);var d=x.attributes_display||{};if(d&&d[k])return kc(d[k])||String(d[k])}var m=p&&p.card_variants&&Array.isArray(p.card_variants.matrix)?p.card_variants.matrix:[];for(var j=0;j<m.length;j++){var r=m[j]||{},ra=r.attributes||{};if(ra&&String(ra[k])===w&&r.attributes_display&&r.attributes_display[k])return kc(r.attributes_display[k])||String(r.attributes_display[k])}return kc(f)||f}
     function _ensureCvBtns(){var p=_vProduct||window.currentProduct,cv=p&&p.card_variants;if(!cv||!Array.isArray(cv.options))return;cv.options.forEach(function(o){if(!o||!o.key||!Array.isArray(o.values))return;var g=null;document.querySelectorAll('.variant-group').forEach(function(c){if(c.getAttribute('data-group')===o.key)g=c});var ct=g&&g.querySelector('.variant-options');if(!ct)return;var isC=o.type==='color'||String(o.key).toLowerCase().indexOf('color')!==-1;o.values.forEach(function(e){if(!e||e.value==null)return;var dl=_trVal(p,o.key,e.value,String(e.label||e.value));var eb=null;ct.querySelectorAll('.variant-option').forEach(function(b){if(b.getAttribute('data-value')===String(e.value))eb=b});if(eb){eb.setAttribute('data-display-value',dl);eb.title=dl;if(isC)eb.style.cssText=_cvStyle(e);else eb.textContent=dl;return}var b=document.createElement('button');b.type='button';b.className='variant-option'+(isC?' color-swatch':'');b.setAttribute('data-attr',o.key);b.setAttribute('data-value',String(e.value));b.setAttribute('data-display-value',dl);b.title=dl;if(isC)b.style.cssText=_cvStyle(e);else b.textContent=dl;ct.appendChild(b)})})}
 
-    function _gv() { if(!_vProduct)return []; return (_vProduct.variants||[]).filter(function(v){return v.is_active!==false}); }
+    function _gv() {
+      if(!_vProduct)return [];
+      var rows=(_vProduct.variants||[]).filter(function(v){return v&&v.is_active!==false});
+      if(rows.length)return rows;
+      // Matrix-only / incomplete variants payload: treat card_variants.matrix as
+      // the purchasable row set (same as updateVariantUI / renderProductDetail).
+      var m=_vProduct.card_variants&&Array.isArray(_vProduct.card_variants.matrix)?_vProduct.card_variants.matrix:[];
+      return m.filter(function(r){return r&&r.is_active!==false});
+    }
     function _gak() { var k=[],s={}; document.querySelectorAll('.variant-option').forEach(function(b){var a=b.getAttribute('data-attr');if(a&&!s[a]){s[a]=true;k.push(a)}}); return k; }
     // Wildcard match: a variant that doesn't define an attribute matches any value.
     // Prefers the shared window.zappyVariantMatrix (same script.js) so the PDP,
@@ -16855,6 +16920,10 @@ function fixContrast(){
     function _oos(v) {
       if(window.zappyVariantMatrix)return window.zappyVariantMatrix.isUnavailable(v);
       if(!v)return true;
+      // Mirror zappyVariantMatrix.isUnavailable — matrix rows often only set
+      // available (no stock_status / inventory fields).
+      if(typeof v.available==='boolean')return !v.available;
+      if(v.is_active===false)return true;
       if(v.stock_status==='out_of_stock')return true;
       var i=v.inventory_quantity!=null?v.inventory_quantity:v.inventoryQuantity;
       if(i!=null&&i!==''){var n=parseFloat(i);if(isFinite(n))return n<=0}
@@ -16884,9 +16953,24 @@ function fixContrast(){
       else if(window._originalMainImageSrc){mi.src=window._originalMainImageSrc}
     }
 
+    // Mirror updateVariantUI's incomplete-selection availability: prefer active
+    // variant rows, then fall back to card_variants.matrix when variants are
+    // empty/incomplete/all-OOS. V11 only consulted _gv()→variants and flashed
+    // "Out of Stock" on matrix-heavy products that initially showed "Select option".
+    function _anyAvail(){
+      var rows=_gv();
+      if(rows.some(function(v){return !_oos(v)}))return true;
+      var p=_vProduct||window.currentProduct;
+      var m=p&&p.card_variants&&Array.isArray(p.card_variants.matrix)?p.card_variants.matrix:[];
+      if(m.length)return m.some(function(r){return r&&r.available!==false&&r.is_active!==false});
+      return false;
+    }
+    function _selMsg(){var t=_vT||{};if(typeof getEcomText==='function')return getEcomText('selectVariant',t.selectVariant||'Select option');var rtl=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';return t.selectVariant||(rtl?'\u05D1\u05D7\u05E8 \u05D0\u05E4\u05E9\u05E8\u05D5\u05EA':'Select option')}
     function _upd() {
       var t=_vT,product=_vProduct;if(!product)return;
-      var keys=_gak(),allSel=keys.every(function(k){return selectedAttributes.hasOwnProperty(k)});
+      // keys.length===0 must NOT vacuous-true allSel — that used to resolve the
+      // first (often OOS) variant and flash "Out of Stock" before a pick.
+      var keys=_gak(),allSel=keys.length>0&&keys.every(function(k){return selectedAttributes.hasOwnProperty(k)});
       var sd=document.getElementById('product-stock-display'),ab=document.getElementById('add-to-cart-btn');
       keys.forEach(function(k){var sp=document.querySelector('.variant-group[data-group="'+k+'"] .variant-selected-value');if(sp){var sb=document.querySelector('.variant-option[data-attr="'+k+'"].selected');sp.textContent=(sb&&sb.getAttribute('data-display-value'))||selectedAttributes[k]||''}});
       if(allSel){
@@ -16899,8 +16983,15 @@ function fixContrast(){
         }
       } else {
         window.selectedVariant=null;
-        if(sd){sd.className='product-stock in-stock';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'+(t.inStock||'In Stock')}
-        if(ab){ab.disabled=false;ab.style.opacity='';ab.style.cursor=''}
+        // Incomplete selection: prompt to pick an option when any variant is still
+        // purchasable. Never echo parent stock_status as "Out of Stock" here —
+        // that was the limousine-type PDP bug (אזל מהמלאי before choosing).
+        var avail=_anyAvail();
+        if(sd){
+          if(avail){sd.className='product-stock select-required';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'+_selMsg()}
+          else{sd.className='product-stock out-of-stock';sd.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'+(t.outOfStock||'Out of Stock')}
+        }
+        if(ab){if(avail){ab.disabled=false;ab.style.opacity='';ab.style.cursor=''}else{ab.disabled=true;ab.style.opacity='0.5';ab.style.cursor='not-allowed'}}
         var skd2=document.getElementById('product-sku-display');if(skd2&&product.sku){var skL2=(typeof getEcomText==='function')?getEcomText('sku',t.sku||'SKU'):(t.sku||'SKU');skd2.textContent=skL2+': '+product.sku}
         var pd=document.getElementById('product-price-display');if(pd){var c=product.currency||t.currency||String.fromCharCode(8362),bP=window.productBasePrice||parseFloat(product.price)||0,oP=window.productOriginalPrice||parseFloat(product.compare_at_price||product.original_price||0),hS=window.productHasSalePrice,hR=window.productHasVariantPriceRange,mP=window.productVariantMinPrice;var _cdFn=(typeof window.__zappyApplyCustomerPercentToPrice==='function'&&product&&product.id)?window.__zappyApplyCustomerPercentToPrice:null;if(hR&&mP!=null&&isFinite(mP)){var sL=(typeof getEcomText==='function')?getEcomText('startingAt',t.startingAt||'Starting at'):(t.startingAt||'Starting at');if(_cdFn){var _r=_cdFn(mP,product.id);if(_r&&_r.applied){pd.innerHTML=sL+' '+c+_r.price.toFixed(2)+' <span class="original-price">'+c+mP.toFixed(2)+'</span>'}else{pd.textContent=sL+' '+c+mP.toFixed(2)}}else{pd.textContent=sL+' '+c+mP.toFixed(2)}}else if(_cdFn){var _r2=_cdFn(bP,product.id);if(_r2&&_r2.applied){pd.innerHTML=c+_r2.price.toFixed(2)+' <span class="original-price">'+c+bP.toFixed(2)+'</span>'}else if(hS&&oP>bP){pd.innerHTML=c+bP.toFixed(2)+' <span class="original-price">'+c+oP.toFixed(2)+'</span>'}else{pd.textContent=c+bP.toFixed(2)}}else if(hS&&oP>bP){pd.innerHTML=c+bP.toFixed(2)+' <span class="original-price">'+c+oP.toFixed(2)+'</span>'}else{pd.textContent=c+bP.toFixed(2)}}
         if(typeof updatePricePerUnitDisplay==='function'){var hR2=window.productHasVariantPriceRange,mP2=window.productVariantMinPrice,bP2=window.productBasePrice||parseFloat(product.price)||0,rP=(hR2&&mP2!=null&&isFinite(mP2))?mP2:bP2;if(typeof window.__zappyApplyCustomerPercentToPrice==='function'&&product&&product.id){var _cdRp=window.__zappyApplyCustomerPercentToPrice(rP,product.id);if(_cdRp&&_cdRp.applied)rP=_cdRp.price}updatePricePerUnitDisplay(rP,product,t)}
@@ -16986,7 +17077,8 @@ function fixContrast(){
     function fixVariantSelection() {
       _oivs();
       var product=_vProduct||window.currentProduct,t=_vT||window.productTranslations||{};
-      if(!product||!product.variants||product.variants.length===0)return;
+      if(!product)return;
+      if((!product.variants||product.variants.length===0)&&!_hasMatrix(product))return;
       if(document.querySelectorAll('.variant-option').length===0)return;
       if(window._zappyVariantFixed)return;window._zappyVariantFixed=true;
       _vProduct=_augmentProductFromCardVariants(product);if(!t.pleaseSelect){var isRTL=document.documentElement.getAttribute('dir')==='rtl'||document.body.getAttribute('dir')==='rtl';t.pleaseSelect=isRTL?'נא לבחור':'Please select'}_vT=t;
@@ -20663,7 +20755,7 @@ if (document.readyState === 'complete') {
       if (document.getElementById('zappy-mobile-nav-icon-alignment-fix')) return;
       var style = document.createElement('style');
       style.id = 'zappy-mobile-nav-icon-alignment-fix';
-      style.textContent = "\n\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V3 */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V4 */\n/* The mobile hamburger / phone buttons are absolutely positioned. Keep the\n   navbar itself as a non-collapsing containing block so auto-margin centering\n   stays aligned even when generated mobile CSS moves every nav child out of flow. */\n@media (max-width: 768px) {\n  .navbar,\n  nav.navbar {\n    min-height: 70px !important;\n  }\n\n  /* E-commerce mobile navbar icon-group alignment.\n     The icon couples (search after the hamburger; login+cart at the end edge)\n     are absolutely positioned with inset-inline offsets — inset-inline-start:52px\n     to clear the 36px hamburger that sits at left:12px on the .navbar, and\n     inset-inline-end:12px to hug the end edge. Those offsets are authored in the\n     NAVBAR's full-width coordinate space (the hamburger uses the same one). But\n     the offsets are resolved against the nearest positioned ancestor, and the\n     generated CSS makes .nav-container position:relative. When .nav-container is\n     ALSO inset by the navbar's horizontal padding (max-width / padding from the\n     LLM-authored navbar), the groups resolve to that inset box instead of the\n     full-width navbar: the search drifts ~20px away from the hamburger and the\n     cart leaves a fat asymmetric gap before the screen edge. Dropping\n     .nav-container out of the containing-block chain on mobile makes both couples\n     resolve to .navbar (always full-bleed) so they line up tightly with the\n     hamburger and sit symmetrically against both edges regardless of any\n     navbar/container padding. Scoped via :has() to navbars that actually carry\n     the e-commerce icon couples so non-ecommerce navs are untouched. */\n  .navbar:has(.nav-ecommerce-icons) .nav-container,\n  nav.navbar:has(.nav-ecommerce-icons) .nav-container,\n  header:has(.nav-ecommerce-icons) .nav-container {\n    position: static !important;\n  }\n\n  /* Some generated RTL nav CSS sets both left:50% and right:50% on the\n     absolute .nav-brand. That collapses it to 0px wide, so the logo flows\n     left from the center instead of being centered on it. */\n  .navbar .nav-brand,\n  nav.navbar .nav-brand,\n  html[dir=\"rtl\"] .navbar .nav-brand,\n  html[dir=\"rtl\"] nav.navbar .nav-brand,\n  html[lang=\"he\"] .navbar .nav-brand,\n  html[lang=\"he\"] nav.navbar .nav-brand,\n  html[lang=\"ar\"] .navbar .nav-brand,\n  html[lang=\"ar\"] nav.navbar .nav-brand {\n    position: absolute !important;\n    left: 50% !important;\n    right: auto !important;\n    top: 50% !important;\n    width: auto !important;\n    min-width: max-content !important;\n    max-width: calc(100% - 168px) !important;\n    transform: translate(-50%, -50%) !important;\n    margin: 0 !important;\n    text-align: center !important;\n    justify-content: center !important;\n  }\n\n  .navbar .nav-brand .logo-link,\n  nav.navbar .nav-brand .logo-link,\n  .navbar .nav-brand a,\n  nav.navbar .nav-brand a {\n    display: inline-flex !important;\n    justify-content: center !important;\n    align-items: center !important;\n    margin-left: auto !important;\n    margin-right: auto !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle,\n  .navbar > .phone-header-btn,\n  nav.navbar > .phone-header-btn,\n  .navbar .phone-header-btn,\n  nav.navbar .phone-header-btn {\n    position: absolute !important;\n    top: 0 !important;\n    bottom: 0 !important;\n    transform: none !important;\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n    align-self: center !important;\n    align-items: center !important;\n    justify-content: center !important;\n    line-height: 0 !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle {\n    display: flex !important;\n  }\n\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar .phone-header-btn {\n    display: flex !important;\n  }\n\n  html[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  body[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] header .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] nav .phone-header-btn {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    overflow: hidden !important;\n  }\n}\n";
+      style.textContent = "\n\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V3 */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V4 */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V5 */\n/* The mobile hamburger / phone buttons are absolutely positioned. Keep the\n   navbar itself as a non-collapsing containing block so auto-margin centering\n   stays aligned even when generated mobile CSS moves every nav child out of flow. */\n@media (max-width: 768px) {\n  .navbar,\n  nav.navbar {\n    min-height: 70px !important;\n  }\n\n  /* V5: Desktop .nav-search-box must stay hidden on mobile. AI/customization CSS\n     often force-shows it with higher specificity than the generator's plain\n     .nav-search-box { display:none } (e.g. .navbar .nav-ecommerce-icons.nav-icons-left\n     .nav-search-box { display:flex; background: cream }), which paints an empty\n     cream/white square left of the cart on RTL ecommerce navs. Beat that chain. */\n  html body .navbar .nav-search-box,\n  html body nav.navbar .nav-search-box,\n  html body .navbar .nav-ecommerce-icons .nav-search-box,\n  html body .navbar .nav-ecommerce-icons.nav-icons-left .nav-search-box,\n  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-left .nav-search-box {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    max-width: 0 !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    margin: 0 !important;\n    border: none !important;\n    background: transparent !important;\n    pointer-events: none !important;\n  }\n\n  /* V5: Search-toggle SVG is frequently recolored to --nav-text (cream/white) by\n     AI customization at .navbar .nav-container .nav-ecommerce-icons.nav-icons-right\n     .nav-search-toggle svg, while the pill button itself keeps the correct\n     contrasting color from the luminance-aware pill rules. Inherit that color\n     with a selector that out-ranks the nav-text stroke paint so the icon stays\n     legible on light AND dark pills (no hardcoded text-dark). */\n  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg,\n  html body .navbar .nav-container .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg *,\n  html body .navbar .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg,\n  html body .navbar .nav-ecommerce-icons.nav-icons-right .nav-search-toggle svg * {\n    color: inherit !important;\n    stroke: currentColor !important;\n    fill: none !important;\n  }\n\n  /* V5: Keep the three mobile icon couples on one baseline — absolute groups +\n     hamburger all center against the same navbar box. */\n  html body .navbar .nav-ecommerce-icons.nav-icons-left,\n  html body .navbar .nav-ecommerce-icons.nav-icons-right,\n  html body .navbar .nav-icons-left,\n  html body .navbar .nav-icons-right {\n    top: 50% !important;\n    bottom: auto !important;\n    transform: translateY(-50%) !important;\n    align-items: center !important;\n  }\n  html body .navbar .nav-ecommerce-icons.nav-icons-right .nav-search-toggle,\n  html body .navbar .nav-search-toggle {\n    width: 36px !important;\n    height: 36px !important;\n    min-width: 36px !important;\n    padding: 0 !important;\n    margin: 0 !important;\n    border-radius: 9999px !important;\n    align-self: center !important;\n  }\n\n  /* E-commerce mobile navbar icon-group alignment.\n     The icon couples (search after the hamburger; login+cart at the end edge)\n     are absolutely positioned with inset-inline offsets — inset-inline-start:52px\n     to clear the 36px hamburger that sits at left:12px on the .navbar, and\n     inset-inline-end:12px to hug the end edge. Those offsets are authored in the\n     NAVBAR's full-width coordinate space (the hamburger uses the same one). But\n     the offsets are resolved against the nearest positioned ancestor, and the\n     generated CSS makes .nav-container position:relative. When .nav-container is\n     ALSO inset by the navbar's horizontal padding (max-width / padding from the\n     LLM-authored navbar), the groups resolve to that inset box instead of the\n     full-width navbar: the search drifts ~20px away from the hamburger and the\n     cart leaves a fat asymmetric gap before the screen edge. Dropping\n     .nav-container out of the containing-block chain on mobile makes both couples\n     resolve to .navbar (always full-bleed) so they line up tightly with the\n     hamburger and sit symmetrically against both edges regardless of any\n     navbar/container padding. Scoped via :has() to navbars that actually carry\n     the e-commerce icon couples so non-ecommerce navs are untouched. */\n  .navbar:has(.nav-ecommerce-icons) .nav-container,\n  nav.navbar:has(.nav-ecommerce-icons) .nav-container,\n  header:has(.nav-ecommerce-icons) .nav-container {\n    position: static !important;\n  }\n\n  /* Some generated RTL nav CSS sets both left:50% and right:50% on the\n     absolute .nav-brand. That collapses it to 0px wide, so the logo flows\n     left from the center instead of being centered on it. */\n  .navbar .nav-brand,\n  nav.navbar .nav-brand,\n  html[dir=\"rtl\"] .navbar .nav-brand,\n  html[dir=\"rtl\"] nav.navbar .nav-brand,\n  html[lang=\"he\"] .navbar .nav-brand,\n  html[lang=\"he\"] nav.navbar .nav-brand,\n  html[lang=\"ar\"] .navbar .nav-brand,\n  html[lang=\"ar\"] nav.navbar .nav-brand {\n    position: absolute !important;\n    left: 50% !important;\n    right: auto !important;\n    top: 50% !important;\n    width: auto !important;\n    min-width: max-content !important;\n    max-width: calc(100% - 168px) !important;\n    transform: translate(-50%, -50%) !important;\n    margin: 0 !important;\n    text-align: center !important;\n    justify-content: center !important;\n  }\n\n  .navbar .nav-brand .logo-link,\n  nav.navbar .nav-brand .logo-link,\n  .navbar .nav-brand a,\n  nav.navbar .nav-brand a {\n    display: inline-flex !important;\n    justify-content: center !important;\n    align-items: center !important;\n    margin-left: auto !important;\n    margin-right: auto !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle,\n  .navbar > .phone-header-btn,\n  nav.navbar > .phone-header-btn,\n  .navbar .phone-header-btn,\n  nav.navbar .phone-header-btn {\n    position: absolute !important;\n    top: 0 !important;\n    bottom: 0 !important;\n    transform: none !important;\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n    align-self: center !important;\n    align-items: center !important;\n    justify-content: center !important;\n    line-height: 0 !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle {\n    display: flex !important;\n  }\n\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar .phone-header-btn {\n    display: flex !important;\n  }\n\n  html[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  body[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] header .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] nav .phone-header-btn {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    overflow: hidden !important;\n  }\n}\n";
       document.head.appendChild(style);
     }
 
