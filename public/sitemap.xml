@@ -1,94 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zappytestsite.com</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com" />
   </url>
   <url>
     <loc>https://zappytestsite.com/wellness-approach</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/wellness-approach" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/wellness-approach" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/wellness-approach" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/wellness-approach</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/wellness-approach" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/wellness-approach" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/wellness-approach" />
   </url>
   <url>
     <loc>https://zappytestsite.com/about</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/about" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/about" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/about</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/about" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/about" />
   </url>
   <url>
     <loc>https://zappytestsite.com/contact</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/contact" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/contact" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/contact</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/contact" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/contact" />
   </url>
   <url>
     <loc>https://zappytestsite.com/products</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/products" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/products" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/products" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/products</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/products" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/products" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/products" />
   </url>
   <url>
     <loc>https://zappytestsite.com/cart</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/cart" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/cart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/cart" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/cart</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/cart" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/cart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/cart" />
   </url>
   <url>
     <loc>https://zappytestsite.com/checkout</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/checkout" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/checkout" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/checkout" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/checkout</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/checkout" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/checkout" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/checkout" />
   </url>
   <url>
     <loc>https://zappytestsite.com/login</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/login" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/login" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/login</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/login" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/login" />
   </url>
   <url>
     <loc>https://zappytestsite.com/account</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/account" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/account" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/account</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/account" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/account" />
   </url>
   <url>
     <loc>https://zappytestsite.com/order-success</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/order-success" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/order-success" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/order-success" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/order-success</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/order-success" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/order-success" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/order-success" />
   </url>
   <url>
     <loc>https://zappytestsite.com/product/:slug</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/product/:slug" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/product/:slug</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/product/:slug" />
   </url>
   <url>
     <loc>https://zappytestsite.com/category/:slug</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/category/:slug" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/category/:slug</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/category/:slug" />
   </url>
   <url>
     <loc>https://zappytestsite.com/privacy</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/privacy" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/privacy</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/privacy" />
   </url>
   <url>
     <loc>https://zappytestsite.com/terms</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/terms" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/terms" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/terms</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/terms" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/terms" />
   </url>
   <url>
     <loc>https://zappytestsite.com/accessibility</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/accessibility" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/accessibility" />
+  </url>
+  <url>
+    <loc>https://zappytestsite.com/he/accessibility</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zappytestsite.com/accessibility" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://zappytestsite.com/he/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zappytestsite.com/accessibility" />
   </url>
   <url>
     <loc>https://zappytestsite.com/product/black-beads-necklace-4j1ias</loc>
