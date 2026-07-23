@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-07-23T14:48:19.205Z",
+  "generated_at": "2026-07-23T14:52:35.930Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
   "count": 4,
@@ -34,7 +34,7 @@
       "categories": [
         "Yogi Gifts"
       ],
-      "updated_at": "2026-07-23T14:43:58.442Z"
+      "updated_at": "2026-07-23T14:50:22.579Z"
     },
     {
       "id": "d0953fb5-3a49-4072-b1ae-9c5e4946ceaf",
@@ -65,7 +65,7 @@
       "categories": [
         "Yoga necklaces"
       ],
-      "updated_at": "2026-07-23T14:43:58.440Z"
+      "updated_at": "2026-07-23T14:50:22.578Z"
     },
     {
       "id": "83e2c902-4773-4276-a77e-d0f52345d455",
@@ -73,7 +73,7 @@
       "name": "Blue Ceramic Fruit Bowl: Pottery Serving Bowl",
       "name_translations": {
         "en": "Blue Ceramic Fruit Bowl: Pottery Serving Bowl",
-        "he": "קערת פירות קרמית כחולה: קערת הגשה מקרמיקה"
+        "he": "קערת פירות קרמיקה כחולה: קערת הגשה מקרמיקה"
       },
       "description": "Nice ceramic bowl",
       "short_description": "Nice ceramic bowl",
@@ -93,7 +93,7 @@
       "categories": [
         "Ceramic bowls"
       ],
-      "updated_at": "2026-07-23T14:43:58.443Z"
+      "updated_at": "2026-07-23T14:50:22.675Z"
     },
     {
       "id": "b6fe24cf-fac8-4b48-a359-8df27ba6b602",
@@ -121,7 +121,7 @@
       "categories": [
         "Ceramic bowls"
       ],
-      "updated_at": "2026-07-23T14:43:58.441Z"
+      "updated_at": "2026-07-23T14:50:23.003Z"
     }
   ]
 }
