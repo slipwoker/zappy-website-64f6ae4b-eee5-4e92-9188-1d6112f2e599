@@ -235,6 +235,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -1035,6 +1043,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -1623,6 +1639,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -2164,6 +2188,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -2263,10 +2295,10 @@ Message
 
 
 
-I have read and agree to the   Terms & Conditions  |
+I have read and agree to the    Terms & Conditions  |
 
 Return Policy
-and   Privacy Policy
+and    Privacy Policy
 
 
 Send Message
@@ -2316,7 +2348,7 @@ Your Message
 
 
 
-I have read and agree to the   Terms & Conditions   and   Privacy Policy
+I have read and agree to the    Terms & Conditions    and    Privacy Policy
 
 
 
@@ -2718,6 +2750,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -3227,6 +3267,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -3247,7 +3295,7 @@ All Products
 Cart is empty
 
 
-Total:   ₪0
+Total:    ₪0
 Proceed to Checkout
 
 
@@ -3564,6 +3612,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -4101,6 +4157,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -4445,6 +4509,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -4958,6 +5030,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -5319,6 +5399,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -5723,6 +5811,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -6062,6 +6158,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -6412,6 +6516,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
@@ -6821,6 +6933,14 @@ Use code null for a discount!
 
 
 
+עברית
+
+
+
+
+
+
+
 
 
 
@@ -7222,6 +7342,14 @@ Use code null for a discount!
 
 
 
+
+
+
+
+
+
+
+עברית
 
 
 
