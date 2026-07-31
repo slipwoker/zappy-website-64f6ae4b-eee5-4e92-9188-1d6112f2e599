@@ -14717,10 +14717,11 @@ html[lang="ar"] .mobile-search-panel .search-wrapper,
     gap: 12px !important;
   }
   
-  /* Desktop icon order: Search first (rightmost in RTL), then Login, then Cart (leftmost in RTL) */
+  /* Desktop icon order: Search, Globe, Login, Cart (LTR; mirrored for RTL) */
   .nav-ecommerce-icons .nav-search-box { order: 1 !important; }
-  .nav-ecommerce-icons .login-link.nav-login { order: 2 !important; }
-  .nav-ecommerce-icons .cart-link.nav-cart { order: 3 !important; }
+  .nav-ecommerce-icons .lang-switcher { order: 2 !important; }
+  .nav-ecommerce-icons .login-link.nav-login { order: 3 !important; }
+  .nav-ecommerce-icons .cart-link.nav-cart { order: 4 !important; }
   
   /* Hide nav-icons-right in V2 navbar desktop (search toggle is for mobile only) */
   .nav-right-group .nav-ecommerce-icons.nav-icons-right {
