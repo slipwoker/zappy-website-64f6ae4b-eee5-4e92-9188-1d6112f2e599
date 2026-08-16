@@ -1283,6 +1283,14 @@ function stripHtmlToText(html) {
         minimumOrderAmount = (data.data.minimumOrderAmount && data.data.minimumOrderAmount > 0)
           ? parseFloat(data.data.minimumOrderAmount)
           : null;
+        if (data.data.tagColors && typeof data.data.tagColors === 'object' && !Array.isArray(data.data.tagColors)) {
+          window.ZAPPY_TAG_COLORS = data.data.tagColors;
+        } else {
+          window.ZAPPY_TAG_COLORS = {};
+        }
+        if (typeof window.zappyRefreshCardTagColors === 'function') {
+          window.zappyRefreshCardTagColors();
+        }
         updateMinimumOrderBanner();
         updatePlaceOrderState();
         var catalogMenu = document.getElementById('zappy-catalog-menu');
@@ -2807,8 +2815,43 @@ function stripHtmlToText(html) {
    * Product-card corner badges. Merchant tags (sale/new/featured/…) plus an
    * always-on Out of Stock pill when the whole product is unavailable —
    * independent of showStockStatus / sortOutOfStockLast store settings.
+   * Custom tags take their colour from store_settings.tag_colors
+   * (window.ZAPPY_TAG_COLORS), defaulting to pink to match Store Manager.
    */
+  /* ZAPPY_CARD_TAG_COLORS_V1 */
+  window.ZAPPY_TAG_COLORS = window.ZAPPY_TAG_COLORS || {};
+  window.zappyResolveProductTagClass = function(tag) {
+    var tagLower = String(tag || '').toLowerCase();
+    if (tagLower === 'sale' || tagLower === 'מבצע') return 'product-tag tag-sale';
+    if (tagLower === 'new' || tagLower === 'חדש') return 'product-tag tag-new';
+    if (tagLower === 'featured' || tagLower === 'מומלץ') return 'product-tag tag-featured';
+    if (tagLower === 'bestseller' || tagLower === 'רב מכר') return 'product-tag tag-bestseller';
+    if (tagLower === 'limited' || tagLower === 'מוגבל') return 'product-tag tag-limited';
+    if (tagLower === 'eco-friendly' || tagLower === 'ידידותי לסביבה') return 'product-tag tag-eco-friendly';
+    var key = (window.ZAPPY_TAG_COLORS && window.ZAPPY_TAG_COLORS[tagLower]) || 'pink';
+    var allowed = { green:1, red:1, amber:1, purple:1, rose:1, teal:1, sky:1, indigo:1, orange:1, pink:1, slate:1 };
+    if (!allowed[key]) key = 'pink';
+    return 'product-tag tag-color-' + key;
+  };
+  window.zappyRefreshCardTagColors = function(scope) {
+    var root = (scope && scope.querySelectorAll) ? scope : document;
+    try {
+      root.querySelectorAll('.product-tag').forEach(function(el) {
+        if (el.classList.contains('tag-out-of-stock')) return;
+        el.className = window.zappyResolveProductTagClass((el.textContent || '').trim());
+      });
+    } catch (e) {}
+  };
   window.zappyBuildCardTagsHtml = function(p, t) {
+    var resolveClass = typeof window.zappyResolveProductTagClass === 'function'
+      ? window.zappyResolveProductTagClass
+      : function(tag) {
+          var tagLower = String(tag || '').toLowerCase();
+          if (tagLower === 'sale' || tagLower === 'מבצע') return 'product-tag tag-sale';
+          if (tagLower === 'new' || tagLower === 'חדש') return 'product-tag tag-new';
+          if (tagLower === 'featured' || tagLower === 'מומלץ') return 'product-tag tag-featured';
+          return 'product-tag';
+        };
     var tagBadges = [];
     var fullyOos = typeof window.isProductOutOfStockForListing === 'function'
       && window.isProductOutOfStockForListing(p);
@@ -2822,16 +2865,7 @@ function stripHtmlToText(html) {
     }
     if (p && p.tags && p.tags.length) {
       p.tags.forEach(function(tag) {
-        var tagLower = String(tag || '').toLowerCase();
-        if (tagLower === 'sale' || tagLower === 'מבצע') {
-          tagBadges.push('<span class="product-tag tag-sale">' + tag + '</span>');
-        } else if (tagLower === 'new' || tagLower === 'חדש') {
-          tagBadges.push('<span class="product-tag tag-new">' + tag + '</span>');
-        } else if (tagLower === 'featured' || tagLower === 'מומלץ') {
-          tagBadges.push('<span class="product-tag tag-featured">' + tag + '</span>');
-        } else {
-          tagBadges.push('<span class="product-tag">' + tag + '</span>');
-        }
+        tagBadges.push('<span class="' + resolveClass(tag) + '">' + tag + '</span>');
       });
     }
     return tagBadges.length > 0
@@ -10284,7 +10318,12 @@ window.__zappyScheduleDynamicProductGridsDiscountRefresh = scheduleDynamicProduc
 /* ZAPPY_RELATED_PRODUCTS_FETCH_GUARD_V1 */
 
 // Load featured products on home page (uses public storefront API)
-// Only shows products marked as "featured" - no fallback to all products
+// Only shows products marked as "featured" - no fallback to all products.
+// Pages through EVERY featured product (Park Toys: 213) so the homepage
+// never drops cards; each page is 12 so first paint cannot freeze the tab.
+// V2 prefetches the next page as soon as the current one renders so
+// scrolling to the section bottom does not wait on a cold fetch.
+// V3 drops a rejected prefetch so a later scroll starts a fresh fetch.
 async function loadFeaturedProducts() {
   const grid = document.getElementById('zappy-featured-products');
   if (!grid) return;
@@ -10304,30 +10343,121 @@ async function loadFeaturedProducts() {
   } catch (e) {}
   
   const t = {"products":"Products","ourProducts":"Our Products","featuredProducts":"Featured Products","noFeaturedProducts":"No featured products yet. Check out all our products!","featuredCategories":"Shop by Category","all":"All","featured":"Featured","new":"New","sale":"Sale","loadingProducts":"Loading products...","cart":"Cart","yourCart":"Your Cart","emptyCart":"Cart is empty","total":"Total","proceedToCheckout":"Proceed to Checkout","checkout":"Checkout","customerInfo":"Customer Info","fullName":"Full Name","email":"Email","phone":"Phone","shippingAddress":"Shipping Address","street":"Street Address","streetAndNumber":"Street and Number","apartment":"Apt, Floor, Unit","apartmentExt":"Apt, Floor, Building Code, Notes, Etc.","city":"City","zip":"ZIP Code","zipPostal":"Zip / Postal Code","countryRegion":"Country / Region","stateProvince":"State / Province","stateRequired":"Please select a state / province","saveAddressForNextTime":"Save this address for next time","shippingMethod":"Shipping Method","loadingShipping":"Loading shipping methods...","payment":"Payment","loadingPayment":"Loading payment options...","orderSummary":"Order Summary","subtotal":"Subtotal","vat":"VAT","vatIncluded":"VAT Included","shipping":"Shipping","pickup":"Pickup","discount":"Discount","bundleDiscount":"Bundle Discount","seasonalDiscount":"Seasonal Discount","customerDiscount":"Customer Discount","totalToPay":"Total","placeOrder":"Place Order","login":"Login","customerLogin":"Customer Login","enterEmail":"Enter your email and we'll send you a login code","emailAddress":"Email Address","sendCode":"Send Code","enterCode":"Enter the code sent to your email","verificationCode":"Verification Code","verify":"Verify","returnPolicy":"Return Policy","addToCart":"Add to Cart","startingAt":"Starting at","addedToCart":"Product added to cart!","remove":"Remove","noProducts":"No products to display","errorLoading":"Error loading","days":"days","currency":"₪","free":"FREE","freeAbove":"Free above","noShippingMethods":"No shipping options available","viewAllResults":"View all results","searchProducts":"Search products","searchResults":"Search results","productDetails":"Product Details","viewDetails":"View Details","inStock":"In Stock","outOfStock":"Out of Stock","pleaseSelect":"Please select","sku":"SKU","category":"Category","relatedProducts":"Related Products","frequentlyBoughtTogether":"Frequently bought together","frequentlyBoughtTogetherSubtitle":"Save time and get everything you need","bundleTotal":"Bundle total","addBundleToCart":"Add {count} items to cart","upsellFree":"Free","productNotFound":"Product not found","backToProducts":"Back to Products","home":"Home","quantity":"Quantity","unitLabels":{"piece":"pcs","kg":"kg","gram":"g","liter":"L","ml":"ml"},"perUnit":"/","couponCode":"Coupon Code","enterCouponCode":"Enter coupon code","applyCoupon":"Apply","removeCoupon":"Remove","couponApplied":"Coupon applied successfully!","invalidCoupon":"Invalid coupon code","couponExpired":"Coupon has expired","couponMinOrder":"Minimum order amount","alreadyHaveAccount":"Already have an account?","loginHere":"Login here","signInHere":"Sign in here","mobileNumber":"Mobile Number","loggedInAs":"Logged in as:","logout":"Logout","haveCouponCode":"I have a coupon code","agreeToTerms":"I agree to the","termsAndConditions":"Terms and Conditions","pleaseAcceptTerms":"Please accept the terms and conditions","nameRequired":"Please enter your full name","emailRequired":"Please enter your email address","emailInvalid":"Please enter a valid email address","phoneRequired":"Please enter your phone number","shippingRequired":"Please select a shipping method","streetRequired":"Please enter your street address","cityRequired":"Please enter your city","paymentNotConfigured":"Online payment not configured","orderSuccess":"Order Received!","thankYouOrder":"Thank you for your order","orderNumber":"Order Number","orderConfirmation":"A confirmation email has been sent to you","orderProcessing":"Your order is being processed. We'll notify you when it ships.","continueShopping":"Continue Shopping","next":"Next","contactInformation":"Contact Information","items":"Items","continueToHomePage":"Continue to Home Page","transactionDate":"Transaction Date","paymentMethod":"Payment Method","orderDetails":"Order Details","loadingOrder":"Loading order details...","orderNotFound":"Order not found","paymentNotCompleted":"Payment not completed","paymentNotCompletedDesc":"Your payment was not completed, so no order was created. You have not been charged. You can try again.","backToCheckout":"Back to checkout","orderItems":"Order Items","paidAmount":"Amount Paid","myAccount":"My Account","accountWelcome":"Welcome","yourOrders":"Your Orders","noOrders":"No orders yet","orderDate":"Date","orderStatus":"Status","orderTotal":"Total","viewOrder":"View Order","statusPending":"Pending Payment","statusPaid":"Paid","statusProcessing":"Processing","statusShipped":"Shipped","statusDelivered":"Delivered","statusCancelled":"Cancelled","notLoggedIn":"Not Logged In","pleaseLogin":"Please login to view your account","personalDetails":"Personal Details","editProfile":"Edit Profile","name":"Name","saveChanges":"Save Changes","cancel":"Cancel","addresses":"Addresses","addAddress":"Add Address","editAddress":"Edit Address","deleteAddress":"Delete Address","setAsDefault":"Set as Default","defaultAddress":"Default Address","addressLabel":"Address Label","work":"Work","other":"Other","noAddresses":"No saved addresses","confirmDelete":"Are you sure you want to delete?","profileUpdated":"Profile updated successfully","addressSaved":"Address saved successfully","addressDeleted":"Address deleted","saving":"Saving...","saveToFavorites":"Save to Favorites","removeFromFavorites":"Remove from Favorites","shareProduct":"Share Product","linkCopied":"Link copied!","myFavorites":"My Favorites","noFavorites":"No favorites yet","addedToFavorites":"Added to favorites","removedFromFavorites":"Removed from favorites","loginToFavorite":"Log in to save favorites","browseFavorites":"Discover all our products","selectVariant":"Select option","variantUnavailable":"Unavailable","enterQuantities":"Enter quantities","color":"Color","size":"Size","material":"Material","style":"Style","weight":"Weight","capacity":"Capacity","length":"Length","inquiryAbout":"Inquiry about","sendInquiry":"Send Inquiry","callNow":"Call Now","specifications":"Specifications","storeNote":"Additional Information","businessPhone":"+972543951940","businessEmail":"maor\u0040zappy5.com"};
-  
-  try {
-    // Only fetch featured products - no fallback, with language support
-    const res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId + '&featured=true'));
-    const data = await res.json();
-    if (!data.success || !data.data?.length) {
-      // Show a preview-only onboarding CTA only when the entire store has no products.
-      if (data.success && await zappyHasAnyStorefrontProducts() === false) {
-        grid.innerHTML = zappyRenderPreviewEmptyStoreCta(t.noProducts || 'No products to display', 'no-featured-products');
-      } else {
-        grid.innerHTML = '<div class="no-featured-products">' + (t.noFeaturedProducts || 'No featured products yet. Check out all our products!') + '</div>';
-      }
-      return;
+  var HOME_FEATURED_PRODUCTS_PAGE_SIZE = 12;
+  var offset = 0;
+  var loadingMore = false;
+  var allLoaded = false;
+  var loadedIds = Object.create(null);
+  var observer = null;
+  var inFlight = null;
+
+  function removeFeaturedLazySentinel() {
+    var el = grid.querySelector('[data-zappy-featured-lazy-sentinel]');
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+    if (observer) {
+      observer.disconnect();
+      observer = null;
     }
-    var featuredList = data.data;
-    if (additionalJsSortOutOfStockLast && typeof window.sortProductsOutOfStockLast === 'function') {
-      featuredList = window.sortProductsOutOfStockLast(featuredList);
-    }
-    renderProductGrid(grid, featuredList, t, true);
-  } catch (e) {
-    console.error('Failed to load featured products', e);
-    grid.innerHTML = '<div class="empty-cart">' + t.errorLoading + '</div>';
   }
+
+  function ensureFeaturedLazySentinel() {
+    var el = grid.querySelector('[data-zappy-featured-lazy-sentinel]');
+    if (!el) {
+      el = document.createElement('div');
+      el.setAttribute('data-zappy-featured-lazy-sentinel', '1');
+      el.className = 'zappy-featured-lazy-sentinel';
+      el.setAttribute('aria-hidden', 'true');
+      el.style.cssText = 'grid-column:1/-1;width:100%;height:1px;';
+      grid.appendChild(el);
+    }
+    if (typeof IntersectionObserver === 'function') {
+      if (observer) observer.disconnect();
+      observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            fetchFeaturedPage(false);
+            break;
+          }
+        }
+      }, { root: null, rootMargin: '2500px 0px', threshold: 0 });
+      observer.observe(el);
+    } else {
+      setTimeout(function() { fetchFeaturedPage(false); }, 0);
+    }
+  }
+
+  function fetchFeaturedJson(pageOffset) {
+    return fetch(buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId + '&featured=true&limit=' + HOME_FEATURED_PRODUCTS_PAGE_SIZE + '&offset=' + pageOffset)).then(function(res) {
+      return res.json();
+    });
+  }
+
+  function startFeaturedPrefetch(pageOffset) {
+    if (allLoaded) return;
+    if (inFlight && inFlight.offset === pageOffset) return;
+    var pendingPrefetch = { offset: pageOffset, promise: fetchFeaturedJson(pageOffset) };
+    inFlight = pendingPrefetch;
+    pendingPrefetch.promise.catch(function() {
+      if (inFlight === pendingPrefetch) inFlight = null;
+    });
+  }
+
+  async function fetchFeaturedPage(replace) {
+    if (loadingMore || allLoaded) return;
+    loadingMore = true;
+    try {
+      var data;
+      var pending = (inFlight && inFlight.offset === offset) ? inFlight : { offset: offset, promise: fetchFeaturedJson(offset) };
+      inFlight = pending;
+      try {
+        data = await pending.promise;
+      } finally {
+        if (inFlight === pending) inFlight = null;
+      }
+      var pageItems = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+      if (replace && !pageItems.length) {
+        if (data && data.success && await zappyHasAnyStorefrontProducts() === false) {
+          grid.innerHTML = zappyRenderPreviewEmptyStoreCta(t.noProducts || 'No products to display', 'no-featured-products');
+        } else {
+          grid.innerHTML = '<div class="no-featured-products">' + (t.noFeaturedProducts || 'No featured products yet. Check out all our products!') + '</div>';
+        }
+        allLoaded = true;
+        return;
+      }
+      var featuredList = pageItems.filter(function(p) {
+        if (!p || !p.id || loadedIds[p.id]) return false;
+        loadedIds[p.id] = true;
+        return true;
+      });
+      if (additionalJsSortOutOfStockLast && typeof window.sortProductsOutOfStockLast === 'function') {
+        featuredList = window.sortProductsOutOfStockLast(featuredList);
+      }
+      if (featuredList.length) {
+        renderProductGrid(grid, featuredList, t, true, undefined, !replace);
+      }
+      offset += pageItems.length;
+      var total = data && typeof data.total === 'number' ? data.total : null;
+      if (!pageItems.length || pageItems.length < HOME_FEATURED_PRODUCTS_PAGE_SIZE || (total != null && offset >= total)) {
+        allLoaded = true;
+        removeFeaturedLazySentinel();
+      } else {
+        ensureFeaturedLazySentinel();
+        startFeaturedPrefetch(offset);
+      }
+    } catch (e) {
+      if (replace) {
+        console.error('Failed to load featured products', e);
+        grid.innerHTML = '<div class="empty-cart">' + t.errorLoading + '</div>';
+        allLoaded = true;
+      }
+    } finally {
+      loadingMore = false;
+    }
+  }
+
+  await fetchFeaturedPage(true);
 }
+/* ZAPPY_HOME_FEATURED_PRODUCTS_LAZY_V3 */
 
 // Load featured categories on home page (uses public storefront API)
 // Only shows categories marked as "featured" with images
@@ -10539,7 +10669,7 @@ async function syncProductDetailCustomerDiscount() {
   }
 }
 
-function renderProductGrid(grid, products, t, isFeaturedSection, viewMode) {
+function renderProductGrid(grid, products, t, isFeaturedSection, viewMode, append) {
   // Card layout is now Standard (square) or Portrait (tall); legacy
   // compact/detailed map to standard.
   var layout = (additionalJsProductLayout === 'portrait') ? 'portrait' : 'standard';
@@ -10553,7 +10683,7 @@ function renderProductGrid(grid, products, t, isFeaturedSection, viewMode) {
   var localizedAddToCart = getEcomText('addToCart', t.addToCart);
   var localizedViewDetails = getEcomText('viewDetails', t.viewDetails);
   
-  grid.innerHTML = products.map(p => {
+  var cardsHtml = products.map(p => {
     // Check if price should be displayed (default to true if not set)
     const showPrice = p.custom_fields?.showPrice !== false;
     const hasSalePrice = p.sale_price && parseFloat(p.sale_price) < parseFloat(p.price);
@@ -10660,6 +10790,14 @@ function renderProductGrid(grid, products, t, isFeaturedSection, viewMode) {
 
     return '<div class="product-card ' + layout + cardOosClass + '" data-product-id="' + p.id + '">' + cardContent + '</div>';
   }).join('');
+
+  if (append) {
+    var lazySentinel = grid.querySelector('[data-zappy-featured-lazy-sentinel]');
+    if (lazySentinel) lazySentinel.insertAdjacentHTML('beforebegin', cardsHtml);
+    else grid.insertAdjacentHTML('beforeend', cardsHtml);
+  } else {
+    grid.innerHTML = cardsHtml;
+  }
 
   window.zappyAfterCardsRendered(grid);
 }
@@ -15652,8 +15790,11 @@ async function loadRelatedProducts(currentProduct, t) {
       if (toggle.__zappyMobileToggleBound) return;
       toggle.__zappyMobileToggleBound = true;
 
-      // Repair baked open-icon styles when the menu is actually closed.
-      if (!menuIsOpen(navMenu)) setClosedIcons(toggle);
+      // Always start closed. A save while the overlay was open bakes
+      // .nav-menu.active into HTML; repairing icons alone leaves the panel up.
+      closeMenu(navMenu);
+      setClosedIcons(toggle);
+      document.body.style.overflow = '';
 
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
@@ -20113,6 +20254,12 @@ function fixContrast(){
   // expands .sub-menu.mobile-expanded, and our V5 ensureRuntimeCssInjected
   // pins the button to the far edge of the row (right in LTR, left in RTL).
   // Above 768px we tear it back down so the desktop hover dropdown is intact.
+  // normalizeMobileSubmenuLayout writes inline !important locks (display /
+  // visibility / height / position / …). Those beat stylesheet :hover
+  // flyouts, so desktop teardown MUST remove them — not just the toggle
+  // and .mobile-expanded class. Otherwise a visit below 768px (or a
+  // resize/rotate across the breakpoint) leaves dropdowns hidden or stuck
+  // in-flow.
   function ensureMobileSubmenuToggles() {
     var isMobile = window.matchMedia ? window.matchMedia('(max-width: 768px)').matches : window.innerWidth <= 768;
 
@@ -20127,6 +20274,7 @@ function fixContrast(){
         arrow.style.display = '';
         arrow.removeAttribute('data-zappy-mobile-hidden');
       });
+      clearMobileSubmenuLayoutLocks();
       return;
     }
 
@@ -20187,11 +20335,59 @@ function fixContrast(){
   function setImportant(el, prop, value) {
     if (!el || !el.style || !el.style.setProperty) return;
     el.style.setProperty(prop, value, 'important');
+    if (!el.setAttribute) return;
+    el.setAttribute('data-zappy-mobile-layout-lock', '1');
+    // Record each property THIS lock wrote. Desktop teardown must not
+    // removeProperty a name we never set — that races the transparent-
+    // navbar scroll helper's inline frosted color on Products triggers.
+    var recorded = (el.getAttribute('data-zappy-mobile-layout-lock-props') || '');
+    var written = recorded ? recorded.split(',') : [];
+    if (written.indexOf(prop) === -1) {
+      written.push(prop);
+      el.setAttribute('data-zappy-mobile-layout-lock-props', written.join(','));
+    }
+  }
+
+  function clearImportant(el, props) {
+    if (!el || !el.style || !el.style.removeProperty) return;
+    for (var i = 0; i < props.length; i++) el.style.removeProperty(props[i]);
+  }
+
+  // Allowlist of properties normalizeMobileSubmenuLayout may lock.
+  // Teardown intersects the per-element recorded list with this — never
+  // a blanket wipe. A full-list removeProperty also dropped inline
+  // color the scroll helper (sTC) set on dropdown triggers, so a
+  // mobile→desktop resize lost frosted contrast until the next scroll.
+  var MOBILE_SUBMENU_LOCK_PROPS = [
+    'align-items', 'background', 'border', 'box-sizing', 'color', 'direction',
+    'display', 'flex', 'flex-wrap', 'font-size', 'font-weight', 'height',
+    'inset-inline-end', 'inset-inline-start', 'justify-content', 'left',
+    'line-height', 'margin', 'max-height', 'max-width', 'min-height',
+    'min-width', 'opacity', 'order', 'overflow', 'overflow-wrap', 'padding',
+    'padding-left', 'padding-right', 'pointer-events', 'position', 'right',
+    'text-align', 'transform', 'visibility', 'white-space', 'width'
+  ];
+
+  function clearMobileSubmenuLayoutLocks() {
+    document.querySelectorAll('[data-zappy-mobile-layout-lock="1"]').forEach(function(el) {
+      var recorded = (el.getAttribute('data-zappy-mobile-layout-lock-props') || '').split(',');
+      var written = [];
+      for (var i = 0; i < recorded.length; i++) {
+        var prop = recorded[i];
+        if (prop && MOBILE_SUBMENU_LOCK_PROPS.indexOf(prop) !== -1) written.push(prop);
+      }
+      clearImportant(el, written);
+      el.removeAttribute('data-zappy-mobile-layout-lock');
+      el.removeAttribute('data-zappy-mobile-layout-lock-props');
+    });
   }
 
   function normalizeMobileSubmenuLayout() {
     var isMobile = window.matchMedia ? window.matchMedia('(max-width: 768px)').matches : window.innerWidth <= 768;
-    if (!isMobile) return;
+    if (!isMobile) {
+      clearMobileSubmenuLayoutLocks();
+      return;
+    }
     var isRtl = (document.documentElement.getAttribute('dir') || document.body.getAttribute('dir')) === 'rtl';
     document.querySelectorAll('.nav-menu li:has(> .sub-menu), nav li:has(> .sub-menu), .navbar li:has(> .sub-menu)').forEach(function(li) {
       var submenu = li.querySelector(':scope > .sub-menu');
@@ -20278,8 +20474,24 @@ function fixContrast(){
       setImportant(submenu, 'right', 'auto');
       setImportant(submenu, 'inset-inline-start', 'auto');
       setImportant(submenu, 'inset-inline-end', 'auto');
+      setImportant(submenu, 'position', 'static');
       if (submenu.classList.contains('mobile-expanded')) {
+        setImportant(submenu, 'display', 'block');
+        setImportant(submenu, 'visibility', 'visible');
+        setImportant(submenu, 'opacity', '1');
+        setImportant(submenu, 'height', 'auto');
+        setImportant(submenu, 'max-height', 'none');
+        setImportant(submenu, 'overflow', 'visible');
+        setImportant(submenu, 'pointer-events', 'auto');
         setImportant(submenu, 'padding', '8px 0');
+      } else {
+        setImportant(submenu, 'display', 'none');
+        setImportant(submenu, 'visibility', 'hidden');
+        setImportant(submenu, 'opacity', '0');
+        setImportant(submenu, 'height', '0');
+        setImportant(submenu, 'max-height', '0');
+        setImportant(submenu, 'overflow', 'hidden');
+        setImportant(submenu, 'pointer-events', 'none');
       }
 
       submenu.querySelectorAll('a, .menu-group-title').forEach(function(item) {
@@ -20376,12 +20588,12 @@ function fixContrast(){
   // declaration merging that was eating the standalone CSS injection.
   function ensureRuntimeCssInjected() {
     var existing = document.getElementById('zappy-ecom-routing-runtime-css');
-    if (existing && existing.getAttribute('data-v') === '31') return;
+    if (existing && existing.getAttribute('data-v') === '33') return;
     if (existing) existing.remove();
     var style = document.createElement('style');
     style.id = 'zappy-ecom-routing-runtime-css';
     style.setAttribute('data-zappy-runtime', 'ecom-routing');
-    style.setAttribute('data-v', '31');
+    style.setAttribute('data-v', '33');
     style.textContent =
       '@media (min-width: 769px){' +
         'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand,html[dir="ltr"] .nav-right-group > .nav-brand,body[dir="ltr"] .nav-right-group > .nav-brand{order:-1!important}' +
@@ -20431,6 +20643,13 @@ function fixContrast(){
         '.zappy-products-dropdown>.sub-menu .zappy-nav-parent>a,.zappy-products-dropdown>.sub-menu .zappy-nav-parent>.menu-group-title{font-weight:700!important}' +
         '.zappy-products-dropdown>.sub-menu .zappy-nav-child>a,.zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title{padding-left:36px!important;padding-right:16px!important;font-size:.94em!important;opacity:.85!important}' +
         'html[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>a,body[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>a,html[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title,body[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title{padding-left:16px!important;padding-right:36px!important}' +
+        '.navbar .nav-menu:not(.active):not(.open),nav.navbar .nav-menu:not(.active):not(.open),#navMenu:not(.active):not(.open){visibility:hidden!important;opacity:0!important;pointer-events:none!important}' +
+        '.navbar .nav-menu:not(.active):not(.open) *,nav.navbar .nav-menu:not(.active):not(.open) *,#navMenu:not(.active):not(.open) *{visibility:hidden!important;pointer-events:none!important}' +
+        '.navbar .nav-menu:not(.active):not(.open) .sub-menu,nav.navbar .nav-menu:not(.active):not(.open) .sub-menu,#navMenu:not(.active):not(.open) .sub-menu{display:none!important}' +
+        '#navMenu.active,#navMenu.open,.nav-menu.active,.nav-menu.open{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;overflow-x:hidden!important;overflow-y:auto!important}' +
+        '#navMenu.active>li,#navMenu.open>li,.nav-menu.active>li,.nav-menu.open>li{position:static!important;width:100%!important;max-width:100%!important;flex:0 0 auto!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;inset:auto!important;transform:none!important}' +
+        '#navMenu .sub-menu,.nav-menu .sub-menu,.navbar .sub-menu,.zappy-products-dropdown>.sub-menu,.nav-menu .zappy-products-dropdown>.sub-menu,.nav-menu.active .zappy-products-dropdown>.sub-menu,.nav-menu.active .zappy-products-dropdown .sub-menu,#navMenu li:hover>.sub-menu,.nav-menu li:hover>.sub-menu,.navbar li:hover>.sub-menu,#navMenu li:focus-within>.sub-menu,.nav-menu li:focus-within>.sub-menu{display:none!important;visibility:hidden!important;opacity:0!important;height:0!important;max-height:0!important;overflow:hidden!important;pointer-events:none!important;position:static!important;transform:none!important}' +
+        '#navMenu .sub-menu.mobile-expanded,.nav-menu .sub-menu.mobile-expanded,.navbar .sub-menu.mobile-expanded,.zappy-products-dropdown>.sub-menu.mobile-expanded,.nav-menu.active .zappy-products-dropdown>.sub-menu.mobile-expanded,.nav-menu.active .zappy-products-dropdown .sub-menu.mobile-expanded{display:block!important;visibility:visible!important;opacity:1!important;height:auto!important;max-height:none!important;overflow:visible!important;pointer-events:auto!important;position:static!important;transform:none!important;width:100%!important;left:auto!important;right:auto!important;top:auto!important;float:none!important}' +
       '}';
     (document.head || document.documentElement).appendChild(style);
   }
@@ -22779,28 +22998,32 @@ function withConsent(category, callback) {
   [300, 1000, 2500].forEach(function(ms){ setTimeout(boot, ms); });
 })();
 
-/* ZAPPY_MOBILE_MENU_CLOSED_ICONS_V1 */
+/* ZAPPY_MOBILE_MENU_CLOSED_ICONS_V2 */
 (function(){
-  if (window.__zappyMobileMenuClosedIconsV1) return;
-  window.__zappyMobileMenuClosedIconsV1 = true;
-  function reset() {
-    var toggle = document.querySelector('.mobile-toggle, #mobileToggle');
-    if (!toggle) return;
+  if (window.__zappyMobileMenuClosedIconsV2) return;
+  window.__zappyMobileMenuClosedIconsV2 = true;
+  function closeBaked() {
     var menu = document.querySelector('#navMenu, .nav-menu, .navbar-menu');
-    var isOpen = !!(menu && (menu.classList.contains('active') || menu.classList.contains('open') || menu.style.display === 'block'));
-    if (isOpen) return;
-    toggle.classList.remove('active');
-    var hi = toggle.querySelector('.hamburger-icon');
-    var ci = toggle.querySelector('.close-icon');
-    if (hi) hi.style.setProperty('display', 'block', 'important');
-    if (ci) ci.style.setProperty('display', 'none', 'important');
+    if (menu) {
+      menu.classList.remove('active');
+      menu.classList.remove('open');
+      menu.style.removeProperty('display');
+    }
+    var toggle = document.querySelector('.mobile-toggle, #mobileToggle');
+    if (toggle) {
+      toggle.classList.remove('active');
+      if (toggle.setAttribute) toggle.setAttribute('aria-expanded', 'false');
+      var hi = toggle.querySelector('.hamburger-icon');
+      var ci = toggle.querySelector('.close-icon');
+      if (hi) hi.style.setProperty('display', 'block', 'important');
+      if (ci) ci.style.setProperty('display', 'none', 'important');
+    }
+    document.body.style.overflow = '';
   }
+  closeBaked();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', reset);
-  } else {
-    reset();
+    document.addEventListener('DOMContentLoaded', closeBaked, { once: true });
   }
-  [50, 200, 500].forEach(function(ms){ setTimeout(reset, ms); });
 })();
 
 

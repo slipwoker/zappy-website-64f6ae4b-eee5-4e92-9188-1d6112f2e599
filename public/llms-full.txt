@@ -223,6 +223,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -289,8 +292,6 @@ Ask Us Anything
 ## Featured Products
 
 
-Loading products...
-
 
 View All Products →
 
@@ -303,8 +304,6 @@ View All Products →
 
 ## Shop by Category
 
-
-Loading products...
 
 
 
@@ -709,6 +708,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -1431,6 +1433,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -1840,6 +1845,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -2535,6 +2543,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -2591,141 +2602,6 @@ Filters
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Loading products...
 
 
 
@@ -2905,6 +2781,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3250,6 +3129,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -3914,6 +3796,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -4133,6 +4018,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -4773,6 +4661,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5142,6 +5033,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5173,7 +5067,7 @@ All Products
 # Return Policy
 
 
-Last Updated: 7/31/2026
+Last Updated: 8/16/2026
 
 
 
@@ -5407,6 +5301,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -5887,6 +5784,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -5944,8 +5844,6 @@ Filters
 
 
 
-
-Loading products...
 
 
 
@@ -6105,6 +6003,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
@@ -6641,6 +6542,9 @@ Use code null for a discount!
 
 
 
+
+
+
 - Wellness Approach
 - About
 - Contact
@@ -6917,6 +6821,9 @@ Use code null for a discount!
 
 
 - Products Products
+
+
+
 
 
 
