@@ -72,7 +72,39 @@ Information about WCAG compliance and accessibility features.
 
 ## Products
 
-**Total active products: 4**
+**Total active products: 8**
+
+### Blue Ceramic Fruit Bowl: Pottery Serving Bowl
+https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-9or8vs
+- Price: 337.19 ILS
+- Availability: In stock
+- Category: Ceramic bowls
+- Description: Nice ceramic bowl
+- Image: https://zappytestsite.com/assets/product-1783951312727-ago67b.webp
+
+### White beads om necklace
+https://zappytestsite.com/product/white-beads-om-necklace-zp3474
+- Price: 214.22 ILS
+- Availability: In stock
+- Category: Yoga necklaces
+- Description: A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha
+- Image: https://zappytestsite.com/assets/product-1783951312330-1i3hbh.webp
+
+### black beads necklace
+https://zappytestsite.com/product/black-beads-necklace-rh69uf
+- Price: 5555555.00 ILS
+- Availability: In stock
+- Category: Yogi Gifts
+- Description: A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha
+- Image: https://zappytestsite.com/assets/product-1783951313138-fag5ln.webp
+
+### Minimalist Handcrafted Ceramic Plate for Elegant Dining
+https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-zrg30w
+- Price: 100000.00 ILS
+- Availability: In stock
+- Category: Ceramic bowls
+- Description: Nice ceramic bowl
+- Image: https://zappytestsite.com/assets/product-1783951312675-epzge.webp
 
 ### black beads necklace
 https://zappytestsite.com/product/black-beads-necklace-3ji5wb
