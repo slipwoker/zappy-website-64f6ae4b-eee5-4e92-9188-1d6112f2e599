@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-09-01T08:03:02.124Z",
+  "generated_at": "2026-09-01T11:38:36.350Z",
   "base_url": "https://zappytestsite.com",
   "currency": "ILS",
-  "count": 8,
+  "count": 6,
   "products": [
     {
       "id": "def62c79-6732-450d-bb0c-6a9c76989e5a",
@@ -58,60 +58,6 @@
         "Yoga necklaces"
       ],
       "updated_at": "2026-09-01T08:02:20.478Z"
-    },
-    {
-      "id": "2c0c6a00-3d94-400a-8054-d8bfda3839bf",
-      "slug": "black-beads-necklace-rh69uf",
-      "name": "black beads necklace",
-      "name_translations": {
-        "en": "black beads necklace",
-        "he": "שרשרת חרוזים שחורים"
-      },
-      "description": "<p>A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala has many names and is also referred to as yoga beads, meditation beads, prayer beads, mala necklace, japa mala, yoga necklace, yoga jewelry. 108 mala beads, Buddhist Jewelry, Meditation Prayer Beads, yoga gift\tBuddhist gift\tbrown long mala\tbead Black necklace\tgift for Meditator Size: Necklace size 18&quot; 42cm omm pendant: 1&quot; X 1 &quot;</p>",
-      "short_description": "A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha",
-      "sku": null,
-      "brand": null,
-      "price": 5555555,
-      "base_price": 5555555,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [
-        "https://zappytestsite.com/assets/product-1783951313138-fag5ln.webp"
-      ],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/black-beads-necklace-rh69uf",
-      "categories": [
-        "Yogi Gifts"
-      ],
-      "updated_at": "2026-09-01T08:02:22.333Z"
-    },
-    {
-      "id": "44257e84-e3f3-420b-9d4c-e8431f6dd748",
-      "slug": "minimalist-handcrafted-ceramic-plate-for-elegant-dining-zrg30w",
-      "name": "Minimalist Handcrafted Ceramic Plate for Elegant Dining",
-      "name_translations": {
-        "en": "Minimalist Handcrafted Ceramic Plate for Elegant Dining",
-        "he": "צלחת קרמיקה מינימליסטית עבודת יד לאירוח אלגנטי"
-      },
-      "description": "Nice ceramic bowl",
-      "short_description": "Nice ceramic bowl",
-      "sku": null,
-      "brand": null,
-      "price": 100000,
-      "base_price": 100000,
-      "sale_price": null,
-      "currency": "ILS",
-      "images": [
-        "https://zappytestsite.com/assets/product-1783951312675-epzge.webp"
-      ],
-      "in_stock": true,
-      "stock_status": "in_stock",
-      "url": "https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-zrg30w",
-      "categories": [
-        "Ceramic bowls"
-      ],
-      "updated_at": "2026-09-01T08:02:16.355Z"
     },
     {
       "id": "2a5c2713-220e-4b54-af96-855d266e3513",
