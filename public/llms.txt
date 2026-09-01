@@ -76,7 +76,7 @@ Information about WCAG compliance and accessibility features.
 
 ### Blue Ceramic Fruit Bowl: Pottery Serving Bowl
 https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-9or8vs
-- Price: 337.19 ILS
+- Price: 350.00 ILS
 - Availability: In stock
 - Category: Ceramic bowls
 - Description: Nice ceramic bowl
@@ -84,7 +84,7 @@ https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-9
 
 ### White beads om necklace
 https://zappytestsite.com/product/white-beads-om-necklace-zp3474
-- Price: 214.22 ILS
+- Price: 200.00 ILS (sale, was 214.22 ILS)
 - Availability: In stock
 - Category: Yoga necklaces
 - Description: A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha
@@ -92,7 +92,7 @@ https://zappytestsite.com/product/white-beads-om-necklace-zp3474
 
 ### black beads necklace
 https://zappytestsite.com/product/black-beads-necklace-3ji5wb
-- Price: 272.35 ILS
+- Price: 250.00 ILS (sale, was 272.35 ILS)
 - Availability: In stock
 - Category: Yogi Gifts
 - Description: A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha
@@ -100,7 +100,7 @@ https://zappytestsite.com/product/black-beads-necklace-3ji5wb
 
 ### White beads om necklace
 https://zappytestsite.com/product/white-beads-om-necklace-0w4kyn
-- Price: 214.22 ILS
+- Price: 200.00 ILS (sale, was 214.22 ILS)
 - Availability: In stock
 - Category: Yoga necklaces
 - Description: A mala is used for yoga practice or as part of your bohemian style. They can be worn by anyone who wants a more mindful, peaceful life. You can wear this mala as a bracelet or as a necklace. A mala ha
@@ -108,7 +108,7 @@ https://zappytestsite.com/product/white-beads-om-necklace-0w4kyn
 
 ### Blue Ceramic Fruit Bowl: Pottery Serving Bowl
 https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-b5ladc
-- Price: 337.19 ILS
+- Price: 300.00 ILS (sale, was 337.19 ILS)
 - Availability: In stock
 - Category: Ceramic bowls
 - Description: Nice ceramic bowl
@@ -116,7 +116,7 @@ https://zappytestsite.com/product/blue-ceramic-fruit-bowl-pottery-serving-bowl-b
 
 ### Minimalist Handcrafted Ceramic Plate for Elegant Dining
 https://zappytestsite.com/product/minimalist-handcrafted-ceramic-plate-for-elegant-dining-w8yzob
-- Price: 301.06 ILS
+- Price: 300.00 ILS (sale, was 301.06 ILS)
 - Availability: In stock
 - Category: Ceramic bowls
 - Description: Nice ceramic bowl
