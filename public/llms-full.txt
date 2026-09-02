@@ -52,6 +52,9 @@ Fuel Your Body Naturally with Protein & More — Valesų gerovė
 
 
 
+
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -292,8 +295,6 @@ Ask Us Anything
 ## Featured Products
 
 
-Loading products...
-
 
 View All Products →
 
@@ -306,8 +307,6 @@ View All Products →
 
 ## Shop by Category
 
-
-Loading products...
 
 
 
@@ -634,6 +633,9 @@ URL: https://zappytestsite.com/wellness-approach
 Description: Explore our holistic wellness philosophy powered by magnesium glycinate for sleep, adaptogens, and time-tested natural medicine that nurtures your body from the inside out.
 
 Sleep Deeper, Live Stronger with Nature's Best — Valesų gerovė
+
+
+
 
 
 
@@ -1266,6 +1268,9 @@ Rooted in Nature, Driven by Your Well-Being — Valesų gerovė
 
 
 
+
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -1771,6 +1776,9 @@ URL: https://zappytestsite.com/contact
 Description: Have questions about protein shakes for muscle gain or the right magnesium glycinate for sleep? Reach our wellness experts today and get personalized natural health advice fast.
 
 Get Expert Guidance on Supplements & Remedies — Valesų gerovė
+
+
+
 
 
 
@@ -2377,6 +2385,8 @@ Products - Valesų gerovė
 
 
 
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -2613,141 +2623,6 @@ Filters
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Loading products...
-
-
-
-
-
-
-
 Rooted in nature. Guided by wellness. A Baltic apothecary tradition for modern living.
 
 #### Explore
@@ -2837,6 +2712,8 @@ URL: https://zappytestsite.com/cart
 Description: Your Cart
 
 Cart - Valesų gerovė
+
+
 
 
 
@@ -3185,6 +3062,8 @@ URL: https://zappytestsite.com/checkout
 Description: Checkout
 
 Checkout - Valesų gerovė
+
+
 
 
 
@@ -3765,6 +3644,8 @@ Login - Valesų gerovė
 
 
 
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -4074,6 +3955,8 @@ URL: https://zappytestsite.com/account
 Description: My Account
 
 My Account - Valesų gerovė
+
+
 
 
 
@@ -4630,6 +4513,8 @@ Order Received! - Valesų gerovė
 
 
 
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -4956,6 +4841,8 @@ URL: https://zappytestsite.com/return-policy
 Description: Return policy - your rights for returns and exchanges
 
 Return Policy - Valesų gerovė
+
+
 
 
 
@@ -5403,6 +5290,8 @@ Product Details - Valesų gerovė
 
 
 
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -5753,6 +5642,8 @@ Products - Valesų gerovė
 
 
 
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -5984,8 +5875,6 @@ Filters
 
 
 
-Loading products...
-
 
 
 
@@ -6081,6 +5970,9 @@ URL: https://zappytestsite.com/privacy
 Description: Our privacy policy - how we collect, use, and protect your information
 
 Privacy Policy
+
+
+
 
 
 
@@ -6512,6 +6404,9 @@ Accessibility Statement
 
 
 
+
+
+
 Use code sale10 for a discount!
 Use code null for a discount!
 
@@ -6899,6 +6794,9 @@ URL: https://zappytestsite.com/terms
 Description: Terms of service - user rights and obligations
 
 Terms & Conditions
+
+
+
 
 
 
